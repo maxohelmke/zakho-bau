@@ -1,154 +1,68 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import {
-  Paintbrush,
-  Hammer,
-  LayoutGrid,
-  Home,
-  Wrench,
-  Layers,
-  Trash2,
-  ClipboardList,
-  ArrowLeft,
-  Phone,
-  CheckCircle,
+  Paintbrush, Hammer, LayoutGrid, Home, Wrench, Layers, Trash2, ClipboardList,
+  Phone, CheckCircle,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logo from "@/assets/logo.png";
+import Footer from "@/components/Footer";
 
 const services = [
   {
-    icon: Home,
-    slug: "renovierung",
-    title: "Renovierung",
+    icon: Home, slug: "renovierung", title: "Renovierung",
     subtitle: "Wände, Böden, Decken & Innenausbau",
     desc: "Wir verwandeln Ihre Räume – ob einzelne Zimmer oder komplette Wohnungen. Von der Bestandsaufnahme über die Planung bis zur sauberen Umsetzung übernehmen wir alle Arbeiten rund um Wände, Böden und Decken.",
-    details: [
-      "Komplette Wohnungsrenovierung",
-      "Wandgestaltung & Verputzarbeiten",
-      "Deckenverkleidungen & Abhängungen",
-      "Fenster- und Türeinbau",
-      "Innenausbau nach Maß",
-    ],
+    details: ["Komplette Wohnungsrenovierung", "Wandgestaltung & Verputzarbeiten", "Deckenverkleidungen & Abhängungen", "Fenster- und Türeinbau", "Innenausbau nach Maß"],
   },
   {
-    icon: Wrench,
-    slug: "sanierung",
-    title: "Sanierung",
+    icon: Wrench, slug: "sanierung", title: "Sanierung",
     subtitle: "Kernsanierung, Fassade & Bad",
     desc: "Von der Badsanierung bis zur kompletten Kernsanierung – wir bringen Ihre Immobilie auf den neuesten Stand. Energetisch, optisch und funktional.",
-    details: [
-      "Kernsanierung von Bestandsimmobilien",
-      "Fassadensanierung & Wärmedämmung",
-      "Badsanierung inkl. Sanitärinstallation",
-      "Feuchtigkeits- und Schimmelbeseitigung",
-      "Altbausanierung mit Denkmalschutz",
-    ],
+    details: ["Kernsanierung von Bestandsimmobilien", "Fassadensanierung & Wärmedämmung", "Badsanierung inkl. Sanitärinstallation", "Feuchtigkeits- und Schimmelbeseitigung", "Altbausanierung mit Denkmalschutz"],
   },
   {
-    icon: LayoutGrid,
-    slug: "trockenbau",
-    title: "Trockenbau",
+    icon: LayoutGrid, slug: "trockenbau", title: "Trockenbau",
     subtitle: "Gipskarton, Zwischenwände & Decken",
     desc: "Professioneller Trockenbau für flexible Raumgestaltung. Wir erstellen Zwischenwände, Deckenabhängungen und Dachgeschossausbauten – präzise und sauber.",
-    details: [
-      "Gipskartonwände & Ständerwerk",
-      "Deckenabhängungen mit Beleuchtungsplanung",
-      "Dachgeschossausbau",
-      "Schallschutz & Brandschutzwände",
-      "Trockenestrich-Systeme",
-    ],
+    details: ["Gipskartonwände & Ständerwerk", "Deckenabhängungen mit Beleuchtungsplanung", "Dachgeschossausbau", "Schallschutz & Brandschutzwände", "Trockenestrich-Systeme"],
   },
   {
-    icon: Paintbrush,
-    slug: "malerarbeiten",
-    title: "Malerarbeiten",
+    icon: Paintbrush, slug: "malerarbeiten", title: "Malerarbeiten",
     subtitle: "Innen & Außen – professionelle Oberflächen",
     desc: "Ob Innenanstrich, Fassadengestaltung oder Lackierarbeiten – wir sorgen für makellose Oberflächen mit hochwertigen Materialien und fachgerechter Ausführung.",
-    details: [
-      "Innenanstriche (Wand & Decke)",
-      "Fassadenanstrich & Außenarbeiten",
-      "Tapezierarbeiten",
-      "Lackierungen (Türen, Fenster, Heizkörper)",
-      "Spachtelarbeiten & dekorative Techniken",
-    ],
+    details: ["Innenanstriche (Wand & Decke)", "Fassadenanstrich & Außenarbeiten", "Tapezierarbeiten", "Lackierungen (Türen, Fenster, Heizkörper)", "Spachtelarbeiten & dekorative Techniken"],
   },
   {
-    icon: Layers,
-    slug: "fliesenleger",
-    title: "Fliesenleger",
+    icon: Layers, slug: "fliesenleger", title: "Fliesenleger",
     subtitle: "Bad, Küche, Terrasse & Außenbereiche",
     desc: "Exakte Fliesenverlegung für Innen- und Außenbereiche. Von Großformat-Fliesen im Badezimmer bis zu robusten Terrassenplatten – immer sauber und passgenau.",
-    details: [
-      "Badezimmer- und Küchenfliesen",
-      "Großformat-Fliesen & Mosaik",
-      "Terrassenplatten & Außenbereiche",
-      "Naturstein & Feinsteinzeug",
-      "Abdichtung & Untergrundvorbereitung",
-    ],
+    details: ["Badezimmer- und Küchenfliesen", "Großformat-Fliesen & Mosaik", "Terrassenplatten & Außenbereiche", "Naturstein & Feinsteinzeug", "Abdichtung & Untergrundvorbereitung"],
   },
   {
-    icon: Hammer,
-    slug: "bodenverlegung",
-    title: "Bodenverlegung",
+    icon: Hammer, slug: "bodenverlegung", title: "Bodenverlegung",
     subtitle: "Parkett, Laminat, Vinyl & Estrich",
     desc: "Der richtige Boden für jeden Raum. Wir verlegen Parkett, Laminat, Vinyl und Estrich – fachgerecht, langlebig und optisch ansprechend.",
-    details: [
-      "Parkettverlegung (Massiv & Fertigparkett)",
-      "Laminat & Designböden",
-      "Vinylboden (Klick & Klebe)",
-      "Estricharbeiten & Bodenausgleich",
-      "Sockelleisten & Übergangsprofile",
-    ],
+    details: ["Parkettverlegung (Massiv & Fertigparkett)", "Laminat & Designböden", "Vinylboden (Klick & Klebe)", "Estricharbeiten & Bodenausgleich", "Sockelleisten & Übergangsprofile"],
   },
   {
-    icon: Trash2,
-    slug: "abrissarbeiten",
-    title: "Abrissarbeiten",
+    icon: Trash2, slug: "abrissarbeiten", title: "Abrissarbeiten",
     subtitle: "Rückbau & Entkernung",
     desc: "Professioneller Rückbau und Entkernung – schnell, sicher und fachgerecht. Wir entfernen alte Einbauten, Wände und Strukturen und entsorgen den Bauschutt ordnungsgemäß.",
-    details: [
-      "Entkernung von Wohn- und Gewerberäumen",
-      "Wanddurchbrüche & Rückbau",
-      "Demontage alter Einbauten",
-      "Bauschutt-Entsorgung",
-      "Vorbereitung für Neugestaltung",
-    ],
+    details: ["Entkernung von Wohn- und Gewerberäumen", "Wanddurchbrüche & Rückbau", "Demontage alter Einbauten", "Bauschutt-Entsorgung", "Vorbereitung für Neugestaltung"],
   },
   {
-    icon: ClipboardList,
-    slug: "komplettloesungen",
-    title: "Komplettlösungen",
+    icon: ClipboardList, slug: "komplettloesungen", title: "Komplettlösungen",
     subtitle: "Bauleitung & Generalunternehmer",
     desc: "Alles aus einer Hand: Als Generalunternehmer koordinieren wir alle Gewerke, übernehmen die Bauleitung und liefern Ihr Projekt termingerecht und budgetsicher ab.",
-    details: [
-      "Projektplanung & Bauleitung",
-      "Koordination aller Gewerke",
-      "Termingerechte Fertigstellung",
-      "Transparente Budgetplanung",
-      "Schlüsselfertige Lösungen",
-    ],
+    details: ["Projektplanung & Bauleitung", "Koordination aller Gewerke", "Termingerechte Fertigstellung", "Transparente Budgetplanung", "Schlüsselfertige Lösungen"],
   },
 ];
 
 const Leistungen = () => {
   return (
     <div className="min-h-screen bg-background">
-      {/* Header */}
-      <nav className="border-b border-border bg-background py-3">
-        <div className="container mx-auto flex items-center justify-between px-4 lg:px-8">
-          <Link to="/" className="flex items-center">
-            <img src={logo} alt="TATLI BAU Logo" className="h-14 w-auto" />
-          </Link>
-          <Link to="/" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground">
-            <ArrowLeft className="h-4 w-4" />
-            Zurück
-          </Link>
-        </div>
-      </nav>
-
       {/* Page Header */}
-      <section className="bg-dark-section py-24">
+      <section className="bg-dark-section py-24 pt-32">
         <div className="container mx-auto px-4 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -249,19 +163,7 @@ const Leistungen = () => {
         </div>
       </section>
 
-      {/* Footer Mini */}
-      <footer className="border-t border-border bg-foreground py-8">
-        <div className="container mx-auto flex flex-col items-center justify-between gap-4 px-4 text-sm text-primary-foreground/40 sm:flex-row lg:px-8">
-          <Link to="/" className="flex items-center">
-            <img src={logo} alt="TATLI BAU Logo" className="h-8 w-auto brightness-0 invert" />
-          </Link>
-          <div className="flex gap-4">
-            <Link to="/impressum" className="hover:text-primary-foreground/70">Impressum</Link>
-            <Link to="/datenschutz" className="hover:text-primary-foreground/70">Datenschutz</Link>
-          </div>
-          <span>© 2025 TATLI BAU</span>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };
