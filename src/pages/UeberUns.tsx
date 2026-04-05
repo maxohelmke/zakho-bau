@@ -137,6 +137,29 @@ const UeberUns = () => {
         </div>
       </section>
 
+      {/* Firmenwagen */}
+      <section className="py-20">
+        <div className="container mx-auto px-4 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="overflow-hidden rounded-xl"
+          >
+            <img
+              src={firmenwagen}
+              alt="TATLI BAU Firmenwagen – täglich im Einsatz in Solingen, Wuppertal und Düsseldorf"
+              loading="lazy"
+              className="w-full object-cover"
+              style={{ maxHeight: "400px" }}
+              width={1200}
+              height={400}
+            />
+          </motion.div>
+        </div>
+      </section>
+
       {/* Values */}
       <section className="py-32">
         <div className="container mx-auto px-4 lg:px-8">
