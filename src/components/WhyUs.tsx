@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Shield, Clock, Users, Phone, Gem } from "lucide-react";
+import firmenwagen from "@/assets/firmenwagen.png";
 
 const points = [
   { icon: Clock, text: "Zuverlässigkeit & Termintreue" },
