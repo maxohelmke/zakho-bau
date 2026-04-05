@@ -24,14 +24,20 @@ const Navbar = () => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-dark-section shadow-lg backdrop-blur-sm"
+          ? "bg-background shadow-md"
           : "bg-transparent"
       }`}
     >
-      <div className="container mx-auto flex items-center justify-between px-4 py-4 lg:px-8">
+      <div className="container mx-auto flex items-center justify-between px-4 py-3 lg:px-8">
         {/* Logo */}
         <a href="#" className="flex items-center gap-2">
-          <img src={logo} alt="TATLI BAU Logo" className="h-10 w-auto brightness-0 invert" />
+          <img
+            src={logo}
+            alt="TATLI BAU Logo"
+            className={`h-12 w-auto transition-all duration-300 ${
+              scrolled ? "" : "brightness-0 invert"
+            }`}
+          />
         </a>
 
         {/* Desktop Nav */}
@@ -40,7 +46,9 @@ const Navbar = () => {
             <a
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-primary-foreground/80 transition-colors hover:text-accent"
+              className={`text-sm font-medium transition-colors hover:text-accent ${
+                scrolled ? "text-foreground/70" : "text-primary-foreground/80"
+              }`}
             >
               {link.label}
             </a>
@@ -54,7 +62,7 @@ const Navbar = () => {
 
         {/* Mobile Toggle */}
         <button
-          className="text-primary-foreground md:hidden"
+          className={`md:hidden ${scrolled ? "text-foreground" : "text-primary-foreground"}`}
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Menü"
         >
@@ -64,14 +72,14 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {mobileOpen && (
-        <div className="bg-dark-section border-t border-primary-foreground/10 md:hidden">
+        <div className="border-t border-border bg-background md:hidden">
           <div className="flex flex-col gap-4 px-6 py-6">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
-                className="text-base font-medium text-primary-foreground/80 transition-colors hover:text-accent"
+                className="text-base font-medium text-foreground/70 transition-colors hover:text-accent"
               >
                 {link.label}
               </a>
