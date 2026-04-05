@@ -17,42 +17,42 @@ const projects = [
     title: "Badsanierung mit Eckbadewanne",
     location: "Wuppertal",
     category: "Sanierung",
-    description: "Komplette Badsanierung mit Naturstein-Optik, Eckbadewanne mit Mosaikverkleidung, Dusche mit Holzregalen und modernem Heizkörper-Design.",
+    description: "Komplette Badsanierung mit Naturstein-Optik, Eckbadewanne mit Mosaikverkleidung und modernem Design.",
   },
   {
     src: refRaum,
     title: "Raumsanierung mit LED-Beleuchtung",
     location: "Wuppertal",
     category: "Sanierung",
-    description: "Komplettsanierung eines Wohnraums mit hochwertigem Eichenparkett, Trockenbau-Decke mit integrierter LED-Beleuchtung und sauberer Wandgestaltung.",
+    description: "Komplettsanierung mit Eichenparkett, Trockenbau-Decke und integrierter LED-Beleuchtung.",
   },
   {
     src: refFlur,
     title: "Flursanierung mit Lichtkonzept",
     location: "Bergisches Land",
     category: "Trockenbau",
-    description: "Moderne Flurgestaltung mit abgehängter Decke, integrierten LED-Lichtleisten an den Deckenkanten und Einbauspots für eine elegante Atmosphäre.",
+    description: "Moderne Flurgestaltung mit abgehängter Decke und integrierten LED-Lichtleisten.",
   },
   {
     src: refBadModern,
     title: "Modernes Badezimmer",
     location: "Wuppertal",
     category: "Sanierung",
-    description: "Zeitgemäßes Badezimmer mit bodengleicher Dusche, grauen Großformat-Fliesen, LED-Deckenbeleuchtung und schwebender Waschtischkonsole.",
+    description: "Zeitgemäßes Bad mit bodengleicher Dusche, Großformat-Fliesen und LED-Deckenbeleuchtung.",
   },
   {
     src: refTrockenbau,
     title: "Wohnraum mit Deckendesign",
     location: "Wuppertal",
     category: "Trockenbau",
-    description: "Großzügiger Wohnbereich mit aufwändigem Trockenbau-Deckendesign, umlaufender LED-Beleuchtung und Zugang zur Terrasse.",
+    description: "Aufwändiges Trockenbau-Deckendesign mit umlaufender LED-Beleuchtung.",
   },
   {
     src: firmenwagen,
     title: "TATLI BAU – Unterwegs für Sie",
     location: "Wuppertal & Bergisches Land",
     category: "Unternehmen",
-    description: "Unser Firmenwagen – erkennbar und professionell. Wir sind täglich in Wuppertal und im Bergischen Land für unsere Kunden im Einsatz.",
+    description: "Unser Firmenwagen – erkennbar und professionell im Einsatz für unsere Kunden.",
   },
 ];
 
@@ -60,7 +60,7 @@ const Projekte = () => {
   usePageSeo({
     title: "Projekte | TATLI BAU Wuppertal",
     description:
-      "Referenzen und abgeschlossene Bauprojekte von TATLI BAU in Wuppertal und im Bergischen Land. Jetzt unverbindlich Projekt anfragen.",
+      "Referenzen und abgeschlossene Bauprojekte von TATLI BAU in Wuppertal und im Bergischen Land.",
     path: "/projekte",
     structuredData: [
       {
@@ -75,18 +75,8 @@ const Projekte = () => {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         itemListElement: [
-          {
-            "@type": "ListItem",
-            position: 1,
-            name: "Startseite",
-            item: "https://tatlibau.de/",
-          },
-          {
-            "@type": "ListItem",
-            position: 2,
-            name: "Projekte",
-            item: "https://tatlibau.de/projekte",
-          },
+          { "@type": "ListItem", position: 1, name: "Startseite", item: "https://tatlibau.de/" },
+          { "@type": "ListItem", position: 2, name: "Projekte", item: "https://tatlibau.de/projekte" },
         ],
       },
     ],
@@ -94,8 +84,8 @@ const Projekte = () => {
 
   return (
     <div className="min-h-screen min-w-0 max-w-full overflow-x-hidden bg-background">
-      {/* Hero with Image */}
-      <section className="relative flex min-h-[min(50vh,440px)] flex-col justify-end overflow-hidden pt-28 pb-10 md:pb-14">
+      {/* Hero */}
+      <section className="relative flex min-h-[min(45vh,400px)] flex-col justify-end overflow-hidden pt-28 pb-10">
         <img
           src={heroImg}
           alt="Modernes Badezimmer – TATLI BAU Projekte"
@@ -116,9 +106,7 @@ const Projekte = () => {
             <p className="mb-3 text-xs font-medium uppercase tracking-[0.2em] text-accent">
               Referenzen
             </p>
-            <h1 className="mb-4 text-primary-foreground">
-              Unsere Projekte
-            </h1>
+            <h1 className="mb-4 text-primary-foreground">Unsere Projekte</h1>
             <p className="text-lg leading-relaxed text-primary-foreground/70">
               Einblicke in abgeschlossene Bau- und Sanierungsprojekte in Wuppertal
               und im Bergischen Land.
@@ -128,56 +116,49 @@ const Projekte = () => {
       </section>
 
       {/* Projects Grid */}
-      <section className="py-32">
+      <section className="py-20 md:py-28">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="space-y-24">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {projects.map((p, i) => (
-              <motion.div
+              <motion.article
                 key={p.title}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-                className="grid items-center gap-12 lg:grid-cols-2"
+                transition={{ duration: 0.4, delay: i * 0.07 }}
+                className="group overflow-hidden rounded-xl border border-border bg-card"
               >
-                <div className={i % 2 === 1 ? "lg:order-2" : ""}>
+                <div className="relative overflow-hidden">
                   <img
                     src={p.src}
                     alt={`${p.title} – ${p.location}`}
                     loading="lazy"
-                    className="w-full rounded-lg object-cover shadow-lg"
-                    style={{ aspectRatio: "4/3" }}
+                    className="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-105"
                     width={800}
                     height={600}
                   />
-                </div>
-
-                <div className={i % 2 === 1 ? "lg:order-1" : ""}>
-                  <span className="mb-3 inline-block rounded-full bg-accent/10 px-3 py-1 text-xs font-medium uppercase tracking-wider text-accent">
+                  <span className="absolute top-3 left-3 rounded-full bg-accent px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent-foreground">
                     {p.category}
                   </span>
-                  <h2 className="mb-2 text-foreground">{p.title}</h2>
-                  <p className="mb-4 flex items-center gap-1.5 text-sm text-muted-foreground">
+                </div>
+                <div className="p-5">
+                  <h2 className="mb-1 text-lg font-semibold text-foreground">{p.title}</h2>
+                  <p className="mb-3 flex items-center gap-1.5 text-sm text-muted-foreground">
                     <MapPin className="h-3.5 w-3.5" />
                     {p.location}
                   </p>
-                  <p className="mb-8 leading-relaxed text-muted-foreground">
+                  <p className="text-sm leading-relaxed text-muted-foreground">
                     {p.description}
                   </p>
-                  <a href="/anfragen">
-                    <Button variant="accent" size="sm">
-                      Ähnliches Projekt anfragen
-                    </Button>
-                  </a>
                 </div>
-              </motion.div>
+              </motion.article>
             ))}
           </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="bg-dark-section py-24">
+      <section className="bg-dark-section py-20">
         <div className="container mx-auto px-4 text-center lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
