@@ -5,6 +5,7 @@ import { Menu, X } from "lucide-react";
 import logo from "@/assets/logo.png";
 
 const navLinks = [
+  { label: "Startseite", href: "/" },
   { label: "Leistungen", href: "/leistungen" },
   { label: "Projekte", href: "/projekte" },
   { label: "Über uns", href: "/ueber-uns" },
