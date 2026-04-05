@@ -73,17 +73,28 @@ const Navbar = () => {
       {mobileOpen && (
         <div className="border-t border-border bg-background md:hidden">
           <div className="flex flex-col gap-4 px-6 py-6">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={() => setMobileOpen(false)}
-                className="text-base font-medium text-foreground/70 transition-colors hover:text-foreground"
-              >
-                {link.label}
-              </a>
-            ))}
-            <a href="#kontakt" onClick={() => setMobileOpen(false)}>
+            {navLinks.map((link) =>
+              link.href.startsWith("/") && !link.href.includes("#") ? (
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  onClick={() => setMobileOpen(false)}
+                  className="text-base font-medium text-foreground/70 transition-colors hover:text-foreground"
+                >
+                  {link.label}
+                </Link>
+              ) : (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setMobileOpen(false)}
+                  className="text-base font-medium text-foreground/70 transition-colors hover:text-foreground"
+                >
+                  {link.label}
+                </a>
+              )
+            )}
+            <a href="/#kontakt" onClick={() => setMobileOpen(false)}>
               <Button variant="accent" className="w-full">
                 Kostenlos anfragen
               </Button>
