@@ -95,13 +95,6 @@ const projects = [
     category: "Renovierung",
     description: "Dunkles Laminat mit weißen Sockelleisten und Einbauspots für ein modernes Raumgefühl.",
   },
-  {
-    src: firmenwagen,
-    title: "TATLI BAU – Unterwegs für Sie",
-    location: "Wuppertal & Bergisches Land",
-    category: "Unternehmen",
-    description: "Unser Firmenwagen – erkennbar und professionell im Einsatz für unsere Kunden.",
-  },
 ];
 
 const Projekte = () => {
