@@ -1,62 +1,91 @@
 import { Link } from "react-router-dom";
 import logo from "@/assets/logo.png";
+import { STANDORTE } from "@/data/standorte";
 
 const Footer = () => {
   return (
-    <footer className="border-t border-border bg-foreground py-16">
-      <div className="container mx-auto px-4 lg:px-8">
-        <div className="grid gap-10 md:grid-cols-4">
+    <footer className="w-full max-w-full overflow-x-hidden border-t border-border bg-foreground py-16">
+      <div className="container mx-auto min-w-0 px-4 lg:px-8">
+        <div className="grid min-w-0 gap-10 md:grid-cols-2 lg:grid-cols-12 lg:gap-8">
           {/* Brand */}
-          <div className="md:col-span-2">
-            <div className="mb-4">
-              <img src={logo} alt="TATLI BAU Logo" className="h-12 w-auto brightness-0 invert" />
+          <div className="min-w-0 lg:col-span-4">
+            <div className="mb-5 inline-flex max-w-full rounded-lg bg-white p-3 shadow-sm">
+              <img src={logo} alt="TATLI BAU Logo" className="h-12 max-w-full w-auto object-contain" />
             </div>
             <p className="mb-4 max-w-sm text-sm text-primary-foreground/60">
-              Alles aus einer Hand – Ihr Spezialist für Bau & Sanierung in Solingen,
-              Wuppertal, Düsseldorf und NRW.
+              Alles aus einer Hand – Ihr Spezialist für Bau & Sanierung in Wuppertal
+              und im Bergischen Land.
             </p>
             <p className="text-sm text-primary-foreground/60">
-              Bau & Sanierung in Solingen, Wuppertal, Düsseldorf und NRW
+              Bau & Sanierung in Wuppertal und im Bergischen Land
             </p>
           </div>
 
-          {/* Quick Links */}
-          <div>
+          {/* Navigation */}
+          <div className="min-w-0 lg:col-span-2">
             <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-primary-foreground">
-              Navigation
+              Seiten
             </h4>
-            <div className="flex flex-col gap-2">
-              <a href="#leistungen" className="text-sm text-primary-foreground/60 hover:text-accent">
+            <div className="flex min-w-0 flex-col gap-2">
+              <Link to="/" className="break-safe text-sm text-primary-foreground/60 hover:text-accent">
+                Startseite
+              </Link>
+              <Link to="/leistungen" className="break-safe text-sm text-primary-foreground/60 hover:text-accent">
                 Leistungen
-              </a>
-              <a href="#projekte" className="text-sm text-primary-foreground/60 hover:text-accent">
+              </Link>
+              <Link to="/projekte" className="break-safe text-sm text-primary-foreground/60 hover:text-accent">
                 Projekte
-              </a>
-              <a href="#ueber-uns" className="text-sm text-primary-foreground/60 hover:text-accent">
+              </Link>
+              <Link to="/ueber-uns" className="break-safe text-sm text-primary-foreground/60 hover:text-accent">
                 Über uns
-              </a>
-              <a href="#kontakt" className="text-sm text-primary-foreground/60 hover:text-accent">
+              </Link>
+              <Link to="/kontakt" className="break-safe text-sm text-primary-foreground/60 hover:text-accent">
                 Kontakt
-              </a>
+              </Link>
+              <Link to="/anfragen" className="break-safe text-sm text-primary-foreground/60 hover:text-accent">
+                Anfragen
+              </Link>
+              <Link to="/faq" className="break-safe text-sm text-primary-foreground/60 hover:text-accent">
+                FAQ
+              </Link>
             </div>
+          </div>
+
+          {/* Standorte */}
+          <div className="min-w-0 lg:col-span-4">
+            <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-primary-foreground">
+              Standorte
+            </h4>
+            <ul className="flex min-w-0 flex-col gap-2">
+              {STANDORTE.map((s) => (
+                <li key={s.slug}>
+                  <Link
+                    to={`/standort/${s.slug}`}
+                    className="break-safe text-sm text-primary-foreground/60 transition-colors hover:text-accent"
+                  >
+                    Bau & Sanierung {s.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
 
           {/* Contact & Legal */}
-          <div>
+          <div className="min-w-0 lg:col-span-2">
             <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-primary-foreground">
               Kontakt & Rechtliches
             </h4>
-            <div className="flex flex-col gap-2">
-              <a href="tel:+4915254090013" className="text-sm text-primary-foreground/60 hover:text-accent">
+            <div className="flex min-w-0 flex-col gap-2">
+              <a href="tel:+4915254090013" className="break-safe text-sm text-primary-foreground/60 hover:text-accent">
                 01525 4090013
               </a>
-              <a href="mailto:tatlican2@icloud.com" className="text-sm text-primary-foreground/60 hover:text-accent">
+              <a href="mailto:tatlican2@icloud.com" className="break-safe text-sm text-primary-foreground/60 hover:text-accent">
                 tatlican2@icloud.com
               </a>
-              <Link to="/impressum" className="text-sm text-primary-foreground/60 hover:text-accent">
+              <Link to="/impressum" className="break-safe text-sm text-primary-foreground/60 hover:text-accent">
                 Impressum
               </Link>
-              <Link to="/datenschutz" className="text-sm text-primary-foreground/60 hover:text-accent">
+              <Link to="/datenschutz" className="break-safe text-sm text-primary-foreground/60 hover:text-accent">
                 Datenschutz
               </Link>
             </div>

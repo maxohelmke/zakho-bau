@@ -5,7 +5,7 @@ import { Star } from "lucide-react";
 const reviews = [
   {
     name: "Familie Schneider",
-    location: "Solingen",
+    location: "Wuppertal",
     text: "TATLI BAU hat unsere komplette Wohnung renoviert. Alles war termingerecht, sauber und in höchster Qualität. Absolut empfehlenswert!",
   },
   {
@@ -15,7 +15,7 @@ const reviews = [
   },
   {
     name: "Aylin K.",
-    location: "Düsseldorf",
+    location: "Bergisches Land",
     text: "Herr Tatli war immer persönlich erreichbar und hat sich um jedes Detail gekümmert. Unsere Badsanierung ist perfekt geworden.",
   },
 ];

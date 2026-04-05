@@ -14,6 +14,8 @@ import Kontakt from "./pages/Kontakt.tsx";
 import Anfragen from "./pages/Anfragen.tsx";
 import Datenschutz from "./pages/Datenschutz.tsx";
 import NotFound from "./pages/NotFound.tsx";
+import Faq from "./pages/Faq.tsx";
+import StandortLanding from "./pages/StandortLanding.tsx";
 
 const queryClient = new QueryClient();
 
@@ -23,19 +25,23 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <Navbar />
-        <FloatingButtons />
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/impressum" element={<Impressum />} />
-          <Route path="/leistungen" element={<Leistungen />} />
-          <Route path="/projekte" element={<Projekte />} />
-          <Route path="/ueber-uns" element={<UeberUns />} />
-          <Route path="/kontakt" element={<Kontakt />} />
-          <Route path="/anfragen" element={<Anfragen />} />
-          <Route path="/datenschutz" element={<Datenschutz />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <div className="min-h-screen min-w-0 overflow-x-hidden">
+          <Navbar />
+          <FloatingButtons />
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/impressum" element={<Impressum />} />
+            <Route path="/leistungen" element={<Leistungen />} />
+            <Route path="/projekte" element={<Projekte />} />
+            <Route path="/ueber-uns" element={<UeberUns />} />
+            <Route path="/kontakt" element={<Kontakt />} />
+            <Route path="/anfragen" element={<Anfragen />} />
+            <Route path="/datenschutz" element={<Datenschutz />} />
+            <Route path="/faq" element={<Faq />} />
+            <Route path="/standort/:slug" element={<StandortLanding />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </div>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

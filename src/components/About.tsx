@@ -42,14 +42,14 @@ const About = () => {
             </h2>
             <p className="mb-4 leading-relaxed text-muted-foreground">
               TATLI BAU steht für handwerkliche Qualität, Verlässlichkeit und persönlichen
-              Service. Als inhabergeführtes Unternehmen im Herzen von NRW betreuen wir
+              Service. Als inhabergeführtes Unternehmen mit Fokus auf Wuppertal betreuen wir
               Projekte jeder Größe – vom Badezimmer bis zur Komplettsanierung.
             </p>
             <p className="mb-6 leading-relaxed text-muted-foreground">
               Unser Anspruch: <strong className="text-foreground">Sauber, pünktlich, perfekt.</strong>
             </p>
             <p className="text-sm text-muted-foreground">
-              📍 Aktiv in Solingen, Wuppertal, Düsseldorf und dem gesamten Bergischen Land
+              📍 Aktiv in Wuppertal und im gesamten Bergischen Land
             </p>
           </motion.div>
         </div>

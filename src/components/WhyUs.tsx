@@ -51,27 +51,24 @@ const WhyUs = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="relative flex items-center justify-center"
+            className="relative flex flex-col items-center justify-center"
           >
-            <div className="relative h-80 w-full overflow-hidden rounded-xl lg:h-96">
+            <div className="relative h-80 w-full overflow-hidden rounded-xl border border-border/40 lg:h-96">
               <img
                 src={firmenwagen}
-                alt="TATLI BAU Firmenwagen – täglich im Einsatz in NRW"
+                alt="TATLI BAU Firmenwagen – täglich im Einsatz in Wuppertal und im Bergischen Land"
                 loading="lazy"
-                className="h-full w-full object-cover"
+                className="h-full w-full object-cover contrast-110 saturate-110"
                 width={800}
                 height={600}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/30 to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 flex flex-col items-center gap-1 p-6 text-center">
-                <span className="font-display text-5xl font-extrabold text-accent">10+</span>
-                <span className="text-lg font-semibold text-primary-foreground">
-                  Jahre Erfahrung
-                </span>
-                <span className="text-sm text-primary-foreground/50">
-                  in Bau & Sanierung im Raum NRW
-                </span>
-              </div>
+            </div>
+            <div className="mt-5 rounded-xl border border-accent/20 bg-accent/10 px-6 py-5 text-center">
+              <span className="font-display text-5xl font-extrabold text-accent">10+</span>
+              <p className="mt-1 text-lg font-semibold text-primary-foreground">Jahre Erfahrung</p>
+              <p className="text-sm text-primary-foreground/60">
+                in Bau & Sanierung in Wuppertal und im Bergischen Land
+              </p>
             </div>
           </motion.div>
         </div>

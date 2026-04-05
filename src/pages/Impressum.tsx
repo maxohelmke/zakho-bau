@@ -1,13 +1,27 @@
 import { Link } from "react-router-dom";
 import Footer from "@/components/Footer";
+import { usePageSeo } from "@/hooks/use-page-seo";
 
 const Impressum = () => {
+  usePageSeo({
+    title: "Impressum | TATLI BAU",
+    description: "Impressum von TATLI BAU.",
+    path: "/impressum",
+    robots: "noindex,follow",
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      name: "Impressum",
+      url: "https://tatlibau.de/impressum",
+    },
+  });
+
   return (
-    <div className="min-h-screen bg-background pt-20">
-      <div className="container mx-auto max-w-3xl px-4 py-16">
+    <div className="min-h-screen min-w-0 max-w-full overflow-x-hidden bg-background pt-20">
+      <div className="container mx-auto min-w-0 max-w-3xl px-4 py-16">
         <h1 className="mb-8 text-3xl font-bold text-foreground">Impressum</h1>
 
-        <div className="space-y-8 text-muted-foreground leading-relaxed">
+        <div className="break-safe space-y-8 text-muted-foreground leading-relaxed">
           <div>
             <h2 className="mb-2 text-lg font-semibold text-foreground">Angaben gemäß § 5 TMG</h2>
             <p>TATLI BAU</p>

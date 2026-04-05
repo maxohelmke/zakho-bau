@@ -11,38 +11,42 @@ const trustItems = [
 
 const Hero = () => {
   return (
-    <section className="relative flex min-h-screen items-center overflow-hidden pt-20">
+    <section className="relative flex min-h-screen items-center overflow-hidden pt-24 md:pt-28">
       <img
         src={heroBg}
-        alt="Bau und Sanierung in Solingen NRW"
+        alt="Bau und Sanierung in Wuppertal und im Bergischen Land"
         className="absolute inset-0 h-full w-full object-cover"
         width={1920}
         height={1080}
       />
       <div className="absolute inset-0 bg-gradient-to-r from-foreground/80 via-foreground/65 to-foreground/40" />
 
-      <div className="container relative z-10 mx-auto px-4 py-32 lg:px-8">
+      <div className="container relative z-10 mx-auto min-w-0 max-w-full px-4 py-32 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
-          className="max-w-3xl"
+          className="max-w-3xl min-w-0"
         >
           <h1 className="mb-6 font-heading text-primary-foreground">
             Ihr zuverlässiger Partner für{" "}
-            <span className="text-accent">Bau & Sanierung</span> in NRW
+            <span className="text-accent">Bau & Sanierung</span> in Wuppertal
           </h1>
           <p className="mb-10 max-w-2xl text-lg leading-relaxed text-primary-foreground/70 font-body md:text-xl">
             Von der Renovierung bis zur Komplettsanierung – TATLI BAU liefert Qualität
-            aus einer Hand. Für Privat- und Gewerbekunden im Raum Solingen, Wuppertal &
-            Düsseldorf.
+            aus einer Hand. Für Privat- und Gewerbekunden in Wuppertal und im gesamten
+            Bergischen Land.
           </p>
-          <div className="flex flex-col gap-4 sm:flex-row">
-            <a href="#kontakt">
-              <Button variant="hero">Jetzt Anfrage stellen</Button>
+          <div className="flex w-full max-w-full flex-col gap-4 sm:flex-row sm:flex-wrap">
+            <a href="#kontakt" className="w-full min-w-0 sm:w-auto">
+              <Button variant="hero" className="w-full sm:w-auto">
+                Jetzt Anfrage stellen
+              </Button>
             </a>
-            <a href="#leistungen">
-              <Button variant="heroOutline">Unsere Leistungen</Button>
+            <a href="#leistungen" className="w-full min-w-0 sm:w-auto">
+              <Button variant="heroOutline" className="w-full sm:w-auto">
+                Unsere Leistungen
+              </Button>
             </a>
           </div>
         </motion.div>

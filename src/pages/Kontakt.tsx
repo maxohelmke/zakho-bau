@@ -7,8 +7,66 @@ import { Textarea } from "@/components/ui/textarea";
 import { Phone, Mail, MapPin, Clock, MessageSquare } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import Footer from "@/components/Footer";
+import { usePageSeo } from "@/hooks/use-page-seo";
 
 const Kontakt = () => {
+  usePageSeo({
+    title: "Kontakt | TATLI BAU Wuppertal",
+    description:
+      "Kontaktieren Sie TATLI BAU in Wuppertal: Telefon, E-Mail oder Kontaktformular. Wir beraten Sie schnell und unverbindlich im Bergischen Land.",
+    path: "/kontakt",
+    structuredData: [
+      {
+        "@context": "https://schema.org",
+        "@type": "ContactPage",
+        name: "Kontakt TATLI BAU",
+        description:
+          "Kontaktmöglichkeiten für Bau- und Sanierungsanfragen in Wuppertal und im Bergischen Land.",
+        url: "https://tatlibau.de/kontakt",
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Startseite",
+            item: "https://tatlibau.de/",
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Kontakt",
+            item: "https://tatlibau.de/kontakt",
+          },
+        ],
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: [
+          {
+            "@type": "Question",
+            name: "In welcher Region ist TATLI BAU tätig?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Unser Schwerpunkt liegt auf Wuppertal und dem Bergischen Land.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "Wie schnell erhalte ich eine Rückmeldung?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "In der Regel melden wir uns innerhalb von 24 Stunden zurück.",
+            },
+          },
+        ],
+      },
+    ],
+  });
+
   const { toast } = useToast();
   const [form, setForm] = useState({
     name: "",
@@ -32,7 +90,7 @@ const Kontakt = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen min-w-0 max-w-full overflow-x-hidden bg-background">
       {/* Header */}
       <section className="bg-dark-section py-24 pt-32">
         <div className="container mx-auto px-4 lg:px-8">
@@ -59,7 +117,7 @@ const Kontakt = () => {
             {[
               { icon: Phone, label: "Telefon", value: "01525 4090013", href: "tel:+4915254090013" },
               { icon: Mail, label: "E-Mail", value: "tatlican2@icloud.com", href: "mailto:tatlican2@icloud.com" },
-              { icon: MapPin, label: "Servicegebiet", value: "Solingen, Wuppertal, Düsseldorf & NRW", href: undefined },
+              { icon: MapPin, label: "Servicegebiet", value: "Wuppertal & Bergisches Land", href: undefined },
               { icon: Clock, label: "Erreichbarkeit", value: "Mo–Sa, 07:00–19:00 Uhr", href: undefined },
             ].map((c, i) => (
               <motion.div
@@ -77,7 +135,7 @@ const Kontakt = () => {
                       <c.icon className="h-6 w-6 text-accent" />
                     </div>
                     <p className="text-xs text-muted-foreground">{c.label}</p>
-                    <p className="mt-1 font-semibold text-foreground">{c.value}</p>
+                    <p className="mt-1 break-safe font-semibold text-foreground">{c.value}</p>
                   </a>
                 ) : (
                   <div className="flex flex-col items-center rounded-xl border border-border p-6 text-center">
@@ -85,7 +143,7 @@ const Kontakt = () => {
                       <c.icon className="h-6 w-6 text-accent" />
                     </div>
                     <p className="text-xs text-muted-foreground">{c.label}</p>
-                    <p className="mt-1 font-semibold text-foreground">{c.value}</p>
+                    <p className="mt-1 break-safe font-semibold text-foreground">{c.value}</p>
                   </div>
                 )}
               </motion.div>
@@ -169,10 +227,11 @@ const Kontakt = () => {
               transition={{ duration: 0.5 }}
               className="flex flex-col gap-6"
             >
-              <div className="overflow-hidden rounded-xl border border-border shadow-sm">
+              <div className="max-w-full overflow-hidden rounded-xl border border-border shadow-sm">
                 <iframe
-                  title="TATLI BAU Standort Solingen"
+                  title="TATLI BAU Standort Wuppertal"
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d80384.08896498386!2d6.9696!3d51.1652!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b8d4e3e2b6e5b3%3A0x4249fc98b2b12af0!2sSolingen!5e0!3m2!1sde!2sde!4v1680000000000"
+                  className="h-[400px] w-full max-w-full"
                   width="100%"
                   height="400"
                   style={{ border: 0 }}

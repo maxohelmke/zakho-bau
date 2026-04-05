@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { MapPin, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Footer from "@/components/Footer";
+import { usePageSeo } from "@/hooks/use-page-seo";
 import refRaum from "@/assets/ref-raumsanierung.png";
 import refBad from "@/assets/ref-badsanierung.png";
 import refFlur from "@/assets/ref-flur-beleuchtung.png";
@@ -13,7 +14,7 @@ const projects = [
   {
     src: refBad,
     title: "Badsanierung mit Eckbadewanne",
-    location: "Solingen",
+    location: "Wuppertal",
     category: "Sanierung",
     description: "Komplette Badsanierung mit Naturstein-Optik, Eckbadewanne mit Mosaikverkleidung, Dusche mit Holzregalen und modernem Heizkörper-Design.",
   },
@@ -27,14 +28,14 @@ const projects = [
   {
     src: refFlur,
     title: "Flursanierung mit Lichtkonzept",
-    location: "Düsseldorf",
+    location: "Bergisches Land",
     category: "Trockenbau",
     description: "Moderne Flurgestaltung mit abgehängter Decke, integrierten LED-Lichtleisten an den Deckenkanten und Einbauspots für eine elegante Atmosphäre.",
   },
   {
     src: refBadModern,
     title: "Modernes Badezimmer",
-    location: "Solingen",
+    location: "Wuppertal",
     category: "Sanierung",
     description: "Zeitgemäßes Badezimmer mit bodengleicher Dusche, grauen Großformat-Fliesen, LED-Deckenbeleuchtung und schwebender Waschtischkonsole.",
   },
@@ -48,15 +49,50 @@ const projects = [
   {
     src: firmenwagen,
     title: "TATLI BAU – Unterwegs für Sie",
-    location: "NRW",
+    location: "Wuppertal & Bergisches Land",
     category: "Unternehmen",
-    description: "Unser Firmenwagen – erkennbar und professionell. Wir sind täglich in Solingen, Wuppertal, Düsseldorf und Umgebung für unsere Kunden im Einsatz.",
+    description: "Unser Firmenwagen – erkennbar und professionell. Wir sind täglich in Wuppertal und im Bergischen Land für unsere Kunden im Einsatz.",
   },
 ];
 
 const Projekte = () => {
+  usePageSeo({
+    title: "Projekte | TATLI BAU Wuppertal",
+    description:
+      "Referenzen und abgeschlossene Bauprojekte von TATLI BAU in Wuppertal und im Bergischen Land. Jetzt unverbindlich Projekt anfragen.",
+    path: "/projekte",
+    structuredData: [
+      {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        name: "Projekte von TATLI BAU",
+        description:
+          "Referenzen und abgeschlossene Bau- und Sanierungsprojekte in Wuppertal und im Bergischen Land.",
+        url: "https://tatlibau.de/projekte",
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Startseite",
+            item: "https://tatlibau.de/",
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Projekte",
+            item: "https://tatlibau.de/projekte",
+          },
+        ],
+      },
+    ],
+  });
+
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen min-w-0 max-w-full overflow-x-hidden bg-background">
       {/* Page Header */}
       <section className="bg-dark-section py-24 pt-32">
         <div className="container mx-auto px-4 lg:px-8">
@@ -73,8 +109,8 @@ const Projekte = () => {
               Unsere Projekte
             </h1>
             <p className="text-lg leading-relaxed text-primary-foreground/60">
-              Einblicke in abgeschlossene Bau- und Sanierungsprojekte in Solingen,
-              Wuppertal und Düsseldorf.
+              Einblicke in abgeschlossene Bau- und Sanierungsprojekte in Wuppertal
+              und im Bergischen Land.
             </p>
           </motion.div>
         </div>

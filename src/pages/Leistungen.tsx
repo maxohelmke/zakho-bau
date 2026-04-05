@@ -6,6 +6,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Footer from "@/components/Footer";
+import { usePageSeo } from "@/hooks/use-page-seo";
 
 const services = [
   {
@@ -59,8 +60,48 @@ const services = [
 ];
 
 const Leistungen = () => {
+  usePageSeo({
+    title: "Leistungen | TATLI BAU Wuppertal",
+    description:
+      "Unsere Leistungen in Wuppertal und im Bergischen Land: Renovierung, Sanierung, Trockenbau, Malerarbeiten, Fliesen und Komplettlösungen aus einer Hand.",
+    path: "/leistungen",
+    structuredData: [
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        serviceType: "Bau- und Sanierungsleistungen",
+        provider: {
+          "@type": "HomeAndConstructionBusiness",
+          name: "TATLI BAU",
+          areaServed: ["Wuppertal", "Bergisches Land"],
+          telephone: "+4915254090013",
+          email: "tatlican2@icloud.com",
+        },
+        areaServed: ["Wuppertal", "Bergisches Land"],
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Startseite",
+            item: "https://tatlibau.de/",
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Leistungen",
+            item: "https://tatlibau.de/leistungen",
+          },
+        ],
+      },
+    ],
+  });
+
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen min-w-0 max-w-full overflow-x-hidden bg-background">
       {/* Page Header */}
       <section className="bg-dark-section py-24 pt-32">
         <div className="container mx-auto px-4 lg:px-8">
@@ -96,9 +137,7 @@ const Leistungen = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
-                className={`grid items-start gap-12 lg:grid-cols-2 ${
-                  i % 2 === 1 ? "lg:direction-rtl" : ""
-                }`}
+                className="grid items-start gap-12 lg:grid-cols-2"
               >
                 <div className={i % 2 === 1 ? "lg:order-2" : ""}>
                   <div className="mb-5 inline-flex rounded-lg bg-accent/10 p-3">

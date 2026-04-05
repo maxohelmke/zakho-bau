@@ -1,8 +1,7 @@
+@import url('https://api.fontshare.com/v2/css?f[]=clash-display@200,300,400,500,600,700&f[]=general-sans@200,300,400,500,600,700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import url('https://api.fontshare.com/v2/css?f[]=clash-display@200,300,400,500,600,700&f[]=general-sans@200,300,400,500,600,700&display=swap');
 
 @layer base {
   :root {
@@ -60,12 +59,18 @@
     font-family: "General Sans", system-ui, sans-serif;
     font-size: 16px;
     line-height: 1.6;
+    letter-spacing: normal;
+    word-spacing: normal;
+    overflow-x: hidden;
+    max-width: 100%;
   }
 
+  /* Kein negatives Tracking: sonst wirken Wortabstände zu eng (v. a. Clash Display + DE-Text) */
   h1, h2, h3, h4, h5, h6 {
     font-family: "Clash Display", system-ui, sans-serif;
-    letter-spacing: -0.02em;
-    line-height: 1.1;
+    letter-spacing: normal;
+    word-spacing: normal;
+    line-height: 1.2;
   }
 
   h1 {
@@ -85,6 +90,14 @@
 
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
+    max-width: 100%;
+  }
+
+  #root {
+    min-width: 0;
+    overflow-x: hidden;
+    min-height: 100%;
   }
 }
 
@@ -103,9 +116,17 @@
 
   .font-heading {
     font-family: "Clash Display", system-ui, sans-serif;
+    letter-spacing: normal;
+    word-spacing: normal;
   }
 
   .font-body {
     font-family: "General Sans", system-ui, sans-serif;
+  }
+
+  /** Verhindert horizontales Scrollen durch lange Wörter/URLs (mobil) */
+  .break-safe {
+    overflow-wrap: anywhere;
+    word-break: break-word;
   }
 }

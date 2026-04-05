@@ -7,6 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Phone, CheckCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import Footer from "@/components/Footer";
+import { usePageSeo } from "@/hooks/use-page-seo";
 
 const serviceTypes = [
   "Renovierung",
@@ -21,6 +22,41 @@ const serviceTypes = [
 ];
 
 const Anfragen = () => {
+  usePageSeo({
+    title: "Anfrage stellen | TATLI BAU Wuppertal",
+    description:
+      "Jetzt kostenlos und unverbindlich anfragen: TATLI BAU erstellt Ihnen ein Angebot für Bau- und Sanierungsprojekte in Wuppertal und im Bergischen Land.",
+    path: "/anfragen",
+    structuredData: [
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        name: "Kostenlose Anfrage bei TATLI BAU",
+        description:
+          "Unverbindliche Projektanfrage für Bau- und Sanierungsarbeiten in Wuppertal und im Bergischen Land.",
+        url: "https://tatlibau.de/anfragen",
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Startseite",
+            item: "https://tatlibau.de/",
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Anfragen",
+            item: "https://tatlibau.de/anfragen",
+          },
+        ],
+      },
+    ],
+  });
+
   const { toast } = useToast();
   const [form, setForm] = useState({
     name: "",
@@ -48,7 +84,7 @@ const Anfragen = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen min-w-0 max-w-full overflow-x-hidden bg-background">
       {/* Header */}
       <section className="bg-dark-section py-24 pt-32">
         <div className="container mx-auto px-4 lg:px-8">
@@ -131,7 +167,7 @@ const Anfragen = () => {
             <div className="grid gap-5 sm:grid-cols-2">
               <div>
                 <label className="mb-1 block text-sm font-medium text-foreground">Adresse / Ort des Projekts</label>
-                <Input value={form.address} onChange={(e) => setForm({ ...form, address: e.target.value })} placeholder="z. B. Solingen, Musterstraße" maxLength={200} />
+                <Input value={form.address} onChange={(e) => setForm({ ...form, address: e.target.value })} placeholder="z. B. Wuppertal, Musterstraße" maxLength={200} />
               </div>
               <div>
                 <label className="mb-1 block text-sm font-medium text-foreground">Gewünschter Zeitrahmen</label>

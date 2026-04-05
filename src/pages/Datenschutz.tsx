@@ -1,13 +1,27 @@
 import { Link } from "react-router-dom";
 import Footer from "@/components/Footer";
+import { usePageSeo } from "@/hooks/use-page-seo";
 
 const Datenschutz = () => {
+  usePageSeo({
+    title: "Datenschutz | TATLI BAU",
+    description: "Datenschutzerklärung von TATLI BAU.",
+    path: "/datenschutz",
+    robots: "noindex,follow",
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      name: "Datenschutzerklärung",
+      url: "https://tatlibau.de/datenschutz",
+    },
+  });
+
   return (
-    <div className="min-h-screen bg-background pt-20">
-      <div className="container mx-auto max-w-3xl px-4 py-16">
+    <div className="min-h-screen min-w-0 max-w-full overflow-x-hidden bg-background pt-20">
+      <div className="container mx-auto min-w-0 max-w-3xl px-4 py-16">
         <h1 className="mb-8 text-3xl font-bold text-foreground">Datenschutzerklärung</h1>
 
-        <div className="space-y-8 text-muted-foreground leading-relaxed">
+        <div className="break-safe space-y-8 text-muted-foreground leading-relaxed">
           <div>
             <h2 className="mb-2 text-lg font-semibold text-foreground">1. Datenschutz auf einen Blick</h2>
             <h3 className="mb-1 font-medium text-foreground">Allgemeine Hinweise</h3>

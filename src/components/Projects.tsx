@@ -9,12 +9,12 @@ import refBadModern from "@/assets/ref-bad-modern.png";
 import firmenwagen from "@/assets/firmenwagen.png";
 
 const projects = [
-  { src: refBad, title: "Badsanierung", location: "Solingen", tall: true },
-  { src: refRaum, title: "Raumsanierung", location: "Wuppertal", tall: false },
-  { src: refFlur, title: "Flur & Beleuchtung", location: "Düsseldorf", tall: false },
-  { src: refBadModern, title: "Modernes Bad", location: "Solingen", tall: true },
-  { src: refTrockenbau, title: "Trockenbau & Decken", location: "Wuppertal", tall: false },
-  { src: firmenwagen, title: "Unterwegs für Sie", location: "NRW", tall: false },
+  { src: refBad, title: "Luxusbad mit Eckwanne", location: "Wuppertal" },
+  { src: refRaum, title: "Wohnraum-Sanierung mit Parkett", location: "Wuppertal" },
+  { src: refFlur, title: "Flur mit LED-Lichtkonzept", location: "Bergisches Land" },
+  { src: refBadModern, title: "Modernes Designerbad", location: "Wuppertal" },
+  { src: refTrockenbau, title: "Trockenbau-Decke mit Beleuchtung", location: "Bergisches Land" },
+  { src: firmenwagen, title: "TATLI BAU im Einsatz", location: "Wuppertal & Bergisches Land" },
 ];
 
 const Projects = () => {
@@ -36,7 +36,7 @@ const Projects = () => {
           </h2>
         </motion.div>
 
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {projects.map((p, i) => (
             <motion.div
               key={p.title}
@@ -44,23 +44,19 @@ const Projects = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.06 }}
-              className={`group relative overflow-hidden rounded-lg ${
-                p.tall ? "sm:row-span-2" : ""
-              }`}
+              className="group relative overflow-hidden rounded-xl border border-border bg-card"
             >
               <img
                 src={p.src}
                 alt={`${p.title} – TATLI BAU ${p.location}`}
                 loading="lazy"
-                className={`w-full object-cover transition-transform duration-500 group-hover:scale-105 ${
-                  p.tall ? "h-full min-h-[400px]" : "h-64"
-                }`}
+                className="h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105 sm:h-80"
                 width={800}
                 height={608}
               />
-              <div className="absolute inset-0 flex items-end bg-gradient-to-t from-foreground/80 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                <div className="p-6">
-                  <p className="text-lg font-semibold text-primary-foreground">{p.title}</p>
+              <div className="absolute inset-0 flex items-end bg-gradient-to-t from-foreground/85 via-foreground/20 to-transparent">
+                <div className="p-5">
+                  <p className="text-base font-semibold text-primary-foreground sm:text-lg">{p.title}</p>
                   <p className="text-sm text-accent">{p.location}</p>
                 </div>
               </div>

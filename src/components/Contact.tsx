@@ -71,47 +71,48 @@ const Contact = () => {
           >
             <a
               href="tel:+4915254090013"
-              className="flex items-center gap-4 rounded-lg border border-border p-5 transition-colors hover:border-accent"
+              className="flex min-w-0 items-center gap-4 rounded-lg border border-border p-5 transition-colors hover:border-accent"
             >
-              <div className="rounded-md bg-accent/10 p-3">
+              <div className="shrink-0 rounded-md bg-accent/10 p-3">
                 <Phone className="h-6 w-6 text-accent" />
               </div>
-              <div>
+              <div className="min-w-0">
                 <p className="text-sm text-muted-foreground">Telefon</p>
-                <p className="text-lg font-semibold text-foreground">01525 4090013</p>
+                <p className="break-safe text-lg font-semibold text-foreground">01525 4090013</p>
               </div>
             </a>
 
             <a
               href="mailto:tatlican2@icloud.com"
-              className="flex items-center gap-4 rounded-lg border border-border p-5 transition-colors hover:border-accent"
+              className="flex min-w-0 items-center gap-4 rounded-lg border border-border p-5 transition-colors hover:border-accent"
             >
-              <div className="rounded-md bg-accent/10 p-3">
+              <div className="shrink-0 rounded-md bg-accent/10 p-3">
                 <Mail className="h-6 w-6 text-accent" />
               </div>
-              <div>
+              <div className="min-w-0">
                 <p className="text-sm text-muted-foreground">E-Mail</p>
-                <p className="text-lg font-semibold text-foreground">tatlican2@icloud.com</p>
+                <p className="break-safe text-lg font-semibold text-foreground">tatlican2@icloud.com</p>
               </div>
             </a>
 
-            <div className="flex items-center gap-4 rounded-lg border border-border p-5">
-              <div className="rounded-md bg-accent/10 p-3">
+            <div className="flex min-w-0 items-center gap-4 rounded-lg border border-border p-5">
+              <div className="shrink-0 rounded-md bg-accent/10 p-3">
                 <MapPin className="h-6 w-6 text-accent" />
               </div>
-              <div>
+              <div className="min-w-0">
                 <p className="text-sm text-muted-foreground">Servicegebiet</p>
-                <p className="text-lg font-semibold text-foreground">
-                  Solingen, Wuppertal, Düsseldorf & Umgebung
+                <p className="break-safe text-lg font-semibold text-foreground">
+                  Wuppertal & Bergisches Land
                 </p>
               </div>
             </div>
 
             {/* Map placeholder */}
-            <div className="overflow-hidden rounded-lg">
+            <div className="max-w-full overflow-hidden rounded-lg">
               <iframe
-                title="TATLI BAU Standort Solingen"
+                title="TATLI BAU Standort Wuppertal"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d80384.08896498386!2d6.9696!3d51.1652!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b8d4e3e2b6e5b3%3A0x4249fc98b2b12af0!2sSolingen!5e0!3m2!1sde!2sde!4v1680000000000"
+                className="h-[220px] w-full max-w-full"
                 width="100%"
                 height="220"
                 style={{ border: 0 }}

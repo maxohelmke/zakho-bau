@@ -4,12 +4,13 @@ import { Button } from "@/components/ui/button";
 import Footer from "@/components/Footer";
 import ownerImg from "@/assets/owner-portrait.jpg";
 import firmenwagen from "@/assets/firmenwagen.png";
+import { usePageSeo } from "@/hooks/use-page-seo";
 
 const stats = [
   { value: "10+", label: "Jahre Erfahrung" },
   { value: "500+", label: "Projekte abgeschlossen" },
   { value: "100%", label: "Kundenzufriedenheit" },
-  { value: "NRW", label: "Servicegebiet" },
+  { value: "Wuppertal + Bergisches Land", label: "Servicegebiet" },
 ];
 
 const values = [
@@ -36,8 +37,43 @@ const values = [
 ];
 
 const UeberUns = () => {
+  usePageSeo({
+    title: "Über Uns | TATLI BAU Wuppertal",
+    description:
+      "Lernen Sie TATLI BAU kennen: Ihr inhabergeführter Fachbetrieb für Bau und Sanierung in Wuppertal und im Bergischen Land.",
+    path: "/ueber-uns",
+    structuredData: [
+      {
+        "@context": "https://schema.org",
+        "@type": "AboutPage",
+        name: "Über TATLI BAU",
+        description:
+          "Inhabergeführter Fachbetrieb für Bau und Sanierung in Wuppertal und im Bergischen Land.",
+        url: "https://tatlibau.de/ueber-uns",
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Startseite",
+            item: "https://tatlibau.de/",
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Über uns",
+            item: "https://tatlibau.de/ueber-uns",
+          },
+        ],
+      },
+    ],
+  });
+
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen min-w-0 max-w-full overflow-x-hidden bg-background">
       {/* Page Header */}
       <section className="bg-dark-section py-24 pt-32">
         <div className="container mx-auto px-4 lg:px-8">
@@ -54,8 +90,8 @@ const UeberUns = () => {
               Wer wir sind
             </h1>
             <p className="text-lg leading-relaxed text-primary-foreground/60">
-              TATLI BAU ist Ihr persönlicher Partner für Bau und Sanierung in Solingen,
-              Wuppertal, Düsseldorf und dem gesamten Bergischen Land.
+              TATLI BAU ist Ihr persönlicher Partner für Bau und Sanierung in Wuppertal
+              und im gesamten Bergischen Land.
             </p>
           </motion.div>
         </div>
@@ -75,7 +111,7 @@ const UeberUns = () => {
               <div className="relative">
                 <img
                   src={ownerImg}
-                  alt="Hasan Tatli – Inhaber TATLI BAU Solingen"
+                  alt="Hasan Tatli – Inhaber TATLI BAU in Wuppertal"
                   loading="lazy"
                   className="h-96 w-96 rounded-2xl object-cover shadow-xl"
                   width={512}
@@ -109,7 +145,7 @@ const UeberUns = () => {
               </p>
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <MapPin className="h-4 w-4 text-accent" />
-                Solingen, Wuppertal, Düsseldorf und Umgebung
+                Wuppertal und das gesamte Bergische Land
               </div>
             </motion.div>
           </div>
@@ -129,7 +165,7 @@ const UeberUns = () => {
                 transition={{ duration: 0.4, delay: i * 0.1 }}
                 className="text-center"
               >
-                <p className="mb-1 text-4xl font-bold tracking-tight text-foreground">{s.value}</p>
+                <p className="mb-1 text-4xl font-bold tracking-normal text-foreground">{s.value}</p>
                 <p className="text-sm text-muted-foreground">{s.label}</p>
               </motion.div>
             ))}
@@ -149,7 +185,7 @@ const UeberUns = () => {
           >
             <img
               src={firmenwagen}
-              alt="TATLI BAU Firmenwagen – täglich im Einsatz in Solingen, Wuppertal und Düsseldorf"
+              alt="TATLI BAU Firmenwagen – täglich im Einsatz in Wuppertal und im Bergischen Land"
               loading="lazy"
               className="w-full object-cover"
               style={{ maxHeight: "400px" }}
@@ -212,9 +248,8 @@ const UeberUns = () => {
             </div>
             <h2 className="mb-4 text-primary-foreground">Unser Einsatzgebiet</h2>
             <p className="mx-auto mb-8 max-w-2xl text-lg text-primary-foreground/60">
-              Wir sind in ganz NRW für Sie da – mit Schwerpunkt auf Solingen, Wuppertal,
-              Düsseldorf und das gesamte Bergische Land. Sprechen Sie uns an, auch für
-              Projekte außerhalb unseres Kerngebiets.
+              Unser Schwerpunkt liegt auf Wuppertal und dem gesamten Bergischen Land.
+              Sprechen Sie uns gerne auch für angrenzende Regionen an.
             </p>
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
               <a href="/#kontakt">
