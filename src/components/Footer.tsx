@@ -11,7 +11,6 @@ const Footer = () => {
             <div className="mb-4">
               <img src={logo} alt="TATLI BAU Logo" className="h-12 w-auto brightness-0 invert" />
             </div>
-            </div>
             <p className="mb-4 max-w-sm text-sm text-primary-foreground/60">
               Alles aus einer Hand – Ihr Spezialist für Bau & Sanierung in Solingen,
               Wuppertal, Düsseldorf und NRW.
