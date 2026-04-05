@@ -14,8 +14,10 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ["Inter", "system-ui", "sans-serif"],
-        display: ["Space Grotesk", "system-ui", "sans-serif"],
+        sans: ['"General Sans"', "system-ui", "sans-serif"],
+        heading: ['"Clash Display"', "system-ui", "sans-serif"],
+        display: ['"Clash Display"', "system-ui", "sans-serif"],
+        body: ['"General Sans"', "system-ui", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
