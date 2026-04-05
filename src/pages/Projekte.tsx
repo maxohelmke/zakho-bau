@@ -2,55 +2,55 @@ import { motion } from "framer-motion";
 import { MapPin, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Footer from "@/components/Footer";
-import project1 from "@/assets/project-1.jpg";
-import project2 from "@/assets/project-2.jpg";
-import project3 from "@/assets/project-3.jpg";
-import project4 from "@/assets/project-4.jpg";
-import project5 from "@/assets/project-5.jpg";
-import project6 from "@/assets/project-6.jpg";
+import refRaum from "@/assets/ref-raumsanierung.png";
+import refBad from "@/assets/ref-badsanierung.png";
+import refFlur from "@/assets/ref-flur-beleuchtung.png";
+import refTrockenbau from "@/assets/ref-raum-trockenbau.png";
+import refBadModern from "@/assets/ref-bad-modern.png";
+import firmenwagen from "@/assets/firmenwagen.png";
 
 const projects = [
   {
-    src: project1,
-    title: "Badsanierung",
+    src: refBad,
+    title: "Badsanierung mit Eckbadewanne",
     location: "Solingen",
     category: "Sanierung",
-    description: "Komplette Badsanierung inkl. neuer Fliesen, Sanitäranlagen und moderner Beleuchtung. Aus einem veralteten Badezimmer wurde ein zeitgemäßer Wohlfühlraum.",
+    description: "Komplette Badsanierung mit Naturstein-Optik, Eckbadewanne mit Mosaikverkleidung, Dusche mit Holzregalen und modernem Heizkörper-Design.",
   },
   {
-    src: project2,
-    title: "Wohnungsrenovierung",
-    location: "Düsseldorf",
-    category: "Renovierung",
-    description: "Umfassende Renovierung einer 3-Zimmer-Wohnung: neue Böden, Wandgestaltung, Deckenarbeiten und kompletter Innenausbau in nur 4 Wochen.",
-  },
-  {
-    src: project3,
-    title: "Küchenumbau",
+    src: refRaum,
+    title: "Raumsanierung mit LED-Beleuchtung",
     location: "Wuppertal",
-    category: "Renovierung",
-    description: "Modernisierung einer Küche mit neuem Fliesenspiegel, Bodenbelag und Wandanpassungen für eine offene Raumgestaltung.",
-  },
-  {
-    src: project4,
-    title: "Fassadensanierung",
-    location: "Solingen",
     category: "Sanierung",
-    description: "Energetische Fassadensanierung eines Mehrfamilienhauses mit Wärmedämmverbundsystem und neuem Außenanstrich.",
+    description: "Komplettsanierung eines Wohnraums mit hochwertigem Eichenparkett, Trockenbau-Decke mit integrierter LED-Beleuchtung und sauberer Wandgestaltung.",
   },
   {
-    src: project5,
-    title: "Trockenbau & Decken",
+    src: refFlur,
+    title: "Flursanierung mit Lichtkonzept",
     location: "Düsseldorf",
     category: "Trockenbau",
-    description: "Dachgeschossausbau mit Trockenbau-Ständerwerk, abgehängten Decken mit integrierter LED-Beleuchtung und Schallschutzwänden.",
+    description: "Moderne Flurgestaltung mit abgehängter Decke, integrierten LED-Lichtleisten an den Deckenkanten und Einbauspots für eine elegante Atmosphäre.",
   },
   {
-    src: project6,
-    title: "Gewerberenovierung",
+    src: refBadModern,
+    title: "Modernes Badezimmer",
+    location: "Solingen",
+    category: "Sanierung",
+    description: "Zeitgemäßes Badezimmer mit bodengleicher Dusche, grauen Großformat-Fliesen, LED-Deckenbeleuchtung und schwebender Waschtischkonsole.",
+  },
+  {
+    src: refTrockenbau,
+    title: "Wohnraum mit Deckendesign",
     location: "Wuppertal",
-    category: "Komplett",
-    description: "Schlüsselfertige Renovierung einer Gewerbefläche: Entkernung, Trockenbau, Bodenverlegung, Malerarbeiten und finale Reinigung.",
+    category: "Trockenbau",
+    description: "Großzügiger Wohnbereich mit aufwändigem Trockenbau-Deckendesign, umlaufender LED-Beleuchtung und Zugang zur Terrasse.",
+  },
+  {
+    src: firmenwagen,
+    title: "TATLI BAU – Unterwegs für Sie",
+    location: "NRW",
+    category: "Unternehmen",
+    description: "Unser Firmenwagen – erkennbar und professionell. Wir sind täglich in Solingen, Wuppertal, Düsseldorf und Umgebung für unsere Kunden im Einsatz.",
   },
 ];
 
@@ -91,9 +91,7 @@ const Projekte = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
-                className={`grid items-center gap-12 lg:grid-cols-2 ${
-                  i % 2 === 1 ? "" : ""
-                }`}
+                className="grid items-center gap-12 lg:grid-cols-2"
               >
                 <div className={i % 2 === 1 ? "lg:order-2" : ""}>
                   <img
@@ -119,7 +117,7 @@ const Projekte = () => {
                   <p className="mb-8 leading-relaxed text-muted-foreground">
                     {p.description}
                   </p>
-                  <a href="/#kontakt">
+                  <a href="/anfragen">
                     <Button variant="accent" size="sm">
                       Ähnliches Projekt anfragen
                     </Button>
@@ -147,7 +145,7 @@ const Projekte = () => {
               Lassen Sie uns gemeinsam Ihr Vorhaben besprechen – kostenlos und unverbindlich.
             </p>
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <a href="/#kontakt">
+              <a href="/anfragen">
                 <Button variant="hero">Jetzt Projekt besprechen</Button>
               </a>
               <a href="tel:+4915254090013">
