@@ -3,7 +3,7 @@ import ownerImg from "@/assets/owner-portrait.jpg";
 
 const About = () => {
   return (
-    <section id="ueber-uns" className="bg-secondary py-24">
+    <section id="ueber-uns" className="bg-secondary py-32">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <motion.div
