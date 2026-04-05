@@ -10,6 +10,12 @@ import refFlur from "@/assets/ref-flur-beleuchtung.png";
 import refTrockenbau from "@/assets/ref-raum-trockenbau.png";
 import refBadModern from "@/assets/ref-bad-modern.png";
 import firmenwagen from "@/assets/firmenwagen.png";
+import refMaler from "@/assets/ref-malerarbeiten.jpg";
+import refFliesen from "@/assets/ref-fliesen.jpg";
+import refKueche from "@/assets/ref-kueche.jpg";
+import refAbriss from "@/assets/ref-abriss.jpg";
+import refBoden from "@/assets/ref-boden.jpg";
+import refDecke from "@/assets/ref-decke.jpg";
 
 const projects = [
   {
@@ -20,11 +26,11 @@ const projects = [
     description: "Komplette Badsanierung mit Naturstein-Optik, Eckbadewanne mit Mosaikverkleidung und modernem Design.",
   },
   {
-    src: refRaum,
-    title: "Raumsanierung mit LED-Beleuchtung",
-    location: "Wuppertal",
-    category: "Sanierung",
-    description: "Komplettsanierung mit Eichenparkett, Trockenbau-Decke und integrierter LED-Beleuchtung.",
+    src: refKueche,
+    title: "Küchenrenovierung mit Einbauten",
+    location: "Solingen",
+    category: "Renovierung",
+    description: "Moderne Küche mit weißen Fronten, Subway-Fliesen-Rückwand und integrierter LED-Beleuchtung.",
   },
   {
     src: refFlur,
@@ -41,11 +47,53 @@ const projects = [
     description: "Zeitgemäßes Bad mit bodengleicher Dusche, Großformat-Fliesen und LED-Deckenbeleuchtung.",
   },
   {
+    src: refDecke,
+    title: "Deckendesign mit LED-Beleuchtung",
+    location: "Remscheid",
+    category: "Trockenbau",
+    description: "Abgehängte Trockenbau-Decke mit umlaufender indirekter LED-Beleuchtung im Wohnbereich.",
+  },
+  {
+    src: refRaum,
+    title: "Raumsanierung mit Parkett",
+    location: "Wuppertal",
+    category: "Sanierung",
+    description: "Komplettsanierung mit Eichenparkett, Trockenbau-Decke und integrierter LED-Beleuchtung.",
+  },
+  {
+    src: refFliesen,
+    title: "Großformat-Fliesen im Bad",
+    location: "Düsseldorf",
+    category: "Fliesenarbeiten",
+    description: "Professionelle Verlegung von großformatigen Betonoptik-Fliesen mit exakten Fugen.",
+  },
+  {
+    src: refMaler,
+    title: "Malerarbeiten & Wandgestaltung",
+    location: "Wuppertal",
+    category: "Malerarbeiten",
+    description: "Sauberer Innenanstrich mit Spachtelarbeiten und Abklebe-Technik für makellose Ergebnisse.",
+  },
+  {
     src: refTrockenbau,
     title: "Wohnraum mit Deckendesign",
     location: "Wuppertal",
     category: "Trockenbau",
     description: "Aufwändiges Trockenbau-Deckendesign mit umlaufender LED-Beleuchtung.",
+  },
+  {
+    src: refAbriss,
+    title: "Entkernung & Rückbau",
+    location: "Bergisches Land",
+    category: "Abrissarbeiten",
+    description: "Fachgerechter Rückbau und Entkernung als Vorbereitung für die Kernsanierung.",
+  },
+  {
+    src: refBoden,
+    title: "Bodenverlegung & Spotbeleuchtung",
+    location: "Solingen",
+    category: "Renovierung",
+    description: "Dunkles Laminat mit weißen Sockelleisten und Einbauspots für ein modernes Raumgefühl.",
   },
   {
     src: firmenwagen,
@@ -125,7 +173,7 @@ const Projekte = () => {
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.07 }}
+                transition={{ duration: 0.4, delay: i * 0.05 }}
                 className="group overflow-hidden rounded-xl border border-border bg-card"
               >
                 <div className="relative overflow-hidden">
