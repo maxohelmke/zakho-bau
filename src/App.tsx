@@ -9,6 +9,8 @@ import Impressum from "./pages/Impressum.tsx";
 import Leistungen from "./pages/Leistungen.tsx";
 import Projekte from "./pages/Projekte.tsx";
 import UeberUns from "./pages/UeberUns.tsx";
+import Kontakt from "./pages/Kontakt.tsx";
+import Anfragen from "./pages/Anfragen.tsx";
 import Datenschutz from "./pages/Datenschutz.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
@@ -27,6 +29,8 @@ const App = () => (
           <Route path="/leistungen" element={<Leistungen />} />
           <Route path="/projekte" element={<Projekte />} />
           <Route path="/ueber-uns" element={<UeberUns />} />
+          <Route path="/kontakt" element={<Kontakt />} />
+          <Route path="/anfragen" element={<Anfragen />} />
           <Route path="/datenschutz" element={<Datenschutz />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

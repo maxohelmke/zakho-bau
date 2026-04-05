@@ -8,7 +8,7 @@ const navLinks = [
   { label: "Leistungen", href: "/leistungen" },
   { label: "Projekte", href: "/projekte" },
   { label: "Über uns", href: "/ueber-uns" },
-  { label: "Kontakt", href: "/#kontakt" },
+  { label: "Kontakt", href: "/kontakt" },
 ];
 
 const Navbar = () => {
@@ -54,11 +54,11 @@ const Navbar = () => {
               </a>
             )
           )}
-          <a href="/#kontakt">
+          <Link to="/anfragen">
             <Button variant="accent" size="sm">
               Kostenlos anfragen
             </Button>
-          </a>
+          </Link>
         </div>
 
         <button
@@ -94,11 +94,11 @@ const Navbar = () => {
                 </a>
               )
             )}
-            <a href="/#kontakt" onClick={() => setMobileOpen(false)}>
+            <Link to="/anfragen" onClick={() => setMobileOpen(false)}>
               <Button variant="accent" className="w-full">
                 Kostenlos anfragen
               </Button>
-            </a>
+            </Link>
           </div>
         </div>
       )}
