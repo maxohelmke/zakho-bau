@@ -54,7 +54,7 @@ const WhyUs = () => {
           >
             <div className="relative h-80 w-full overflow-hidden rounded-xl bg-dark-lighter lg:h-96">
               <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 p-8 text-center">
-                <span className="text-6xl font-extrabold text-accent">10+</span>
+                <span className="font-display text-6xl font-extrabold text-accent">10+</span>
                 <span className="text-xl font-semibold text-primary-foreground">
                   Jahre Erfahrung
                 </span>
