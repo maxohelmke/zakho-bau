@@ -11,7 +11,7 @@ const points = [
 
 const WhyUs = () => {
   return (
-    <section className="bg-dark-section py-24">
+    <section className="bg-background py-24">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <motion.div
@@ -23,7 +23,7 @@ const WhyUs = () => {
             <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-accent">
               Vertrauen
             </p>
-            <h2 className="mb-8 text-3xl font-bold tracking-tight text-primary-foreground md:text-4xl">
+            <h2 className="mb-8 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
               Warum TATLI BAU?
             </h2>
             <div className="space-y-5">
@@ -32,13 +32,13 @@ const WhyUs = () => {
                   <div className="mt-0.5 rounded-md bg-accent/10 p-2">
                     <p.icon className="h-5 w-5 text-accent" />
                   </div>
-                  <span className="text-base text-primary-foreground/80">{p.text}</span>
+                  <span className="text-base text-muted-foreground">{p.text}</span>
                 </div>
               ))}
             </div>
             <a
               href="tel:+4915254090013"
-              className="mt-10 inline-flex items-center gap-3 rounded-lg bg-accent/10 px-6 py-4 text-lg font-semibold text-accent transition-colors hover:bg-accent/20"
+              className="mt-10 inline-flex items-center gap-3 rounded-lg border border-accent/20 bg-accent/5 px-6 py-4 text-lg font-semibold text-accent transition-colors hover:bg-accent/10"
             >
               <Phone className="h-5 w-5" />
               01525 4090013
@@ -52,13 +52,13 @@ const WhyUs = () => {
             transition={{ duration: 0.6 }}
             className="relative flex items-center justify-center"
           >
-            <div className="relative h-80 w-full overflow-hidden rounded-xl bg-dark-lighter lg:h-96">
+            <div className="relative h-80 w-full overflow-hidden rounded-xl border border-border bg-secondary lg:h-96">
               <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 p-8 text-center">
                 <span className="font-display text-6xl font-extrabold text-accent">10+</span>
-                <span className="text-xl font-semibold text-primary-foreground">
+                <span className="text-xl font-semibold text-foreground">
                   Jahre Erfahrung
                 </span>
-                <span className="text-sm text-primary-foreground/60">
+                <span className="text-sm text-muted-foreground">
                   in Bau & Sanierung im Raum NRW
                 </span>
               </div>
