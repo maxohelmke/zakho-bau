@@ -93,6 +93,19 @@ const Services = () => {
             </motion.div>
           ))}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="mt-12 text-center"
+        >
+          <Link to="/leistungen">
+            <Button variant="outline" size="lg">
+              Alle Leistungen im Detail →
+            </Button>
+          </Link>
+        </motion.div>
       </div>
     </section>
   );
