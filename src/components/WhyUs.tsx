@@ -26,7 +26,6 @@ const WhyUs = () => {
             <h2 className="mb-8 text-foreground">
               Warum TATLI BAU?
             </h2>
-            </h2>
             <div className="space-y-5">
               {points.map((p) => (
                 <div key={p.text} className="flex items-start gap-4">
