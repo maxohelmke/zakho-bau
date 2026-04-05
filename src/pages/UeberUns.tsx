@@ -3,6 +3,7 @@ import { Phone, Award, Clock, Users, Shield, MapPin, Briefcase } from "lucide-re
 import { Button } from "@/components/ui/button";
 import Footer from "@/components/Footer";
 import ownerImg from "@/assets/owner-portrait.jpg";
+import firmenwagen from "@/assets/firmenwagen.png";
 
 const stats = [
   { value: "10+", label: "Jahre Erfahrung" },
