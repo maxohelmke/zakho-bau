@@ -24,27 +24,21 @@ const Navbar = () => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-background shadow-md"
-          : "bg-transparent"
+          ? "bg-background/95 shadow-sm backdrop-blur-md"
+          : "bg-background"
       }`}
     >
-      <div className="container mx-auto flex items-center justify-between px-4 py-3 lg:px-8">
-        {/* Logo */}
-        <a href="#" className="flex items-center gap-2">
-          <img
-            src={logo}
-            alt="TATLI BAU Logo"
-            className="h-12 w-auto transition-all duration-300"
-          />
+      <div className="container mx-auto flex items-center justify-between px-4 py-2 lg:px-8">
+        <a href="#" className="flex items-center">
+          <img src={logo} alt="TATLI BAU Logo" className="h-14 w-auto" />
         </a>
 
-        {/* Desktop Nav */}
         <div className="hidden items-center gap-8 md:flex">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-foreground/70 transition-colors hover:text-accent"
+              className="text-sm font-medium text-foreground/70 transition-colors hover:text-foreground"
             >
               {link.label}
             </a>
@@ -56,7 +50,6 @@ const Navbar = () => {
           </a>
         </div>
 
-        {/* Mobile Toggle */}
         <button
           className="text-foreground md:hidden"
           onClick={() => setMobileOpen(!mobileOpen)}
@@ -66,7 +59,6 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile Menu */}
       {mobileOpen && (
         <div className="border-t border-border bg-background md:hidden">
           <div className="flex flex-col gap-4 px-6 py-6">
@@ -75,7 +67,7 @@ const Navbar = () => {
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
-                className="text-base font-medium text-foreground/70 transition-colors hover:text-accent"
+                className="text-base font-medium text-foreground/70 transition-colors hover:text-foreground"
               >
                 {link.label}
               </a>
