@@ -11,7 +11,7 @@ const points = [
 
 const WhyUs = () => {
   return (
-    <section className="bg-background py-24">
+    <section className="bg-background py-32">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <motion.div
@@ -20,10 +20,10 @@ const WhyUs = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-accent">
+            <p className="mb-3 text-xs font-medium uppercase tracking-[0.2em] text-accent">
               Vertrauen
             </p>
-            <h2 className="mb-8 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+            <h2 className="mb-8 text-foreground">
               Warum TATLI BAU?
             </h2>
             <div className="space-y-5">

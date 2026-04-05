@@ -55,7 +55,7 @@ const services = [
 
 const Services = () => {
   return (
-    <section id="leistungen" className="bg-secondary py-24">
+    <section id="leistungen" className="bg-secondary py-32">
       <div className="container mx-auto px-4 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -64,10 +64,10 @@ const Services = () => {
           transition={{ duration: 0.5 }}
           className="mb-16 text-center"
         >
-          <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-accent">
+          <p className="mb-3 text-xs font-medium uppercase tracking-[0.2em] text-accent">
             Unsere Leistungen
           </p>
-          <h2 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+          <h2 className="text-foreground">
             Was wir für Sie tun
           </h2>
         </motion.div>
@@ -85,7 +85,7 @@ const Services = () => {
               <div className="mb-4 inline-flex rounded-md bg-accent/10 p-3">
                 <s.icon className="h-6 w-6 text-accent" />
               </div>
-              <h3 className="mb-2 text-lg font-semibold text-foreground">{s.title}</h3>
+              <h3 className="mb-2 text-foreground">{s.title}</h3>
               <p className="text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
               <div className="mt-4 h-0.5 w-0 bg-accent transition-all duration-300 group-hover:w-full" />
             </motion.div>

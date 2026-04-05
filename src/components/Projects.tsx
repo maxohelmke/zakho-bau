@@ -18,7 +18,7 @@ const projects = [
 
 const Projects = () => {
   return (
-    <section id="projekte" className="bg-background py-24">
+    <section id="projekte" className="bg-background py-32">
       <div className="container mx-auto px-4 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -27,10 +27,10 @@ const Projects = () => {
           transition={{ duration: 0.5 }}
           className="mb-16 text-center"
         >
-          <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-accent">
+          <p className="mb-3 text-xs font-medium uppercase tracking-[0.2em] text-accent">
             Referenzen
           </p>
-          <h2 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+          <h2 className="text-foreground">
             Unsere Arbeiten
           </h2>
         </motion.div>

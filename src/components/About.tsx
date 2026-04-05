@@ -3,7 +3,7 @@ import ownerImg from "@/assets/owner-portrait.jpg";
 
 const About = () => {
   return (
-    <section id="ueber-uns" className="bg-secondary py-24">
+    <section id="ueber-uns" className="bg-secondary py-32">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <motion.div
@@ -34,10 +34,10 @@ const About = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-accent">
+            <p className="mb-3 text-xs font-medium uppercase tracking-[0.2em] text-accent">
               Über uns
             </p>
-            <h2 className="mb-6 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+            <h2 className="mb-6 text-foreground">
               Hasan Tatli
             </h2>
             <p className="mb-4 leading-relaxed text-muted-foreground">
