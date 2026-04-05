@@ -30,7 +30,7 @@ const Hero = () => {
           transition={{ duration: 0.7, ease: "easeOut" }}
           className="max-w-3xl"
         >
-          <h1 className="mb-6 font-heading text-primary-foreground">
+          <h1 className="mb-6 font-heading text-foreground">
             Ihr zuverlässiger Partner für{" "}
             <span className="text-gradient-gold">Bau & Sanierung</span> in NRW
           </h1>
