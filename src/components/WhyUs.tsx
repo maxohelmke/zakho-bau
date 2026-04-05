@@ -11,7 +11,7 @@ const points = [
 
 const WhyUs = () => {
   return (
-    <section className="bg-background py-24">
+    <section className="bg-background py-32">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <motion.div
