@@ -1,5 +1,5 @@
-import { Home } from "lucide-react";
 import { Link } from "react-router-dom";
+import logo from "@/assets/logo.png";
 
 const Footer = () => {
   return (
@@ -8,11 +8,8 @@ const Footer = () => {
         <div className="grid gap-10 md:grid-cols-4">
           {/* Brand */}
           <div className="md:col-span-2">
-            <div className="mb-4 flex items-center gap-2">
-              <Home className="h-5 w-5 text-accent" />
-              <span className="text-lg font-bold text-primary-foreground">
-                TATLI <span className="text-accent">BAU</span>
-              </span>
+            <div className="mb-4">
+              <img src={logo} alt="TATLI BAU Logo" className="h-12 w-auto brightness-0 invert" />
             </div>
             <p className="mb-4 max-w-sm text-sm text-primary-foreground/60">
               Alles aus einer Hand – Ihr Spezialist für Bau & Sanierung in Solingen,
