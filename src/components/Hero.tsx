@@ -59,7 +59,7 @@ const Hero = () => {
           {trustItems.map((item) => (
             <div key={item} className="flex items-center gap-2">
               <CheckCircle className="h-5 w-5 text-accent" />
-              <span className="text-sm font-medium text-primary-foreground/80">
+              <span className="text-sm font-medium text-foreground/70">
                 {item}
               </span>
             </div>
