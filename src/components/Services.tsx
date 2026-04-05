@@ -85,7 +85,7 @@ const Services = () => {
               <div className="mb-4 inline-flex rounded-md bg-accent/10 p-3">
                 <s.icon className="h-6 w-6 text-accent" />
               </div>
-              <h3 className="mb-2 text-lg font-semibold text-foreground">{s.title}</h3>
+              <h3 className="mb-2 text-foreground">{s.title}</h3>
               <p className="text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
               <div className="mt-4 h-0.5 w-0 bg-accent transition-all duration-300 group-hover:w-full" />
             </motion.div>

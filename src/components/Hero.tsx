@@ -34,7 +34,7 @@ const Hero = () => {
             Ihr zuverlässiger Partner für{" "}
             <span className="text-gradient-gold">Bau & Sanierung</span> in NRW
           </h1>
-          <p className="mb-8 max-w-2xl text-lg leading-relaxed text-primary-foreground/70 md:text-xl">
+          <p className="mb-10 max-w-2xl text-lg leading-relaxed text-primary-foreground/60 font-body md:text-xl">
             Von der Renovierung bis zur Komplettsanierung – TATLI BAU liefert Qualität
             aus einer Hand. Für Privat- und Gewerbekunden im Raum Solingen, Wuppertal &
             Düsseldorf.
