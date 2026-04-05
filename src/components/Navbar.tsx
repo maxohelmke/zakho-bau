@@ -94,11 +94,11 @@ const Navbar = () => {
                 </a>
               )
             )}
-            <a href="/#kontakt" onClick={() => setMobileOpen(false)}>
+            <Link to="/anfragen" onClick={() => setMobileOpen(false)}>
               <Button variant="accent" className="w-full">
                 Kostenlos anfragen
               </Button>
-            </a>
+            </Link>
           </div>
         </div>
       )}
