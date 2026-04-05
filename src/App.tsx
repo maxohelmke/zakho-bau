@@ -24,6 +24,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Navbar />
+        <FloatingButtons />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/impressum" element={<Impressum />} />
