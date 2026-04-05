@@ -53,10 +53,19 @@ const WhyUs = () => {
             transition={{ duration: 0.6 }}
             className="relative flex items-center justify-center"
           >
-            <div className="relative h-80 w-full overflow-hidden rounded-xl bg-dark-lighter lg:h-96">
-              <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 p-8 text-center">
-                <span className="font-display text-6xl font-extrabold text-accent">10+</span>
-                <span className="text-xl font-semibold text-primary-foreground">
+            <div className="relative h-80 w-full overflow-hidden rounded-xl lg:h-96">
+              <img
+                src={firmenwagen}
+                alt="TATLI BAU Firmenwagen – täglich im Einsatz in NRW"
+                loading="lazy"
+                className="h-full w-full object-cover"
+                width={800}
+                height={600}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/30 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 flex flex-col items-center gap-1 p-6 text-center">
+                <span className="font-display text-5xl font-extrabold text-accent">10+</span>
+                <span className="text-lg font-semibold text-primary-foreground">
                   Jahre Erfahrung
                 </span>
                 <span className="text-sm text-primary-foreground/50">
