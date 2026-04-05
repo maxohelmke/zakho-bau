@@ -64,10 +64,10 @@ const Services = () => {
           transition={{ duration: 0.5 }}
           className="mb-16 text-center"
         >
-          <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-accent">
+          <p className="mb-3 text-xs font-medium uppercase tracking-[0.2em] text-accent">
             Unsere Leistungen
           </p>
-          <h2 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+          <h2 className="text-foreground">
             Was wir für Sie tun
           </h2>
         </motion.div>
