@@ -34,9 +34,8 @@ const Navbar = () => {
           <img
             src={logo}
             alt="TATLI BAU Logo"
-            className={`h-12 w-auto transition-all duration-300 ${
-              scrolled ? "" : "brightness-0 invert"
-            }`}
+            className="h-12 w-auto transition-all duration-300"
+          />
           />
         </a>
 
