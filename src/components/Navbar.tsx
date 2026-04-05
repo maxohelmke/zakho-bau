@@ -31,10 +31,7 @@ const Navbar = () => {
       <div className="container mx-auto flex items-center justify-between px-4 py-4 lg:px-8">
         {/* Logo */}
         <a href="#" className="flex items-center gap-2">
-          <Home className="h-6 w-6 text-accent" />
-          <span className="text-xl font-bold tracking-tight text-primary-foreground">
-            TATLI <span className="text-accent">BAU</span>
-          </span>
+          <img src={logo} alt="TATLI BAU Logo" className="h-10 w-auto brightness-0 invert" />
         </a>
 
         {/* Desktop Nav */}
