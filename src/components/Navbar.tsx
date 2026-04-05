@@ -54,11 +54,11 @@ const Navbar = () => {
               </a>
             )
           )}
-          <a href="/#kontakt">
+          <Link to="/anfragen">
             <Button variant="accent" size="sm">
               Kostenlos anfragen
             </Button>
-          </a>
+          </Link>
         </div>
 
         <button
