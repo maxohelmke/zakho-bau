@@ -21,7 +21,7 @@ const Hero = () => {
         height={1080}
       />
       {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-foreground/90 via-foreground/80 to-foreground/60" />
+      <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/85 to-background/70" />
 
       <div className="container relative z-10 mx-auto px-4 py-32 lg:px-8">
         <motion.div
@@ -30,11 +30,11 @@ const Hero = () => {
           transition={{ duration: 0.7, ease: "easeOut" }}
           className="max-w-3xl"
         >
-          <h1 className="mb-6 font-heading text-primary-foreground">
+          <h1 className="mb-6 font-heading text-foreground">
             Ihr zuverlässiger Partner für{" "}
             <span className="text-gradient-gold">Bau & Sanierung</span> in NRW
           </h1>
-          <p className="mb-10 max-w-2xl text-lg leading-relaxed text-primary-foreground/60 font-body md:text-xl">
+          <p className="mb-10 max-w-2xl text-lg leading-relaxed text-muted-foreground font-body md:text-xl">
             Von der Renovierung bis zur Komplettsanierung – TATLI BAU liefert Qualität
             aus einer Hand. Für Privat- und Gewerbekunden im Raum Solingen, Wuppertal &
             Düsseldorf.
@@ -59,7 +59,7 @@ const Hero = () => {
           {trustItems.map((item) => (
             <div key={item} className="flex items-center gap-2">
               <CheckCircle className="h-5 w-5 text-accent" />
-              <span className="text-sm font-medium text-primary-foreground/80">
+              <span className="text-sm font-medium text-foreground/70">
                 {item}
               </span>
             </div>

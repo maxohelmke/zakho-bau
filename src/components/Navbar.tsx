@@ -34,9 +34,7 @@ const Navbar = () => {
           <img
             src={logo}
             alt="TATLI BAU Logo"
-            className={`h-12 w-auto transition-all duration-300 ${
-              scrolled ? "" : "brightness-0 invert"
-            }`}
+            className="h-12 w-auto transition-all duration-300"
           />
         </a>
 
@@ -46,9 +44,7 @@ const Navbar = () => {
             <a
               key={link.href}
               href={link.href}
-              className={`text-sm font-medium transition-colors hover:text-accent ${
-                scrolled ? "text-foreground/70" : "text-primary-foreground/80"
-              }`}
+              className="text-sm font-medium text-foreground/70 transition-colors hover:text-accent"
             >
               {link.label}
             </a>
@@ -62,7 +58,7 @@ const Navbar = () => {
 
         {/* Mobile Toggle */}
         <button
-          className={`md:hidden ${scrolled ? "text-foreground" : "text-primary-foreground"}`}
+          className="text-foreground md:hidden"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Menü"
         >
