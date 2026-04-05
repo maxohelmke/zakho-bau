@@ -36,7 +36,6 @@ const Navbar = () => {
             alt="TATLI BAU Logo"
             className="h-12 w-auto transition-all duration-300"
           />
-          />
         </a>
 
         {/* Desktop Nav */}
