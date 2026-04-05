@@ -1,20 +1,8 @@
 import { Link } from "react-router-dom";
-import { Home } from "lucide-react";
 
 const Impressum = () => {
   return (
-    <div className="min-h-screen bg-background">
-      <nav className="bg-dark-section py-4">
-        <div className="container mx-auto flex items-center gap-2 px-4">
-          <Link to="/" className="flex items-center gap-2">
-            <Home className="h-5 w-5 text-accent" />
-            <span className="text-lg font-bold text-primary-foreground">
-              TATLI <span className="text-accent">BAU</span>
-            </span>
-          </Link>
-        </div>
-      </nav>
-
+    <div className="min-h-screen bg-background pt-20">
       <div className="container mx-auto max-w-3xl px-4 py-16">
         <h1 className="mb-8 text-3xl font-bold text-foreground">Impressum</h1>
 
