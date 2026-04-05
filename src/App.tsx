@@ -8,6 +8,7 @@ import Index from "./pages/Index.tsx";
 import Impressum from "./pages/Impressum.tsx";
 import Leistungen from "./pages/Leistungen.tsx";
 import Projekte from "./pages/Projekte.tsx";
+import UeberUns from "./pages/UeberUns.tsx";
 import Datenschutz from "./pages/Datenschutz.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
