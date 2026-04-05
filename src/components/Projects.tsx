@@ -1,19 +1,20 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import project1 from "@/assets/project-1.jpg";
-import project2 from "@/assets/project-2.jpg";
-import project3 from "@/assets/project-3.jpg";
-import project4 from "@/assets/project-4.jpg";
-import project5 from "@/assets/project-5.jpg";
-import project6 from "@/assets/project-6.jpg";
+import { Link } from "react-router-dom";
+import refRaum from "@/assets/ref-raumsanierung.png";
+import refBad from "@/assets/ref-badsanierung.png";
+import refFlur from "@/assets/ref-flur-beleuchtung.png";
+import refTrockenbau from "@/assets/ref-raum-trockenbau.png";
+import refBadModern from "@/assets/ref-bad-modern.png";
+import firmenwagen from "@/assets/firmenwagen.png";
 
 const projects = [
-  { src: project1, title: "Badsanierung", location: "Solingen", tall: true },
-  { src: project2, title: "Wohnungsrenovierung", location: "Düsseldorf", tall: false },
-  { src: project3, title: "Küchenumbau", location: "Wuppertal", tall: false },
-  { src: project4, title: "Fassadensanierung", location: "Solingen", tall: true },
-  { src: project5, title: "Trockenbau & Decken", location: "Düsseldorf", tall: false },
-  { src: project6, title: "Gewerberenovierung", location: "Wuppertal", tall: false },
+  { src: refBad, title: "Badsanierung", location: "Solingen", tall: true },
+  { src: refRaum, title: "Raumsanierung", location: "Wuppertal", tall: false },
+  { src: refFlur, title: "Flur & Beleuchtung", location: "Düsseldorf", tall: false },
+  { src: refBadModern, title: "Modernes Bad", location: "Solingen", tall: true },
+  { src: refTrockenbau, title: "Trockenbau & Decken", location: "Wuppertal", tall: false },
+  { src: firmenwagen, title: "Unterwegs für Sie", location: "NRW", tall: false },
 ];
 
 const Projects = () => {
@@ -49,7 +50,7 @@ const Projects = () => {
             >
               <img
                 src={p.src}
-                alt={`${p.title} Bau Solingen`}
+                alt={`${p.title} – TATLI BAU ${p.location}`}
                 loading="lazy"
                 className={`w-full object-cover transition-transform duration-500 group-hover:scale-105 ${
                   p.tall ? "h-full min-h-[400px]" : "h-64"
@@ -76,9 +77,9 @@ const Projects = () => {
           <p className="mb-4 text-lg text-muted-foreground">
             Ihre Immobilie könnte das nächste sein.
           </p>
-          <a href="#kontakt">
-            <Button variant="accent">Jetzt Projekt besprechen</Button>
-          </a>
+          <Link to="/projekte">
+            <Button variant="accent">Alle Projekte ansehen</Button>
+          </Link>
         </motion.div>
       </div>
     </section>
