@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import Footer from "@/components/Footer";
 import ownerImg from "@/assets/owner-portrait.jpg";
 import firmenwagen from "@/assets/firmenwagen.png";
+import heroImg from "@/assets/hero-ueber-uns.jpg";
 import { usePageSeo } from "@/hooks/use-page-seo";
 
 const stats = [
