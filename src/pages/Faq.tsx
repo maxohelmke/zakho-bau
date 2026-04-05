@@ -98,8 +98,18 @@ const Faq = () => {
 
   return (
     <div className="min-h-screen min-w-0 max-w-full overflow-x-hidden bg-background">
-      <section className="bg-dark-section py-24 pt-32">
-        <div className="container mx-auto px-4 lg:px-8">
+      <section className="relative flex min-h-[min(50vh,440px)] flex-col justify-end overflow-hidden pt-28 pb-10 md:pb-14">
+        <img
+          src={heroImg}
+          alt="Beratungsgespräch – TATLI BAU FAQ"
+          className="absolute inset-0 h-full w-full object-cover"
+          width={1920}
+          height={800}
+          loading="eager"
+          decoding="async"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-foreground/[0.95] via-foreground/65 to-foreground/40" aria-hidden />
+        <div className="container relative z-10 mx-auto px-4 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -109,8 +119,8 @@ const Faq = () => {
             <p className="mb-3 text-xs font-medium uppercase tracking-[0.2em] text-accent">
               Hilfe & Orientierung
             </p>
-            <h1 className="mb-6 text-primary-foreground">Häufig gestellte Fragen</h1>
-            <p className="text-lg leading-relaxed text-primary-foreground/60">
+            <h1 className="mb-4 text-primary-foreground">Häufig gestellte Fragen</h1>
+            <p className="text-lg leading-relaxed text-primary-foreground/70">
               Hier finden Sie Antworten zum Ablauf, zu Leistungen und zu unserem Service in
               Wuppertal und im Bergischen Land. Fehlt etwas? Wir helfen Ihnen gerne persönlich.
             </p>
