@@ -22,7 +22,7 @@ const reviews = [
 
 const Testimonials = () => {
   return (
-    <section className="bg-secondary py-32">
+    <section className="bg-dark-section py-32">
       <div className="container mx-auto px-4 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -34,7 +34,7 @@ const Testimonials = () => {
           <p className="mb-3 text-xs font-medium uppercase tracking-[0.2em] text-accent">
             Kundenstimmen
           </p>
-          <h2 className="text-foreground">
+          <h2 className="text-primary-foreground">
             Was unsere Kunden sagen
           </h2>
         </motion.div>
@@ -47,19 +47,19 @@ const Testimonials = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.1 }}
-              className="rounded-lg border border-border bg-background p-6 shadow-sm"
+              className="rounded-lg border border-primary-foreground/10 bg-dark-lighter p-6"
             >
               <div className="mb-4 flex gap-1">
                 {Array.from({ length: 5 }).map((_, j) => (
                   <Star key={j} className="h-4 w-4 fill-accent text-accent" />
                 ))}
               </div>
-              <p className="mb-6 text-sm leading-relaxed text-muted-foreground">
+              <p className="mb-6 text-sm leading-relaxed text-primary-foreground/60">
                 „{r.text}"
               </p>
               <div>
-                <p className="font-semibold text-foreground">{r.name}</p>
-                <p className="text-xs text-muted-foreground">{r.location}</p>
+                <p className="font-semibold text-primary-foreground">{r.name}</p>
+                <p className="text-xs text-primary-foreground/40">{r.location}</p>
               </div>
             </motion.div>
           ))}
