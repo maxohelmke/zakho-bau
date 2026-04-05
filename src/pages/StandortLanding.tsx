@@ -155,7 +155,7 @@ const StandortContent = ({ standort }: { standort: StandortData }) => {
           decoding="async"
         />
         <div
-          className="absolute inset-0 bg-gradient-to-t from-foreground/[0.97] via-foreground/60 to-foreground/35"
+          className="absolute inset-0 bg-gradient-to-t from-foreground/[0.97] via-foreground/70 to-foreground/45"
           aria-hidden
         />
         <div className="container relative z-10 mx-auto min-w-0 max-w-full px-4 lg:px-8">
