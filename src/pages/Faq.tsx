@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/accordion";
 import Footer from "@/components/Footer";
 import { usePageSeo } from "@/hooks/use-page-seo";
+import heroImg from "@/assets/hero-faq.jpg";
 
 const faqItems: { q: string; a: string }[] = [
   {
