@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import Footer from "@/components/Footer";
 import ownerImg from "@/assets/owner-portrait.jpg";
 import firmenwagen from "@/assets/firmenwagen.png";
+import heroImg from "@/assets/hero-ueber-uns.jpg";
 import { usePageSeo } from "@/hooks/use-page-seo";
 
 const stats = [
@@ -74,9 +75,19 @@ const UeberUns = () => {
 
   return (
     <div className="min-h-screen min-w-0 max-w-full overflow-x-hidden bg-background">
-      {/* Page Header */}
-      <section className="bg-dark-section py-24 pt-32">
-        <div className="container mx-auto px-4 lg:px-8">
+      {/* Hero with Image */}
+      <section className="relative flex min-h-[min(50vh,440px)] flex-col justify-end overflow-hidden pt-28 pb-10 md:pb-14">
+        <img
+          src={heroImg}
+          alt="TATLI BAU Team bei der Arbeit"
+          className="absolute inset-0 h-full w-full object-cover"
+          width={1920}
+          height={800}
+          loading="eager"
+          decoding="async"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-foreground/[0.95] via-foreground/65 to-foreground/40" aria-hidden />
+        <div className="container relative z-10 mx-auto px-4 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -86,10 +97,10 @@ const UeberUns = () => {
             <p className="mb-3 text-xs font-medium uppercase tracking-[0.2em] text-accent">
               Über uns
             </p>
-            <h1 className="mb-6 text-primary-foreground">
+            <h1 className="mb-4 text-primary-foreground">
               Wer wir sind
             </h1>
-            <p className="text-lg leading-relaxed text-primary-foreground/60">
+            <p className="text-lg leading-relaxed text-primary-foreground/70">
               TATLI BAU ist Ihr persönlicher Partner für Bau und Sanierung in Wuppertal
               und im gesamten Bergischen Land.
             </p>
