@@ -21,7 +21,7 @@ const Hero = () => {
         height={1080}
       />
       {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-foreground/90 via-foreground/80 to-foreground/60" />
+      <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/85 to-background/70" />
 
       <div className="container relative z-10 mx-auto px-4 py-32 lg:px-8">
         <motion.div
