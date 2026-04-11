@@ -86,8 +86,9 @@ const UeberUns = () => {
           loading="eager"
           decoding="async"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-foreground/[0.95] via-foreground/65 to-foreground/40" aria-hidden />
-        <div className="container relative z-10 mx-auto px-4 lg:px-8">
+        <div className="absolute inset-0 bg-black/70" aria-hidden />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/92 via-black/78 to-black/62" aria-hidden />
+        <div className="container relative z-10 mx-auto container-pad">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -100,7 +101,7 @@ const UeberUns = () => {
             <h1 className="mb-4 text-primary-foreground">
               Wer wir sind
             </h1>
-            <p className="text-lg leading-relaxed text-primary-foreground/70">
+            <p className="text-lg leading-relaxed text-primary-foreground/80">
               TATLI BAU ist Ihr persönlicher Partner für Bau und Sanierung in Wuppertal
               und im gesamten Bergischen Land.
             </p>
@@ -109,8 +110,8 @@ const UeberUns = () => {
       </section>
 
       {/* Owner Section */}
-      <section className="py-32">
-        <div className="container mx-auto px-4 lg:px-8">
+      <section className="section-pad">
+        <div className="container mx-auto container-pad">
           <div className="grid items-center gap-16 lg:grid-cols-2">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -124,7 +125,7 @@ const UeberUns = () => {
                   src={ownerImg}
                   alt="Hasan Tatli – Inhaber TATLI BAU in Wuppertal"
                   loading="lazy"
-                  className="h-96 w-96 rounded-2xl object-cover shadow-xl"
+                  className="h-72 w-72 rounded-2xl object-cover shadow-xl sm:h-80 sm:w-80 lg:h-96 lg:w-96"
                   width={512}
                   height={512}
                 />
@@ -164,8 +165,8 @@ const UeberUns = () => {
       </section>
 
       {/* Stats */}
-      <section className="border-y border-border bg-secondary py-20">
-        <div className="container mx-auto px-4 lg:px-8">
+      <section className="border-y border-border bg-secondary section-pad-sm">
+        <div className="container mx-auto container-pad">
           <div className="grid grid-cols-2 gap-8 lg:grid-cols-4">
             {stats.map((s, i) => (
               <motion.div
@@ -185,8 +186,8 @@ const UeberUns = () => {
       </section>
 
       {/* Firmenwagen */}
-      <section className="py-20">
-        <div className="container mx-auto px-4 lg:px-8">
+      <section className="section-pad-sm">
+        <div className="container mx-auto container-pad">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -208,8 +209,8 @@ const UeberUns = () => {
       </section>
 
       {/* Values */}
-      <section className="py-32">
-        <div className="container mx-auto px-4 lg:px-8">
+      <section className="section-pad">
+        <div className="container mx-auto container-pad">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -245,8 +246,8 @@ const UeberUns = () => {
       </section>
 
       {/* Service Area */}
-      <section className="bg-dark-section py-24">
-        <div className="container mx-auto px-4 lg:px-8">
+      <section className="bg-dark-section section-pad-sm">
+        <div className="container mx-auto container-pad">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -258,7 +259,7 @@ const UeberUns = () => {
               <Briefcase className="h-6 w-6 text-accent" />
             </div>
             <h2 className="mb-4 text-primary-foreground">Unser Einsatzgebiet</h2>
-            <p className="mx-auto mb-8 max-w-2xl text-lg text-primary-foreground/60">
+            <p className="mx-auto mb-8 max-w-2xl text-lg text-primary-foreground/80">
               Unser Schwerpunkt liegt auf Wuppertal und dem gesamten Bergischen Land.
               Sprechen Sie uns gerne auch für angrenzende Regionen an.
             </p>

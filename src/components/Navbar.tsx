@@ -17,17 +17,17 @@ const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 w-full max-w-full overflow-x-hidden border-b border-border bg-background">
-      <div className="container mx-auto flex min-w-0 items-center justify-between gap-3 px-4 py-2.5 lg:px-8">
+    <nav className="fixed top-0 left-0 right-0 z-50 w-full max-w-full overflow-x-hidden border-b border-border bg-white">
+      <div className="container mx-auto container-pad flex min-w-0 items-center justify-between gap-3 py-2.5 sm:py-3">
         <Link to="/" className="flex min-w-0 shrink items-center">
           <img
             src={logo}
             alt="TATLI BAU Logo"
-            className="h-[4.25rem] max-h-20 w-auto max-w-full object-contain sm:h-[4.5rem] md:h-20"
+            className="h-14 w-auto max-w-full object-contain sm:h-16 lg:h-[4.5rem]"
           />
         </Link>
 
-        <div className="hidden items-center gap-8 md:flex">
+        <div className="hidden items-center gap-7 lg:flex xl:gap-8">
           {navLinks.map((link) =>
             link.href.startsWith("/") && !link.href.includes("#") ? (
               <Link
@@ -55,7 +55,7 @@ const Navbar = () => {
         </div>
 
         <button
-          className="text-foreground md:hidden"
+          className="text-foreground lg:hidden"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Menü"
         >
@@ -64,8 +64,9 @@ const Navbar = () => {
       </div>
 
       {mobileOpen && (
-        <div className="border-t border-border bg-background md:hidden">
-          <div className="flex flex-col gap-4 px-6 py-6">
+        <div className="border-t border-border bg-background lg:hidden">
+          <div className="max-h-[70vh] overflow-y-auto px-6 py-6">
+            <div className="flex flex-col gap-4">
             {navLinks.map((link) =>
               link.href.startsWith("/") && !link.href.includes("#") ? (
                 <Link
@@ -92,6 +93,7 @@ const Navbar = () => {
                 Kostenlos anfragen
               </Button>
             </Link>
+            </div>
           </div>
         </div>
       )}

@@ -92,8 +92,8 @@ const Kontakt = () => {
   return (
     <div className="min-h-screen min-w-0 max-w-full overflow-x-hidden bg-background">
       {/* Header */}
-      <section className="bg-dark-section py-24 pt-32">
-        <div className="container mx-auto px-4 lg:px-8">
+      <section className="bg-dark-section section-pad-sm pt-32">
+        <div className="container mx-auto container-pad">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -102,7 +102,7 @@ const Kontakt = () => {
           >
             <p className="mb-3 text-xs font-medium uppercase tracking-[0.2em] text-accent">Kontakt</p>
             <h1 className="mb-6 text-primary-foreground">Sprechen Sie mit uns</h1>
-            <p className="text-lg leading-relaxed text-primary-foreground/60">
+            <p className="text-lg leading-relaxed text-primary-foreground/80">
               Haben Sie Fragen oder möchten ein Projekt besprechen? Wir sind für Sie da –
               telefonisch, per E-Mail oder über unser Kontaktformular.
             </p>
@@ -111,8 +111,8 @@ const Kontakt = () => {
       </section>
 
       {/* Contact Cards */}
-      <section className="py-20">
-        <div className="container mx-auto px-4 lg:px-8">
+      <section className="section-pad-sm">
+        <div className="container mx-auto container-pad">
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {[
               { icon: Phone, label: "Telefon", value: "01525 4090013", href: "tel:+4915254090013" },
@@ -153,8 +153,8 @@ const Kontakt = () => {
       </section>
 
       {/* Form + Map */}
-      <section className="border-t border-border bg-secondary py-24">
-        <div className="container mx-auto px-4 lg:px-8">
+      <section className="border-t border-border bg-secondary section-pad-sm">
+        <div className="container mx-auto container-pad">
           <div className="grid gap-12 lg:grid-cols-2">
             <motion.form
               initial={{ opacity: 0, x: -20 }}
@@ -162,7 +162,7 @@ const Kontakt = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
               onSubmit={handleSubmit}
-              className="space-y-5 rounded-xl border border-border bg-card p-8 shadow-sm"
+              className="space-y-5 rounded-xl border border-border bg-card p-6 shadow-sm sm:p-8"
             >
               <div className="mb-2 flex items-center gap-2">
                 <MessageSquare className="h-5 w-5 text-accent" />

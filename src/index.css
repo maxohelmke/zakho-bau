@@ -102,6 +102,18 @@
 }
 
 @layer utilities {
+  .container-pad {
+    @apply px-4 sm:px-6 lg:px-8 xl:px-10;
+  }
+
+  .section-pad {
+    @apply py-16 sm:py-20 lg:py-28 xl:py-32;
+  }
+
+  .section-pad-sm {
+    @apply py-12 sm:py-14 lg:py-20;
+  }
+
   .text-gradient-gold {
     @apply text-accent;
   }

@@ -108,8 +108,9 @@ const Faq = () => {
           loading="eager"
           decoding="async"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-foreground/[0.95] via-foreground/65 to-foreground/40" aria-hidden />
-        <div className="container relative z-10 mx-auto px-4 lg:px-8">
+        <div className="absolute inset-0 bg-black/70" aria-hidden />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/92 via-black/78 to-black/62" aria-hidden />
+        <div className="container relative z-10 mx-auto container-pad">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -120,7 +121,7 @@ const Faq = () => {
               Hilfe & Orientierung
             </p>
             <h1 className="mb-4 text-primary-foreground">Häufig gestellte Fragen</h1>
-            <p className="text-lg leading-relaxed text-primary-foreground/70">
+            <p className="text-lg leading-relaxed text-primary-foreground/80">
               Hier finden Sie Antworten zum Ablauf, zu Leistungen und zu unserem Service in
               Wuppertal und im Bergischen Land. Fehlt etwas? Wir helfen Ihnen gerne persönlich.
             </p>
@@ -128,8 +129,8 @@ const Faq = () => {
         </div>
       </section>
 
-      <section className="py-16 lg:py-24">
-        <div className="container mx-auto max-w-3xl px-4 lg:px-8">
+      <section className="section-pad-sm lg:py-24">
+        <div className="container mx-auto max-w-3xl container-pad">
           <Accordion type="single" collapsible className="w-full">
             {faqItems.map((item, i) => (
               <AccordionItem key={item.q} value={`item-${i}`}>

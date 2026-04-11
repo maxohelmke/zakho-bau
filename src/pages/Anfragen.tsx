@@ -86,8 +86,8 @@ const Anfragen = () => {
   return (
     <div className="min-h-screen min-w-0 max-w-full overflow-x-hidden bg-background">
       {/* Header */}
-      <section className="bg-dark-section py-24 pt-32">
-        <div className="container mx-auto px-4 lg:px-8">
+      <section className="bg-dark-section section-pad-sm pt-32">
+        <div className="container mx-auto container-pad">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -96,7 +96,7 @@ const Anfragen = () => {
           >
             <p className="mb-3 text-xs font-medium uppercase tracking-[0.2em] text-accent">Kostenlose Beratung</p>
             <h1 className="mb-6 text-primary-foreground">Kostenlos anfragen</h1>
-            <p className="text-lg leading-relaxed text-primary-foreground/60">
+            <p className="text-lg leading-relaxed text-primary-foreground/80">
               Beschreiben Sie Ihr Projekt – wir erstellen Ihnen ein unverbindliches Angebot.
               Kostenlos und innerhalb von 24 Stunden.
             </p>
@@ -106,7 +106,7 @@ const Anfragen = () => {
 
       {/* Benefits */}
       <section className="border-b border-border py-12">
-        <div className="container mx-auto px-4 lg:px-8">
+        <div className="container mx-auto container-pad">
           <div className="flex flex-wrap items-center justify-center gap-8">
             {["100% kostenlos & unverbindlich", "Antwort innerhalb 24h", "Persönliche Beratung vom Chef"].map((b) => (
               <div key={b} className="flex items-center gap-2 text-sm text-muted-foreground">
@@ -119,14 +119,14 @@ const Anfragen = () => {
       </section>
 
       {/* Form */}
-      <section className="py-24">
-        <div className="container mx-auto max-w-2xl px-4 lg:px-8">
+      <section className="section-pad-sm">
+        <div className="container mx-auto max-w-2xl container-pad">
           <motion.form
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             onSubmit={handleSubmit}
-            className="space-y-6 rounded-xl border border-border bg-card p-8 shadow-sm lg:p-10"
+            className="space-y-6 rounded-xl border border-border bg-card p-6 shadow-sm sm:p-8 lg:p-10"
           >
             <h2 className="text-lg font-semibold text-foreground">Ihre Projektdaten</h2>
 

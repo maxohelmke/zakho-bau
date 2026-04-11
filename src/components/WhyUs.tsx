@@ -12,8 +12,8 @@ const points = [
 
 const WhyUs = () => {
   return (
-    <section className="bg-dark-section py-32">
-      <div className="container mx-auto px-4 lg:px-8">
+    <section className="bg-dark-section section-pad">
+      <div className="container mx-auto container-pad">
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -53,7 +53,7 @@ const WhyUs = () => {
             transition={{ duration: 0.6 }}
             className="relative flex flex-col items-center justify-center"
           >
-            <div className="relative h-80 w-full overflow-hidden rounded-xl border border-border/40 lg:h-96">
+            <div className="relative h-64 w-full overflow-hidden rounded-xl border border-border/40 sm:h-72 lg:h-96">
               <img
                 src={firmenwagen}
                 alt="TATLI BAU Firmenwagen – täglich im Einsatz in Wuppertal und im Bergischen Land"

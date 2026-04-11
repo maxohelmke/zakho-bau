@@ -154,11 +154,12 @@ const StandortContent = ({ standort }: { standort: StandortData }) => {
           loading="eager"
           decoding="async"
         />
+        <div className="absolute inset-0 bg-black/70" aria-hidden />
         <div
-          className="absolute inset-0 bg-gradient-to-t from-foreground/[0.97] via-foreground/70 to-foreground/45"
+          className="absolute inset-0 bg-gradient-to-t from-black/92 via-black/78 to-black/62"
           aria-hidden
         />
-        <div className="container relative z-10 mx-auto min-w-0 max-w-full px-4 lg:px-8">
+        <div className="container relative z-10 mx-auto min-w-0 max-w-full container-pad">
           <nav className="mb-5 flex min-w-0 flex-wrap items-center gap-x-2 gap-y-1 text-xs text-primary-foreground/70 md:text-sm">
             <Link to="/" className="transition-colors hover:text-accent">
               Startseite
@@ -220,8 +221,8 @@ const StandortContent = ({ standort }: { standort: StandortData }) => {
       </section>
 
       {/* Intro + Kennzahlen – voller Kontext unterhalb des Hero */}
-      <section className="border-b border-border bg-secondary py-12 lg:py-16">
-        <div className="container mx-auto min-w-0 max-w-full px-4 lg:px-8">
+      <section className="border-b border-border bg-secondary section-pad-sm">
+        <div className="container mx-auto min-w-0 max-w-full container-pad">
           <div className="grid gap-10 lg:grid-cols-12 lg:gap-12">
             <div className="lg:col-span-7">
               <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-accent/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent">
@@ -269,8 +270,8 @@ const StandortContent = ({ standort }: { standort: StandortData }) => {
       </section>
 
       {/* Ablauf – visuell */}
-      <section className="border-b border-border py-10 lg:py-12">
-        <div className="container mx-auto min-w-0 max-w-full px-4 lg:px-8">
+      <section className="border-b border-border py-10 sm:py-12">
+        <div className="container mx-auto min-w-0 max-w-full container-pad">
           <h2 className="text-center text-lg font-semibold text-foreground md:text-xl">
             So läuft Ihr Projekt ab
           </h2>
@@ -293,8 +294,8 @@ const StandortContent = ({ standort }: { standort: StandortData }) => {
       </section>
 
       {/* Highlights – mit Icons */}
-      <section className="border-b border-border bg-secondary py-12 lg:py-16">
-        <div className="container mx-auto min-w-0 max-w-full px-4 lg:px-8">
+      <section className="border-b border-border bg-secondary section-pad-sm">
+        <div className="container mx-auto min-w-0 max-w-full container-pad">
           <div className="mb-8 max-w-2xl">
             <h2 className="text-2xl font-semibold text-foreground md:text-3xl">
               {standort.highlightsSectionTitle}
@@ -321,8 +322,8 @@ const StandortContent = ({ standort }: { standort: StandortData }) => {
       </section>
 
       {/* Kurzinfos – Icons */}
-      <section className="border-b border-border py-12 lg:py-14">
-        <div className="container mx-auto min-w-0 max-w-full px-4 lg:px-8">
+      <section className="border-b border-border section-pad-sm">
+        <div className="container mx-auto min-w-0 max-w-full container-pad">
           <h2 className="mb-2 text-xl font-semibold text-foreground md:text-2xl">
             Kurz & relevant für {standort.name}
           </h2>
@@ -352,8 +353,8 @@ const StandortContent = ({ standort }: { standort: StandortData }) => {
       </section>
 
       {/* Leistungsschwerpunkte – Grid mit Icons */}
-      <section className="py-12 lg:py-16">
-        <div className="container mx-auto min-w-0 max-w-full px-4 lg:px-8">
+      <section className="section-pad-sm">
+        <div className="container mx-auto min-w-0 max-w-full container-pad">
           <div className="mb-8 max-w-2xl">
             <h2 className="text-2xl font-semibold text-foreground md:text-3xl">{standort.serviceFocus.title}</h2>
             <p className="mt-3 leading-relaxed text-muted-foreground">{standort.serviceFocus.intro}</p>
@@ -378,8 +379,8 @@ const StandortContent = ({ standort }: { standort: StandortData }) => {
       </section>
 
       {/* Inhalt – Karten mit Icon-Header */}
-      <section className="border-t border-border bg-secondary/50 py-12 lg:py-20">
-        <div className="container mx-auto min-w-0 max-w-full px-4 lg:px-8">
+      <section className="border-t border-border bg-secondary/50 section-pad-sm lg:py-20">
+        <div className="container mx-auto min-w-0 max-w-full container-pad">
           <div className="mx-auto grid max-w-4xl gap-6 lg:gap-8">
             {standort.sections.map((sec, i) => {
               const Si = SECTION_ICONS[i % SECTION_ICONS.length];
@@ -411,8 +412,8 @@ const StandortContent = ({ standort }: { standort: StandortData }) => {
       </section>
 
       {/* FAQ */}
-      <section className="border-t border-border py-12 lg:py-16">
-        <div className="container mx-auto min-w-0 max-w-full px-4 lg:px-8">
+      <section className="border-t border-border section-pad-sm">
+        <div className="container mx-auto min-w-0 max-w-full container-pad">
           <div className="mx-auto max-w-3xl">
             <div className="mb-6 flex items-center gap-3">
               <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-accent/10">
@@ -448,8 +449,8 @@ const StandortContent = ({ standort }: { standort: StandortData }) => {
       </section>
 
       {/* Weitere Standorte */}
-      <section className="border-t border-border bg-secondary py-12 lg:py-16">
-        <div className="container mx-auto min-w-0 max-w-full px-4 lg:px-8">
+      <section className="border-t border-border bg-secondary section-pad-sm">
+        <div className="container mx-auto min-w-0 max-w-full container-pad">
           <div className="mb-8 flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
             <div>
               <h2 className="text-xl font-semibold text-foreground md:text-2xl">Weitere Einsatzgebiete</h2>
@@ -493,8 +494,8 @@ const StandortContent = ({ standort }: { standort: StandortData }) => {
       </section>
 
       {/* CTA */}
-      <section className="py-12 lg:py-16">
-        <div className="container mx-auto min-w-0 max-w-full px-4 lg:px-8">
+      <section className="section-pad-sm">
+        <div className="container mx-auto min-w-0 max-w-full container-pad">
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}

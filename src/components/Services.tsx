@@ -168,14 +168,14 @@ const ServicesMobileCarousel = () => {
 
 const Services = () => {
   return (
-    <section id="leistungen" className="bg-secondary py-32">
-      <div className="container mx-auto px-4 lg:px-8">
+    <section id="leistungen" className="bg-secondary section-pad">
+      <div className="container mx-auto container-pad">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mb-16 text-center"
+          className="mb-10 text-center sm:mb-12 lg:mb-16"
         >
           <p className="mb-3 text-xs font-medium uppercase tracking-[0.2em] text-accent">
             Unsere Leistungen

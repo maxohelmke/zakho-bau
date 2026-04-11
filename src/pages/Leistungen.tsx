@@ -129,8 +129,9 @@ const Leistungen = () => {
           loading="eager"
           decoding="async"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-foreground/[0.95] via-foreground/65 to-foreground/40" aria-hidden />
-        <div className="container relative z-10 mx-auto px-4 lg:px-8">
+        <div className="absolute inset-0 bg-black/70" aria-hidden />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/92 via-black/78 to-black/62" aria-hidden />
+        <div className="container relative z-10 mx-auto container-pad">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -143,7 +144,7 @@ const Leistungen = () => {
             <h1 className="mb-4 text-primary-foreground">
               Was wir für Sie tun
             </h1>
-            <p className="text-lg leading-relaxed text-primary-foreground/70">
+            <p className="text-lg leading-relaxed text-primary-foreground/80">
               Von der kleinen Renovierung bis zur schlüsselfertigen Komplettsanierung –
               TATLI BAU bietet Ihnen alle Bauleistungen aus einer Hand.
             </p>
@@ -152,8 +153,8 @@ const Leistungen = () => {
       </section>
 
       {/* Services Detail */}
-      <section className="py-32">
-        <div className="container mx-auto px-4 lg:px-8">
+      <section className="section-pad">
+        <div className="container mx-auto container-pad">
           <div className="space-y-24">
             {services.map((s, i) => (
               <motion.div
@@ -205,8 +206,8 @@ const Leistungen = () => {
       </section>
 
       {/* CTA */}
-      <section className="bg-dark-section py-24">
-        <div className="container mx-auto px-4 text-center lg:px-8">
+      <section className="bg-dark-section section-pad-sm">
+        <div className="container mx-auto container-pad text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -216,7 +217,7 @@ const Leistungen = () => {
             <h2 className="mb-4 text-primary-foreground">
               Ihr Projekt beginnt hier
             </h2>
-            <p className="mb-8 text-lg text-primary-foreground/60">
+            <p className="mb-8 text-lg text-primary-foreground/80">
               Kostenlose Beratung – wir melden uns innerhalb von 24 Stunden.
             </p>
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">

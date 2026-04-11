@@ -40,14 +40,14 @@ const Contact = () => {
   };
 
   return (
-    <section id="kontakt" className="bg-background py-32">
-      <div className="container mx-auto px-4 lg:px-8">
+    <section id="kontakt" className="bg-background section-pad">
+      <div className="container mx-auto container-pad">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mb-16 text-center"
+          className="mb-10 text-center sm:mb-12 lg:mb-16"
         >
           <p className="mb-3 text-xs font-medium uppercase tracking-[0.2em] text-accent">
             Kontakt
@@ -60,7 +60,7 @@ const Contact = () => {
           </p>
         </motion.div>
 
-        <div className="grid gap-12 lg:grid-cols-2">
+        <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
           {/* Contact Info */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -130,7 +130,7 @@ const Contact = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
             onSubmit={handleSubmit}
-            className="space-y-5 rounded-xl border border-border bg-card p-8 shadow-sm"
+            className="space-y-5 rounded-xl border border-border bg-card p-6 shadow-sm sm:p-8"
           >
             <div>
               <label className="mb-1 block text-sm font-medium text-foreground">

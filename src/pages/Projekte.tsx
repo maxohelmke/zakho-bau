@@ -136,8 +136,9 @@ const Projekte = () => {
           loading="eager"
           decoding="async"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-foreground/[0.95] via-foreground/65 to-foreground/40" aria-hidden />
-        <div className="container relative z-10 mx-auto px-4 lg:px-8">
+        <div className="absolute inset-0 bg-black/70" aria-hidden />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/92 via-black/78 to-black/62" aria-hidden />
+        <div className="container relative z-10 mx-auto container-pad">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -148,7 +149,7 @@ const Projekte = () => {
               Referenzen
             </p>
             <h1 className="mb-4 text-primary-foreground">Unsere Projekte</h1>
-            <p className="text-lg leading-relaxed text-primary-foreground/70">
+            <p className="text-lg leading-relaxed text-primary-foreground/80">
               Einblicke in abgeschlossene Bau- und Sanierungsprojekte in Wuppertal
               und im Bergischen Land.
             </p>
@@ -157,8 +158,8 @@ const Projekte = () => {
       </section>
 
       {/* Projects Grid */}
-      <section className="py-20 md:py-28">
-        <div className="container mx-auto px-4 lg:px-8">
+      <section className="section-pad-sm sm:py-20 lg:py-28">
+        <div className="container mx-auto container-pad">
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {projects.map((p, i) => (
               <motion.article
@@ -199,8 +200,8 @@ const Projekte = () => {
       </section>
 
       {/* CTA */}
-      <section className="bg-dark-section py-20">
-        <div className="container mx-auto px-4 text-center lg:px-8">
+      <section className="bg-dark-section section-pad-sm">
+        <div className="container mx-auto container-pad text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -210,7 +211,7 @@ const Projekte = () => {
             <h2 className="mb-4 text-primary-foreground">
               Ihr Projekt könnte das nächste sein
             </h2>
-            <p className="mb-8 text-lg text-primary-foreground/60">
+            <p className="mb-8 text-lg text-primary-foreground/80">
               Lassen Sie uns gemeinsam Ihr Vorhaben besprechen – kostenlos und unverbindlich.
             </p>
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">

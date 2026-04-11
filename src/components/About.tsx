@@ -3,8 +3,8 @@ import ownerImg from "@/assets/owner-portrait.jpg";
 
 const About = () => {
   return (
-    <section id="ueber-uns" className="bg-secondary py-32">
-      <div className="container mx-auto px-4 lg:px-8">
+    <section id="ueber-uns" className="bg-secondary section-pad">
+      <div className="container mx-auto container-pad">
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -18,7 +18,7 @@ const About = () => {
                 src={ownerImg}
                 alt="Hasan Tatli – Inhaber TATLI BAU Solingen"
                 loading="lazy"
-                className="h-80 w-80 rounded-2xl object-cover shadow-xl"
+                className="h-64 w-64 rounded-2xl object-cover shadow-xl sm:h-72 sm:w-72 lg:h-80 lg:w-80"
                 width={512}
                 height={512}
               />

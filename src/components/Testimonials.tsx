@@ -22,14 +22,14 @@ const reviews = [
 
 const Testimonials = () => {
   return (
-    <section className="bg-dark-section py-32">
-      <div className="container mx-auto px-4 lg:px-8">
+    <section className="bg-dark-section section-pad">
+      <div className="container mx-auto container-pad">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mb-16 text-center"
+          className="mb-10 text-center sm:mb-12 lg:mb-16"
         >
           <p className="mb-3 text-xs font-medium uppercase tracking-[0.2em] text-accent">
             Kundenstimmen
@@ -39,7 +39,7 @@ const Testimonials = () => {
           </h2>
         </motion.div>
 
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {reviews.map((r, i) => (
             <motion.div
               key={r.name}

@@ -11,7 +11,7 @@ const trustItems = [
 
 const Hero = () => {
   return (
-    <section className="relative flex min-h-screen items-center overflow-hidden pt-24 md:pt-28">
+    <section className="relative flex min-h-[min(100svh,940px)] items-center overflow-hidden pt-24 sm:pt-28 lg:pt-32">
       <img
         src={heroBg}
         alt="Bau und Sanierung in Wuppertal und im Bergischen Land"
@@ -19,25 +19,26 @@ const Hero = () => {
         width={1920}
         height={1080}
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-foreground/80 via-foreground/65 to-foreground/40" />
+      <div className="absolute inset-0 bg-black/70" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/92 via-black/78 to-black/62" />
 
-      <div className="container relative z-10 mx-auto min-w-0 max-w-full px-4 py-32 lg:px-8">
+      <div className="container relative z-10 mx-auto min-w-0 max-w-full container-pad py-16 sm:py-20 lg:py-24 xl:py-28">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
-          className="max-w-3xl min-w-0"
+          className="mx-auto max-w-3xl min-w-0 text-center"
         >
-          <h1 className="mb-6 font-heading text-primary-foreground">
+          <h1 className="mb-5 font-heading text-primary-foreground sm:mb-6">
             Ihr zuverlässiger Partner für{" "}
             <span className="text-accent">Bau & Sanierung</span> in Wuppertal
           </h1>
-          <p className="mb-10 max-w-2xl text-lg leading-relaxed text-primary-foreground/70 font-body md:text-xl">
+          <p className="mx-auto mb-8 max-w-2xl font-body text-base leading-relaxed text-primary-foreground/75 sm:mb-10 sm:text-lg md:text-xl">
             Von der Renovierung bis zur Komplettsanierung – TATLI BAU liefert Qualität
             aus einer Hand. Für Privat- und Gewerbekunden in Wuppertal und im gesamten
             Bergischen Land.
           </p>
-          <div className="flex w-full max-w-full flex-col gap-4 sm:flex-row sm:flex-wrap">
+          <div className="flex w-full max-w-full flex-col items-center gap-4 sm:flex-row sm:flex-wrap sm:justify-center">
             <a href="#kontakt" className="w-full min-w-0 sm:w-auto">
               <Button variant="hero" className="w-full sm:w-auto">
                 Jetzt Anfrage stellen
@@ -55,7 +56,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.4 }}
-          className="mt-16 flex flex-wrap gap-6 md:gap-10"
+          className="mt-10 flex flex-wrap items-center justify-center gap-4 sm:mt-12 sm:gap-6 md:gap-10"
         >
           {trustItems.map((item) => (
             <div key={item} className="flex items-center gap-2">

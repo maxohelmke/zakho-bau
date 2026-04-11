@@ -19,14 +19,14 @@ const projects = [
 
 const Projects = () => {
   return (
-    <section id="projekte" className="bg-background py-32">
-      <div className="container mx-auto px-4 lg:px-8">
+    <section id="projekte" className="bg-background section-pad">
+      <div className="container mx-auto container-pad">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mb-16 text-center"
+          className="mb-10 text-center sm:mb-12 lg:mb-16"
         >
           <p className="mb-3 text-xs font-medium uppercase tracking-[0.2em] text-accent">
             Referenzen
@@ -50,7 +50,7 @@ const Projects = () => {
                 src={p.src}
                 alt={`${p.title} – TATLI BAU ${p.location}`}
                 loading="lazy"
-                className="h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105 sm:h-80"
+                className="h-56 w-full object-cover transition-transform duration-500 group-hover:scale-105 sm:h-64 lg:h-72 xl:h-80"
                 width={800}
                 height={608}
               />

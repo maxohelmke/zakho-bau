@@ -4,9 +4,9 @@ import { STANDORTE } from "@/data/standorte";
 
 const Footer = () => {
   return (
-    <footer className="w-full max-w-full overflow-x-hidden border-t border-border bg-foreground py-16">
-      <div className="container mx-auto min-w-0 px-4 lg:px-8">
-        <div className="grid min-w-0 gap-10 md:grid-cols-2 lg:grid-cols-12 lg:gap-8">
+    <footer className="w-full max-w-full overflow-x-hidden border-t border-border bg-foreground py-12 sm:py-14 lg:py-16">
+      <div className="container mx-auto min-w-0 container-pad">
+        <div className="grid min-w-0 gap-8 sm:gap-10 md:grid-cols-2 lg:grid-cols-12 lg:gap-8">
           {/* Brand */}
           <div className="min-w-0 lg:col-span-4">
             <div className="mb-5 inline-flex max-w-full rounded-lg bg-white p-3 shadow-sm">
