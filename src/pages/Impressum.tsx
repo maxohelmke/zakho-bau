@@ -26,7 +26,8 @@ const Impressum = () => {
             <h2 className="mb-2 text-lg font-semibold text-foreground">Angaben gemäß § 5 TMG</h2>
             <p>TATLI BAU</p>
             <p>Hasan Tatli</p>
-            <p>Solingen, NRW, Deutschland</p>
+            <p>Görlitzer Straße 37</p>
+            <p>42277 Wuppertal</p>
           </div>
 
           <div>
@@ -43,7 +44,8 @@ const Impressum = () => {
           <div>
             <h2 className="mb-2 text-lg font-semibold text-foreground">Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>
             <p>Hasan Tatli</p>
-            <p>Solingen, NRW, Deutschland</p>
+            <p>Görlitzer Straße 37</p>
+            <p>42277 Wuppertal</p>
           </div>
 
           <div>

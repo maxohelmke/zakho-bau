@@ -104,7 +104,8 @@ const Datenschutz = () => {
             <p>Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:</p>
             <p className="mt-2">
               TATLI BAU – Hasan Tatli<br />
-              Solingen, NRW, Deutschland<br />
+              Görlitzer Straße 37<br />
+              42277 Wuppertal<br />
               Telefon: 01525 4090013<br />
               E-Mail: tatlican2@icloud.com
             </p>

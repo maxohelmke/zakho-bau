@@ -82,6 +82,9 @@ const Footer = () => {
               <a href="mailto:tatlican2@icloud.com" className="break-safe text-sm text-primary-foreground/60 hover:text-accent">
                 tatlican2@icloud.com
               </a>
+              <span className="break-safe text-sm text-primary-foreground/60">
+                Görlitzer Straße 37, 42277 Wuppertal
+              </span>
               <Link to="/impressum" className="break-safe text-sm text-primary-foreground/60 hover:text-accent">
                 Impressum
               </Link>

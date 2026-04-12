@@ -100,9 +100,9 @@ const Contact = () => {
                 <MapPin className="h-6 w-6 text-accent" />
               </div>
               <div className="min-w-0">
-                <p className="text-sm text-muted-foreground">Servicegebiet</p>
+                <p className="text-sm text-muted-foreground">Adresse</p>
                 <p className="break-safe text-lg font-semibold text-foreground">
-                  Wuppertal & Bergisches Land
+                  Görlitzer Straße 37, 42277 Wuppertal
                 </p>
               </div>
             </div>
@@ -111,7 +111,7 @@ const Contact = () => {
             <div className="max-w-full overflow-hidden rounded-lg">
               <iframe
                 title="TATLI BAU Standort Wuppertal"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d80384.08896498386!2d6.9696!3d51.1652!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b8d4e3e2b6e5b3%3A0x4249fc98b2b12af0!2sSolingen!5e0!3m2!1sde!2sde!4v1680000000000"
+                src="https://www.google.com/maps?q=G%C3%B6rlitzer%20Stra%C3%9Fe%2037%2C%2042277%20Wuppertal&output=embed"
                 className="h-[220px] w-full max-w-full"
                 width="100%"
                 height="220"

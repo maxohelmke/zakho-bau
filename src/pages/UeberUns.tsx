@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Phone, Award, Clock, Users, Shield, MapPin, Briefcase } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Footer from "@/components/Footer";
-import ownerImg from "@/assets/owner-portrait.jpg";
+import ownerImg from "@/assets/hasan-tatli.png";
 import firmenwagen from "@/assets/firmenwagen.png";
 import heroImg from "@/assets/hero-ueber-uns.jpg";
 import { usePageSeo } from "@/hooks/use-page-seo";
@@ -125,9 +125,9 @@ const UeberUns = () => {
                   src={ownerImg}
                   alt="Hasan Tatli – Inhaber TATLI BAU in Wuppertal"
                   loading="lazy"
-                  className="h-72 w-72 rounded-2xl object-cover shadow-xl sm:h-80 sm:w-80 lg:h-96 lg:w-96"
-                  width={512}
-                  height={512}
+                  className="h-80 w-60 rounded-2xl object-contain bg-card p-2 shadow-xl sm:h-[26rem] sm:w-72 lg:h-[30rem] lg:w-80"
+                  width={640}
+                  height={960}
                 />
                 <div className="absolute -bottom-4 -right-4 rounded-lg bg-accent px-5 py-2.5 text-sm font-bold text-accent-foreground shadow-lg">
                   Inhaber & Geschäftsführer

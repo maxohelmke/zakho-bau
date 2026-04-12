@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import ownerImg from "@/assets/owner-portrait.jpg";
+import ownerImg from "@/assets/hasan-tatli.png";
 
 const About = () => {
   return (
@@ -16,11 +16,11 @@ const About = () => {
             <div className="relative">
               <img
                 src={ownerImg}
-                alt="Hasan Tatli – Inhaber TATLI BAU Solingen"
+                alt="Hasan Tatli – Inhaber TATLI BAU Wuppertal"
                 loading="lazy"
-                className="h-64 w-64 rounded-2xl object-cover shadow-xl sm:h-72 sm:w-72 lg:h-80 lg:w-80"
+                className="h-72 w-56 rounded-2xl object-contain bg-card p-2 shadow-xl sm:h-80 sm:w-64 lg:h-96 lg:w-72"
                 width={512}
-                height={512}
+                height={768}
               />
               <div className="absolute -bottom-4 -right-4 rounded-lg bg-accent px-4 py-2 text-sm font-bold text-accent-foreground shadow-lg">
                 Inhaber

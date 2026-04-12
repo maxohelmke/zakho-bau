@@ -117,7 +117,7 @@ const Kontakt = () => {
             {[
               { icon: Phone, label: "Telefon", value: "01525 4090013", href: "tel:+4915254090013" },
               { icon: Mail, label: "E-Mail", value: "tatlican2@icloud.com", href: "mailto:tatlican2@icloud.com" },
-              { icon: MapPin, label: "Servicegebiet", value: "Wuppertal & Bergisches Land", href: undefined },
+              { icon: MapPin, label: "Adresse", value: "Görlitzer Straße 37, 42277 Wuppertal", href: undefined },
               { icon: Clock, label: "Erreichbarkeit", value: "Mo–Sa, 07:00–19:00 Uhr", href: undefined },
             ].map((c, i) => (
               <motion.div
@@ -230,7 +230,7 @@ const Kontakt = () => {
               <div className="max-w-full overflow-hidden rounded-xl border border-border shadow-sm">
                 <iframe
                   title="TATLI BAU Standort Wuppertal"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d80384.08896498386!2d6.9696!3d51.1652!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b8d4e3e2b6e5b3%3A0x4249fc98b2b12af0!2sSolingen!5e0!3m2!1sde!2sde!4v1680000000000"
+                  src="https://www.google.com/maps?q=G%C3%B6rlitzer%20Stra%C3%9Fe%2037%2C%2042277%20Wuppertal&output=embed"
                   className="h-[400px] w-full max-w-full"
                   width="100%"
                   height="400"
