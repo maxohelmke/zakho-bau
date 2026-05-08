@@ -1,15 +1,22 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import {
-  Paintbrush, Hammer, LayoutGrid, Home, Wrench, Layers, Trash2, ClipboardList,
-  Phone, CheckCircle,
+  Paintbrush,
+  Hammer,
+  LayoutGrid,
+  Home,
+  Wrench,
+  Layers,
+  Trash2,
+  ClipboardList,
+  Phone,
+  CheckCircle,
+  Sparkles,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Footer from "@/components/Footer";
 import { usePageSeo } from "@/hooks/use-page-seo";
 import heroImg from "@/assets/hero-leistungen.jpg";
-import { Link } from "react-router-dom";
-import { Phone, Sparkles } from "lucide-react";
 import imgRenovierung from "@/assets/leistung-renovierung.jpg";
 import imgMaler from "@/assets/leistung-malerarbeiten.jpg";
 import imgFliesen from "@/assets/leistung-fliesen.jpg";

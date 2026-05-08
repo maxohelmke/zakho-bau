@@ -1,11 +1,10 @@
 import { motion } from "framer-motion";
-import { MapPin, Phone } from "lucide-react";
+import { MapPin, Phone, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Footer from "@/components/Footer";
 import { usePageSeo } from "@/hooks/use-page-seo";
 import heroImg from "@/assets/hero-projekte.jpg";
 import { Link } from "react-router-dom";
-import { Phone, Sparkles } from "lucide-react";
 import refRaum from "@/assets/ref-raumsanierung.png";
 import refBad from "@/assets/ref-badsanierung.png";
 import refFlur from "@/assets/ref-flur-beleuchtung.png";

@@ -76,7 +76,13 @@ type Service = (typeof services)[number];
 const ServiceCard = ({ s }: { s: Service }) => {
   const Icon = s.icon;
   return (
-    <div className="group flex h-full flex-col rounded-xl border border-border bg-background p-5 shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-accent/10 sm:p-6">
+    <motion.div
+      initial={{ opacity: 0, y: 14 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-80px" }}
+      transition={{ duration: 0.45 }}
+      className="group flex h-full flex-col rounded-xl border border-border bg-background p-5 shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-accent/10 sm:p-6"
+    >
       <div className="mb-4 flex items-center justify-between gap-3">
         <div className="inline-flex rounded-md bg-accent/10 p-3">
           <Icon className="h-6 w-6 text-accent" />
@@ -88,7 +94,7 @@ const ServiceCard = ({ s }: { s: Service }) => {
       <h3 className="mb-2 text-xl text-foreground sm:text-2xl">{s.title}</h3>
       <p className="flex-1 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
       <div className="mt-5 h-0.5 w-10 bg-accent transition-all duration-300 group-hover:w-full" />
-    </div>
+    </motion.div>
   );
 };
 

@@ -27,7 +27,8 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <div className="min-h-screen min-w-0 overflow-x-hidden">
+        {/* padding-bottom verhindert Überdeckung durch Mobile Sticky CTA */}
+        <div className="min-h-screen min-w-0 overflow-x-hidden pb-24 md:pb-0">
           <Navbar />
           <FloatingButtons />
           <MobileStickyCta />

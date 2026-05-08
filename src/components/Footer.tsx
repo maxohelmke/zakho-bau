@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import logo from "@/assets/logo.png";
 import { STANDORTE } from "@/data/standorte";
 
@@ -6,9 +7,21 @@ const Footer = () => {
   return (
     <footer className="w-full max-w-full overflow-x-hidden border-t border-border bg-foreground py-12 sm:py-14 lg:py-16">
       <div className="container mx-auto min-w-0 container-pad">
-        <div className="grid min-w-0 gap-8 sm:gap-10 md:grid-cols-2 lg:grid-cols-12 lg:gap-8">
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-80px" }}
+          variants={{
+            hidden: {},
+            show: { transition: { staggerChildren: 0.08, delayChildren: 0.05 } },
+          }}
+          className="grid min-w-0 gap-8 sm:gap-10 md:grid-cols-2 lg:grid-cols-12 lg:gap-8"
+        >
           {/* Brand */}
-          <div className="min-w-0 lg:col-span-4">
+          <motion.div
+            variants={{ hidden: { opacity: 0, y: 14 }, show: { opacity: 1, y: 0, transition: { duration: 0.45 } } }}
+            className="min-w-0 lg:col-span-4"
+          >
             <div className="mb-5 inline-flex max-w-full rounded-lg bg-white p-3 shadow-sm">
               <img src={logo} alt="TATLI BAU Logo" className="h-12 max-w-full w-auto object-contain" />
             </div>
@@ -19,10 +32,13 @@ const Footer = () => {
             <p className="text-sm text-primary-foreground/60">
               Bau & Sanierung in Wuppertal und im Bergischen Land
             </p>
-          </div>
+          </motion.div>
 
           {/* Navigation */}
-          <div className="min-w-0 lg:col-span-2">
+          <motion.div
+            variants={{ hidden: { opacity: 0, y: 14 }, show: { opacity: 1, y: 0, transition: { duration: 0.45 } } }}
+            className="min-w-0 lg:col-span-2"
+          >
             <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-primary-foreground">
               Seiten
             </h4>
@@ -49,10 +65,13 @@ const Footer = () => {
                 FAQ
               </Link>
             </div>
-          </div>
+          </motion.div>
 
           {/* Standorte */}
-          <div className="min-w-0 lg:col-span-4">
+          <motion.div
+            variants={{ hidden: { opacity: 0, y: 14 }, show: { opacity: 1, y: 0, transition: { duration: 0.45 } } }}
+            className="min-w-0 lg:col-span-4"
+          >
             <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-primary-foreground">
               Standorte
             </h4>
@@ -68,10 +87,13 @@ const Footer = () => {
                 </li>
               ))}
             </ul>
-          </div>
+          </motion.div>
 
           {/* Contact & Legal */}
-          <div className="min-w-0 lg:col-span-2">
+          <motion.div
+            variants={{ hidden: { opacity: 0, y: 14 }, show: { opacity: 1, y: 0, transition: { duration: 0.45 } } }}
+            className="min-w-0 lg:col-span-2"
+          >
             <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-primary-foreground">
               Kontakt & Rechtliches
             </h4>
@@ -92,8 +114,8 @@ const Footer = () => {
                 Datenschutz
               </Link>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         <div className="mt-12 border-t border-primary-foreground/10 pt-6 text-center text-xs text-primary-foreground/40">
           © 2025 TATLI BAU – Hasan Tatli. Alle Rechte vorbehalten.

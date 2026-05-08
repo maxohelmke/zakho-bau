@@ -15,8 +15,8 @@ export default function MobileStickyCta() {
       ].join(" ")}
     >
       <div className="container mx-auto container-pad">
-        <div className="flex items-center justify-between gap-3 rounded-2xl border border-border bg-background/95 p-2 shadow-lg backdrop-blur supports-[backdrop-filter]:bg-background/90">
-          <div className="hidden min-w-0 flex-1 items-center gap-2 sm:flex">
+        <div className="flex items-center justify-between gap-2 rounded-2xl border border-border bg-background/95 p-2 shadow-lg backdrop-blur supports-[backdrop-filter]:bg-background/90">
+          <div className="hidden min-w-0 flex-1 items-center gap-2 md:flex">
             <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-accent/10">
               <Sparkles className="h-4 w-4 text-accent" />
             </span>
@@ -25,16 +25,17 @@ export default function MobileStickyCta() {
             </p>
           </div>
 
-          <div className="flex w-full gap-2 sm:w-auto">
+          <div className="grid w-full grid-cols-2 gap-2 md:w-auto md:flex md:gap-2">
             <a href="tel:+4915254090013" className="w-full sm:w-auto">
-              <Button variant="outline" className="w-full">
-                <Phone className="mr-2 h-4 w-4" />
-                Anrufen
+              <Button variant="outline" className="w-full px-3">
+                <Phone className="h-4 w-4 sm:mr-2" />
+                <span className="hidden sm:inline">Anrufen</span>
               </Button>
             </a>
             <Link to="/anfragen" className="w-full sm:w-auto">
-              <Button variant="accent" className="w-full">
-                Anfrage
+              <Button variant="accent" className="w-full px-3">
+                <span className="sm:hidden">Anfrage</span>
+                <span className="hidden sm:inline">Anfrage senden</span>
               </Button>
             </Link>
           </div>

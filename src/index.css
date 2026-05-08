@@ -61,6 +61,9 @@
     line-height: 1.6;
     letter-spacing: normal;
     word-spacing: normal;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
     max-width: 100%;
   }
@@ -92,6 +95,21 @@
     scroll-behavior: smooth;
     overflow-x: hidden;
     max-width: 100%;
+  }
+
+  /* Fixe Navbar + Ankerlinks (z. B. /leistungen#trockenbau) */
+  html {
+    scroll-padding-top: 96px;
+  }
+  @media (max-width: 640px) {
+    html {
+      scroll-padding-top: 84px;
+    }
+  }
+
+  /* Mobile-Touch: weniger „Flackern“ / Highlight */
+  * {
+    -webkit-tap-highlight-color: transparent;
   }
 
   #root {
