@@ -10,6 +10,7 @@ import {
 import Footer from "@/components/Footer";
 import { usePageSeo } from "@/hooks/use-page-seo";
 import heroImg from "@/assets/hero-faq.jpg";
+import { Sparkles } from "lucide-react";
 
 const faqItems: { q: string; a: string }[] = [
   {
@@ -125,6 +126,31 @@ const Faq = () => {
               Hier finden Sie Antworten zum Ablauf, zu Leistungen und zu unserem Service in
               Wuppertal und im Bergischen Land. Fehlt etwas? Wir helfen Ihnen gerne persönlich.
             </p>
+
+            <div className="mt-5 flex flex-wrap justify-center gap-2">
+              {["Schnelle Rückmeldung", "Transparente Angebote", "Fester Ansprechpartner"].map((t) => (
+                <span
+                  key={t}
+                  className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-medium text-white/90"
+                >
+                  <Sparkles className="h-3.5 w-3.5 text-accent" />
+                  {t}
+                </span>
+              ))}
+            </div>
+
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:justify-center">
+              <Link to="/anfragen">
+                <Button variant="accent" size="lg" className="w-full sm:w-auto">
+                  Kostenlos anfragen
+                </Button>
+              </Link>
+              <a href="tel:+4915254090013" className="w-full sm:w-auto">
+                <Button variant="outline" size="lg" className="w-full sm:w-auto">
+                  01525 4090013
+                </Button>
+              </a>
+            </div>
           </motion.div>
         </div>
       </section>

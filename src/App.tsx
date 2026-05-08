@@ -16,6 +16,8 @@ import Datenschutz from "./pages/Datenschutz.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import Faq from "./pages/Faq.tsx";
 import StandortLanding from "./pages/StandortLanding.tsx";
+import CookieBanner from "@/components/CookieBanner";
+import MobileStickyCta from "@/components/MobileStickyCta";
 
 const queryClient = new QueryClient();
 
@@ -28,6 +30,8 @@ const App = () => (
         <div className="min-h-screen min-w-0 overflow-x-hidden">
           <Navbar />
           <FloatingButtons />
+          <MobileStickyCta />
+          <CookieBanner />
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/impressum" element={<Impressum />} />

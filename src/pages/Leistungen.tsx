@@ -8,6 +8,8 @@ import { Button } from "@/components/ui/button";
 import Footer from "@/components/Footer";
 import { usePageSeo } from "@/hooks/use-page-seo";
 import heroImg from "@/assets/hero-leistungen.jpg";
+import { Link } from "react-router-dom";
+import { Phone, Sparkles } from "lucide-react";
 import imgRenovierung from "@/assets/leistung-renovierung.jpg";
 import imgMaler from "@/assets/leistung-malerarbeiten.jpg";
 import imgFliesen from "@/assets/leistung-fliesen.jpg";
@@ -148,6 +150,32 @@ const Leistungen = () => {
               Von der kleinen Renovierung bis zur schlüsselfertigen Komplettsanierung –
               TATLI BAU bietet Ihnen alle Bauleistungen aus einer Hand.
             </p>
+
+            <div className="mt-5 flex flex-wrap gap-2">
+              {["Kostenlos & unverbindlich", "Antwort < 24h", "Aus einer Hand"].map((t) => (
+                <span
+                  key={t}
+                  className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-medium text-white/90"
+                >
+                  <Sparkles className="h-3.5 w-3.5 text-accent" />
+                  {t}
+                </span>
+              ))}
+            </div>
+
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <Link to="/anfragen">
+                <Button variant="accent" size="lg" className="w-full sm:w-auto">
+                  Angebot anfordern
+                </Button>
+              </Link>
+              <a href="tel:+4915254090013" className="w-full sm:w-auto">
+                <Button variant="outline" size="lg" className="w-full sm:w-auto">
+                  <Phone className="mr-2 h-4 w-4" />
+                  01525 4090013
+                </Button>
+              </a>
+            </div>
           </motion.div>
         </div>
       </section>

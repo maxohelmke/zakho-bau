@@ -8,6 +8,7 @@ import { Phone, CheckCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import Footer from "@/components/Footer";
 import { usePageSeo } from "@/hooks/use-page-seo";
+import { Sparkles } from "lucide-react";
 
 const serviceTypes = [
   "Renovierung",
@@ -100,6 +101,27 @@ const Anfragen = () => {
               Beschreiben Sie Ihr Projekt – wir erstellen Ihnen ein unverbindliches Angebot.
               Kostenlos und innerhalb von 24 Stunden.
             </p>
+
+            <div className="mt-5 flex flex-wrap gap-2">
+              {["Kostenlos", "Unverbindlich", "Antwort < 24h"].map((t) => (
+                <span
+                  key={t}
+                  className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-medium text-white/90"
+                >
+                  <Sparkles className="h-3.5 w-3.5 text-accent" />
+                  {t}
+                </span>
+              ))}
+            </div>
+
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <a href="tel:+4915254090013" className="w-full sm:w-auto">
+                <Button variant="outline" size="lg" className="w-full sm:w-auto">
+                  <Phone className="mr-2 h-4 w-4" />
+                  01525 4090013
+                </Button>
+              </a>
+            </div>
           </motion.div>
         </div>
       </section>

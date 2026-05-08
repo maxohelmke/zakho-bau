@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Phone, Mail, MapPin } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import ExternalMediaGate from "@/components/ExternalMediaGate";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -109,17 +110,22 @@ const Contact = () => {
 
             {/* Map placeholder */}
             <div className="max-w-full overflow-hidden rounded-lg">
-              <iframe
-                title="TATLI BAU Standort Wuppertal"
-                src="https://www.google.com/maps?q=G%C3%B6rlitzer%20Stra%C3%9Fe%2037%2C%2042277%20Wuppertal&output=embed"
-                className="h-[220px] w-full max-w-full"
-                width="100%"
-                height="220"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
+              <ExternalMediaGate
+                title="Google Maps"
+                description="Zum Laden der Karte benötigen wir Ihre Einwilligung für externe Inhalte (Drittanbieter)."
+              >
+                <iframe
+                  title="TATLI BAU Standort Wuppertal"
+                  src="https://www.google.com/maps?q=G%C3%B6rlitzer%20Stra%C3%9Fe%2037%2C%2042277%20Wuppertal&output=embed"
+                  className="h-[220px] w-full max-w-full"
+                  width="100%"
+                  height="220"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              </ExternalMediaGate>
             </div>
           </motion.div>
 

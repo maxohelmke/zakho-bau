@@ -7,7 +7,7 @@ const Datenschutz = () => {
     title: "Datenschutz | TATLI BAU",
     description: "Datenschutzerklärung von TATLI BAU.",
     path: "/datenschutz",
-    robots: "noindex,follow",
+    robots: "index,follow",
     structuredData: {
       "@context": "https://schema.org",
       "@type": "WebPage",
@@ -22,6 +22,14 @@ const Datenschutz = () => {
         <h1 className="mb-8 text-3xl font-bold text-foreground">Datenschutzerklärung</h1>
 
         <div className="break-safe space-y-8 text-muted-foreground leading-relaxed">
+          <div className="rounded-xl border border-border bg-secondary p-5">
+            <h2 className="mb-2 text-lg font-semibold text-foreground">Cookie-Einwilligung</h2>
+            <p>
+              Wir verwenden notwendige Cookies, um die Website bereitzustellen. Externe Inhalte (z. B. Google Maps)
+              laden wir erst, wenn Sie ausdrücklich einwilligen. Ihre Auswahl können Sie jederzeit über das Cookie-Banner
+              am Seitenende anpassen.
+            </p>
+          </div>
           <div>
             <h2 className="mb-2 text-lg font-semibold text-foreground">1. Datenschutz auf einen Blick</h2>
             <h3 className="mb-1 font-medium text-foreground">Allgemeine Hinweise</h3>

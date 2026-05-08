@@ -7,7 +7,7 @@ const Impressum = () => {
     title: "Impressum | TATLI BAU",
     description: "Impressum von TATLI BAU.",
     path: "/impressum",
-    robots: "noindex,follow",
+    robots: "index,follow",
     structuredData: {
       "@context": "https://schema.org",
       "@type": "WebPage",

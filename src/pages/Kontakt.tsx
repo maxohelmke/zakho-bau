@@ -8,6 +8,8 @@ import { Phone, Mail, MapPin, Clock, MessageSquare } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import Footer from "@/components/Footer";
 import { usePageSeo } from "@/hooks/use-page-seo";
+import ExternalMediaGate from "@/components/ExternalMediaGate";
+import { Sparkles } from "lucide-react";
 
 const Kontakt = () => {
   usePageSeo({
@@ -106,6 +108,32 @@ const Kontakt = () => {
               Haben Sie Fragen oder möchten ein Projekt besprechen? Wir sind für Sie da –
               telefonisch, per E-Mail oder über unser Kontaktformular.
             </p>
+
+            <div className="mt-5 flex flex-wrap gap-2">
+              {["Antwort < 24h", "Direkt erreichbar", "Kostenlos & unverbindlich"].map((t) => (
+                <span
+                  key={t}
+                  className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-medium text-white/90"
+                >
+                  <Sparkles className="h-3.5 w-3.5 text-accent" />
+                  {t}
+                </span>
+              ))}
+            </div>
+
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <Link to="/anfragen">
+                <Button variant="accent" size="lg" className="w-full sm:w-auto">
+                  Angebot anfordern
+                </Button>
+              </Link>
+              <a href="tel:+4915254090013" className="w-full sm:w-auto">
+                <Button variant="outline" size="lg" className="w-full sm:w-auto">
+                  <Phone className="mr-2 h-4 w-4" />
+                  01525 4090013
+                </Button>
+              </a>
+            </div>
           </motion.div>
         </div>
       </section>
@@ -228,17 +256,22 @@ const Kontakt = () => {
               className="flex flex-col gap-6"
             >
               <div className="max-w-full overflow-hidden rounded-xl border border-border shadow-sm">
-                <iframe
-                  title="TATLI BAU Standort Wuppertal"
-                  src="https://www.google.com/maps?q=G%C3%B6rlitzer%20Stra%C3%9Fe%2037%2C%2042277%20Wuppertal&output=embed"
-                  className="h-[400px] w-full max-w-full"
-                  width="100%"
-                  height="400"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                />
+                <ExternalMediaGate
+                  title="Google Maps"
+                  description="Zum Laden der Karte benötigen wir Ihre Einwilligung für externe Inhalte (Drittanbieter)."
+                >
+                  <iframe
+                    title="TATLI BAU Standort Wuppertal"
+                    src="https://www.google.com/maps?q=G%C3%B6rlitzer%20Stra%C3%9Fe%2037%2C%2042277%20Wuppertal&output=embed"
+                    className="h-[400px] w-full max-w-full"
+                    width="100%"
+                    height="400"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  />
+                </ExternalMediaGate>
               </div>
               <div className="rounded-xl border border-border bg-card p-6">
                 <h3 className="mb-3 font-semibold text-foreground">Lieber direkt anrufen?</h3>
