@@ -39,7 +39,12 @@ const Hero = () => {
             Bergischen Land.
           </p>
           <div className="flex w-full max-w-full flex-col items-center gap-4 sm:flex-row sm:flex-wrap sm:justify-center">
-            <a href="#kontakt" className="w-full min-w-0 sm:w-auto">
+            <a
+              href="https://wa.me/4915254090013?text=Hallo%20TATLI%20BAU%2C%20ich%20m%C3%B6chte%20eine%20kostenlose%20Beratung%20anfragen."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full min-w-0 sm:w-auto"
+            >
               <Button variant="hero" className="w-full sm:w-auto">
                 Jetzt Anfrage stellen
               </Button>

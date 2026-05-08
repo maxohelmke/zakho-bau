@@ -216,7 +216,11 @@ const Leistungen = () => {
                       </li>
                     ))}
                   </ul>
-                  <a href="/anfragen">
+                  <a
+                    href="https://wa.me/4915254090013?text=Hallo%20TATLI%20BAU%2C%20ich%20m%C3%B6chte%20eine%20kostenlose%20Beratung%20anfragen."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <Button variant="accent" size="sm">
                       Jetzt anfragen
                     </Button>
@@ -256,7 +260,11 @@ const Leistungen = () => {
               Kostenlose Beratung – wir melden uns innerhalb von 24 Stunden.
             </p>
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <a href="/anfragen">
+              <a
+                href="https://wa.me/4915254090013?text=Hallo%20TATLI%20BAU%2C%20ich%20m%C3%B6chte%20eine%20kostenlose%20Beratung%20anfragen."
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Button variant="hero">Jetzt Anfrage stellen</Button>
               </a>
               <a href="tel:+4915254090013">

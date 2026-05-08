@@ -79,7 +79,22 @@ const Anfragen = () => {
       toast({ title: "Bitte geben Sie eine gültige E-Mail-Adresse ein.", variant: "destructive" });
       return;
     }
-    toast({ title: "Anfrage erfolgreich gesendet!", description: "Wir melden uns innerhalb von 24 Stunden bei Ihnen." });
+    const subject = "Projektanfrage über tatlibau.de";
+    const body = [
+      "Neue Projektanfrage über die Website:",
+      "",
+      `Name: ${form.name}`,
+      `E-Mail: ${form.email}`,
+      `Telefon: ${form.phone || "-"}`,
+      `Art: ${form.type}`,
+      `Adresse/Ort: ${form.address || "-"}`,
+      `Zeitrahmen: ${form.timeline || "-"}`,
+      `Budget: ${form.budget || "-"}`,
+      "",
+      "Projektbeschreibung:",
+      form.message || "-",
+    ].join("\n");
+    window.location.href = `mailto:tatlican2@icloud.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     setForm({ name: "", email: "", phone: "", type: "Renovierung", address: "", budget: "", timeline: "", message: "" });
   };
 

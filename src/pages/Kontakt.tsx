@@ -87,7 +87,18 @@ const Kontakt = () => {
       toast({ title: "Bitte geben Sie eine gültige E-Mail-Adresse ein.", variant: "destructive" });
       return;
     }
-    toast({ title: "Nachricht gesendet!", description: "Wir melden uns schnellstmöglich bei Ihnen." });
+    const subject = "Kontaktanfrage über tatlibau.de";
+    const body = [
+      "Neue Nachricht über das Kontaktformular:",
+      "",
+      `Name: ${form.name}`,
+      `E-Mail: ${form.email}`,
+      `Telefon: ${form.phone || "-"}`,
+      "",
+      "Nachricht:",
+      form.message || "-",
+    ].join("\n");
+    window.location.href = `mailto:tatlican2@icloud.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     setForm({ name: "", email: "", phone: "", message: "" });
   };
 
