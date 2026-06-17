@@ -1,11 +1,11 @@
-import { useLocation } from "react-router-dom";
+﻿import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { usePageSeo } from "@/hooks/use-page-seo";
 
 const NotFound = () => {
   const location = useLocation();
   usePageSeo({
-    title: "Seite nicht gefunden | TATLI BAU",
+    title: "Seite nicht gefunden | Zakho Bau",
     description: "Die angeforderte Seite wurde nicht gefunden.",
     path: location.pathname || "/404",
     robots: "noindex,follow",
@@ -29,3 +29,4 @@ const NotFound = () => {
 };
 
 export default NotFound;
+

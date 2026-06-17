@@ -1,4 +1,4 @@
-import { useState } from "react";
+﻿import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -6,47 +6,59 @@ import { Textarea } from "@/components/ui/textarea";
 import { Phone, Mail, MapPin } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import ExternalMediaGate from "@/components/ExternalMediaGate";
+import { supabase } from "@/lib/supabase";
 
 const Contact = () => {
   const { toast } = useToast();
+  const [submitting, setSubmitting] = useState(false);
   const [form, setForm] = useState({
     name: "",
     email: "",
     phone: "",
-    type: "Renovierung",
+    type: "Renovierung & Modernisierung",
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.name.trim() || !form.email.trim()) {
-      toast({
-        title: "Bitte füllen Sie alle Pflichtfelder aus.",
-        variant: "destructive",
-      });
+      toast({ title: "Bitte füllen Sie alle Pflichtfelder aus.", variant: "destructive" });
       return;
     }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
-      toast({
-        title: "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
-        variant: "destructive",
-      });
+      toast({ title: "Bitte geben Sie eine gültige E-Mail-Adresse ein.", variant: "destructive" });
       return;
     }
-    const subject = "Anfrage über tatlibau.de";
-    const body = [
-      "Neue Anfrage über das Kontaktformular:",
-      "",
-      `Name: ${form.name}`,
-      `E-Mail: ${form.email}`,
-      `Telefon: ${form.phone || "-"}`,
-      `Art: ${form.type}`,
-      "",
-      "Nachricht:",
-      form.message || "-",
-    ].join("\n");
-    window.location.href = `mailto:tatlican2@icloud.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    setForm({ name: "", email: "", phone: "", type: "Renovierung", message: "" });
+
+    setSubmitting(true);
+    try {
+      const { error } = await supabase.from("anfragen").insert({
+        name: form.name,
+        email: form.email,
+        telefon: form.phone || null,
+        ort: "Gevelsberg",
+        art_der_anfrage: form.type,
+        nachricht: form.message || "-",
+        datenschutz_akzeptiert: true,
+      });
+
+      if (error) throw error;
+
+      toast({
+        title: "Anfrage erfolgreich gesendet!",
+        description: "Wir melden uns innerhalb von 24 Stunden.",
+      });
+      setForm({ name: "", email: "", phone: "", type: "Renovierung & Modernisierung", message: "" });
+    } catch (err) {
+      console.error("Supabase error:", err);
+      toast({
+        title: "Fehler beim Senden",
+        description: "Bitte versuchen Sie es erneut.",
+        variant: "destructive",
+      });
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -80,7 +92,7 @@ const Contact = () => {
             className="space-y-8"
           >
             <a
-              href="tel:+4915254090013"
+              href="tel:+4915788888852"
               className="flex min-w-0 items-center gap-4 rounded-lg border border-border p-5 transition-colors hover:border-accent"
             >
               <div className="shrink-0 rounded-md bg-accent/10 p-3">
@@ -88,12 +100,12 @@ const Contact = () => {
               </div>
               <div className="min-w-0">
                 <p className="text-sm text-muted-foreground">Telefon</p>
-                <p className="break-safe text-lg font-semibold text-foreground">01525 4090013</p>
+                <p className="break-safe text-lg font-semibold text-foreground">+49 1578 8888852</p>
               </div>
             </a>
 
             <a
-              href="mailto:tatlican2@icloud.com"
+              href="mailto:info@zakho-bau.de"
               className="flex min-w-0 items-center gap-4 rounded-lg border border-border p-5 transition-colors hover:border-accent"
             >
               <div className="shrink-0 rounded-md bg-accent/10 p-3">
@@ -101,7 +113,7 @@ const Contact = () => {
               </div>
               <div className="min-w-0">
                 <p className="text-sm text-muted-foreground">E-Mail</p>
-                <p className="break-safe text-lg font-semibold text-foreground">tatlican2@icloud.com</p>
+                <p className="break-safe text-lg font-semibold text-foreground">info@zakho-bau.de</p>
               </div>
             </a>
 
@@ -112,20 +124,19 @@ const Contact = () => {
               <div className="min-w-0">
                 <p className="text-sm text-muted-foreground">Adresse</p>
                 <p className="break-safe text-lg font-semibold text-foreground">
-                  Görlitzer Straße 37, 42277 Wuppertal
+                  Gevelsberg, NRW
                 </p>
               </div>
             </div>
 
-            {/* Map placeholder */}
             <div className="max-w-full overflow-hidden rounded-lg">
               <ExternalMediaGate
                 title="Google Maps"
                 description="Zum Laden der Karte benötigen wir Ihre Einwilligung für externe Inhalte (Drittanbieter)."
               >
                 <iframe
-                  title="TATLI BAU Standort Wuppertal"
-                  src="https://www.google.com/maps?q=G%C3%B6rlitzer%20Stra%C3%9Fe%2037%2C%2042277%20Wuppertal&output=embed"
+                  title="Zakho Bau Standort Gevelsberg"
+                  src="https://www.google.com/maps?q=Gevelsberg%2C+NRW&output=embed"
                   className="h-[220px] w-full max-w-full"
                   width="100%"
                   height="220"
@@ -171,9 +182,7 @@ const Contact = () => {
               />
             </div>
             <div>
-              <label className="mb-1 block text-sm font-medium text-foreground">
-                Telefon
-              </label>
+              <label className="mb-1 block text-sm font-medium text-foreground">Telefon</label>
               <Input
                 type="tel"
                 value={form.phone}
@@ -183,24 +192,23 @@ const Contact = () => {
               />
             </div>
             <div>
-              <label className="mb-1 block text-sm font-medium text-foreground">
-                Art der Anfrage
-              </label>
+              <label className="mb-1 block text-sm font-medium text-foreground">Art der Anfrage</label>
               <select
                 value={form.type}
                 onChange={(e) => setForm({ ...form, type: e.target.value })}
                 className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm text-foreground ring-offset-background focus:outline-none focus:ring-2 focus:ring-ring"
               >
-                <option>Renovierung</option>
-                <option>Sanierung</option>
-                <option>Neubau</option>
+                <option>Renovierung & Modernisierung</option>
+                <option>Trockenbau & Innenausbau</option>
+                <option>Malerarbeiten & Tapezieren</option>
+                <option>Bodenbeläge & Fliesen</option>
+                <option>Badsanierung</option>
+                <option>Außenarbeiten & Fassade</option>
                 <option>Sonstiges</option>
               </select>
             </div>
             <div>
-              <label className="mb-1 block text-sm font-medium text-foreground">
-                Beschreibung / Nachricht
-              </label>
+              <label className="mb-1 block text-sm font-medium text-foreground">Beschreibung / Nachricht</label>
               <Textarea
                 value={form.message}
                 onChange={(e) => setForm({ ...form, message: e.target.value })}
@@ -209,8 +217,13 @@ const Contact = () => {
                 maxLength={1000}
               />
             </div>
-            <Button variant="accent" type="submit" className="w-full py-6 text-base">
-              Anfrage absenden
+            <Button
+              variant="accent"
+              type="submit"
+              className="w-full py-6 text-base"
+              disabled={submitting}
+            >
+              {submitting ? "Wird gesendet…" : "Anfrage absenden"}
             </Button>
             <p className="text-center text-xs text-muted-foreground">
               Ihre Daten werden vertraulich behandelt.
@@ -223,3 +236,5 @@ const Contact = () => {
 };
 
 export default Contact;
+
+

@@ -1,4 +1,4 @@
-import { useState } from "react";
+﻿import { useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -10,21 +10,22 @@ import Footer from "@/components/Footer";
 import { usePageSeo } from "@/hooks/use-page-seo";
 import ExternalMediaGate from "@/components/ExternalMediaGate";
 import { Sparkles } from "lucide-react";
+import { supabase } from "@/lib/supabase";
 
 const Kontakt = () => {
   usePageSeo({
-    title: "Kontakt | TATLI BAU Wuppertal",
+    title: "Kontakt | Zakho Bau Gevelsberg",
     description:
-      "Kontaktieren Sie TATLI BAU in Wuppertal: Telefon, E-Mail oder Kontaktformular. Wir beraten Sie schnell und unverbindlich im Bergischen Land.",
+      "Kontaktieren Sie Zakho Bau in Gevelsberg: Telefon, E-Mail oder Kontaktformular. Wir beraten Sie schnell und unverbindlich im Ennepe-Ruhr-Kreis.",
     path: "/kontakt",
     structuredData: [
       {
         "@context": "https://schema.org",
         "@type": "ContactPage",
-        name: "Kontakt TATLI BAU",
+        name: "Kontakt Zakho Bau",
         description:
-          "Kontaktmöglichkeiten für Bau- und Sanierungsanfragen in Wuppertal und im Bergischen Land.",
-        url: "https://tatlibau.de/kontakt",
+          "Kontaktmöglichkeiten für Bau- und Sanierungsanfragen in Gevelsberg und im Ennepe-Ruhr-Kreis.",
+        url: "https://zakho-bau.de/kontakt",
       },
       {
         "@context": "https://schema.org",
@@ -34,13 +35,13 @@ const Kontakt = () => {
             "@type": "ListItem",
             position: 1,
             name: "Startseite",
-            item: "https://tatlibau.de/",
+            item: "https://zakho-bau.de/",
           },
           {
             "@type": "ListItem",
             position: 2,
             name: "Kontakt",
-            item: "https://tatlibau.de/kontakt",
+            item: "https://zakho-bau.de/kontakt",
           },
         ],
       },
@@ -50,10 +51,10 @@ const Kontakt = () => {
         mainEntity: [
           {
             "@type": "Question",
-            name: "In welcher Region ist TATLI BAU tätig?",
+            name: "In welcher Region ist Zakho Bau tätig?",
             acceptedAnswer: {
               "@type": "Answer",
-              text: "Unser Schwerpunkt liegt auf Wuppertal und dem Bergischen Land.",
+              text: "Unser Schwerpunkt liegt auf Gevelsberg und dem Ennepe-Ruhr-Kreis.",
             },
           },
           {
@@ -70,6 +71,7 @@ const Kontakt = () => {
   });
 
   const { toast } = useToast();
+  const [submitting, setSubmitting] = useState(false);
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -77,7 +79,7 @@ const Kontakt = () => {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.name.trim() || !form.email.trim()) {
       toast({ title: "Bitte füllen Sie alle Pflichtfelder aus.", variant: "destructive" });
@@ -87,19 +89,36 @@ const Kontakt = () => {
       toast({ title: "Bitte geben Sie eine gültige E-Mail-Adresse ein.", variant: "destructive" });
       return;
     }
-    const subject = "Kontaktanfrage über tatlibau.de";
-    const body = [
-      "Neue Nachricht über das Kontaktformular:",
-      "",
-      `Name: ${form.name}`,
-      `E-Mail: ${form.email}`,
-      `Telefon: ${form.phone || "-"}`,
-      "",
-      "Nachricht:",
-      form.message || "-",
-    ].join("\n");
-    window.location.href = `mailto:tatlican2@icloud.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    setForm({ name: "", email: "", phone: "", message: "" });
+
+    setSubmitting(true);
+    try {
+      const { error } = await supabase.from("anfragen").insert({
+        name: form.name,
+        email: form.email,
+        telefon: form.phone || null,
+        ort: "Gevelsberg",
+        art_der_anfrage: "Kontaktanfrage",
+        nachricht: form.message || "-",
+        datenschutz_akzeptiert: true,
+      });
+
+      if (error) throw error;
+
+      toast({
+        title: "Nachricht erfolgreich gesendet!",
+        description: "Wir melden uns innerhalb von 24 Stunden bei Ihnen.",
+      });
+      setForm({ name: "", email: "", phone: "", message: "" });
+    } catch (err) {
+      console.error("Supabase error:", err);
+      toast({
+        title: "Fehler beim Senden",
+        description: "Bitte versuchen Sie es erneut oder kontaktieren Sie uns direkt per E-Mail.",
+        variant: "destructive",
+      });
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -138,10 +157,10 @@ const Kontakt = () => {
                   Angebot anfordern
                 </Button>
               </Link>
-              <a href="tel:+4915254090013" className="w-full sm:w-auto">
+              <a href="tel:+4915788888852" className="w-full sm:w-auto">
                 <Button variant="outline" size="lg" className="w-full sm:w-auto">
                   <Phone className="mr-2 h-4 w-4" />
-                  01525 4090013
+                  +49 1578 8888852
                 </Button>
               </a>
             </div>
@@ -154,9 +173,9 @@ const Kontakt = () => {
         <div className="container mx-auto container-pad">
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              { icon: Phone, label: "Telefon", value: "01525 4090013", href: "tel:+4915254090013" },
-              { icon: Mail, label: "E-Mail", value: "tatlican2@icloud.com", href: "mailto:tatlican2@icloud.com" },
-              { icon: MapPin, label: "Adresse", value: "Görlitzer Straße 37, 42277 Wuppertal", href: undefined },
+              { icon: Phone, label: "Telefon", value: "+49 1578 8888852", href: "tel:+4915788888852" },
+              { icon: Mail, label: "E-Mail", value: "info@zakho-bau.de", href: "mailto:info@zakho-bau.de" },
+              { icon: MapPin, label: "Adresse", value: "Gevelsberg, NRW", href: undefined },
               { icon: Clock, label: "Erreichbarkeit", value: "Mo–Sa, 07:00–19:00 Uhr", href: undefined },
             ].map((c, i) => (
               <motion.div
@@ -250,8 +269,13 @@ const Kontakt = () => {
                   maxLength={1000}
                 />
               </div>
-              <Button variant="accent" type="submit" className="w-full py-6 text-base">
-                Nachricht absenden
+              <Button
+                variant="accent"
+                type="submit"
+                className="w-full py-6 text-base"
+                disabled={submitting}
+              >
+                {submitting ? "Wird gesendet…" : "Nachricht absenden"}
               </Button>
               <p className="text-center text-xs text-muted-foreground">
                 Ihre Daten werden vertraulich behandelt. Mehr dazu in unserer{" "}
@@ -272,8 +296,8 @@ const Kontakt = () => {
                   description="Zum Laden der Karte benötigen wir Ihre Einwilligung für externe Inhalte (Drittanbieter)."
                 >
                   <iframe
-                    title="TATLI BAU Standort Wuppertal"
-                    src="https://www.google.com/maps?q=G%C3%B6rlitzer%20Stra%C3%9Fe%2037%2C%2042277%20Wuppertal&output=embed"
+                    title="Zakho Bau Standort Gevelsberg"
+                    src="https://www.google.com/maps?q=Gevelsberg%2C+NRW&output=embed"
                     className="h-[400px] w-full max-w-full"
                     width="100%"
                     height="400"
@@ -289,10 +313,10 @@ const Kontakt = () => {
                 <p className="mb-4 text-sm text-muted-foreground">
                   Rufen Sie uns an – wir beraten Sie gerne persönlich und unverbindlich.
                 </p>
-                <a href="tel:+4915254090013">
+                <a href="tel:+4915788888852">
                   <Button variant="accent" size="sm" className="w-full">
                     <Phone className="mr-2 h-4 w-4" />
-                    01525 4090013 anrufen
+                    +49 1578 8888852 anrufen
                   </Button>
                 </a>
               </div>
@@ -307,3 +331,5 @@ const Kontakt = () => {
 };
 
 export default Kontakt;
+
+

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
 import { Phone, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useCookieConsent } from "@/hooks/use-cookie-consent";
@@ -26,7 +26,7 @@ export default function MobileStickyCta() {
           </div>
 
           <div className="grid w-full grid-cols-2 gap-2 md:w-auto md:flex md:gap-2">
-            <a href="tel:+4915254090013" className="w-full sm:w-auto">
+            <a href="tel:+4915788888852" className="w-full sm:w-auto">
               <Button variant="outline" className="w-full px-3">
                 <Phone className="h-4 w-4 sm:mr-2" />
                 <span className="hidden sm:inline">Anrufen</span>
@@ -44,4 +44,5 @@ export default function MobileStickyCta() {
     </div>
   );
 }
+
 

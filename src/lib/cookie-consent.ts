@@ -6,7 +6,7 @@ export type CookieConsent = {
   updatedAt: string; // ISO
 };
 
-const STORAGE_KEY = "tatli_cookie_consent_v1";
+const STORAGE_KEY = "zakho_cookie_consent_v1";
 
 export function readCookieConsent(): CookieConsent | null {
   try {

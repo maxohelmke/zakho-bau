@@ -1,18 +1,18 @@
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
 import Footer from "@/components/Footer";
 import { usePageSeo } from "@/hooks/use-page-seo";
 
 const Impressum = () => {
   usePageSeo({
-    title: "Impressum | TATLI BAU",
-    description: "Impressum von TATLI BAU.",
+    title: "Impressum | Zakho Bau",
+    description: "Impressum von Zakho Bau.",
     path: "/impressum",
     robots: "index,follow",
     structuredData: {
       "@context": "https://schema.org",
       "@type": "WebPage",
       name: "Impressum",
-      url: "https://tatlibau.de/impressum",
+      url: "https://zakho-bau.de/impressum",
     },
   });
 
@@ -24,16 +24,16 @@ const Impressum = () => {
         <div className="break-safe space-y-8 text-muted-foreground leading-relaxed">
           <div>
             <h2 className="mb-2 text-lg font-semibold text-foreground">Angaben gemäß § 5 TMG</h2>
-            <p>TATLI BAU</p>
-            <p>Hasan Tatli</p>
-            <p>Görlitzer Straße 37</p>
-            <p>42277 Wuppertal</p>
+            <p>Zakho Bau</p>
+            <p>[INHABER NAME]</p>
+            <p>[STRASSE UND HAUSNUMMER]</p>
+            <p>[PLZ] Gevelsberg</p>
           </div>
 
           <div>
             <h2 className="mb-2 text-lg font-semibold text-foreground">Kontakt</h2>
-            <p>Telefon: <a href="tel:+4915254090013" className="text-accent hover:underline">01525 4090013</a></p>
-            <p>E-Mail: <a href="mailto:tatlican2@icloud.com" className="text-accent hover:underline">tatlican2@icloud.com</a></p>
+            <p>Telefon: <a href="tel:+4915788888852" className="text-accent hover:underline">+49 1578 8888852</a></p>
+            <p>E-Mail: <a href="mailto:info@zakho-bau.de" className="text-accent hover:underline">info@zakho-bau.de</a></p>
           </div>
 
           <div>
@@ -43,9 +43,9 @@ const Impressum = () => {
 
           <div>
             <h2 className="mb-2 text-lg font-semibold text-foreground">Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>
-            <p>Hasan Tatli</p>
-            <p>Görlitzer Straße 37</p>
-            <p>42277 Wuppertal</p>
+            <p>[INHABER NAME]</p>
+            <p>[STRASSE UND HAUSNUMMER]</p>
+            <p>[PLZ] Gevelsberg</p>
           </div>
 
           <div>
@@ -73,11 +73,6 @@ const Impressum = () => {
               wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum
               Zeitpunkt der Verlinkung nicht erkennbar.
             </p>
-            <p className="mt-2">
-              Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer
-              Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links
-              umgehend entfernen.
-            </p>
           </div>
 
           <div>
@@ -86,13 +81,6 @@ const Impressum = () => {
               Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen
               Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der
               Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.
-              Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet.
-            </p>
-            <p className="mt-2">
-              Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter
-              beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine
-              Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden
-              von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen.
             </p>
           </div>
 
@@ -114,6 +102,11 @@ const Impressum = () => {
               Verbraucherschlichtungsstelle teilzunehmen.
             </p>
           </div>
+
+          <div className="rounded-lg border border-border bg-secondary p-4 text-sm">
+            <p className="font-medium text-foreground">Webdesign & Entwicklung</p>
+            <p>Helmke Digital UG – <a href="https://helmke-digital.de" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">helmke-digital.de</a></p>
+          </div>
         </div>
 
         <div className="mt-12">
@@ -127,3 +120,5 @@ const Impressum = () => {
 };
 
 export default Impressum;
+
+

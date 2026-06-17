@@ -15,10 +15,10 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['"General Sans"', "system-ui", "sans-serif"],
-        heading: ['"Clash Display"', "system-ui", "sans-serif"],
-        display: ['"Clash Display"', "system-ui", "sans-serif"],
-        body: ['"General Sans"', "system-ui", "sans-serif"],
+        sans: ["'Inter'", "system-ui", "sans-serif"],
+        heading: ["'Oswald'", "system-ui", "sans-serif"],
+        display: ["'Oswald'", "system-ui", "sans-serif"],
+        body: ["'Inter'", "system-ui", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",

@@ -1,11 +1,11 @@
-import { MessageCircle } from "lucide-react";
+﻿import { MessageCircle } from "lucide-react";
 
 const FloatingButtons = () => {
   return (
     <>
       {/* WhatsApp */}
       <a
-        href="https://wa.me/4915254090013"
+        href="https://wa.me/4915788888852"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="WhatsApp Kontakt"
@@ -19,3 +19,4 @@ const FloatingButtons = () => {
 };
 
 export default FloatingButtons;
+

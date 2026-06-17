@@ -1,11 +1,12 @@
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import logo from "@/assets/logo.png";
 import { STANDORTE } from "@/data/standorte";
+import logo from "@/assets/zakho-bau-logo.svg";
 
 const Footer = () => {
   return (
-    <footer className="w-full max-w-full overflow-x-hidden border-t border-border bg-foreground py-12 sm:py-14 lg:py-16">
+    <footer className="relative w-full max-w-full overflow-x-hidden border-t border-border bg-foreground py-12 sm:py-14 lg:py-16">
+      <div className="absolute inset-x-0 top-0 h-[4px] bg-accent" />
       <div className="container mx-auto min-w-0 container-pad">
         <motion.div
           initial="hidden"
@@ -22,15 +23,19 @@ const Footer = () => {
             variants={{ hidden: { opacity: 0, y: 14 }, show: { opacity: 1, y: 0, transition: { duration: 0.45 } } }}
             className="min-w-0 lg:col-span-4"
           >
-            <div className="mb-5 inline-flex max-w-full rounded-lg bg-white p-3 shadow-sm">
-              <img src={logo} alt="TATLI BAU Logo" className="h-12 max-w-full w-auto object-contain" />
+            <div className="mb-5 inline-block rounded-lg bg-white px-3 py-2">
+              <img
+                src={logo}
+                alt="Zakho Bau Logo"
+                className="h-12 w-auto object-contain"
+              />
             </div>
             <p className="mb-4 max-w-sm text-sm text-primary-foreground/60">
-              Alles aus einer Hand – Ihr Spezialist für Bau & Sanierung in Wuppertal
-              und im Bergischen Land.
+              Alles aus einer Hand – Ihr Spezialist für Bau & Sanierung in Gevelsberg
+              und im Ennepe-Ruhr-Kreis.
             </p>
             <p className="text-sm text-primary-foreground/60">
-              Bau & Sanierung in Wuppertal und im Bergischen Land
+              Bau & Sanierung in Gevelsberg und im Ennepe-Ruhr-Kreis
             </p>
           </motion.div>
 
@@ -98,14 +103,14 @@ const Footer = () => {
               Kontakt & Rechtliches
             </h4>
             <div className="flex min-w-0 flex-col gap-2">
-              <a href="tel:+4915254090013" className="break-safe text-sm text-primary-foreground/60 hover:text-accent">
-                01525 4090013
+              <a href="tel:+4915788888852" className="break-safe text-sm text-primary-foreground/60 hover:text-accent">
+                +49 1578 8888852
               </a>
-              <a href="mailto:tatlican2@icloud.com" className="break-safe text-sm text-primary-foreground/60 hover:text-accent">
-                tatlican2@icloud.com
+              <a href="mailto:info@zakho-bau.de" className="break-safe text-sm text-primary-foreground/60 hover:text-accent">
+                info@zakho-bau.de
               </a>
               <span className="break-safe text-sm text-primary-foreground/60">
-                Görlitzer Straße 37, 42277 Wuppertal
+                Gevelsberg, NRW
               </span>
               <Link to="/impressum" className="break-safe text-sm text-primary-foreground/60 hover:text-accent">
                 Impressum
@@ -118,7 +123,7 @@ const Footer = () => {
         </motion.div>
 
         <div className="mt-12 border-t border-primary-foreground/10 pt-6 text-center text-xs text-primary-foreground/40">
-          © 2025 TATLI BAU – Hasan Tatli. Alle Rechte vorbehalten.
+          © 2026 Zakho Bau · Helmke Digital
         </div>
       </div>
     </footer>
@@ -126,3 +131,5 @@ const Footer = () => {
 };
 
 export default Footer;
+
+

@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+﻿import { useMemo } from "react";
 import { motion } from "framer-motion";
 import { Link, useParams } from "react-router-dom";
 import {
@@ -104,9 +104,8 @@ const StandortContent = ({ standort }: { standort: StandortData }) => {
         },
         provider: {
           "@type": "HomeAndConstructionBusiness",
-          name: "TATLI BAU",
-          telephone: "+4915254090013",
-          email: "tatlican2@icloud.com",
+          name: "Zakho Bau",
+          email: "info@zakho-bau.de",
         },
       },
       {
@@ -200,14 +199,14 @@ const StandortContent = ({ standort }: { standort: StandortData }) => {
                   Unverbindlich anfragen
                 </Button>
               </Link>
-              <a href="tel:+4915254090013" className="w-full sm:w-auto">
+              <a href="tel:+4915788888852" className="w-full sm:w-auto">
                 <Button
                   variant="outline"
                   size="lg"
                   className="w-full border-primary-foreground/40 bg-primary-foreground/10 text-primary-foreground backdrop-blur-sm hover:bg-primary-foreground/20 sm:w-auto"
                 >
                   <Phone className="mr-2 h-4 w-4" />
-                  01525 4090013
+                  +49 1578 8888852
                 </Button>
               </a>
             </div>
@@ -252,7 +251,7 @@ const StandortContent = ({ standort }: { standort: StandortData }) => {
                 <div className="mt-5 flex items-center gap-3 rounded-lg border border-accent/20 bg-accent/5 p-3 text-sm text-foreground">
                   <Phone className="h-5 w-5 shrink-0 text-accent" aria-hidden />
                   <span>
-                    Direkt durch den Inhaber – <strong className="font-semibold">01525 4090013</strong>
+                    Direkt durch den Inhaber – <strong className="font-semibold">+49 1578 8888852</strong>
                   </span>
                 </div>
               </div>
@@ -516,10 +515,10 @@ const StandortContent = ({ standort }: { standort: StandortData }) => {
                   Zur Anfrage
                 </Button>
               </Link>
-              <a href="tel:+4915254090013">
+              <a href="tel:+4915788888852">
                 <Button variant="outline" className="w-full sm:w-auto">
                   <Phone className="mr-2 h-4 w-4" />
-                  01525 4090013
+                  +49 1578 8888852
                 </Button>
               </a>
             </div>
@@ -553,3 +552,5 @@ const StandortLanding = () => {
 };
 
 export default StandortLanding;
+
+

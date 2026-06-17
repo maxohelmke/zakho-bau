@@ -16,85 +16,107 @@ import {
   Home,
   Wrench,
   Layers,
-  Trash2,
-  ClipboardList,
+  ArrowRight,
 } from "lucide-react";
 
 const services = [
   {
-    icon: Home,
+    icon: Hammer,
     title: "Renovierung",
-    short: "Innenausbau",
-    desc: "Wände, Böden, Decken und kompletter Innenausbau – wir verwandeln Ihre Räume.",
+    short: "& Modernisierung",
+    desc: "Komplettrenovierungen und Wohnungssanierungen – termingerecht, sauber, zum Festpreis.",
+    detail: "Von der Planung bis zur schlüsselfertigen Übergabe. Wir renovieren Wohnungen, Häuser und Gewerberäume professionell und termingerecht.",
+    href: "/leistungen#renovierung",
+    gradient: "from-[#CC1515]/20 via-[#CC1515]/5 to-transparent",
   },
   {
-    icon: Wrench,
-    title: "Sanierung",
-    short: "Kern & Bad",
-    desc: "Kernsanierung, Fassadensanierung und Badsanierung nach höchsten Standards.",
-  },
-  {
-    icon: LayoutGrid,
+    icon: Layers,
     title: "Trockenbau",
-    short: "Wände & Decken",
-    desc: "Gipskarton, Zwischenwände und Deckenabhängungen – präzise und sauber.",
+    short: "& Innenausbau",
+    desc: "Wände, Decken, Ständerwerk – professioneller Trockenbau für Privat- und Gewerbekunden.",
+    detail: "Raumtrennung, Schallschutz, abgehängte Decken. Präzise Ausführung mit hochwertigen Materialien von führenden Herstellern.",
+    href: "/leistungen#trockenbau",
+    gradient: "from-[#CC1515]/20 via-[#CC1515]/5 to-transparent",
   },
   {
     icon: Paintbrush,
     title: "Malerarbeiten",
-    short: "Innen & Außen",
-    desc: "Professionelle Oberflächen für Innen und Außen – fachgerecht und langlebig.",
+    short: "& Tapezieren",
+    desc: "Innen- und Außenanstriche, Tapezierarbeiten und dekorative Wandgestaltung.",
+    detail: "Frische Farben, neue Tapeten, dekorative Techniken. Wir gestalten Ihren Wohn- oder Gewerberaum nach Ihren Wünschen.",
+    href: "/leistungen#malerarbeiten",
+    gradient: "from-[#CC1515]/20 via-[#CC1515]/5 to-transparent",
   },
   {
-    icon: Layers,
-    title: "Fliesenleger",
-    short: "Bad & Küche",
-    desc: "Bad, Küche, Terrasse und Außenbereiche – exakte Verlegung für perfekte Ergebnisse.",
+    icon: LayoutGrid,
+    title: "Bodenbeläge",
+    short: "& Fliesen",
+    desc: "Verlegen von Laminat, Parkett, Vinyl und Fliesen – sauber und fachgerecht.",
+    detail: "Präzises Verlegen aller Bodenbelagsarten. Untergrundvorbereitung, Nivellierung und fachgerechte Verlegung inklusive.",
+    href: "/leistungen#bodenbelag",
+    gradient: "from-[#CC1515]/20 via-[#CC1515]/5 to-transparent",
   },
   {
-    icon: Hammer,
-    title: "Bodenverlegung",
-    short: "Parkett & Vinyl",
-    desc: "Parkett, Laminat, Vinyl und Estrich – für jeden Raum der richtige Boden.",
+    icon: Home,
+    title: "Badsanierung",
+    short: "Komplettsanierung",
+    desc: "Komplettsanierung von Badezimmern – Fliesen, Sanitär, Trockenbau aus einer Hand.",
+    detail: "Ihr Bad neu – von der Planung bis zur Übergabe. Fliesen, Sanitär, Trockenbau, Elektro – alles koordiniert aus einer Hand.",
+    href: "/leistungen#sanierung",
+    gradient: "from-[#CC1515]/20 via-[#CC1515]/5 to-transparent",
   },
   {
-    icon: Trash2,
-    title: "Abrissarbeiten",
-    short: "Rückbau",
-    desc: "Rückbau und Entkernung – schnell, sicher und fachgerecht durchgeführt.",
-  },
-  {
-    icon: ClipboardList,
-    title: "Komplettlösungen",
-    short: "Alles aus einer Hand",
-    desc: "Bauleitung und Generalunternehmer – alles aus einer Hand für Ihr Projekt.",
+    icon: Wrench,
+    title: "Außenarbeiten",
+    short: "& Fassade",
+    desc: "Fassadenarbeiten, Außenputz und kleinere Erdarbeiten rund ums Haus.",
+    detail: "Wetterfeste Fassaden, Außenputz und Anstrich. Professionelle Ausführung für dauerhaften Schutz Ihres Gebäudes.",
+    href: "/leistungen#aussenarbeiten",
+    gradient: "from-[#CC1515]/20 via-[#CC1515]/5 to-transparent",
   },
 ];
 
 type Service = (typeof services)[number];
 
-const ServiceCard = ({ s }: { s: Service }) => {
+const FlipServiceCard = ({ s }: { s: Service }) => {
   const Icon = s.icon;
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 14 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.45 }}
-      className="group flex h-full flex-col rounded-xl border border-border bg-background p-5 shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-accent/10 sm:p-6"
-    >
-      <div className="mb-4 flex items-center justify-between gap-3">
-        <div className="inline-flex rounded-md bg-accent/10 p-3">
-          <Icon className="h-6 w-6 text-accent" />
+    <div className="flip-card h-64 w-full cursor-pointer sm:h-72">
+      <div className="flip-card-inner rounded-xl">
+        {/* Front */}
+        <div
+          className={`flip-card-front flex flex-col rounded-xl border border-white/10 bg-gradient-to-br ${s.gradient} bg-[#161616] p-6 shadow-lg`}
+        >
+          <div className="mb-4 inline-flex w-fit rounded-lg bg-accent/15 p-3">
+            <Icon className="h-6 w-6 text-accent" />
+          </div>
+          <h3 className="mb-1 text-xl font-bold text-white">{s.title}</h3>
+          <p className="mb-3 text-xs font-medium uppercase tracking-widest text-accent">
+            {s.short}
+          </p>
+          <p className="flex-1 text-sm leading-relaxed text-white/55">{s.desc}</p>
+          <div className="mt-4 flex items-center gap-1 text-xs font-medium text-accent/70">
+            <span>Karte umdrehen</span>
+            <ArrowRight className="h-3 w-3" />
+          </div>
         </div>
-        <span className="rounded-full bg-secondary px-2.5 py-1 text-xs font-medium text-muted-foreground">
-          {s.short}
-        </span>
+
+        {/* Back */}
+        <div className="flip-card-back flex flex-col rounded-xl border border-accent/30 bg-accent p-6 shadow-lg">
+          <div className="mb-3 inline-flex w-fit rounded-lg bg-white/20 p-3">
+            <Icon className="h-6 w-6 text-white" />
+          </div>
+          <h3 className="mb-3 text-xl font-bold text-white">{s.title}</h3>
+          <p className="flex-1 text-sm leading-relaxed text-white/85">{s.detail}</p>
+          <Link
+            to={s.href}
+            className="mt-4 inline-flex items-center gap-2 rounded-lg bg-white/15 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-white/25"
+          >
+            Mehr erfahren <ArrowRight className="h-4 w-4" />
+          </Link>
+        </div>
       </div>
-      <h3 className="mb-2 text-xl text-foreground sm:text-2xl">{s.title}</h3>
-      <p className="flex-1 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
-      <div className="mt-5 h-0.5 w-10 bg-accent transition-all duration-300 group-hover:w-full" />
-    </motion.div>
+    </div>
   );
 };
 
@@ -118,32 +140,19 @@ const ServicesMobileCarousel = () => {
     <div className="w-full min-w-0 max-w-full overflow-x-hidden">
       <Carousel
         setApi={setApi}
-        opts={{
-          align: "center",
-          loop: true,
-          dragFree: false,
-          containScroll: "trimSnaps",
-        }}
+        opts={{ align: "center", loop: true, dragFree: false, containScroll: "trimSnaps" }}
         className="w-full max-w-full min-w-0"
       >
         <CarouselContent className="-ml-0">
           {services.map((s) => (
             <CarouselItem key={s.title} className="min-w-0 basis-full pl-0">
               <div className="px-1">
-                <motion.div
-                  initial={false}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.25 }}
-                >
-                  <ServiceCard s={s} />
-                </motion.div>
+                <FlipServiceCard s={s} />
               </div>
             </CarouselItem>
           ))}
         </CarouselContent>
       </Carousel>
-
-      {/* Punkt-Navigation, zentriert (Wischen zum Wechseln) */}
       <div className="mt-6 flex w-full justify-center">
         <div
           className="flex min-h-9 max-w-full items-center justify-center gap-1.5 overflow-x-auto overflow-y-hidden px-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
@@ -156,13 +165,11 @@ const ServicesMobileCarousel = () => {
               type="button"
               role="tab"
               aria-selected={i === current}
-              aria-label={`Leistung ${i + 1} von ${services.length}: ${services[i].title}`}
+              aria-label={`Leistung ${i + 1}`}
               onClick={() => api?.scrollTo(i)}
               className={cn(
                 "h-1.5 shrink-0 rounded-full transition-all duration-300",
-                i === current
-                  ? "w-6 bg-accent"
-                  : "w-1.5 bg-accent/25 hover:bg-accent/45"
+                i === current ? "w-6 bg-accent" : "w-1.5 bg-accent/30 hover:bg-accent/50",
               )}
             />
           ))}
@@ -174,7 +181,7 @@ const ServicesMobileCarousel = () => {
 
 const Services = () => {
   return (
-    <section id="leistungen" className="bg-secondary section-pad">
+    <section id="leistungen" className="bg-background section-pad">
       <div className="container mx-auto container-pad">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -187,24 +194,27 @@ const Services = () => {
             Unsere Leistungen
           </p>
           <h2 className="text-foreground">Was wir für Sie tun</h2>
+          <p className="mx-auto mt-4 max-w-xl text-base text-muted-foreground">
+            Hover über eine Karte für Details — alles aus einer Hand.
+          </p>
         </motion.div>
 
-        {/* Mobil: zentriertes Einzel-Karussell mit Dots */}
+        {/* Mobile */}
         <div className="md:hidden">
           <ServicesMobileCarousel />
         </div>
 
-        {/* Tablet & Desktop: Raster */}
-        <div className="hidden gap-6 md:grid md:grid-cols-2 lg:grid-cols-4">
+        {/* Desktop Grid */}
+        <div className="hidden gap-5 md:grid md:grid-cols-2 lg:grid-cols-3">
           {services.map((s, i) => (
             <motion.div
               key={s.title}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.05 }}
+              transition={{ duration: 0.4, delay: i * 0.07 }}
             >
-              <ServiceCard s={s} />
+              <FlipServiceCard s={s} />
             </motion.div>
           ))}
         </div>

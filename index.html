@@ -3,36 +3,55 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <title>TATLI BAU – Bau & Sanierung in Wuppertal | Bergisches Land</title>
-    <meta name="description" content="TATLI BAU – Ihr Experte für Renovierung, Sanierung und alle Bauarbeiten aus einer Hand. Kostenlose Beratung für Privat- und Gewerbekunden in Wuppertal und im Bergischen Land." />
+    <title>Zakho Bau | Bau & Sanierung in Gevelsberg</title>
+    <meta name="description" content="Zakho Bau – Ihr Experte für Renovierung, Sanierung und Bauarbeiten in Gevelsberg und im Ennepe-Ruhr-Kreis. Qualität aus Erfahrung. Jetzt anfragen!" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" type="image/png" href="/favicon.png" />
-    <link rel="canonical" href="https://tatlibau.de/" />
+    <link rel="canonical" href="https://zakho-bau.de/" />
     <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
 
-    <meta property="og:title" content="TATLI BAU – Bau & Sanierung in Wuppertal und im Bergischen Land" />
-    <meta property="og:description" content="Ihr Experte für Renovierung, Sanierung und alle Bauarbeiten aus einer Hand." />
+    <meta property="og:title" content="Zakho Bau – Bau & Sanierung in Gevelsberg" />
+    <meta property="og:description" content="Ihr Experte für Renovierung, Sanierung und Bauarbeiten aus einer Hand. Qualität aus Erfahrung." />
     <meta property="og:type" content="website" />
+
+    <!-- Fonts: preconnect zuerst, dann stylesheet -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Inter:wght@400;500;600&display=swap"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
 
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "HomeAndConstructionBusiness",
-      "name": "TATLI BAU",
-      "description": "Bau & Sanierung in Wuppertal und im Bergischen Land",
-      "telephone": "+4915254090013",
-      "email": "tatlican2@icloud.com",
+      "name": "Zakho Bau",
+      "description": "Bau & Sanierung in Gevelsberg und im Ennepe-Ruhr-Kreis",
+      "telephone": "+4915788888852",
+      "email": "info@zakho-bau.de",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Görlitzer Straße 37",
-        "postalCode": "42277",
-        "addressLocality": "Wuppertal",
+        "addressLocality": "Gevelsberg",
+        "addressRegion": "NRW",
         "addressCountry": "DE"
       },
-      "areaServed": ["Wuppertal", "Bergisches Land"],
-      "founder": { "@type": "Person", "name": "Hasan Tatli" }
+      "areaServed": ["Gevelsberg", "Ennepe-Ruhr-Kreis"],
+      "slogan": "Qualität aus Erfahrung"
     }
     </script>
+
+    <!-- Smooth initial load: prevent FOUC -->
+    <style>
+      html { background: #F4F4F4; }
+      #root { opacity: 0; animation: fadeIn 0.3s ease-out 0.05s forwards; }
+      @keyframes fadeIn { to { opacity: 1; } }
+    </style>
   </head>
   <body>
     <div id="root"></div>

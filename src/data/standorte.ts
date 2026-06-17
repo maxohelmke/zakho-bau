@@ -5,678 +5,510 @@ export type StandortData = {
   subline: string;
   intro: string;
   introHighlight: string;
-  /** Überschrift über den Highlight-Karten – einzigartig pro Seite */
   highlightsSectionTitle: string;
-  /** Kurzer Einleitungstext unter der Überschrift – einzigartig */
   highlightsSectionLead: string;
   highlights: string[];
-  /** Regionale Kurzinfos (keine Behauptungen zu festen Zahlen – nur Orientierung) */
   localFacts: { label: string; text: string }[];
-  /** Schwerpunkt-Leistungen mit eigener Struktur */
   serviceFocus: {
     title: string;
     intro: string;
     items: string[];
   };
   sections: { title: string; body: string }[];
-  /** Lokale FAQ – Fragen und Antworten nur auf dieser URL, für SEO und Nutzer */
   faqs: { question: string; answer: string }[];
   seoTitle: string;
   seoDescription: string;
   heroImage: string;
   heroImageAlt: string;
   regionTag: string;
-  /** Kennzahlen für Trust-Box (optional, sonst Defaults in der UI) */
   stats?: { value: string; label: string }[];
 };
 
 export const STANDORTE: StandortData[] = [
   {
-    slug: "wuppertal",
-    name: "Wuppertal",
-    headline: "Bau & Sanierung in Wuppertal – vom Tal bis auf die Höhen",
-    subline: "Renovierung in Elberfeld, Barmen, Vohwinkel, Cronenberg & Co.",
+    slug: "gevelsberg",
+    name: "Gevelsberg",
+    headline: "Bau & Sanierung in Gevelsberg – Qualität aus Erfahrung",
+    subline: "Unser Heimatstandort im Ennepe-Ruhr-Kreis",
     intro:
-      "Wuppertal ist für uns Heimatbasis: Die Stadt erstreckt sich entlang der Wupper und zieht sich in zahlreiche Hanglagen. Genau dort unterscheiden sich die baulichen Situationen: mal enge Talgrundstücke, mal exponierte Lagen mit längeren Leitungswegen. Wir kennen typische Altbauten aus der Gründerzeit ebenso wie Nachkriegsbestand und modernisierte Wohnblöcke. Ob Sie eine Etagenwohnung in Barmen sanieren, in Elberfeld einen Altbau aufwerten oder in Cronenberg ein Haus fit machen – wir planen mit Blick auf Zufahrten, Treppenhauslogistik und die Besonderheiten des Bergischen.",
+      "Gevelsberg ist unser Heimatstandort – hier kennen wir die Straßen, die Gebäude und die besonderen Anforderungen der Region. Ob Altbausanierung, Badsanierung oder komplette Renovierung: Zakho Bau ist Ihr verlässlicher Partner vor Ort. Kurze Reaktionszeiten und persönliche Betreuung sind für uns selbstverständlich.",
     introHighlight:
-      "Besonders häufig begleiten wir Modernisierungen vor Neuvermietung oder Verkauf, barrierearme Umbaute für ältere Bewohner und komplette Badsanierungen, bei denen Elektrik, Wasser und Oberflächen aus einem Guss gedacht sind.",
-    highlightsSectionTitle: "Warum Auftraggeber in Wuppertal uns wählen",
+      "Als lokaler Fachbetrieb in Gevelsberg sind wir schnell vor Ort – egal ob dringende Schadensbeseitigung oder geplantes Renovierungsprojekt.",
+    highlightsSectionTitle: "Warum Auftraggeber in Gevelsberg uns wählen",
     highlightsSectionLead:
-      "Kurze Wege innerhalb der Stadt, klare Absprachen und die Erfahrung, dass viele Wuppertaler Immobilien besondere Detailfragen stellen – etwa feuchte Kellerräume, schmale Treppenhäuser oder ungewöhnliche Grundrisse.",
+      "Kurze Wege, direkter Kontakt zum Inhaber und echte Kenntnis der lokalen Bausubstanz – das macht den Unterschied.",
     highlights: [
-      "Besichtigung und Beratung direkt vor Ort – ohne lange Wartezeit auf externe Dienstleister",
-      "Koordination von Elektro, Wasser und Ausbau, damit nichts doppelt geöffnet wird",
-      "Erfahrung mit Hanglagen, Talverlauf und typischen Altbau-Schwachstellen",
-      "Transparente Angebote mit nachvollziehbaren Positionen statt Pauschalversprechen",
+      "Heimatstandort mit schnellen Reaktionszeiten im gesamten Stadtgebiet",
+      "Direkte Beratung ohne Umwege – Inhaber persönlich erreichbar",
+      "Erfahrung mit typischen Gebäuden im Ennepe-Ruhr-Kreis",
+      "Transparente Angebote und verlässliche Terminplanung",
     ],
     localFacts: [
       {
         label: "Einsatzgebiet",
-        text: "Gesamtes Stadtgebiet inklusive der großen Stadtteile und angrenzender Wohnlagen – Anfahrt aus der Region ist für uns Routine.",
+        text: "Gesamtes Stadtgebiet Gevelsberg inkl. aller Wohnlagen und Ortsteile.",
       },
       {
-        label: "Besonderheit Wuppertal",
-        text: "Stark variierende Höhenlagen und oft beengte Zugänge: Wir planen Materialtransport und Arbeitsschritte so, dass Stress auf der Baustelle selten wird.",
+        label: "Reaktionszeit",
+        text: "Als Heimatbetrieb sind wir schnell vor Ort – auch für kurzfristige Besichtigungen.",
       },
       {
         label: "Projektarten",
-        text: "Von der Einzelmaßnahme (z. B. nur Bad) bis zur umfassenden Wohnungskernsanierung mit mehreren Gewerken.",
+        text: "Von der Einzelmaßnahme bis zur Komplettsanierung – alles aus einer Hand.",
       },
     ],
     serviceFocus: {
-      title: "Schwerpunkte für Projekte in Wuppertal",
+      title: "Schwerpunkte in Gevelsberg",
       intro:
-        "Je nach Objekt empfehlen wir unterschiedliche Schwerpunkte. In älterem Bestand stehen oft Elektrik, Leitungen und Feuchteschutz im Mittelpunkt; in bereits teilmodernisierten Wohnungen geht es häufig um Oberflächen, Bad und Raumwirkung.",
+        "In Gevelsberg führen wir alle Bauleistungen durch – von der Renovierung bis zur Komplettsanierung.",
       items: [
-        "Badsanierung inklusive Abdichtung, Fliesen, Anschlüssen und optional barrierearme Gestaltung",
-        "Trockenbau für neue Raumaufteilungen, wenn tragende Wände nicht berührt werden dürfen",
-        "Malerarbeiten und Bodenverlegung als Abschlussgewerke mit sauber vorbereiteten Untergründen",
-        "Koordination von Elektro- und Installationsarbeiten mit zeitlich abgestimmten „offenen“ Wänden",
-        "Vorbereitung von Übergaben an Mieter oder Käufer mit dokumentiertem Stand der Arbeiten",
+        "Komplettrenovierung von Wohnungen und Häusern",
+        "Badsanierung inklusive Fliesen, Sanitär und Trockenbau",
+        "Trockenbau für neue Raumaufteilungen",
+        "Malerarbeiten und Bodenverlegung",
+        "Außenarbeiten und Fassadengestaltung",
       ],
     },
     sections: [
       {
-        title: "Altbau in Wuppertal: Was wir vor der ersten Hammerschlag prüfen",
+        title: "Gevelsberg: Unser Zuhause, Ihr Vorteil",
         body:
-          "Bei Bestandsgebäuden klären wir früh, welche Wände tragend sind, wo Leitungen vermutlich liegen und ob Feuchte oder Salzausblühungen auf eine Ursache hindeuten. Das verhindert teure Korrekturen mitten in der Sanierung. Wo nötig, empfehlen wir spezialisierte Fachplaner – wir bleiben Ihre Schnittstelle und übersetzen Fachbegriffe in verständliche Entscheidungen.",
+          "Als in Gevelsberg ansässiger Betrieb kennen wir die lokalen Gegebenheiten genau. Das bedeutet für Sie: keine langen Anfahrtszeiten, schnelle Reaktion und ein Ansprechpartner, der die Region kennt.",
       },
       {
-        title: "Treppenhäuser, Lieferfenster und Nachbarschaft",
+        title: "Altbau und Neubau",
         body:
-          "In dicht besiedelten Straßen zählen kurze Lärmphasen und saubere Fluchtwege. Wir stimmen mit Ihnen Lieferfenster und Staubschutz ab und achten darauf, dass gemeinschaftliche Bereiche nach der Arbeit wieder nutzbar sind. Das ist vor allem in Mehrfamilienhäusern mit hoher Frequenz wichtig.",
-      },
-      {
-        title: "Zeitplan und Meilensteine",
-        body:
-          "Nach Besichtigung erhalten Sie einen Ablauf mit groben Zeitfenstern – etwa wann Rohinstallationen fertig sein sollten, wann Fliesen folgen, wann Maler und Boden dran sind. Kurzfristige Änderungen sind möglich, werden aber vorher besprochen, damit Budget und Termine nicht aus dem Ruder laufen.",
-      },
-      {
-        title: "Kosten und Prioritäten",
-        body:
-          "Nicht jedes Budget erlaubt die Komplettlösung sofort. Wir helfen, Maßnahmen zu staffeln: etwa zuerst sicherheitstechnisch und wasserseitig relevante Punkte, später ästhetische Feinarbeiten. So bleibt Ihr Projekt steuerbar, ohne dass später alles wieder aufgerissen werden muss.",
+          "Ob Bestandsimmobilie aus der Nachkriegszeit oder neueres Gebäude – wir passen unsere Arbeitsweise dem jeweiligen Objekt an und beraten Sie ehrlich zu Möglichkeiten und Kosten.",
       },
     ],
     faqs: [
       {
-        question: "Sind Sie in allen Wuppertaler Stadtteilen unterwegs?",
+        question: "Sind Sie wirklich in ganz Gevelsberg tätig?",
         answer:
-          "Ja, wir betreuen Projekte im gesamten Stadtgebiet – von den dicht bebauten Lagen entlang der Wupper bis zu ruhigeren Wohnlagen in den Höhen. Entscheidend für uns ist die bauliche Situation vor Ort, nicht die Postleitzahl.",
+          "Ja, wir betreuen Projekte im gesamten Stadtgebiet – von der Innenstadt bis zu den Außenbezirken.",
       },
       {
-        question: "Wie gehen Sie mit Hanglagen und schwierigen Zufahrten um?",
+        question: "Wie schnell können Sie eine Besichtigung anbieten?",
         answer:
-          "Wir planen Materialmengen, Wege und ggf. Zwischenlagerung, damit nichts blockiert und die Baustelle erreichbar bleibt. Bei sehr beengten Verhältnissen stimmen wir Lieferungen zeitlich enger ab oder teilen Arbeitsschritte sinnvoll auf.",
+          "In der Regel melden wir uns innerhalb eines Werktags und vereinbaren kurzfristig einen Termin.",
       },
       {
-        question: "Können Sie Modernisierungen für Vermieter abwickeln?",
+        question: "Führen Sie auch kleinere Arbeiten durch?",
         answer:
-          "Ja. Wir kennen typische Anforderungen bei Mieterwechseln und Modernisierungsumlagen und dokumentieren den Fortschritt so, dass Abstimmung mit Verwaltung oder Eigentümern nachvollziehbar bleibt – ohne dass Sie jeden Handgriff selbst mitverfolgen müssen.",
-      },
-      {
-        question: "Was passiert bei unerwarteten Schäden im Altbau?",
-        answer:
-          "Wenn sich hinter alten Fliesen oder Putz mehr zeigt als erwartet, stoppen wir den betroffenen Arbeitsschritt, zeigen Ihnen den Befund und besprechen Optionen mit klaren Kostenfolgen. Nichts wird „still“ hinterher repariert, was Ihr Budget unerwartet belastet.",
-      },
-    ],
-    seoTitle: "Bau & Sanierung Wuppertal | TATLI BAU – Altbau, Bad, Trockenbau",
-    seoDescription:
-      "Renovierung und Sanierung in Wuppertal: Badsanierung, Trockenbau, Malerarbeiten und Gewerkekoordination. Persönliche Beratung, feste Ansprechpartner. Jetzt Erstgespräch vereinbaren.",
-    heroImage: "/standorte/wuppertal.jpg",
-    heroImageAlt:
-      "Panorama und urbane Architektur in Wuppertal – TATLI BAU Sanierung und Renovierung",
-    regionTag: "Wuppertal & Bergisches Land",
-  },
-  {
-    slug: "solingen",
-    name: "Solingen",
-    headline: "Sanierung in Solingen – Qualität zwischen Gräfrath und Industriekultur",
-    subline: "Ohligs, Höhscheid, Burg, Wald & historisches Gräfrath im Blick",
-    intro:
-      "Solingen verbindet dichte Wohnquartiere mit dem denkmalgeschützten Altstadtbereich Gräfrath und moderner Nachverdichtung. In Gräfrath gelten oft besondere Vorgaben zu Oberflächen und Fenstern; in anderen Stadtteilen stehen funktionale Modernisierung und kurze Bauzeiten im Vordergrund. Wir stimmen jedes Vorhaben auf die Situation ab: vermietete Wohnungen, Einfamilienhäuser mit Garten oder sanierte Etagenwohnungen mit Balkon. Dabei achten wir auf saubere Baustellen, weil in Solingen Nachbarschaft und Ruhezeiten oft eine größere Rolle spielen als auf freistehenden Grundstücken.",
-    introHighlight:
-      "Wenn Sie in einem Mehrfamilienhaus wohnen, koordinieren wir Staub, Lärm und Lieferungen so, dass Treppenhaus und Hof nicht unnötig blockiert werden – und halten Hausmeister oder Verwaltung bei Bedarf auf dem Laufenden.",
-    highlightsSectionTitle: "Was Solingen-Kunden von uns erwarten dürfen",
-    highlightsSectionLead:
-      "Handwerk, das zu Solingen passt: präzise Ausführung, klare Kommunikation und Respekt vor dem Bestand – ob sichtbare Fachwerkelemente oder schlichte Wohnungswände aus den 1970er-Jahren.",
-    highlights: [
-      "Erfahrung mit unterschiedlichen Baualtersklassen – von Fachwerk bis Plattenbau der späteren Jahrzehnte",
-      "Abstimmung bei denkmalrelevanten Details mit Ihnen und ggf. Fachleuten, bevor etwas fest verbaut wird",
-      "Feste Terminabsprachen, damit Mieterwechsel oder Einzug planbar bleiben",
-      "Dokumentation der Arbeitsschritte für Vermieter und Eigentümergemeinschaften",
-    ],
-    localFacts: [
-      {
-        label: "Stadtbild",
-        text: "Mischung aus historischem Gräfrath, urbanen Lagen und grünen Randlagen – jedes Viertel stellt andere Anforderungen an Material und Logistik.",
-      },
-      {
-        label: "Typische Aufträge",
-        text: "Badsanierung, Küchenumbau, komplette Wohnungsfrischzüge sowie punktuelle Instandsetzung nach Wasserschäden.",
-      },
-      {
-        label: "Anfahrt",
-        text: "Kurze Verbindung zu unserem Schwerpunkt Wuppertal – dadurch sind Nachterminen und Zwischenbesuchen realistisch machbar.",
-      },
-    ],
-    serviceFocus: {
-      title: "Leistungen, die in Solingen besonders oft angefragt werden",
-      intro:
-        "Die Schwerpunkte verschieben sich je nach Objekt. In älterem Bestand sind oft Elektrik und Feuchtraum die treibenden Themen; in neuerem Bestand geht es häufig um Design, Böden und Licht.",
-      items: [
-        "Komplettsanierung von Bädern inklusive Entsorgung alter Installationen und normgerechter Abdichtung",
-        "Trockenbau für neue Grundrisse, wenn Statik und Brandschutz eingehalten werden",
-        "Maler- und Spachtelarbeiten als Basis für langlebige Wandbeläge",
-        "Bodenverlegung mit Untergrundprüfung – wichtig bei unebenen Estrichen",
-        "Abstimmung mit Küchenlieferanten, wenn Anschlüsse und Maße exakt passen müssen",
-      ],
-    },
-    sections: [
-      {
-        title: "Gräfrath und Denkmalschutz: Worauf wir achten",
-        body:
-          "Wo Vorgaben für Fassaden, Fenster oder sichtbare Holzkonstruktionen gelten, planen wir Innenarbeiten so, dass äußere Vorgaben nicht verletzt werden. Innen können oft moderne Bäder und Technik umgesetzt werden – wir klären mit Ihnen, welche Freiheiten realistisch sind, bevor gekauft und verbaut wird.",
-      },
-      {
-        title: "Nachbarschaft und bewohnte Häuser",
-        body:
-          "Staub und Erschütterungen begrenzen wir durch Abschnitte, Staubschutztüren und sinnvolle Reihenfolgen. Kurze, konzentrierte Arbeitsphasen sind oft besser als lang hingezogene Halbfertigzustände – das besprechen wir transparent.",
-      },
-      {
-        title: "Budget staffeln statt verzichten",
-        body:
-          "Wenn nicht alles auf einmal finanzierbar ist, definieren wir Pakete: zuerst alles, was Feuchte, Sicherheit und Nutzbarkeit betrifft, später Oberflächen und Design. So investieren Sie dort, wo es zuerst wirkt.",
-      },
-    ],
-    faqs: [
-      {
-        question: "Übernehmen Sie auch kleinere Arbeiten in Solingen?",
-        answer:
-          "Ja, je nach Kapazität auch punktuelle Leistungen – etwa Malerarbeiten nach Wasserschaden oder die Renovierung einzelner Räume. Größere Vorhaben koordinieren wir weiterhin zentral, damit Schnittstellen nicht verloren gehen.",
-      },
-      {
-        question: "Wie läuft die Abstimmung bei vermieteten Wohnungen?",
-        answer:
-          "Wir legen mit Ihnen fest, wann Zugang zur Wohnung möglich ist, welche Arbeiten Lärm verursachen und wie lange Kernphasen dauern. Bei Bedarf informieren wir Mieter in verständlicher Form über die nächsten Schritte – Sie geben den Ton vor.",
-      },
-      {
-        question: "Beraten Sie zu Förderungen oder steuerlichen Aspekten?",
-        answer:
-          "Wir kennen typische Programme und Modernisierungspfade und können grob einordnen, was infrage kommt. Verbindliche Auskünfte erteilen Steuerberater oder Förderstellen – wir liefern die technische Grundlage für deren Entscheid.",
-      },
-      {
-        question: "Kann ich Materialien selbst beistellen?",
-        answer:
-          "Grundsätzlich ja, wenn Qualität und Liefertermine passen. Wir prüfen vorab Verarbeitbarkeit und Garantiefragen, damit es auf der Baustelle nicht zu Reibung kommt.",
-      },
-    ],
-    seoTitle: "Bau & Sanierung Solingen | TATLI BAU – Gräfrath, Bad, Renovierung",
-    seoDescription:
-      "Renovierung in Solingen: Badsanierung, Trockenbau, Malerarbeiten. Rücksicht auf Altbau und Nachbarn. Jetzt Beratung für Ihr Projekt anfragen.",
-    heroImage: "/standorte/solingen.jpg",
-    heroImageAlt:
-      "Historische Gassen und Fachwerk in Solingen – Handwerk und Sanierung TATLI BAU",
-    regionTag: "Solingen & Bergisches Land",
-  },
-  {
-    slug: "duesseldorf",
-    name: "Düsseldorf",
-    headline: "Innensanierung & Umbau in Düsseldorf – professionell organisiert",
-    subline: "Von der Rheinlage bis zu ruhigen Wohnstraßen in Oberbilk & Lohausen",
-    intro:
-      "Düsseldorf ist wirtschaftlich und architektonisch vielfältig: teils hohe Mieten und Erwartungen an Ausstattung, teils solider Wohnungsbestand mit Modernisierungsstau. Wir führen Sanierungen durch, die zu Ihrem Objekt passen – ob repräsentative Altbauwohnung, sanierte Etagenwohnung mit Aufzug oder sachliche Wohnung für die Vermietung. Wichtig in der Landeshauptstadt sind oft Logistik (Parken, Lieferzonen), Abstimmung mit Hausverwaltungen und die Einhaltung von Hausordnungen. Genau dort setzen wir mit strukturierten Abläufen und verlässlicher Kommunikation an.",
-    introHighlight:
-      "Für Eigentümer in Wohnanlagen klären wir früh, welche Arbeiten der Gemeinschaft gemeldet werden müssen und welche Unterlagen sinnvoll sind – damit keine Überraschungen in der Nachbarschaft entstehen.",
-    highlightsSectionTitle: "Darauf kommt es in Düsseldorfer Bestandsimmobilien an",
-    highlightsSectionLead:
-      "Präzise Terminplanung, saubere Baustellenführung und die Bereitschaft, mit Verwaltung, Nachbarn und ggf. Architekten konstruktiv zusammenzuarbeiten – ohne dass Sie im Tagesgeschäft untergehen.",
-    highlights: [
-      "Erfahrung mit innerstädtischen Logistikfragen – von Lieferfenstern bis zur Treppenhausnutzung",
-      "Klare Ansprechpartner statt endloser E-Mail-Ketten mit Subunternehmern",
-      "Abstimmung von Roh- und Feinarbeiten, damit teure Nachbesserungen selten werden",
-      "Realistische Zeitpläne, die Puffer für Altbaurückfragen einrechnen",
-    ],
-    localFacts: [
-      {
-        label: "Stadtprofil",
-        text: "Mischung aus dichter Innenstadtbebauung, Rheinnähe und ruhigeren Wohngebieten – jedes Quartier hat eigene Herausforderungen bei Zufahrt und Lärm.",
-      },
-      {
-        label: "Häufige Ziele",
-        text: "Wertsteigerung durch Bad und Küche, Vermietbarkeit verbessern, energetische Teilmaßnahmen kombiniert mit optischer Modernisierung.",
-      },
-      {
-        label: "Unser Rollenverständnis",
-        text: "Wir bleiben Ihr Partner für die Ausführung und Koordination auf der Baustelle – Sonderfälle mit Statik oder Genehmigungen klären wir mit Ihnen und Fachplanern.",
-      },
-    ],
-    serviceFocus: {
-      title: "Leistungen für Sanierungsprojekte in Düsseldorf",
-      intro:
-        "Je nach Ziel unterscheiden sich die Pakete. Investoren und Vermieter priorisieren oft robuste Materialien und schnelle Übergaben; Eigennutzer setzen häufig auf Komfort, Design und Langlebigkeit.",
-      items: [
-        "Komplette Badsanierung mit Planung von Ablauf, Beleuchtung und Stauraum",
-        "Trockenbau für neue Raumkonzepte, etwa offene Küchen oder zusätzliche Abstellflächen",
-        "Malerarbeiten inklusive Untergrundvorbereitung für hochwertige Anstriche",
-        "Koordination von Elektrik und Sanitär mit dokumentierten Übergaben",
-        "Vorbereitung auf Verkauf oder Neuvermietung mit fokussierten Maßnahmen",
-      ],
-    },
-    sections: [
-      {
-        title: "Urbanes Arbeiten: Treppenhäuser, Aufzüge und Zeitfenster",
-        body:
-          "In vielen Häusern bestimmen kurze Zeitfenster für Materialaufzug oder Hofzufahrt den Tagesablauf. Wir stimmen Lieferungen und arbeitsintensive Phasen so, dass weder Nachbarn dauerhaft gestört noch die Baustelle blockiert wird. Wo nötig, organisieren wir Zwischenlager – immer mit Blick auf Diebstahlschutz und Brandschutz.",
-      },
-      {
-        title: "Repräsentation und Werterhalt",
-        body:
-          "In begehrten Lagen zählt neben der Technik auch die Wirkung von Oberflächen, Licht und Raumaufteilung. Wir beraten, welche Maßnahmen sich für eine spätere Vermietung oder einen Verkauf eignen – ohne unnötige Überinvestition in Details, die kaum jemand wahrnimmt.",
-      },
-      {
-        title: "Gewerke statt Wildwuchs",
-        body:
-          "Mehrere getrennte Handwerker ohne Abstimmung führen oft zu Verzögerungen. Wir bündeln, wo es sinnvoll ist, und definieren Schnittstellen klar: wer liefert wann Vorbereitung, wer übernimmt Endmontage, wer dokumentiert Übergaben.",
-      },
-      {
-        title: "Kommunikation mit Verwaltung und Eigentümern",
-        body:
-          "Bei Maßnahmen, die Gemeinschaftseigentum berühren können, unterstützen wir Sie mit technischen Beschreibungen für Anfragen. Entscheidungen treffen Sie weiterhin – wir liefern die fachliche Grundlage in verständlicher Sprache.",
-      },
-    ],
-    faqs: [
-      {
-        question: "Arbeiten Sie in allen Düsseldorfer Stadtteilen?",
-        answer:
-          "Ja, wir betreuen Projekte in der gesamten Stadt und im näheren Umfeld. Entscheidend sind Zufahrt, Hauszugang und die baulichen Gegebenheiten – nicht das Viertel allein.",
-      },
-      {
-        question: "Wie gehen Sie mit Park- und Ladezonen um?",
-        answer:
-          "Wir planen Lieferungen möglichst gebündelt und vermeiden unnötige Großfahrzeuge. Wo nur kurze Standzeiten erlaubt sind, stimmen wir Abläufe so, dass entladen und weitergearbeitet werden kann, ohne den Fluss zu blockieren.",
-      },
-      {
-        question: "Kann ich während einer größeren Sanierung in der Wohnung bleiben?",
-        answer:
-          "Das ist von Umfang und Hygienevorgaben abhängig. Bei Bad- und Feuchtraumarbeiten ist temporäres Ausweichen oft angenehmer; bei reinen Malerarbeiten in einzelnen Räumen bleiben manche Kunden vor Ort. Wir beraten ehrlich nach Ihrer Situation.",
+          "Ja, je nach Kapazität auch Einzelmaßnahmen – sprechen Sie uns einfach an.",
       },
       {
         question: "Bieten Sie Festpreise an?",
         answer:
-          "Wo der Leistungsumfang klar umrissen ist, sind Festpreise möglich. Unvorhersehbare Altbaubefunde können zusätzliche Positionen erfordern – die besprechen wir vor Umsetzung und dokumentieren sie.",
+          "Wo der Leistungsumfang klar ist, sind Festpreise möglich. Wir besprechen alles transparent im Angebot.",
       },
     ],
-    seoTitle: "Renovierung Düsseldorf | TATLI BAU – Bad, Altbau, Gewerkekoordination",
+    seoTitle: "Bau & Sanierung Gevelsberg | Zakho Bau – Renovierung, Trockenbau, Bad",
     seoDescription:
-      "Sanierung und Innenausbau in Düsseldorf: Badsanierung, Trockenbau, Malerarbeiten. Strukturierte Abläufe, ein Ansprechpartner. Jetzt Projekt schildern.",
-    heroImage: "/standorte/duesseldorf.jpg",
-    heroImageAlt:
-      "Rheinufer und Skyline Düsseldorf – Renovierung und Sanierung mit TATLI BAU",
-    regionTag: "Düsseldorf & Rheinschiene",
+      "Zakho Bau in Gevelsberg: Renovierung, Badsanierung, Trockenbau und Malerarbeiten. Schnelle Reaktionszeiten, persönliche Beratung. Jetzt anfragen!",
+    heroImage: "/standorte/schwelm.jpg",
+    heroImageAlt: "Gevelsberg – Bau & Sanierung mit Zakho Bau",
+    regionTag: "Gevelsberg & Ennepe-Ruhr-Kreis",
   },
   {
-    slug: "mettmann",
-    name: "Mettmann",
-    headline: "Modernisierung in Mettmann – Kreisstadt mit Hang- und Tal-Lagen",
-    subline: "Vom Tal bis zu den höher gelegenen Wohngebieten",
+    slug: "ennepetal",
+    name: "Ennepetal",
+    headline: "Renovierung & Sanierung in Ennepetal",
+    subline: "Professioneller Innenausbau im Ennepe-Ruhr-Kreis",
     intro:
-      "Mettmann liegt zentral im Kreis Mettmann und ist von Wuppertal und Düsseldorf aus schnell erreichbar – für uns ebenfalls. Die Stadt zeigt eine Mischung aus älterem Wohnungsbestand, Nachkriegsbebauung und neueren Wohnanlagen. Hanglagen prägen viele Straßen: Das betrifft Zufahrten, Schacht- und Leitungswege sowie manchmal die Statik von Außenanlagen. Wir berücksichtigen das in der Planung, statt Probleme erst auf der Baustelle zu entdecken. Eigentümer und Familien schätzen oft die ruhige Lage – wir achten entsprechend auf unaufdringliche Bauabläufe und verlässliche Termine.",
+      "Ennepetal liegt direkt vor unserer Haustür – kurze Anfahrten und persönliche Betreuung sind daher für Ennepetaler Kunden selbstverständlich. Wir führen Renovierungen, Trockenbauarbeiten und Malerarbeiten in allen Ennepetaler Stadtteilen durch und kennen die lokale Bausubstanz gut.",
     introHighlight:
-      "Wenn Sie eine Immobilie im Kreis verkaufen oder vermieten möchten, helfen wir, sichtbare Mängel und veraltete Bäder so zu adressieren, dass der erste Eindruck stimmt – ohne dass Sie in jedes Detail investieren müssen.",
-    highlightsSectionTitle: "Was Mettmann-Projekte von anderen unterscheidet",
+      "Ob Vorholz, Milspe oder Altenvoerde – wir sind in ganz Ennepetal schnell vor Ort und bieten verlässliche Handwerksleistungen.",
+    highlightsSectionTitle: "Was Ennepetaler Kunden von uns erwarten dürfen",
     highlightsSectionLead:
-      "Hanglagen, unterschiedliche Baujahre und die Nähe zu beiden Ballungsräumen erfordern flexibles Planen – mit klarem Kopf für Statik, Leitungsführung und Alltag der Bewohner.",
+      "Zuverlässige Ausführung, transparente Kommunikation und kurze Reaktionszeiten – weil Ennepetal für uns ein Nachbarstandort ist.",
     highlights: [
-      "Sinnvolle Priorisierung, wenn Budget und Wunschliste nicht sofort zusammenpassen",
-      "Koordination der Gewerke mit Blick auf Leitungswege in älteren Gebäuden",
-      "Persönliche Betreuung – kein anonymer Callcenter-Service",
-      "Erfahrung mit typischen Reihen- und Doppelhaussituationen im Kreisgebiet",
+      "Kurze Anfahrtswege aus Gevelsberg",
+      "Erfahrung mit Bestandsgebäuden im Ennepe-Ruhr-Kreis",
+      "Transparente Angebote ohne versteckte Kosten",
+      "Persönlicher Kontakt zum Inhaber",
     ],
     localFacts: [
       {
-        label: "Lagevorteil",
-        text: "Gute Erreichbarkeit aus Richtung Wuppertal und Düsseldorf – kurze Wege für Zwischenbesuche und Abnahmen.",
+        label: "Lage",
+        text: "Direkt angrenzend an Gevelsberg – kurze Wege für Besichtigungen und Abnahmen.",
       },
       {
-        label: "Bauliche Vielfalt",
-        text: "Tal- und Hanglagen, unterschiedliche Entwässerungssituationen und gemischte Baualtersklassen – wir gehen differenziert vor.",
+        label: "Typische Aufträge",
+        text: "Renovierungen vor Vermietung, Badsanierungen und Malerarbeiten.",
       },
       {
-        label: "Typische Aufgaben",
-        text: "Badmodernisierung, Wärme- und Feuchteraum, Malerarbeiten und Umbauten mit Trockenbau.",
+        label: "Besonderheit",
+        text: "Mischung aus Wohnquartieren verschiedener Baualtersklassen – wir passen uns an.",
       },
     ],
     serviceFocus: {
-      title: "Schwerpunkte für Hausbesitzer und Kapitalanleger in Mettmann",
-      intro:
-        "Je nach Zielsetzung variieren die Maßnahmen. Eigennutzer investieren oft in Komfort und Design; Kapitalanleger in robuste, pflegeleichte Lösungen und schnelle Fertigstellung.",
+      title: "Leistungen in Ennepetal",
+      intro: "Wir führen alle gängigen Bauleistungen auch in Ennepetal durch.",
       items: [
-        "Komplette Badsanierung mit Entsorgung Altbestand und normgerechter Installation",
-        "Trockenbau für Grundrissanpassungen unter Beachtung statischer Vorgaben",
-        "Maler- und Spachtelarbeiten als Grundlage für strapazierfähige Oberflächen",
-        "Beratung zu Reihenfolge und Kosten, wenn mehrere Räume betroffen sind",
-        "Abstimmung mit Dienstleistern für Küche, Elektrik oder Sonderwünsche nach Absprache",
+        "Renovierung & Modernisierung von Wohnungen",
+        "Trockenbau & Innenausbau",
+        "Malerarbeiten & Tapezieren",
+        "Bodenverlegung (Laminat, Parkett, Vinyl)",
+        "Badsanierung aus einer Hand",
       ],
     },
     sections: [
       {
-        title: "Hanglagen: Was wir vorab klären",
+        title: "Ennepetal: Verlässlich und nah",
         body:
-          "Bei Hanggrundstücken prüfen wir mit Blick auf Ihr Projekt, ob Entwässerung, Terrassen oder Kellerräume von Arbeiten betroffen sein könnten. Nicht jedes Thema ist sofort sichtbar – wir empfehlen, kritische Punkte früh mit einzubeziehen, statt sie als nachträgliche Baustelle zu erleben.",
-      },
-      {
-        title: "Nachbarschaft in dichter Bebauung",
-        body:
-          "In vielen Straßen stehen Häuser dicht beieinander. Wir reduzieren Staub und Lärm durch Abschnitte und klare Arbeitsphasen. Kurze, intensive Arbeitsschritte sind oft besser als wochenlange Halbzustände.",
-      },
-      {
-        title: "Wirtschaftlichkeit und Werthaltigkeit",
-        body:
-          "Wir sagen Ihnen offen, welche Investition sich für Ihre Nutzungsdauer und Ihr Ziel lohnt. Manchmal reicht eine fokussierte Badmodernisierung; manchmal lohnt sich die Kombination mit Elektrik oder Böden, weil später doppelt geöffnet würde.",
+          "Die Nähe zu unserem Heimatstandort Gevelsberg ermöglicht es uns, schnell auf Anfragen zu reagieren und Projekte in Ennepetal ohne Mehrkosten für lange Anfahrten zu bearbeiten.",
       },
     ],
     faqs: [
       {
-        question: "Wie schnell können Sie in Mettmann einen Termin zur Besichtigung anbieten?",
+        question: "Arbeiten Sie in allen Ennepetaler Stadtteilen?",
         answer:
-          "Das hängt von der aktuellen Auslastung ab. In der Regel melden wir uns zeitnah auf Ihre Anfrage und schlagen konkrete Termine vor. Dringende Fälle nach Wasserschaden besprechen wir priorisiert.",
+          "Ja, wir sind in ganz Ennepetal tätig – von Milspe bis Voerde.",
       },
       {
-        question: "Übernehmen Sie auch Teilbereiche statt Komplettsanierung?",
+        question: "Wie schnell kann ich einen Termin bekommen?",
         answer:
-          "Ja. Viele Kunden starten mit Bad oder einem Geschoss und stocken später nach. Wir planen so, dass spätere Erweiterungen technisch sinnvoll bleiben.",
+          "Wir melden uns in der Regel innerhalb eines Werktags und vereinbaren zeitnah einen Besichtigungstermin.",
       },
       {
-        question: "Arbeiten Sie mit Architekten oder Ingenieuren zusammen?",
+        question: "Übernehmen Sie auch kleinere Malerarbeiten?",
         answer:
-          "Wo statische oder genehmigungspflichtige Themen anstehen, arbeiten wir mit Ihren Fachplanern zusammen oder empfehlen die Einbindung – wir bleiben Ihr Ansprechpartner für die Ausführung.",
+          "Ja, je nach Kapazität auch Einzelgewerke. Rufen Sie uns einfach an.",
       },
       {
-        question: "Wie werden Mängel oder Nacharbeiten gehandhabt?",
+        question: "Gibt es Festpreise?",
         answer:
-          "Übergabe und Abnahme erfolgen strukturiert. Sollte etwas nicht den Vereinbarungen entsprechen, beheben wir das nach – ohne Diskussion um Verantwortlichkeiten im Kleingedruckten.",
+          "Wo der Umfang klar definiert ist, bieten wir gerne Festpreise an.",
       },
     ],
-    seoTitle: "Sanierung Mettmann | TATLI BAU – Bad, Umbau, Hanglage & Bestand",
+    seoTitle: "Renovierung Ennepetal | Zakho Bau – Trockenbau, Maler, Bad",
     seoDescription:
-      "Renovierung in Mettmann: Innensanierung, Badsanierung, Trockenbau. Beratung für Eigentümer im Kreis Mettmann. Jetzt Kontakt aufnehmen.",
-    heroImage: "/standorte/mettmann.jpg",
-    heroImageAlt:
-      "Wohngebiet und Architektur in Mettmann – Modernisierung mit TATLI BAU",
-    regionTag: "Mettmann & Kreis Mettmann",
+      "Zakho Bau in Ennepetal: Renovierung, Trockenbau, Malerarbeiten und Badsanierung. Persönliche Beratung, schnelle Rückmeldung. Jetzt anfragen!",
+    heroImage: "/standorte/remscheid.jpg",
+    heroImageAlt: "Ennepetal – Renovierung und Sanierung mit Zakho Bau",
+    regionTag: "Ennepetal & Ennepe-Ruhr-Kreis",
   },
   {
     slug: "schwelm",
     name: "Schwelm",
-    headline: "Renovierung in Schwelm – zwischen Ruhrgebiet und Bergischem Land",
+    headline: "Bausanierungen & Innenausbau in Schwelm",
     subline: "Ennepe-Ruhr-Kreis: schnelle Anbindung, persönliche Betreuung",
     intro:
-      "Schwelm profitiert von verkehrsgünstiger Lage und einer überschaubaren Stadtstruktur. Für uns ist die Stadt fest im Tourenplan verankert: überschaubare Anfahrten, klare Kommunikation und die Möglichkeit, auch kurzfristig vorbeizuschauen, wenn auf der Baustelle Entscheidungen anstehen. Viele Aufträge betreffen Modernisierung vor Verkauf oder Neuvermietung, Familien, die ihr Zuhause langfristig fit machen, oder Eigentümer, die nach Jahren punktuell nachziehen. Wir übersetzen Ihre Ziele in einen umsetzbaren Plan – mit realistischem Zeitbudget und ehrlicher Einschätzung der Kosten.",
+      "Schwelm profitiert von verkehrsgünstiger Lage und einer überschaubaren Stadtstruktur. Für uns ist Schwelm fest im Tourenplan: überschaubare Anfahrten, klare Kommunikation und die Möglichkeit, auch kurzfristig vorbeizuschauen. Wir übernehmen Modernisierungen, Badsanierungen und Innenausbauarbeiten in Schwelm.",
     introHighlight:
-      "Wenn Sie unter Zeitdruck stehen (z. B. Übergabetermin oder Einzug), legen wir Prioritäten fest und markieren optional, was später nachgezogen werden kann – damit Sie nicht alles auf einmal finanzieren müssen.",
+      "Wenn Sie unter Zeitdruck stehen – etwa für einen Übergabetermin oder Einzug – legen wir Prioritäten fest und zeigen, was sofort und was später erledigt werden kann.",
     highlightsSectionTitle: "Darauf legen Schwelmer Auftraggeber Wert",
     highlightsSectionLead:
-      "Zuverlässigkeit, nachvollziehbare Angebote und die Bereitschaft, auch unbequeme Wahrheiten über den Bestand auszusprechen – bevor es teuer wird.",
+      "Zuverlässigkeit, nachvollziehbare Angebote und die Bereitschaft, auch unbequeme Wahrheiten über den Bestand auszusprechen.",
     highlights: [
-      "Schnelle Rückmeldung auf Anfragen und realistische Ersteinschätzung",
-      "Erfahrung mit typischen Wohnungsgrundrissen und Häusern der Region",
-      "Klare Prioritätenliste, wenn Budget und Wunschliste auseinanderlaufen",
+      "Schnelle Rückmeldung auf Anfragen",
+      "Erfahrung mit typischen Wohnungsgrundrissen im Ennepe-Ruhr-Kreis",
+      "Klare Prioritätenliste wenn Budget und Wunschliste auseinanderlaufen",
       "Dokumentation für Verkauf, Vermietung oder Versicherung nach Absprache",
     ],
     localFacts: [
       {
         label: "Region",
-        text: "Im Ennepe-Ruhr-Kreis verknüpft mit guter Anbindung Richtung Mettmann und Wuppertal – für uns planbar im Tagesgeschäft.",
+        text: "Im Ennepe-Ruhr-Kreis – gut erreichbar aus Gevelsberg.",
       },
       {
         label: "Auftragsprofil",
-        text: "Häufig Frischzüge, Badsanierungen und Schadensmaßnahmen; daneben langfristige Modernisierungsprojekte.",
+        text: "Häufig Frischzüge, Badsanierungen und Instandsetzungsarbeiten.",
       },
       {
         label: "Arbeitsweise",
-        text: "Wir vermeiden Doppelarbeiten: Wer öffnet, schließt auch wieder fachgerecht – oder wir koordinieren das explizit.",
+        text: "Wir vermeiden Doppelarbeiten: Wer öffnet, schließt auch wieder fachgerecht.",
       },
     ],
     serviceFocus: {
       title: "Leistungen rund um Sanierung und Instandhaltung in Schwelm",
-      intro:
-        "Der Umfang reicht von punktuellen Arbeiten bis zur umfassenden Aufwertung. Entscheidend ist immer die Reihenfolge: Zuerst alles, was Feuchte, Sicherheit und Nutzbarkeit betrifft.",
+      intro: "Vom Einzelgewerk bis zur Komplettsanierung – immer in der richtigen Reihenfolge.",
       items: [
-        "Badsanierung mit Fokus auf Dichtigkeit, Komfort und Reinigungsfreundlichkeit",
-        "Malerarbeiten und Bodenverlegung nach sachgerechter Untergrundvorbereitung",
-        "Trockenbau für Raumteilungen oder Ausgleich unebener Wände",
-        "Koordination nach Wasserschaden: Trocknung, Austausch, Wiederherstellung",
-        "Beratung zu sinnvollen Investitionen vor Immobilienverkauf",
+        "Badsanierung mit Fokus auf Dichtigkeit und Komfort",
+        "Malerarbeiten und Bodenverlegung",
+        "Trockenbau für Raumteilungen",
+        "Instandsetzung nach Wasserschäden",
+        "Beratung zu Investitionen vor Immobilienverkauf",
       ],
     },
     sections: [
       {
-        title: "Vor Verkauf oder Vermietung: wo sich Arbeit auszahlt",
+        title: "Vor Verkauf oder Vermietung in Schwelm",
         body:
-          "Nicht jede Investition steigert den Preis gleichermaßen. Wir zeigen, welche sichtbaren und technischen Punkte Käufer und Mieter typischerweise wahrnehmen – und wo Sie mit kleinem Aufwand viel erreichen. Das ersetzt keine Maklerbewertung, verschafft aber Klarheit für Ihre Entscheidung.",
+          "Nicht jede Investition steigert den Preis gleichermaßen. Wir zeigen, welche Punkte Käufer und Mieter typischerweise wahrnehmen – und wo Sie mit kleinem Aufwand viel erreichen.",
       },
       {
         title: "Transparenz bei Kosten und Änderungen",
         body:
-          "Das Angebot basiert auf dem Besichtigungstermin. Wenn sich der Befund ändert, stoppen wir, informieren Sie und einigen uns auf die nächsten Schritte. So bleiben Sie souverän über Ihr Budget.",
-      },
-      {
-        title: "Familien und Langzeitnutzer",
-        body:
-          "Wenn Sie lange bleiben möchten, lohnt sich oft die Kombination aus Komfort (Bad, Küche, Licht) und technischer Basis (Elektrik, Leitungen). Wir helfen, das sinnvoll zu staffeln.",
+          "Das Angebot basiert auf dem Besichtigungstermin. Wenn sich der Befund ändert, informieren wir Sie sofort und besprechen gemeinsam die nächsten Schritte.",
       },
     ],
     faqs: [
       {
         question: "Wie schnell bekomme ich in Schwelm einen Rückruf?",
         answer:
-          "In der Regel innerhalb eines Werktags – bei dringenden Schäfen bitten wir um kurze Kennzeichnung in der Nachricht, damit wir priorisieren können.",
+          "In der Regel innerhalb eines Werktags – bei dringenden Schäden bitten wir um kurze Kennzeichnung in der Nachricht.",
       },
       {
         question: "Übernehmen Sie auch Schadensanierung nach Leitungswasser?",
         answer:
-          "Ja, in vielen Fällen: Befund, Austausch betroffener Bereiche, Trocknung nach Vorgabe und Wiederherstellung der Oberflächen. Umfang klären wir nach Sichtung.",
+          "Ja: Befund, Austausch betroffener Bereiche und Wiederherstellung der Oberflächen.",
       },
       {
-        question: "Kann ich Referenzen oder ähnliche Projekte erfragen?",
+        question: "Führen Sie auch nur Malerarbeiten durch?",
         answer:
-          "Je nach Datenschutz und Verfügbarkeit können wir Beispiele nennen oder beschreiben. Fotos von fremden Objekten zeigen wir nur mit Einwilligung der Eigentümer.",
+          "Ja, je nach Kapazität auch Einzelgewerke – sprechen Sie uns konkret an.",
       },
       {
-        question: "Arbeiten Sie nur privat oder auch für Firmen?",
+        question: "Arbeiten Sie nur für Privatpersonen?",
         answer:
-          "Schwerpunkt ist privates Wohnen; gewerbliche Kleinobjekte sind nach Absprache möglich. Sprechen Sie uns mit Ihrem konkreten Fall an.",
+          "Schwerpunkt ist privates Wohnen; gewerbliche Kleinobjekte sind nach Absprache möglich.",
       },
     ],
-    seoTitle: "Renovierung Schwelm | TATLI BAU – Bad, Sanierung, Ennepe-Ruhr",
+    seoTitle: "Renovierung Schwelm | Zakho Bau – Bad, Sanierung, Ennepe-Ruhr",
     seoDescription:
-      "Sanierung in Schwelm: Badsanierung, Malerarbeiten, Umbau. Schnelle Rückmeldung, transparente Kosten. Jetzt Erstberatung anfragen.",
+      "Sanierung in Schwelm: Badsanierung, Malerarbeiten, Umbau. Schnelle Rückmeldung, transparente Kosten. Jetzt Erstberatung bei Zakho Bau anfragen.",
     heroImage: "/standorte/schwelm.jpg",
-    heroImageAlt:
-      "Wohnen und Architektur – Sanierung und Handwerk in Schwelm mit TATLI BAU",
+    heroImageAlt: "Schwelm – Sanierung und Handwerk mit Zakho Bau",
     regionTag: "Schwelm & Ennepe-Ruhr-Kreis",
   },
   {
-    slug: "remscheid",
-    name: "Remscheid",
-    headline: "Sanierung in Remscheid & Lennep – Bergisch, höhenreich, vielseitig",
-    subline: "Vom Lenneper Kirchplatz bis zu Hanglagen mit Weitblick",
+    slug: "hagen",
+    name: "Hagen",
+    headline: "Komplettleistungen rund ums Bauen in Hagen",
+    subline: "Renovierung, Sanierung und Innenausbau in der Ruhrgebietsstadt",
     intro:
-      "Remscheid ist durch Höhenunterschiede und die großen Stadtteile geprägt – etwa Lennep mit historischem Zentrum oder Lüttringhausen mit eigenem Charakter. Immobilien reichen von schmucken Altbauwohnungen bis zu Häusern aus späteren Jahrzehnten. Häufig spielen ältere Installationen, Feuchtebereiche und die Frage eine Rolle, wie weit man bei einer Modernisierung gehen sollte. Wir beraten pragmatisch: Was ist sicherheitstechnisch und nutzungsseitig nötig, was ist Wunsch, was kann später folgen? So entsteht ein Plan, der zu Ihrem Budget und Ihrer Nutzungsdauer passt – nicht ein Katalog, der jedes Zimmer gleich behandelt.",
+      "Hagen als größere Stadt bietet vielfältige Immobilientypen – von Gründerzeitbauten über Nachkriegsbestand bis zu modernen Wohnanlagen. Zakho Bau übernimmt Sanierungs- und Innenausbauarbeiten in Hagen und bietet Ihnen die gewohnte Zuverlässigkeit aus dem Ennepe-Ruhr-Kreis.",
     introHighlight:
-      "Hanglagen können Auswirkungen auf Außenanlagen, Entwässerung und Zufahrten haben. Wir schauen bei der Planung über die Innenräume hinaus, wenn Arbeiten das berühren könnten.",
-    highlightsSectionTitle: "Was Remscheid-Projekte handwerklich ausmacht",
+      "Bei Projekten in Hagen planen wir Anfahrten und Materiallieferungen effizient, damit keine unnötigen Mehrkosten entstehen.",
+    highlightsSectionTitle: "Was Hagener Auftraggeber von uns erwarten dürfen",
     highlightsSectionLead:
-      "Robuste Ausführung, klare Zuständigkeiten und die Bereitschaft, auch unübersichtliche Altbausituationen strukturiert zu lösen – statt schneller Provisorien.",
+      "Professionelle Ausführung, klare Kommunikation und verlässliche Terminplanung – auch über die Kreisgrenze hinaus.",
     highlights: [
-      "Direkter Kontakt zum Inhaber – Entscheidungen ohne lange Eskalationsketten",
-      "Priorisierung nach Sicherheit und Alltagstauglichkeit, nicht nach dem teuersten Katalog",
-      "Koordination mehrerer Gewerke mit nachvollziehbaren Zwischenständen",
-      "Erfahrung mit unterschiedlichen Hang- und Tal-Lagen im Stadtgebiet",
+      "Erfahrung mit verschiedenen Gebäudetypen und Baualtersklassen",
+      "Klare Angebote ohne versteckte Positionen",
+      "Pünktliche Fertigstellung durch realistische Planung",
+      "Direkte Kommunikation mit dem Inhaber",
     ],
     localFacts: [
       {
-        label: "Stadtteile",
-        text: "Lennep, Lüttringhausen und weitere Ortsteile unterscheiden sich in Bausubstanz und Infrastruktur – wir gehen ortsspezifisch vor.",
+        label: "Anfahrt",
+        text: "Von Gevelsberg aus gut erreichbar – effiziente Tourenplanung für Hagener Projekte.",
       },
       {
-        label: "Typische Themen",
-        text: "Elektrik nachrüsten, Bäder erneuern, Feuchteschäden sanieren, Wohnungen für neue Mieter fit machen.",
+        label: "Typische Aufträge",
+        text: "Badsanierungen, Wohnungsrenovierungen und Trockenbauarbeiten.",
       },
       {
-        label: "Region",
-        text: "Im Bergischen Land verwurzelt – kurze Wege zu Nachbarstädten und zu Baustellen in Remscheid.",
+        label: "Gebäudetypen",
+        text: "Gründerzeitbauten, Nachkriegsbestand und neuere Wohnanlagen.",
       },
     ],
     serviceFocus: {
-      title: "Leistungen für Modernisierung und Instandsetzung in Remscheid",
-      intro:
-        "Je nach Gebäudealter kombinieren wir unterschiedliche Gewerke. Wichtig ist die richtige Reihenfolge: Erst statisch und leitungstechnisch klären, dann sichtbare Schönheit.",
+      title: "Unsere Leistungen in Hagen",
+      intro: "Wir führen alle gängigen Bauleistungen auch in Hagen aus.",
       items: [
-        "Kernsanierung von Bädern inklusive Rohinstallation und Oberflächen",
-        "Trockenbau für neue Raumaufteilungen und technische Vorsätze",
-        "Malerarbeiten und Bodenverlegung nach Untergrundprüfung",
-        "Teilinstandsetzung nach Schäden mit Fokus auf Ursachenbeseitigung",
-        "Beratung zu sinnvollen Investitionsstufen bei älterem Bestand",
+        "Renovierung & Modernisierung von Wohnungen",
+        "Badsanierung mit Trockenbau und Fliesen",
+        "Malerarbeiten und Tapezieren",
+        "Bodenverlegung (Laminat, Parkett, Vinyl)",
+        "Außenarbeiten und Fassadengestaltung",
       ],
     },
     sections: [
       {
-        title: "Lennep und historischer Kern: Innenarbeiten mit Augenmaß",
+        title: "Hagen: Vielfältige Immobilien, ein Ansprechpartner",
         body:
-          "Wo Gebäude unter Ensembleschutz oder mit sensibler Fassade stehen, bleiben äußere Merkmale oft unangetastet – innen können dennoch moderne Bäder und Technik entstehen. Wir klären mit Ihnen, welche Innenarbeiten unkritisch sind und wo Rücksprache sinnvoll ist.",
-      },
-      {
-        title: "Elektrik und Leitungen im Bestand",
-        body:
-          "Viele Schäden entstehen durch veraltete Installationen oder fehlende Ableitung. Wir empfehlen keine vollständige Neuverkabelung „zur Sicherheit“, wenn der Befund das nicht erfordert – aber wir verschweigen auch keine Risiken, die wir sehen.",
-      },
-      {
-        title: "Zeitmanagement bei Mieterwechsel",
-        body:
-          "Zwischen Auszug und Einzug ist oft wenig Zeit. Wir legen mit Ihnen einen straffen Plan fest und benennen Risiken, wenn Material Lieferzeiten hat oder Altbaubefunde Verzögerungen auslösen könnten.",
+          "Die Gebäudevielfalt in Hagen erfordert differenziertes Vorgehen. Wir bewerten jedes Objekt individuell und beraten Sie zu den sinnvollsten Maßnahmen für Ihre Situation.",
       },
     ],
     faqs: [
       {
-        question: "Ist TATLI BAU in ganz Remscheid tätig?",
+        question: "Arbeiten Sie in ganz Hagen?",
         answer:
-          "Ja, einschließlich der großen Stadtteile und umliegender Wohnlagen. Entscheidend ist die Erreichbarkeit der Baustelle und die bauliche Situation – nicht allein die Postadresse.",
+          "Ja, wir betreuen Projekte im gesamten Hagener Stadtgebiet.",
       },
       {
-        question: "Wie gehen Sie mit unklarem Leitungsführung im Altbau um?",
+        question: "Gibt es Mehrkosten für die Anfahrt nach Hagen?",
         answer:
-          "Wir arbeiten vorsichtig und klären kritische Bereiche vor dem Durchschlagen. Wo nötig, wird ortsfest gesucht oder kurz pausiert, bis eine sichere Entscheidung vorliegt.",
+          "Das klären wir individuell im Angebot – bei größeren Projekten fällt die Anfahrt nicht ins Gewicht.",
       },
       {
-        question: "Können Sie bei der Priorisierung von Maßnahmen helfen?",
+        question: "Wie schnell kann ich ein Angebot erhalten?",
         answer:
-          "Ja, das gehört zu unserem Alltag: Wir trennen in „sollte bald“, „kann zeitlich warten“ und „rein optisch“ – damit Sie investieren, wo es wirkt.",
+          "Nach einer Besichtigung erstellen wir Ihnen in der Regel binnen weniger Tage ein Angebot.",
       },
       {
-        question: "Gibt es eine Garantie auf ausgeführte Arbeiten?",
+        question: "Führen Sie auch Gründerzeitbau-Sanierungen durch?",
         answer:
-          "Ausgeführte Gewerke werden nach üblichen handwerklichen Standards und vertraglichen Vereinbarungen abgenommen. Details zu Gewährleistung besprechen wir transparent im Angebot.",
+          "Ja, Altbau ist unser Alltag – wir kennen die typischen Herausforderungen und gehen pragmatisch vor.",
       },
     ],
-    seoTitle: "Bau & Sanierung Remscheid & Lennep | TATLI BAU – Altbausanierung",
+    seoTitle: "Renovierung Hagen | Zakho Bau – Bad, Innenausbau, Sanierung",
     seoDescription:
-      "Renovierung in Remscheid: Badsanierung, Elektrik, Trockenbau. Erfahrung mit Hanglage und Altbau. Jetzt Besichtigung vereinbaren.",
-    heroImage: "/standorte/remscheid.jpg",
-    heroImageAlt:
-      "Stadtansicht Remscheid – Sanierung, Modernisierung und Handwerk TATLI BAU",
-    regionTag: "Remscheid & Bergisches Land",
+      "Zakho Bau in Hagen: Renovierung, Badsanierung, Trockenbau und Malerarbeiten. Persönliche Beratung, verlässliche Ausführung. Jetzt anfragen!",
+    heroImage: "/standorte/wuppertal.jpg",
+    heroImageAlt: "Hagen – Bau & Sanierung mit Zakho Bau",
+    regionTag: "Hagen & Umgebung",
   },
   {
-    slug: "velbert",
-    name: "Velbert",
-    headline: "Innenausbau in Velbert – Neviges, Langenberg & Mitte",
-    subline: "Doppelstadt mit unterschiedlichen Wohnungs- und Hausmustern",
+    slug: "wuppertal",
+    name: "Wuppertal",
+    headline: "Renovierung & Sanierung in Wuppertal",
+    subline: "Bau- und Innenausbauarbeiten in der Bergischen Metropole",
     intro:
-      "Velbert besteht aus mehreren großen Stadtteilen mit je eigenem Profil: woanders dominieren Einfamilienhäuser und Reihen, anderswo größere Wohnblöcke oder kleinteiligere Straßenzüge. Genau diese Mischung verlangt differenzierte Lösungen: Im einen Objekt zählt eine wetterfeste Außenhaustür und der Anschluss an die Terrasse, im anderen eine kompakte Badlösung in der Etagenwohnung. Wir hören zu, welches Gebäude Sie haben und wie Sie leben – und übersetzen das in Materialwahl, Zeitplan und Gewerkefolge. Vermieter schätzen oft robuste, pflegeleichte Oberflächen; Eigennutzer häufig Design und Lichtkonzepte.",
+      "Wuppertal ist mit seiner vielfältigen Bausubstanz – von Gründerzeitbauten bis zu modernen Wohnanlagen – ein wichtiger Bestandteil unseres Einsatzgebiets. Zakho Bau übernimmt Renovierungen und Sanierungen in Wuppertal und bringt die gewohnte Qualität aus Gevelsberg mit.",
     introHighlight:
-      "Wenn mehrere Gewerke parallel laufen sollen, ist Abstimmung entscheidend. Wir vermeiden klassische Stolpersteine – etwa wenn der Boden verlegt wird, bevor die Feuchtraumabdichtung geprüft ist.",
-    highlightsSectionTitle: "Warum Velbert-Kunden mit TATLI BAU planen",
+      "In Wuppertal planen wir Projekte mit Blick auf die besonderen Anforderungen der Hanglagen und dicht besiedelten Stadtteile.",
+    highlightsSectionTitle: "Warum Wuppertaler Kunden Zakho Bau wählen",
     highlightsSectionLead:
-      "Weil Grundrisse, Baujahre und Nutzung sich von Straße zu Straße unterscheiden – und Standardlösungen dann selten passen.",
+      "Verlässliche Handwerksleistung, transparente Kommunikation und Erfahrung mit der vielschichtigen Wuppertaler Bausubstanz.",
     highlights: [
-      "Materialberatung mit Blick auf Nutzung: Vermietung vs. Eigennutzung",
-      "Präzise Fliesen- und Anschlussarbeiten in Bädern und Küchen",
-      "Lichtplanung zusammen mit Trockenbau für moderne Raumwirkung",
-      "Termintreue durch realistische Planung statt überoptimistischer Versprechen",
+      "Erfahrung mit Hanglagen und Altbausubstanz",
+      "Klare Ansprechpartner, keine langen Kommunikationsketten",
+      "Transparente Angebote mit nachvollziehbaren Positionen",
+      "Termintreue durch realistische Planung",
     ],
     localFacts: [
       {
         label: "Stadtteile",
-        text: "Neviges, Langenberg und Mitte unterscheiden sich in Verkehrsanbindung und Gebäudetypen – wir passen Logistik und Materialwahl an.",
+        text: "Wir betreuen Projekte im gesamten Wuppertaler Stadtgebiet.",
       },
       {
-        label: "Häufige Wünsche",
-        text: "Offene Küchenbereiche, neue Bäder, mehr Stauraum, bessere Beleuchtung und aktuelle Oberflächen.",
+        label: "Gebäudetypen",
+        text: "Gründerzeit, Nachkriegsbestand und modernisierte Mehrfamilienhäuser.",
       },
       {
-        label: "Region",
-        text: "Im Kreis Mettmann verwurzelt – kurze Wege zu Projekten in Velbert und Nachbarorten.",
+        label: "Besonderheit",
+        text: "Hanglagen erfordern besondere Logistik – wir planen entsprechend.",
       },
     ],
     serviceFocus: {
-      title: "Schwerpunkte für Umbau und Sanierung in Velbert",
-      intro:
-        "Die Liste der möglichen Arbeiten ist lang – entscheidend ist die sinnvolle Kombination. Wir empfehlen nicht „alles auf einmal“, wenn es nicht nötig ist.",
+      title: "Leistungen in Wuppertal",
+      intro: "Alle gängigen Bauleistungen – auch in Wuppertal.",
       items: [
-        "Komplette Badsanierung mit Dusche oder Wanne, je nach Grundriss und Zielgruppe",
-        "Trockenbau für neue Raumzonen, Wände oder Vorsatzschalen",
-        "Malerarbeiten inklusive Rissbeseitigung und Vorbereitung für feinere Anstriche",
-        "Bodenverlegung mit Schallschutz- und Feuchteaspekten nach Bedarf",
-        "Abstimmung mit Küchen- und Möbelmontagen nach zeitlichem Ablauf",
+        "Badsanierung inklusive Abdichtung, Fliesen und Anschlüssen",
+        "Trockenbau für neue Raumaufteilungen",
+        "Malerarbeiten und Bodenverlegung",
+        "Renovierung vor Neuvermietung oder Verkauf",
+        "Außenarbeiten und Fassadenrenovierung",
       ],
     },
     sections: [
       {
-        title: "Bäder: Abdichtung zuerst, Optik danach",
+        title: "Altbau in Wuppertal: Was wir prüfen",
         body:
-          "Ein Bad wirkt nur dann dauerhaft gut, wenn die Ebene unter den Fliesen stimmt. Wir investieren Zeit in Abdichtung, Gefälle und Anschlüsse – bevor die sichtbare Fliese den Raum prägt. Das schützt vor Folgeschäden in Nachbarwohnungen und vor teuren Nachbesserungen.",
-      },
-      {
-        title: "Licht und Raumgefühl",
-        body:
-          "Viele ältere Grundrisse wirken dunkel. Mit gezieltem Trockenbau, indirektem Licht und der richtigen Farbwahl lässt sich viel erreichen – ohne tragende Wände zu verändern. Wir zeigen Optionen, die zu Ihrer Installation und Ihrem Budget passen.",
-      },
-      {
-        title: "Vermietete Einheiten vs. Eigenheim",
-        body:
-          "In vermieteten Wohnungen priorisieren wir robuste Oberflächen, einfache Reinigung und klare Übergaben. Im Eigenheim können individuellere Materialien und aufwendigere Details sinnvoll sein – wir beraten ohne Druck in eine Richtung.",
+          "Bei Bestandsgebäuden klären wir früh, welche Wände tragend sind, wo Leitungen liegen und ob Feuchte oder Schäden auf eine Ursache hindeuten. Das verhindert teure Überraschungen mitten in der Sanierung.",
       },
     ],
     faqs: [
       {
-        question: "Decken Sie alle Velbert Stadtteile ab?",
+        question: "Sind Sie in allen Wuppertaler Stadtteilen tätig?",
         answer:
-          "Ja, wir arbeiten in Neviges, Langenberg, Mitte und den weiteren Ortsteilen. Für uns zählt die konkrete Baustelle und die Erreichbarkeit – nicht nur der Name auf dem Ortsschild.",
+          "Ja, wir betreuen Projekte im gesamten Stadtgebiet – von Elberfeld bis Cronenberg.",
       },
       {
-        question: "Wie vermeiden Sie Staub und Dreck in bewohnten Häusern?",
+        question: "Wie gehen Sie mit Hanglagen um?",
         answer:
-          "Durch Absperrungen, Staubschutztüren, geregelte Entsorgung und saubere Arbeitsschritte. Bei größeren Arbeiten empfehlen wir manchmal, Möbel zu schützen oder Räume zeitweise leer zu räumen – das besprechen wir vorab.",
+          "Wir planen Materialtransport und Arbeitsschritte so, dass Hanglagen keine unnötigen Mehrkosten verursachen.",
       },
       {
-        question: "Können Sie nur das Bad machen, Rest später?",
+        question: "Können Sie Modernisierungen für Vermieter abwickeln?",
         answer:
-          "Ja, das ist häufig sinnvoll. Wir achten darauf, spätere Arbeiten nicht zu verbauen – etwa Leerrohre oder Anschlüsse vorausschauend zu setzen.",
+          "Ja – wir dokumentieren den Fortschritt nachvollziehbar für Eigentümer und Verwaltungen.",
       },
       {
-        question: "Wie erfolgt die Abnahme?",
+        question: "Was passiert bei unerwarteten Schäden im Altbau?",
         answer:
-          "Gemeinsamer Rundgang mit Checkliste, offene Punkte werden notiert und terminiert. So bleiben keine Fragen im Raum, wenn Sie den Raum wieder nutzen.",
+          "Wir stoppen, zeigen Ihnen den Befund und besprechen Optionen mit klaren Kostenfolgen – keine Überraschungen.",
       },
     ],
-    seoTitle: "Sanierung Velbert | TATLI BAU – Bad, Trockenbau, Neviges & Langenberg",
+    seoTitle: "Bau & Sanierung Wuppertal | Zakho Bau – Altbau, Bad, Trockenbau",
     seoDescription:
-      "Renovierung in Velbert: Badsanierung, Fliesen, Trockenbau, Malerarbeiten. Individuelle Beratung für Ihr Objekt. Jetzt anfragen.",
+      "Renovierung und Sanierung in Wuppertal: Badsanierung, Trockenbau, Malerarbeiten. Persönliche Beratung, feste Ansprechpartner. Zakho Bau – Jetzt anfragen.",
+    heroImage: "/standorte/wuppertal.jpg",
+    heroImageAlt: "Wuppertal – Sanierung und Renovierung mit Zakho Bau",
+    regionTag: "Wuppertal & Bergisches Land",
+  },
+  {
+    slug: "witten",
+    name: "Witten & Umgebung",
+    headline: "Trockenbau, Malerarbeiten & Bodenbeläge in Witten",
+    subline: "Qualitätshandwerk aus Gevelsberg auch in Witten",
+    intro:
+      "Witten und seine Umgebung gehören zu unserem erweiterten Einsatzgebiet. Wir führen Innenausbauarbeiten, Malerarbeiten und Bodenverlegungen in Witten durch und bringen die bewährte Qualität von Zakho Bau auch dorthin.",
+    introHighlight:
+      "Für Wittener Projekte planen wir Anfahrten und Materiallieferungen effizient, damit Ihr Vorhaben reibungslos abläuft.",
+    highlightsSectionTitle: "Was Wittener Kunden von uns erwarten dürfen",
+    highlightsSectionLead:
+      "Die gleiche Verlässlichkeit und Qualität wie am Heimatstandort – auch in Witten.",
+    highlights: [
+      "Zuverlässige Ausführung auch im erweiterten Einsatzgebiet",
+      "Klare Kommunikation und transparente Angebote",
+      "Erfahrung mit verschiedenen Gebäudetypen",
+      "Persönlicher Ansprechpartner vom Inhaber",
+    ],
+    localFacts: [
+      {
+        label: "Erreichbarkeit",
+        text: "Von Gevelsberg aus über gut ausgebaute Verbindungen erreichbar.",
+      },
+      {
+        label: "Typische Aufträge",
+        text: "Trockenbau, Malerarbeiten, Bodenbeläge und Badsanierungen.",
+      },
+      {
+        label: "Besonderheit",
+        text: "Mischung aus Bergbau-Erbschaft und modernen Wohnquartieren.",
+      },
+    ],
+    serviceFocus: {
+      title: "Unsere Leistungen in Witten",
+      intro: "Wir übernehmen auch in Witten alle gängigen Bauleistungen.",
+      items: [
+        "Trockenbau für Raumteilungen und Innenausbau",
+        "Malerarbeiten und Tapezieren",
+        "Bodenverlegung (Laminat, Parkett, Fliesen)",
+        "Badsanierung aus einer Hand",
+        "Renovierung vor Vermietung oder Verkauf",
+      ],
+    },
+    sections: [
+      {
+        title: "Witten: Qualität ohne Abstriche",
+        body:
+          "Auch in Witten gilt unser Anspruch: saubere Ausführung, ehrliche Kommunikation und pünktliche Fertigstellung. Die Entfernung ändert nichts an unseren Standards.",
+      },
+    ],
+    faqs: [
+      {
+        question: "Führen Sie auch in Witten Arbeiten durch?",
+        answer:
+          "Ja, Witten gehört zu unserem Einsatzgebiet. Kontaktieren Sie uns für eine Besichtigung.",
+      },
+      {
+        question: "Entstehen Mehrkosten für die Anfahrt?",
+        answer:
+          "Das klären wir individuell im Angebot – bei größeren Projekten fallen Anfahrtskosten kaum ins Gewicht.",
+      },
+      {
+        question: "Welche Leistungen bieten Sie in Witten an?",
+        answer:
+          "Alle gängigen Bauleistungen: Renovierung, Trockenbau, Maler, Boden und Badsanierung.",
+      },
+      {
+        question: "Wie schnell kann ich ein Angebot erhalten?",
+        answer:
+          "Nach einer Besichtigung in der Regel binnen weniger Tage.",
+      },
+    ],
+    seoTitle: "Renovierung Witten | Zakho Bau – Trockenbau, Maler, Bodenbeläge",
+    seoDescription:
+      "Zakho Bau in Witten: Trockenbau, Malerarbeiten, Bodenbeläge und Badsanierung. Qualität aus Gevelsberg. Jetzt anfragen!",
     heroImage: "/standorte/velbert.jpg",
-    heroImageAlt:
-      "Stadtansicht und Skyline – Innenausbau und Sanierung in Velbert mit TATLI BAU",
-    regionTag: "Velbert & Kreis Mettmann",
+    heroImageAlt: "Witten – Bau & Sanierung mit Zakho Bau",
+    regionTag: "Witten & Umgebung",
   },
 ];
 

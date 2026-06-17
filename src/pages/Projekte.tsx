@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+﻿import { motion } from "framer-motion";
 import { MapPin, Phone, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Footer from "@/components/Footer";
@@ -10,7 +10,7 @@ import refBad from "@/assets/ref-badsanierung.png";
 import refFlur from "@/assets/ref-flur-beleuchtung.png";
 import refTrockenbau from "@/assets/ref-raum-trockenbau.png";
 import refBadModern from "@/assets/ref-bad-modern.png";
-import firmenwagen from "@/assets/firmenwagen.png";
+import firmenwagen from "@/assets/zakho-firmenwagen.jpg";
 import refMaler from "@/assets/ref-malerarbeiten.jpg";
 import refFliesen from "@/assets/ref-fliesen.jpg";
 import refKueche from "@/assets/ref-kueche.jpg";
@@ -22,103 +22,103 @@ const projects = [
   {
     src: refBad,
     title: "Badsanierung mit Eckbadewanne",
-    location: "Wuppertal",
+    location: "Gevelsberg",
     category: "Sanierung",
     description: "Komplette Badsanierung mit Naturstein-Optik, Eckbadewanne mit Mosaikverkleidung und modernem Design.",
   },
   {
     src: refKueche,
-    title: "Küchenrenovierung mit Einbauten",
-    location: "Solingen",
+    title: "KÃ¼chenrenovierung mit Einbauten",
+    location: "Ennepetal",
     category: "Renovierung",
-    description: "Moderne Küche mit weißen Fronten, Subway-Fliesen-Rückwand und integrierter LED-Beleuchtung.",
+    description: "Moderne KÃ¼che mit weiÃŸen Fronten, Subway-Fliesen-RÃ¼ckwand und integrierter LED-Beleuchtung.",
   },
   {
     src: refFlur,
     title: "Flursanierung mit Lichtkonzept",
-    location: "Bergisches Land",
+    location: "Ennepe-Ruhr-Kreis",
     category: "Trockenbau",
-    description: "Moderne Flurgestaltung mit abgehängter Decke und integrierten LED-Lichtleisten.",
+    description: "Moderne Flurgestaltung mit abgehÃ¤ngter Decke und integrierten LED-Lichtleisten.",
   },
   {
     src: refBadModern,
     title: "Modernes Badezimmer",
-    location: "Wuppertal",
+    location: "Gevelsberg",
     category: "Sanierung",
-    description: "Zeitgemäßes Bad mit bodengleicher Dusche, Großformat-Fliesen und LED-Deckenbeleuchtung.",
+    description: "ZeitgemÃ¤ÃŸes Bad mit bodengleicher Dusche, GroÃŸformat-Fliesen und LED-Deckenbeleuchtung.",
   },
   {
     src: refDecke,
     title: "Deckendesign mit LED-Beleuchtung",
     location: "Remscheid",
     category: "Trockenbau",
-    description: "Abgehängte Trockenbau-Decke mit umlaufender indirekter LED-Beleuchtung im Wohnbereich.",
+    description: "AbgehÃ¤ngte Trockenbau-Decke mit umlaufender indirekter LED-Beleuchtung im Wohnbereich.",
   },
   {
     src: refRaum,
     title: "Raumsanierung mit Parkett",
-    location: "Wuppertal",
+    location: "Gevelsberg",
     category: "Sanierung",
     description: "Komplettsanierung mit Eichenparkett, Trockenbau-Decke und integrierter LED-Beleuchtung.",
   },
   {
     src: refFliesen,
-    title: "Großformat-Fliesen im Bad",
-    location: "Düsseldorf",
+    title: "GroÃŸformat-Fliesen im Bad",
+    location: "DÃ¼sseldorf",
     category: "Fliesenarbeiten",
-    description: "Professionelle Verlegung von großformatigen Betonoptik-Fliesen mit exakten Fugen.",
+    description: "Professionelle Verlegung von groÃŸformatigen Betonoptik-Fliesen mit exakten Fugen.",
   },
   {
     src: refMaler,
     title: "Malerarbeiten & Wandgestaltung",
-    location: "Wuppertal",
+    location: "Gevelsberg",
     category: "Malerarbeiten",
-    description: "Sauberer Innenanstrich mit Spachtelarbeiten und Abklebe-Technik für makellose Ergebnisse.",
+    description: "Sauberer Innenanstrich mit Spachtelarbeiten und Abklebe-Technik fÃ¼r makellose Ergebnisse.",
   },
   {
     src: refTrockenbau,
     title: "Wohnraum mit Deckendesign",
-    location: "Wuppertal",
+    location: "Gevelsberg",
     category: "Trockenbau",
-    description: "Aufwändiges Trockenbau-Deckendesign mit umlaufender LED-Beleuchtung.",
+    description: "AufwÃ¤ndiges Trockenbau-Deckendesign mit umlaufender LED-Beleuchtung.",
   },
   {
     src: refAbriss,
-    title: "Entkernung & Rückbau",
-    location: "Bergisches Land",
+    title: "Entkernung & RÃ¼ckbau",
+    location: "Ennepe-Ruhr-Kreis",
     category: "Abrissarbeiten",
-    description: "Fachgerechter Rückbau und Entkernung als Vorbereitung für die Kernsanierung.",
+    description: "Fachgerechter RÃ¼ckbau und Entkernung als Vorbereitung fÃ¼r die Kernsanierung.",
   },
   {
     src: refBoden,
     title: "Bodenverlegung & Spotbeleuchtung",
-    location: "Solingen",
+    location: "Ennepetal",
     category: "Renovierung",
-    description: "Dunkles Laminat mit weißen Sockelleisten und Einbauspots für ein modernes Raumgefühl.",
+    description: "Dunkles Laminat mit weiÃŸen Sockelleisten und Einbauspots fÃ¼r ein modernes RaumgefÃ¼hl.",
   },
 ];
 
 const Projekte = () => {
   usePageSeo({
-    title: "Projekte | TATLI BAU Wuppertal",
+    title: "Projekte | Zakho Bau Gevelsberg",
     description:
-      "Referenzen und abgeschlossene Bauprojekte von TATLI BAU in Wuppertal und im Bergischen Land.",
+      "Referenzen und abgeschlossene Bauprojekte von Zakho Bau in Gevelsberg und im Bergischen Land.",
     path: "/projekte",
     structuredData: [
       {
         "@context": "https://schema.org",
         "@type": "CollectionPage",
-        name: "Projekte von TATLI BAU",
+        name: "Projekte von Zakho Bau",
         description:
-          "Referenzen und abgeschlossene Bau- und Sanierungsprojekte in Wuppertal und im Bergischen Land.",
-        url: "https://tatlibau.de/projekte",
+          "Referenzen und abgeschlossene Bau- und Sanierungsprojekte in Gevelsberg und im Bergischen Land.",
+        url: "https://zakho-bau.de/projekte",
       },
       {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Startseite", item: "https://tatlibau.de/" },
-          { "@type": "ListItem", position: 2, name: "Projekte", item: "https://tatlibau.de/projekte" },
+          { "@type": "ListItem", position: 1, name: "Startseite", item: "https://zakho-bau.de/" },
+          { "@type": "ListItem", position: 2, name: "Projekte", item: "https://zakho-bau.de/projekte" },
         ],
       },
     ],
@@ -130,7 +130,7 @@ const Projekte = () => {
       <section className="relative flex min-h-[min(45vh,400px)] flex-col justify-end overflow-hidden pt-28 pb-10">
         <img
           src={heroImg}
-          alt="Modernes Badezimmer – TATLI BAU Projekte"
+          alt="Modernes Badezimmer â€“ Zakho Bau Projekte"
           className="absolute inset-0 h-full w-full object-cover"
           width={1920}
           height={800}
@@ -151,12 +151,12 @@ const Projekte = () => {
             </p>
             <h1 className="mb-4 text-primary-foreground">Unsere Projekte</h1>
             <p className="text-lg leading-relaxed text-primary-foreground/80">
-              Einblicke in abgeschlossene Bau- und Sanierungsprojekte in Wuppertal
+              Einblicke in abgeschlossene Bau- und Sanierungsprojekte in Gevelsberg
               und im Bergischen Land.
             </p>
 
             <div className="mt-5 flex flex-wrap gap-2">
-              {["Echte Referenzen", "Saubere Übergabe", "Termintreue"].map((t) => (
+              {["Echte Referenzen", "Saubere Ãœbergabe", "Termintreue"].map((t) => (
                 <span
                   key={t}
                   className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-medium text-white/90"
@@ -176,7 +176,7 @@ const Projekte = () => {
               <a href="tel:+4915254090013" className="w-full sm:w-auto">
                 <Button variant="outline" size="lg" className="w-full sm:w-auto">
                   <Phone className="mr-2 h-4 w-4" />
-                  01525 4090013
+                  +49 1578 8888852
                 </Button>
               </a>
             </div>
@@ -200,7 +200,7 @@ const Projekte = () => {
                 <div className="relative overflow-hidden">
                   <img
                     src={p.src}
-                    alt={`${p.title} – ${p.location}`}
+                    alt={`${p.title} â€“ ${p.location}`}
                     loading="lazy"
                     className="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-105"
                     width={800}
@@ -236,10 +236,10 @@ const Projekte = () => {
             transition={{ duration: 0.5 }}
           >
             <h2 className="mb-4 text-primary-foreground">
-              Ihr Projekt könnte das nächste sein
+              Ihr Projekt kÃ¶nnte das nÃ¤chste sein
             </h2>
             <p className="mb-8 text-lg text-primary-foreground/80">
-              Lassen Sie uns gemeinsam Ihr Vorhaben besprechen – kostenlos und unverbindlich.
+              Lassen Sie uns gemeinsam Ihr Vorhaben besprechen â€“ kostenlos und unverbindlich.
             </p>
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
               <a href="/anfragen">
@@ -248,7 +248,7 @@ const Projekte = () => {
               <a href="tel:+4915254090013">
                 <Button variant="heroOutline">
                   <Phone className="mr-2 h-4 w-4" />
-                  01525 4090013
+                  +49 1578 8888852
                 </Button>
               </a>
             </div>
@@ -262,3 +262,5 @@ const Projekte = () => {
 };
 
 export default Projekte;
+
+

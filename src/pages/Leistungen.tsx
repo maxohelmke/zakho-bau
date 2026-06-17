@@ -1,14 +1,12 @@
-import { motion } from "framer-motion";
+﻿import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import {
-  Paintbrush,
   Hammer,
-  LayoutGrid,
-  Home,
-  Wrench,
   Layers,
-  Trash2,
-  ClipboardList,
+  PaintBucket,
+  Grid2x2,
+  Droplets,
+  Building2,
   Phone,
   CheckCircle,
   Sparkles,
@@ -27,68 +25,102 @@ import refTrockenbau from "@/assets/ref-raum-trockenbau.png";
 
 const services = [
   {
-    icon: Home, slug: "renovierung", title: "Renovierung",
-    subtitle: "Wände, Böden, Decken & Innenausbau",
-    desc: "Wir verwandeln Ihre Räume – ob einzelne Zimmer oder komplette Wohnungen. Von der Bestandsaufnahme über die Planung bis zur sauberen Umsetzung übernehmen wir alle Arbeiten rund um Wände, Böden und Decken.",
-    details: ["Komplette Wohnungsrenovierung", "Wandgestaltung & Verputzarbeiten", "Deckenverkleidungen & Abhängungen", "Fenster- und Türeinbau", "Innenausbau nach Maß"],
+    icon: Hammer,
+    slug: "renovierung",
+    title: "Renovierung & Modernisierung",
+    subtitle: "Komplettrenovierungen, Wohnungssanierungen und Modernisierungen",
+    desc: "Komplettrenovierungen, Wohnungssanierungen und Modernisierungen — schnell, sauber und zum Festpreis. Wir übernehmen alle Arbeiten rund um Wände, Böden und Decken aus einer Hand.",
+    details: [
+      "Komplette Wohnungsrenovierung",
+      "Wandgestaltung & Verputzarbeiten",
+      "Deckenverkleidungen & Abhängungen",
+      "Fenster- und Türeinbau",
+      "Innenausbau nach Maß",
+    ],
     image: imgRenovierung,
   },
   {
-    icon: Wrench, slug: "sanierung", title: "Sanierung",
-    subtitle: "Kernsanierung, Fassade & Bad",
-    desc: "Von der Badsanierung bis zur kompletten Kernsanierung – wir bringen Ihre Immobilie auf den neuesten Stand. Energetisch, optisch und funktional.",
-    details: ["Kernsanierung von Bestandsimmobilien", "Fassadensanierung & Wärmedämmung", "Badsanierung inkl. Sanitärinstallation", "Feuchtigkeits- und Schimmelbeseitigung", "Altbausanierung mit Denkmalschutz"],
-    image: refBad,
-  },
-  {
-    icon: LayoutGrid, slug: "trockenbau", title: "Trockenbau",
-    subtitle: "Gipskarton, Zwischenwände & Decken",
-    desc: "Professioneller Trockenbau für flexible Raumgestaltung. Wir erstellen Zwischenwände, Deckenabhängungen und Dachgeschossausbauten – präzise und sauber.",
-    details: ["Gipskartonwände & Ständerwerk", "Deckenabhängungen mit Beleuchtungsplanung", "Dachgeschossausbau", "Schallschutz & Brandschutzwände", "Trockenestrich-Systeme"],
+    icon: Layers,
+    slug: "trockenbau",
+    title: "Trockenbau & Innenausbau",
+    subtitle: "Wände, Decken, Ständerwerk",
+    desc: "Wände, Decken, Ständerwerk — professioneller Trockenbau für Privat- und Gewerbekunden. Präzise, sauber und termingerecht.",
+    details: [
+      "Gipskartonwände & Ständerwerk",
+      "Deckenabhängungen mit Beleuchtungsplanung",
+      "Dachgeschossausbau",
+      "Schallschutz & Brandschutzwände",
+      "Trockenestrich-Systeme",
+    ],
     image: refTrockenbau,
   },
   {
-    icon: Paintbrush, slug: "malerarbeiten", title: "Malerarbeiten",
-    subtitle: "Innen & Außen – professionelle Oberflächen",
-    desc: "Ob Innenanstrich, Fassadengestaltung oder Lackierarbeiten – wir sorgen für makellose Oberflächen mit hochwertigen Materialien und fachgerechter Ausführung.",
-    details: ["Innenanstriche (Wand & Decke)", "Fassadenanstrich & Außenarbeiten", "Tapezierarbeiten", "Lackierungen (Türen, Fenster, Heizkörper)", "Spachtelarbeiten & dekorative Techniken"],
+    icon: PaintBucket,
+    slug: "malerarbeiten",
+    title: "Malerarbeiten & Tapezieren",
+    subtitle: "Innen- und Außenanstriche, Tapezierarbeiten",
+    desc: "Innen- und Außenanstriche, Tapezierarbeiten und dekorative Gestaltung. Wir sorgen für makellose Oberflächen mit hochwertigen Materialien.",
+    details: [
+      "Innenanstriche (Wand & Decke)",
+      "Fassadenanstrich & Außenarbeiten",
+      "Tapezierarbeiten",
+      "Lackierungen (Türen, Fenster, Heizkörper)",
+      "Spachtelarbeiten & dekorative Techniken",
+    ],
     image: imgMaler,
   },
   {
-    icon: Layers, slug: "fliesenleger", title: "Fliesenleger",
-    subtitle: "Bad, Küche, Terrasse & Außenbereiche",
-    desc: "Exakte Fliesenverlegung für Innen- und Außenbereiche. Von Großformat-Fliesen im Badezimmer bis zu robusten Terrassenplatten – immer sauber und passgenau.",
-    details: ["Badezimmer- und Küchenfliesen", "Großformat-Fliesen & Mosaik", "Terrassenplatten & Außenbereiche", "Naturstein & Feinsteinzeug", "Abdichtung & Untergrundvorbereitung"],
+    icon: Grid2x2,
+    slug: "bodenbelag",
+    title: "Bodenbeläge & Fliesen",
+    subtitle: "Laminat, Parkett, Vinyl und Fliesen",
+    desc: "Verlegen von Laminat, Parkett, Vinyl und Fliesen — sauber und fachgerecht. Der richtige Boden für jeden Raum, langlebig und optisch ansprechend.",
+    details: [
+      "Parkettverlegung (Massiv & Fertigparkett)",
+      "Laminat & Designböden",
+      "Vinylboden (Klick & Klebe)",
+      "Estricharbeiten & Bodenausgleich",
+      "Badezimmer- und Küchenfliesen",
+    ],
     image: imgFliesen,
   },
   {
-    icon: Hammer, slug: "bodenverlegung", title: "Bodenverlegung",
-    subtitle: "Parkett, Laminat, Vinyl & Estrich",
-    desc: "Der richtige Boden für jeden Raum. Wir verlegen Parkett, Laminat, Vinyl und Estrich – fachgerecht, langlebig und optisch ansprechend.",
-    details: ["Parkettverlegung (Massiv & Fertigparkett)", "Laminat & Designböden", "Vinylboden (Klick & Klebe)", "Estricharbeiten & Bodenausgleich", "Sockelleisten & Übergangsprofile"],
-    image: refFlur,
+    icon: Droplets,
+    slug: "sanierung",
+    title: "Badsanierung",
+    subtitle: "Komplettsanierung von Badezimmern",
+    desc: "Komplettsanierung von Badezimmern — Fliesen, Sanitär, Trockenbau aus einer Hand. Wir bringen Ihr Bad auf den neuesten Stand — energetisch, optisch und funktional.",
+    details: [
+      "Komplettsanierung Bad & Dusche",
+      "Fliesen & Abdichtung",
+      "Sanitärinstallation & Anschlüsse",
+      "Trockenbau & Vorwandinstallation",
+      "Barrierefreier Umbau",
+    ],
+    image: refBad,
   },
   {
-    icon: Trash2, slug: "abrissarbeiten", title: "Abrissarbeiten",
-    subtitle: "Rückbau & Entkernung",
-    desc: "Professioneller Rückbau und Entkernung – schnell, sicher und fachgerecht. Wir entfernen alte Einbauten, Wände und Strukturen und entsorgen den Bauschutt ordnungsgemäß.",
-    details: ["Entkernung von Wohn- und Gewerberäumen", "Wanddurchbrüche & Rückbau", "Demontage alter Einbauten", "Bauschutt-Entsorgung", "Vorbereitung für Neugestaltung"],
+    icon: Building2,
+    slug: "aussenarbeiten",
+    title: "Außenarbeiten & Fassade",
+    subtitle: "Fassadenarbeiten, Außenputz und Erdarbeiten",
+    desc: "Fassadenarbeiten, Außenputz und kleinere Erdarbeiten rund ums Haus. Professionelle Außengestaltung für einen dauerhaften ersten Eindruck.",
+    details: [
+      "Fassadenanstrich & Außenputz",
+      "Wärmedämmung & Fassadenrenovierung",
+      "Terrassenplatten & Außenbereiche",
+      "Kleinere Erdarbeiten",
+      "Vorbereitung Neubau & Anbau",
+    ],
     image: imgAbriss,
-  },
-  {
-    icon: ClipboardList, slug: "komplettloesungen", title: "Komplettlösungen",
-    subtitle: "Bauleitung & Generalunternehmer",
-    desc: "Alles aus einer Hand: Als Generalunternehmer koordinieren wir alle Gewerke, übernehmen die Bauleitung und liefern Ihr Projekt termingerecht und budgetsicher ab.",
-    details: ["Projektplanung & Bauleitung", "Koordination aller Gewerke", "Termingerechte Fertigstellung", "Transparente Budgetplanung", "Schlüsselfertige Lösungen"],
-    image: imgRenovierung,
   },
 ];
 
 const Leistungen = () => {
   usePageSeo({
-    title: "Leistungen | TATLI BAU Wuppertal",
+    title: "Leistungen | Zakho Bau Gevelsberg",
     description:
-      "Unsere Leistungen in Wuppertal und im Bergischen Land: Renovierung, Sanierung, Trockenbau, Malerarbeiten, Fliesen und Komplettlösungen aus einer Hand.",
+      "Unsere Leistungen in Gevelsberg und im Ennepe-Ruhr-Kreis: Renovierung, Trockenbau, Malerarbeiten, Bodenbeläge, Badsanierung und Außenarbeiten aus einer Hand.",
     path: "/leistungen",
     structuredData: [
       {
@@ -97,12 +129,11 @@ const Leistungen = () => {
         serviceType: "Bau- und Sanierungsleistungen",
         provider: {
           "@type": "HomeAndConstructionBusiness",
-          name: "TATLI BAU",
-          areaServed: ["Wuppertal", "Bergisches Land"],
-          telephone: "+4915254090013",
-          email: "tatlican2@icloud.com",
+          name: "Zakho Bau",
+          areaServed: ["Gevelsberg", "Ennepe-Ruhr-Kreis"],
+          email: "info@zakho-bau.de",
         },
-        areaServed: ["Wuppertal", "Bergisches Land"],
+        areaServed: ["Gevelsberg", "Ennepe-Ruhr-Kreis"],
       },
       {
         "@context": "https://schema.org",
@@ -112,13 +143,13 @@ const Leistungen = () => {
             "@type": "ListItem",
             position: 1,
             name: "Startseite",
-            item: "https://tatlibau.de/",
+            item: "https://zakho-bau.de/",
           },
           {
             "@type": "ListItem",
             position: 2,
             name: "Leistungen",
-            item: "https://tatlibau.de/leistungen",
+            item: "https://zakho-bau.de/leistungen",
           },
         ],
       },
@@ -131,7 +162,7 @@ const Leistungen = () => {
       <section className="relative flex min-h-[min(50vh,440px)] flex-col justify-end overflow-hidden pt-28 pb-10 md:pb-14">
         <img
           src={heroImg}
-          alt="Handwerker bei der Arbeit – TATLI BAU Leistungen"
+          alt="Handwerker bei der Arbeit – Zakho Bau Leistungen"
           className="absolute inset-0 h-full w-full object-cover"
           width={1920}
           height={800}
@@ -155,7 +186,7 @@ const Leistungen = () => {
             </h1>
             <p className="text-lg leading-relaxed text-primary-foreground/80">
               Von der kleinen Renovierung bis zur schlüsselfertigen Komplettsanierung –
-              TATLI BAU bietet Ihnen alle Bauleistungen aus einer Hand.
+              Zakho Bau bietet Ihnen alle Bauleistungen aus einer Hand in Gevelsberg.
             </p>
 
             <div className="mt-5 flex flex-wrap gap-2">
@@ -176,10 +207,10 @@ const Leistungen = () => {
                   Angebot anfordern
                 </Button>
               </Link>
-              <a href="tel:+4915254090013" className="w-full sm:w-auto">
+              <a href="tel:+4915788888852" className="w-full sm:w-auto">
                 <Button variant="outline" size="lg" className="w-full sm:w-auto">
                   <Phone className="mr-2 h-4 w-4" />
-                  01525 4090013
+                  +49 1578 8888852
                 </Button>
               </a>
             </div>
@@ -216,21 +247,17 @@ const Leistungen = () => {
                       </li>
                     ))}
                   </ul>
-                  <a
-                    href="https://wa.me/4915254090013?text=Hallo%20TATLI%20BAU%2C%20ich%20m%C3%B6chte%20eine%20kostenlose%20Beratung%20anfragen."
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                  <Link to="/anfragen">
                     <Button variant="accent" size="sm">
                       Jetzt anfragen
                     </Button>
-                  </a>
+                  </Link>
                 </div>
 
                 <div className={i % 2 === 1 ? "lg:order-1" : ""}>
                   <img
                     src={s.image}
-                    alt={`${s.title} – TATLI BAU`}
+                    alt={`${s.title} – Zakho Bau`}
                     loading="lazy"
                     className="w-full rounded-xl object-cover shadow-lg"
                     style={{ aspectRatio: "4/3" }}
@@ -260,17 +287,13 @@ const Leistungen = () => {
               Kostenlose Beratung – wir melden uns innerhalb von 24 Stunden.
             </p>
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <a
-                href="https://wa.me/4915254090013?text=Hallo%20TATLI%20BAU%2C%20ich%20m%C3%B6chte%20eine%20kostenlose%20Beratung%20anfragen."
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <Link to="/anfragen">
                 <Button variant="hero">Jetzt Anfrage stellen</Button>
-              </a>
-              <a href="tel:+4915254090013">
+              </Link>
+              <a href="tel:+4915788888852">
                 <Button variant="heroOutline">
                   <Phone className="mr-2 h-4 w-4" />
-                  01525 4090013
+                  +49 1578 8888852
                 </Button>
               </a>
             </div>
@@ -284,3 +307,5 @@ const Leistungen = () => {
 };
 
 export default Leistungen;
+
+

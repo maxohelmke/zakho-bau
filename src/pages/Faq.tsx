@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+﻿import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import {
@@ -14,44 +14,44 @@ import { Sparkles } from "lucide-react";
 
 const faqItems: { q: string; a: string }[] = [
   {
-    q: "In welchen Regionen ist TATLI BAU tätig?",
-    a: "Unser Schwerpunkt liegt auf Wuppertal und dem gesamten Bergischen Land – unter anderem Solingen, Remscheid, Velbert, Hückeswagen, Radevormwald und Schwelm. Sprechen Sie uns auch für angrenzende Gebiete an; je nach Projekt sind wir flexibel.",
+    q: "In welchen Regionen ist Zakho Bau tÃ¤tig?",
+    a: "Unser Schwerpunkt liegt auf Gevelsberg und dem Ennepe-Ruhr-Kreis â€“ unter anderem Ennepetal, Schwelm, Hagen, Wuppertal und Witten. Sprechen Sie uns auch fÃ¼r angrenzende Gebiete an; je nach Projekt sind wir flexibel.",
   },
   {
-    q: "Wie läuft eine typische Anfrage ab?",
-    a: "Sie schildern Ihr Vorhaben per Formular, E-Mail oder Telefon. Wir melden uns in der Regel innerhalb von 24 Stunden, klären offene Punkte und vereinbaren bei Bedarf einen Besichtigungstermin. Anschließend erhalten Sie ein verständliches Angebot.",
+    q: "Wie lÃ¤uft eine typische Anfrage ab?",
+    a: "Sie schildern Ihr Vorhaben per Formular, E-Mail oder Telefon. Wir melden uns in der Regel innerhalb von 24 Stunden, klÃ¤ren offene Punkte und vereinbaren bei Bedarf einen Besichtigungstermin. AnschlieÃŸend erhalten Sie ein verstÃ¤ndliches Angebot.",
   },
   {
     q: "Bieten Sie eine kostenlose Erstberatung an?",
-    a: "Ja. Die Erstberatung ist unverbindlich. Wir besprechen Umfang, Zeitrahmen und Budgetrahmen – damit Sie eine realistische Entscheidungsgrundlage haben.",
+    a: "Ja. Die Erstberatung ist unverbindlich. Wir besprechen Umfang, Zeitrahmen und Budgetrahmen â€“ damit Sie eine realistische Entscheidungsgrundlage haben.",
   },
   {
-    q: "Übernehmen Sie alle Gewerke aus einer Hand?",
-    a: "Wo es sinnvoll ist, koordinieren wir alle Leistungen zentral – von Trockenbau und Malerarbeiten über Fliesen bis zu Abriss und Vorbereitung. So vermeiden Sie Schnittstellenprobleme und haben einen festen Ansprechpartner.",
+    q: "Ãœbernehmen Sie alle Gewerke aus einer Hand?",
+    a: "Wo es sinnvoll ist, koordinieren wir alle Leistungen zentral â€“ von Trockenbau und Malerarbeiten Ã¼ber Fliesen bis zu Abriss und Vorbereitung. So vermeiden Sie Schnittstellenprobleme und haben einen festen Ansprechpartner.",
   },
   {
     q: "Wie lange dauert eine Badsanierung?",
-    a: "Das hängt von Umfang, Materialverfügbarkeit und baulichen Gegebenheiten ab. Eine typische Komplettsanierung ohne unvorhersehbare Altbauprobleme plant man oft in mehreren Wochen ein. Nach Besichtigung geben wir Ihnen einen realistischen Zeitplan.",
+    a: "Das hÃ¤ngt von Umfang, MaterialverfÃ¼gbarkeit und baulichen Gegebenheiten ab. Eine typische Komplettsanierung ohne unvorhersehbare Altbauprobleme plant man oft in mehreren Wochen ein. Nach Besichtigung geben wir Ihnen einen realistischen Zeitplan.",
   },
   {
     q: "Arbeiten Sie mit festen Subunternehmern?",
-    a: "Wir setzen auf ein eingespieltes Team und zuverlässige Partner. Entscheidend ist: Qualität, Termintreue und klare Absprachen – der Inhaber bleibt Ihr direkter Ansprechpartner.",
+    a: "Wir setzen auf ein eingespieltes Team und zuverlÃ¤ssige Partner. Entscheidend ist: QualitÃ¤t, Termintreue und klare Absprachen â€“ der Inhaber bleibt Ihr direkter Ansprechpartner.",
   },
   {
-    q: "Kann ich während der Arbeiten in der Wohnung bleiben?",
-    a: "Bei kleineren Arbeiten oft ja; bei größeren Sanierungen oder Staub-/Feuchtephasen empfehlen wir manchmal temporäre Ausweichmöglichkeiten. Das besprechen wir vor Projektstart individuell.",
+    q: "Kann ich wÃ¤hrend der Arbeiten in der Wohnung bleiben?",
+    a: "Bei kleineren Arbeiten oft ja; bei grÃ¶ÃŸeren Sanierungen oder Staub-/Feuchtephasen empfehlen wir manchmal temporÃ¤re AusweichmÃ¶glichkeiten. Das besprechen wir vor Projektstart individuell.",
   },
   {
     q: "Wie werden Kosten und Zusatzleistungen abgerechnet?",
-    a: "Das Angebot listet die vereinbarten Leistungen auf. Änderungen oder Zusatzwünsche werden vor Umsetzung besprochen und dokumentiert – Sie behalten die Kontrolle über das Budget.",
+    a: "Das Angebot listet die vereinbarten Leistungen auf. Ã„nderungen oder ZusatzwÃ¼nsche werden vor Umsetzung besprochen und dokumentiert â€“ Sie behalten die Kontrolle Ã¼ber das Budget.",
   },
   {
-    q: "Sind Sie für Gewerbekunden geeignet?",
-    a: "Ja. Wir betreuen auch gewerbliche Objekte, etwa Ladenflächen, Büros oder vermietete Einheiten – mit Fokus auf termingerechte Fertigstellung und saubere Übergabe.",
+    q: "Sind Sie fÃ¼r Gewerbekunden geeignet?",
+    a: "Ja. Wir betreuen auch gewerbliche Objekte, etwa LadenflÃ¤chen, BÃ¼ros oder vermietete Einheiten â€“ mit Fokus auf termingerechte Fertigstellung und saubere Ãœbergabe.",
   },
   {
-    q: "Wie erreiche ich TATLI BAU am schnellsten?",
-    a: "Am telefonisch unter 01525 4090013 oder per E-Mail an tatlican2@icloud.com. Alternativ nutzen Sie das Kontaktformular oder die Seite „Kostenlos anfragen“.",
+    q: "Wie erreiche ich Zakho Bau am schnellsten?",
+    a: "Am telefonisch unter +49 1578 8888852 oder per E-Mail an info@zakho-bau.de. Alternativ nutzen Sie das Kontaktformular oder die Seite â€žKostenlos anfragenâ€œ.",
   },
 ];
 
@@ -76,13 +76,13 @@ const faqStructuredData = [
         "@type": "ListItem",
         position: 1,
         name: "Startseite",
-        item: "https://tatlibau.de/",
+        item: "https://zakho-bau.de/",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "FAQ",
-        item: "https://tatlibau.de/faq",
+        item: "https://zakho-bau.de/faq",
       },
     ],
   },
@@ -90,9 +90,9 @@ const faqStructuredData = [
 
 const Faq = () => {
   usePageSeo({
-    title: "FAQ – Häufige Fragen | TATLI BAU Wuppertal",
+    title: "FAQ â€“ HÃ¤ufige Fragen | Zakho Bau Wuppertal",
     description:
-      "Antworten zu Einsatzgebiet, Ablauf, Badsanierung, Gewerken und Kosten bei TATLI BAU in Wuppertal und im Bergischen Land.",
+      "Antworten zu Einsatzgebiet, Ablauf, Badsanierung, Gewerken und Kosten bei Zakho Bau in Gevelsberg und im Ennepe-Ruhr-Kreis.",
     path: "/faq",
     structuredData: faqStructuredData,
   });
@@ -102,7 +102,7 @@ const Faq = () => {
       <section className="relative flex min-h-[min(50vh,440px)] flex-col justify-end overflow-hidden pt-28 pb-10 md:pb-14">
         <img
           src={heroImg}
-          alt="Beratungsgespräch – TATLI BAU FAQ"
+          alt="BeratungsgesprÃ¤ch â€“ Zakho Bau FAQ"
           className="absolute inset-0 h-full w-full object-cover"
           width={1920}
           height={800}
@@ -121,14 +121,14 @@ const Faq = () => {
             <p className="mb-3 text-xs font-medium uppercase tracking-[0.2em] text-accent">
               Hilfe & Orientierung
             </p>
-            <h1 className="mb-4 text-primary-foreground">Häufig gestellte Fragen</h1>
+            <h1 className="mb-4 text-primary-foreground">HÃ¤ufig gestellte Fragen</h1>
             <p className="text-lg leading-relaxed text-primary-foreground/80">
               Hier finden Sie Antworten zum Ablauf, zu Leistungen und zu unserem Service in
-              Wuppertal und im Bergischen Land. Fehlt etwas? Wir helfen Ihnen gerne persönlich.
+              Gevelsberg und im Ennepe-Ruhr-Kreis. Fehlt etwas? Wir helfen Ihnen gerne persÃ¶nlich.
             </p>
 
             <div className="mt-5 flex flex-wrap justify-center gap-2">
-              {["Schnelle Rückmeldung", "Transparente Angebote", "Fester Ansprechpartner"].map((t) => (
+              {["Schnelle RÃ¼ckmeldung", "Transparente Angebote", "Fester Ansprechpartner"].map((t) => (
                 <span
                   key={t}
                   className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-medium text-white/90"
@@ -147,7 +147,7 @@ const Faq = () => {
               </Link>
               <a href="tel:+4915254090013" className="w-full sm:w-auto">
                 <Button variant="outline" size="lg" className="w-full sm:w-auto">
-                  01525 4090013
+                  +49 1578 8888852
                 </Button>
               </a>
             </div>
@@ -180,7 +180,7 @@ const Faq = () => {
               Noch Fragen?
             </h2>
             <p className="mb-6 text-muted-foreground">
-              Rufen Sie uns an oder senden Sie eine Nachricht – wir melden uns zeitnah bei Ihnen.
+              Rufen Sie uns an oder senden Sie eine Nachricht â€“ wir melden uns zeitnah bei Ihnen.
             </p>
             <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
               <Link to="/kontakt">
@@ -200,3 +200,5 @@ const Faq = () => {
 };
 
 export default Faq;
+
+

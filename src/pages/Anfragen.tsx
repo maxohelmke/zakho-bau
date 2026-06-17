@@ -1,4 +1,4 @@
-import { useState } from "react";
+﻿import { useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -8,33 +8,32 @@ import { Phone, CheckCircle, Sparkles } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import Footer from "@/components/Footer";
 import { usePageSeo } from "@/hooks/use-page-seo";
+import { supabase } from "@/lib/supabase";
 
 const serviceTypes = [
-  "Renovierung",
-  "Sanierung",
-  "Trockenbau",
-  "Malerarbeiten",
-  "Fliesenleger",
-  "Bodenverlegung",
-  "Abrissarbeiten",
-  "Komplettlösung",
+  "Renovierung & Modernisierung",
+  "Trockenbau & Innenausbau",
+  "Malerarbeiten & Tapezieren",
+  "Bodenbeläge & Fliesen",
+  "Badsanierung",
+  "Außenarbeiten & Fassade",
   "Sonstiges",
 ];
 
 const Anfragen = () => {
   usePageSeo({
-    title: "Anfrage stellen | TATLI BAU Wuppertal",
+    title: "Anfrage stellen | Zakho Bau Gevelsberg",
     description:
-      "Jetzt kostenlos und unverbindlich anfragen: TATLI BAU erstellt Ihnen ein Angebot für Bau- und Sanierungsprojekte in Wuppertal und im Bergischen Land.",
+      "Jetzt kostenlos und unverbindlich anfragen: Zakho Bau erstellt Ihnen ein Angebot für Bau- und Sanierungsprojekte in Gevelsberg und im Ennepe-Ruhr-Kreis.",
     path: "/anfragen",
     structuredData: [
       {
         "@context": "https://schema.org",
         "@type": "WebPage",
-        name: "Kostenlose Anfrage bei TATLI BAU",
+        name: "Kostenlose Anfrage bei Zakho Bau",
         description:
-          "Unverbindliche Projektanfrage für Bau- und Sanierungsarbeiten in Wuppertal und im Bergischen Land.",
-        url: "https://tatlibau.de/anfragen",
+          "Unverbindliche Projektanfrage für Bau- und Sanierungsarbeiten in Gevelsberg und im Ennepe-Ruhr-Kreis.",
+        url: "https://zakho-bau.de/anfragen",
       },
       {
         "@context": "https://schema.org",
@@ -44,13 +43,13 @@ const Anfragen = () => {
             "@type": "ListItem",
             position: 1,
             name: "Startseite",
-            item: "https://tatlibau.de/",
+            item: "https://zakho-bau.de/",
           },
           {
             "@type": "ListItem",
             position: 2,
             name: "Anfragen",
-            item: "https://tatlibau.de/anfragen",
+            item: "https://zakho-bau.de/anfragen",
           },
         ],
       },
@@ -58,20 +57,22 @@ const Anfragen = () => {
   });
 
   const { toast } = useToast();
+  const [submitting, setSubmitting] = useState(false);
   const [form, setForm] = useState({
     name: "",
     email: "",
-    phone: "",
-    type: "Renovierung",
-    address: "",
+    telefon: "",
+    leistung: "Renovierung & Modernisierung",
+    ort: "Gevelsberg",
     budget: "",
     timeline: "",
-    message: "",
+    nachricht: "",
+    datenschutz: false,
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!form.name.trim() || !form.email.trim() || !form.message.trim()) {
+    if (!form.name.trim() || !form.email.trim() || !form.nachricht.trim()) {
       toast({ title: "Bitte füllen Sie alle Pflichtfelder aus.", variant: "destructive" });
       return;
     }
@@ -79,23 +80,50 @@ const Anfragen = () => {
       toast({ title: "Bitte geben Sie eine gültige E-Mail-Adresse ein.", variant: "destructive" });
       return;
     }
-    const subject = "Projektanfrage über tatlibau.de";
-    const body = [
-      "Neue Projektanfrage über die Website:",
-      "",
-      `Name: ${form.name}`,
-      `E-Mail: ${form.email}`,
-      `Telefon: ${form.phone || "-"}`,
-      `Art: ${form.type}`,
-      `Adresse/Ort: ${form.address || "-"}`,
-      `Zeitrahmen: ${form.timeline || "-"}`,
-      `Budget: ${form.budget || "-"}`,
-      "",
-      "Projektbeschreibung:",
-      form.message || "-",
-    ].join("\n");
-    window.location.href = `mailto:tatlican2@icloud.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    setForm({ name: "", email: "", phone: "", type: "Renovierung", address: "", budget: "", timeline: "", message: "" });
+    if (!form.datenschutz) {
+      toast({ title: "Bitte stimmen Sie der Datenschutzerklärung zu.", variant: "destructive" });
+      return;
+    }
+
+    setSubmitting(true);
+    try {
+      const { error } = await supabase.from("anfragen").insert({
+        name: form.name,
+        email: form.email,
+        telefon: form.telefon || null,
+        ort: form.ort || "Gevelsberg",
+        art_der_anfrage: form.leistung,
+        nachricht: form.nachricht,
+        datenschutz_akzeptiert: form.datenschutz,
+      });
+
+      if (error) throw error;
+
+      toast({
+        title: "Anfrage erfolgreich gesendet!",
+        description: "Wir melden uns innerhalb von 24 Stunden bei Ihnen.",
+      });
+      setForm({
+        name: "",
+        email: "",
+        telefon: "",
+        leistung: "Renovierung & Modernisierung",
+        ort: "Gevelsberg",
+        budget: "",
+        timeline: "",
+        nachricht: "",
+        datenschutz: false,
+      });
+    } catch (err) {
+      console.error("Supabase error:", err);
+      toast({
+        title: "Fehler beim Senden",
+        description: "Bitte versuchen Sie es erneut oder kontaktieren Sie uns per E-Mail.",
+        variant: "destructive",
+      });
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -129,10 +157,10 @@ const Anfragen = () => {
             </div>
 
             <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-              <a href="tel:+4915254090013" className="w-full sm:w-auto">
+              <a href="tel:+4915788888852" className="w-full sm:w-auto">
                 <Button variant="outline" size="lg" className="w-full sm:w-auto">
                   <Phone className="mr-2 h-4 w-4" />
-                  01525 4090013
+                  +49 1578 8888852
                 </Button>
               </a>
             </div>
@@ -171,26 +199,43 @@ const Anfragen = () => {
                 <label className="mb-1 block text-sm font-medium text-foreground">
                   Name <span className="text-destructive">*</span>
                 </label>
-                <Input value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} placeholder="Ihr Name" maxLength={100} />
+                <Input
+                  value={form.name}
+                  onChange={(e) => setForm({ ...form, name: e.target.value })}
+                  placeholder="Ihr Name"
+                  maxLength={100}
+                />
               </div>
               <div>
                 <label className="mb-1 block text-sm font-medium text-foreground">
                   E-Mail <span className="text-destructive">*</span>
                 </label>
-                <Input type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} placeholder="Ihre E-Mail" maxLength={255} />
+                <Input
+                  type="email"
+                  value={form.email}
+                  onChange={(e) => setForm({ ...form, email: e.target.value })}
+                  placeholder="Ihre E-Mail"
+                  maxLength={255}
+                />
               </div>
             </div>
 
             <div className="grid gap-5 sm:grid-cols-2">
               <div>
                 <label className="mb-1 block text-sm font-medium text-foreground">Telefon</label>
-                <Input type="tel" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} placeholder="Für Rückfragen (optional)" maxLength={30} />
+                <Input
+                  type="tel"
+                  value={form.telefon}
+                  onChange={(e) => setForm({ ...form, telefon: e.target.value })}
+                  placeholder="Für Rückfragen (optional)"
+                  maxLength={30}
+                />
               </div>
               <div>
                 <label className="mb-1 block text-sm font-medium text-foreground">Art der Leistung</label>
                 <select
-                  value={form.type}
-                  onChange={(e) => setForm({ ...form, type: e.target.value })}
+                  value={form.leistung}
+                  onChange={(e) => setForm({ ...form, leistung: e.target.value })}
                   className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm text-foreground ring-offset-background focus:outline-none focus:ring-2 focus:ring-ring"
                 >
                   {serviceTypes.map((t) => (
@@ -203,17 +248,32 @@ const Anfragen = () => {
             <div className="grid gap-5 sm:grid-cols-2">
               <div>
                 <label className="mb-1 block text-sm font-medium text-foreground">Adresse / Ort des Projekts</label>
-                <Input value={form.address} onChange={(e) => setForm({ ...form, address: e.target.value })} placeholder="z. B. Wuppertal, Musterstraße" maxLength={200} />
+                <Input
+                  value={form.ort}
+                  onChange={(e) => setForm({ ...form, ort: e.target.value })}
+                  placeholder="z. B. Gevelsberg, Musterstraße"
+                  maxLength={200}
+                />
               </div>
               <div>
                 <label className="mb-1 block text-sm font-medium text-foreground">Gewünschter Zeitrahmen</label>
-                <Input value={form.timeline} onChange={(e) => setForm({ ...form, timeline: e.target.value })} placeholder="z. B. ab Juni 2025" maxLength={100} />
+                <Input
+                  value={form.timeline}
+                  onChange={(e) => setForm({ ...form, timeline: e.target.value })}
+                  placeholder="z. B. ab August 2026"
+                  maxLength={100}
+                />
               </div>
             </div>
 
             <div>
               <label className="mb-1 block text-sm font-medium text-foreground">Budgetrahmen (optional)</label>
-              <Input value={form.budget} onChange={(e) => setForm({ ...form, budget: e.target.value })} placeholder="z. B. 10.000–15.000 €" maxLength={50} />
+              <Input
+                value={form.budget}
+                onChange={(e) => setForm({ ...form, budget: e.target.value })}
+                placeholder="z. B. 10.000–15.000 €"
+                maxLength={50}
+              />
             </div>
 
             <div>
@@ -221,21 +281,42 @@ const Anfragen = () => {
                 Projektbeschreibung <span className="text-destructive">*</span>
               </label>
               <Textarea
-                value={form.message}
-                onChange={(e) => setForm({ ...form, message: e.target.value })}
+                value={form.nachricht}
+                onChange={(e) => setForm({ ...form, nachricht: e.target.value })}
                 placeholder="Beschreiben Sie Ihr Vorhaben so genau wie möglich: Was soll gemacht werden? Wie groß ist die Fläche? Gibt es besondere Anforderungen?"
                 rows={6}
                 maxLength={2000}
               />
             </div>
 
-            <Button variant="accent" type="submit" className="w-full py-6 text-base">
-              Kostenlose Anfrage absenden
+            <div className="flex items-start gap-3">
+              <input
+                type="checkbox"
+                id="datenschutz"
+                checked={form.datenschutz}
+                onChange={(e) => setForm({ ...form, datenschutz: e.target.checked })}
+                className="mt-0.5 h-4 w-4 cursor-pointer rounded border-input accent-accent"
+              />
+              <label htmlFor="datenschutz" className="text-sm text-muted-foreground cursor-pointer">
+                Ich stimme der{" "}
+                <Link to="/datenschutz" className="text-accent hover:underline">
+                  Datenschutzerklärung
+                </Link>{" "}
+                zu. <span className="text-destructive">*</span>
+              </label>
+            </div>
+
+            <Button
+              variant="accent"
+              type="submit"
+              className="w-full py-6 text-base"
+              disabled={submitting}
+            >
+              {submitting ? "Wird gesendet…" : "Kostenlose Anfrage absenden"}
             </Button>
 
             <p className="text-center text-xs text-muted-foreground">
-              Ihre Daten werden vertraulich behandelt. Mehr dazu in unserer{" "}
-              <Link to="/datenschutz" className="text-accent hover:underline">Datenschutzerklärung</Link>.
+              Ihre Daten werden vertraulich behandelt und nicht an Dritte weitergegeben.
             </p>
           </motion.form>
 
@@ -247,10 +328,10 @@ const Anfragen = () => {
             className="mt-10 text-center"
           >
             <p className="mb-4 text-muted-foreground">Lieber telefonisch? Kein Problem.</p>
-            <a href="tel:+4915254090013">
+            <a href="tel:+4915788888852">
               <Button variant="outline">
                 <Phone className="mr-2 h-4 w-4" />
-                01525 4090013 anrufen
+                +49 1578 8888852 anrufen
               </Button>
             </a>
           </motion.div>
@@ -263,3 +344,5 @@ const Anfragen = () => {
 };
 
 export default Anfragen;
+
+

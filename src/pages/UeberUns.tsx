@@ -1,10 +1,10 @@
-import { motion } from "framer-motion";
+﻿import { motion } from "framer-motion";
 import { Phone, Award, Clock, Users, Shield, MapPin, Briefcase } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Footer from "@/components/Footer";
-import ownerImg from "@/assets/hasan-tatli.png";
-import firmenwagen from "@/assets/firmenwagen.png";
-import heroImg from "@/assets/hero-ueber-uns.jpg";
+import ownerImg from "@/assets/owner-zakho-bau.jpg";
+import firmenwagen from "@/assets/zakho-firmenwagen.jpg";
+import heroImg from "@/assets/zakho-team-work.jpg";
 import { usePageSeo } from "@/hooks/use-page-seo";
 import { Link } from "react-router-dom";
 import { Sparkles } from "lucide-react";
@@ -13,7 +13,7 @@ const stats = [
   { value: "10+", label: "Jahre Erfahrung" },
   { value: "500+", label: "Projekte abgeschlossen" },
   { value: "100%", label: "Kundenzufriedenheit" },
-  { value: "Wuppertal + Bergisches Land", label: "Servicegebiet" },
+  { value: "Gevelsberg + Ennepe-Ruhr-Kreis", label: "Servicegebiet" },
 ];
 
 const values = [
@@ -41,36 +41,18 @@ const values = [
 
 const UeberUns = () => {
   usePageSeo({
-    title: "Über Uns | TATLI BAU Wuppertal",
+    title: "Über Uns | Zakho Bau Gevelsberg",
     description:
-      "Lernen Sie TATLI BAU kennen: Ihr inhabergeführter Fachbetrieb für Bau und Sanierung in Wuppertal und im Bergischen Land.",
+      "Lernen Sie Zakho Bau kennen: Ihr inhabergeführter Fachbetrieb für Bau und Sanierung in Gevelsberg und im Ennepe-Ruhr-Kreis. Qualität aus Erfahrung.",
     path: "/ueber-uns",
     structuredData: [
       {
         "@context": "https://schema.org",
         "@type": "AboutPage",
-        name: "Über TATLI BAU",
+        name: "Über Zakho Bau",
         description:
-          "Inhabergeführter Fachbetrieb für Bau und Sanierung in Wuppertal und im Bergischen Land.",
-        url: "https://tatlibau.de/ueber-uns",
-      },
-      {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        itemListElement: [
-          {
-            "@type": "ListItem",
-            position: 1,
-            name: "Startseite",
-            item: "https://tatlibau.de/",
-          },
-          {
-            "@type": "ListItem",
-            position: 2,
-            name: "Über uns",
-            item: "https://tatlibau.de/ueber-uns",
-          },
-        ],
+          "Inhabergeführter Fachbetrieb für Bau und Sanierung in Gevelsberg und im Ennepe-Ruhr-Kreis.",
+        url: "https://zakho-bau.de/ueber-uns",
       },
     ],
   });
@@ -81,7 +63,7 @@ const UeberUns = () => {
       <section className="relative flex min-h-[min(50vh,440px)] flex-col justify-end overflow-hidden pt-28 pb-10 md:pb-14">
         <img
           src={heroImg}
-          alt="TATLI BAU Team bei der Arbeit"
+          alt="Zakho Bau Team bei der Arbeit – Trockenbau in Gevelsberg"
           className="absolute inset-0 h-full w-full object-cover"
           width={1920}
           height={800}
@@ -104,8 +86,8 @@ const UeberUns = () => {
               Wer wir sind
             </h1>
             <p className="text-lg leading-relaxed text-primary-foreground/80">
-              TATLI BAU ist Ihr persönlicher Partner für Bau und Sanierung in Wuppertal
-              und im gesamten Bergischen Land.
+              Zakho Bau ist Ihr persönlicher Partner für Bau und Sanierung in Gevelsberg
+              und im gesamten Ennepe-Ruhr-Kreis. Qualität aus Erfahrung.
             </p>
 
             <div className="mt-5 flex flex-wrap gap-2">
@@ -126,10 +108,10 @@ const UeberUns = () => {
                   Kostenlos anfragen
                 </Button>
               </Link>
-              <a href="tel:+4915254090013" className="w-full sm:w-auto">
+              <a href="tel:+4915788888852" className="w-full sm:w-auto">
                 <Button variant="outline" size="lg" className="w-full sm:w-auto">
                   <Phone className="mr-2 h-4 w-4" />
-                  01525 4090013
+                  +49 1578 8888852
                 </Button>
               </a>
             </div>
@@ -151,9 +133,9 @@ const UeberUns = () => {
               <div className="relative">
                 <img
                   src={ownerImg}
-                  alt="Hasan Tatli – Inhaber TATLI BAU in Wuppertal"
+                  alt="Zakho Bau – Inhaber und Geschäftsführer in Gevelsberg"
                   loading="lazy"
-                  className="h-80 w-60 rounded-2xl object-contain bg-card p-2 shadow-xl sm:h-[26rem] sm:w-72 lg:h-[30rem] lg:w-80"
+                  className="h-80 w-60 rounded-2xl object-cover shadow-xl sm:h-[26rem] sm:w-72 lg:h-[30rem] lg:w-80"
                   width={640}
                   height={960}
                 />
@@ -169,23 +151,23 @@ const UeberUns = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="mb-6 text-foreground">Hasan Tatli</h2>
+              <h2 className="mb-6 text-foreground">Zakho Bau</h2>
               <p className="mb-4 leading-relaxed text-muted-foreground">
-                Mit über 10 Jahren Erfahrung in der Baubranche hat Hasan Tatli TATLI BAU
+                Mit langjähriger Erfahrung in der Baubranche wurde Zakho Bau in Gevelsberg
                 gegründet, um eines zu beweisen: Handwerk und Zuverlässigkeit gehören zusammen.
               </p>
               <p className="mb-4 leading-relaxed text-muted-foreground">
-                Was als Ein-Mann-Betrieb begann, ist heute ein eingespieltes Team, das Projekte
-                jeder Größe – vom Badezimmer bis zur Komplettsanierung ganzer Immobilien – 
-                termingerecht und in höchster Qualität umsetzt.
+                Was als inhabergeführter Fachbetrieb begann, ist heute ein eingespieltes Team,
+                das Projekte jeder Größe – vom Badezimmer bis zur Komplettsanierung ganzer
+                Immobilien – termingerecht und in höchster Qualität umsetzt.
               </p>
               <p className="mb-6 leading-relaxed text-muted-foreground">
-                <strong className="text-foreground">„Mein Anspruch ist einfach: Jedes Projekt wird so behandelt, 
+                <strong className="text-foreground">„Mein Anspruch ist einfach: Jedes Projekt wird so behandelt,
                 als wäre es mein eigenes Zuhause. Sauber, pünktlich, perfekt."</strong>
               </p>
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <MapPin className="h-4 w-4 text-accent" />
-                Wuppertal und das gesamte Bergische Land
+                Gevelsberg und der gesamte Ennepe-Ruhr-Kreis
               </div>
             </motion.div>
           </div>
@@ -225,7 +207,7 @@ const UeberUns = () => {
           >
             <img
               src={firmenwagen}
-              alt="TATLI BAU Firmenwagen – täglich im Einsatz in Wuppertal und im Bergischen Land"
+              alt="Zakho Bau Firmenwagen – täglich im Einsatz in Gevelsberg und im Ennepe-Ruhr-Kreis"
               loading="lazy"
               className="w-full object-cover"
               style={{ maxHeight: "400px" }}
@@ -288,17 +270,17 @@ const UeberUns = () => {
             </div>
             <h2 className="mb-4 text-primary-foreground">Unser Einsatzgebiet</h2>
             <p className="mx-auto mb-8 max-w-2xl text-lg text-primary-foreground/80">
-              Unser Schwerpunkt liegt auf Wuppertal und dem gesamten Bergischen Land.
+              Unser Schwerpunkt liegt auf Gevelsberg und dem gesamten Ennepe-Ruhr-Kreis.
               Sprechen Sie uns gerne auch für angrenzende Regionen an.
             </p>
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <a href="/#kontakt">
+              <Link to="/anfragen">
                 <Button variant="hero">Jetzt Kontakt aufnehmen</Button>
-              </a>
-              <a href="tel:+4915254090013">
+              </Link>
+              <a href="tel:+4915788888852">
                 <Button variant="heroOutline">
                   <Phone className="mr-2 h-4 w-4" />
-                  01525 4090013
+                  +49 1578 8888852
                 </Button>
               </a>
             </div>
@@ -312,3 +294,5 @@ const UeberUns = () => {
 };
 
 export default UeberUns;
+
+
