@@ -25,6 +25,10 @@
     --accent: 0 81% 44%;
     --accent-foreground: 0 0% 100%;
 
+    --silver: 220 9% 74%;
+    --silver-foreground: 0 0% 9%;
+    --silver-dark: 220 6% 46%;
+
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
@@ -32,7 +36,7 @@
     --input: 0 0% 86%;
     --ring: 0 81% 44%;
 
-    --radius: 0.5rem;
+    --radius: 0.125rem;
 
     --dark-bg: 0 0% 9%;
     --dark-bg-lighter: 0 0% 12%;
@@ -68,26 +72,37 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Oswald', system-ui, sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 0.02em;
+    font-family: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+    color: #0f0f0f;
+    text-transform: none;
+    letter-spacing: -0.02em;
     word-spacing: normal;
-    line-height: 1.2;
+    line-height: 1.08;
   }
 
   h1 {
-    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-size: clamp(2rem, 5.5vw, 4.75rem);
     font-weight: 700;
+    letter-spacing: -0.03em;
   }
 
   h2 {
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 600;
+    font-size: clamp(1.625rem, 4vw, 3.25rem);
+    font-weight: 700;
   }
 
   h3 {
-    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-size: clamp(1.125rem, 2.4vw, 1.875rem);
     font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  /* Akzent-Wörter: fett, rot, gleiche Grotesk-Schrift */
+  em {
+    font-family: inherit;
+    font-style: normal;
+    font-weight: 700;
+    color: hsl(var(--accent));
   }
 
   html {
@@ -142,13 +157,21 @@
   }
 
   .font-heading {
-    font-family: 'Oswald', system-ui, sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 0.02em;
+    font-family: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+    text-transform: none;
+    letter-spacing: -0.02em;
   }
 
   .font-body {
     font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  /* Akzent-Utility: fett, rot, Grotesk */
+  .accent-italic {
+    font-family: inherit;
+    font-style: normal;
+    font-weight: 700;
+    color: hsl(var(--accent));
   }
 
   .break-safe {
@@ -175,6 +198,43 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+  }
+
+  /* Metallic silver text */
+  .text-gradient-silver {
+    background: linear-gradient(100deg, #b8bcc4 0%, #f1f3f6 45%, #9aa0aa 75%, #d7dade 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Metallic silver surface */
+  .bg-gradient-silver {
+    background: linear-gradient(135deg, #d9dce1 0%, #f4f5f7 30%, #aeb3bb 65%, #cfd2d8 100%);
+  }
+
+  /* Red -> silver accent line */
+  .accent-divider {
+    height: 3px;
+    border-radius: 9999px;
+    background: linear-gradient(90deg, hsl(var(--accent)) 0%, #ff5a5a 35%, hsl(var(--silver)) 100%);
+  }
+
+  /* Brushed-metal hairline */
+  .hairline-silver {
+    background: linear-gradient(90deg, transparent, hsl(var(--silver) / 0.7), transparent);
+  }
+
+  /* Marquee / Lauftext */
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  .animate-marquee {
+    animation: marquee 32s linear infinite;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .animate-marquee { animation: none; }
   }
 
   /* Flip card */

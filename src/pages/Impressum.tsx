@@ -5,9 +5,9 @@ import { usePageSeo } from "@/hooks/use-page-seo";
 const Impressum = () => {
   usePageSeo({
     title: "Impressum | Zakho Bau",
-    description: "Impressum von Zakho Bau.",
+    description: "Impressum und Anbieterkennzeichnung von Zakho Bau, Hagener Straße 44, 58285 Gevelsberg.",
     path: "/impressum",
-    robots: "index,follow",
+    robots: "noindex,follow",
     structuredData: {
       "@context": "https://schema.org",
       "@type": "WebPage",
@@ -26,13 +26,14 @@ const Impressum = () => {
             <h2 className="mb-2 text-lg font-semibold text-foreground">Angaben gemäß § 5 TMG</h2>
             <p>Zakho Bau</p>
             <p>[INHABER NAME]</p>
-            <p>[STRASSE UND HAUSNUMMER]</p>
-            <p>[PLZ] Gevelsberg</p>
+            <p>Hagener Straße 44</p>
+            <p>58285 Gevelsberg</p>
           </div>
 
           <div>
             <h2 className="mb-2 text-lg font-semibold text-foreground">Kontakt</h2>
-            <p>Telefon: <a href="tel:+4915788888852" className="text-accent hover:underline">+49 1578 8888852</a></p>
+            <p>Telefon: <a href="tel:+4923328439131" className="text-accent hover:underline">02332 8439131</a></p>
+            <p>Mobil: <a href="tel:+4915788888852" className="text-accent hover:underline">0157 888 888 52</a></p>
             <p>E-Mail: <a href="mailto:info@zakho-bau.de" className="text-accent hover:underline">info@zakho-bau.de</a></p>
           </div>
 
@@ -44,8 +45,8 @@ const Impressum = () => {
           <div>
             <h2 className="mb-2 text-lg font-semibold text-foreground">Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>
             <p>[INHABER NAME]</p>
-            <p>[STRASSE UND HAUSNUMMER]</p>
-            <p>[PLZ] Gevelsberg</p>
+            <p>Hagener Straße 44</p>
+            <p>58285 Gevelsberg</p>
           </div>
 
           <div>

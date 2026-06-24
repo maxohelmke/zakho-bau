@@ -19,12 +19,14 @@ export default defineConfig({
     dedupe: ["react", "react-dom", "react/jsx-runtime", "react/jsx-dev-runtime", "@tanstack/react-query", "@tanstack/query-core"],
   },
   build: {
+    chunkSizeWarningLimit: 700,
     rollupOptions: {
       output: {
         manualChunks: {
           vendor: ["react", "react-dom", "react-router-dom"],
           motion: ["framer-motion"],
           ui: ["lucide-react"],
+          query: ["@tanstack/react-query"],
         },
       },
     },

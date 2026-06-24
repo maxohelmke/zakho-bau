@@ -3,48 +3,133 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <title>Zakho Bau | Bau & Sanierung in Gevelsberg</title>
-    <meta name="description" content="Zakho Bau – Ihr Experte für Renovierung, Sanierung und Bauarbeiten in Gevelsberg und im Ennepe-Ruhr-Kreis. Qualität aus Erfahrung. Jetzt anfragen!" />
+
+    <!-- ── Primäre SEO ──────────────────────────────────────────────── -->
+    <title>Zakho Bau | Renovierung & Sanierung Gevelsberg · Ennepe-Ruhr-Kreis</title>
+    <meta name="description" content="Zakho Bau – Ihr Fachbetrieb für Renovierung, Sanierung, Trockenbau und Innenausbau in Gevelsberg. Alle Gewerke aus einer Hand. Kostenlose Beratung ☎ 02332 8439131" />
+    <meta name="keywords" content="Renovierung Gevelsberg, Sanierung Ennepe-Ruhr-Kreis, Trockenbau, Malerarbeiten, Badsanierung, Innenausbau, Bauunternehmen Gevelsberg, Zakho Bau" />
+    <meta name="author" content="Zakho Bau" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <link rel="canonical" href="https://zakho-bau.de/" />
     <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
 
-    <meta property="og:title" content="Zakho Bau – Bau & Sanierung in Gevelsberg" />
-    <meta property="og:description" content="Ihr Experte für Renovierung, Sanierung und Bauarbeiten aus einer Hand. Qualität aus Erfahrung." />
+    <!-- ── Open Graph ───────────────────────────────────────────────── -->
+    <meta property="og:site_name" content="Zakho Bau" />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://zakho-bau.de/" />
+    <meta property="og:title" content="Zakho Bau – Renovierung & Sanierung in Gevelsberg" />
+    <meta property="og:description" content="Renovierung, Sanierung und Innenausbau aus einer Hand. Qualität aus Erfahrung – im gesamten Ennepe-Ruhr-Kreis." />
+    <meta property="og:image" content="https://zakho-bau.de/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Zakho Bau – Renovierung & Sanierung in Gevelsberg" />
+    <meta property="og:locale" content="de_DE" />
 
-    <!-- Fonts: preconnect zuerst, dann stylesheet -->
+    <!-- ── Twitter Card ─────────────────────────────────────────────── -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Zakho Bau – Renovierung & Sanierung in Gevelsberg" />
+    <meta name="twitter:description" content="Renovierung, Sanierung und Innenausbau aus einer Hand. Qualität aus Erfahrung." />
+    <meta name="twitter:image" content="https://zakho-bau.de/og-image.jpg" />
+
+    <!-- ── Favicon & Icons ──────────────────────────────────────────── -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#C41E3A" />
+    <meta name="msapplication-TileColor" content="#C41E3A" />
+
+    <!-- ── Fonts: preconnect → preload → stylesheet ─────────────────── -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="preload"
       as="style"
-      href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Inter:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Inter:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
 
+    <!-- ── Schema.org: LocalBusiness (primär) ───────────────────────── -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "HomeAndConstructionBusiness",
+      "@type": ["HomeAndConstructionBusiness", "LocalBusiness"],
+      "@id": "https://zakho-bau.de/#business",
       "name": "Zakho Bau",
-      "description": "Bau & Sanierung in Gevelsberg und im Ennepe-Ruhr-Kreis",
-      "telephone": "+4915788888852",
+      "legalName": "Zakho Bau",
+      "description": "Fachbetrieb für Renovierung, Sanierung, Trockenbau, Malerarbeiten und Innenausbau in Gevelsberg und dem Ennepe-Ruhr-Kreis.",
+      "url": "https://zakho-bau.de",
+      "logo": "https://zakho-bau.de/og-image.jpg",
+      "image": "https://zakho-bau.de/og-image.jpg",
+      "telephone": "+4923328439131",
       "email": "info@zakho-bau.de",
       "address": {
         "@type": "PostalAddress",
+        "streetAddress": "Hagener Straße 44",
+        "postalCode": "58285",
         "addressLocality": "Gevelsberg",
-        "addressRegion": "NRW",
+        "addressRegion": "Nordrhein-Westfalen",
         "addressCountry": "DE"
       },
-      "areaServed": ["Gevelsberg", "Ennepe-Ruhr-Kreis"],
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 51.3218,
+        "longitude": 7.3404
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+          "opens": "08:00",
+          "closes": "18:00"
+        }
+      ],
+      "areaServed": [
+        { "@type": "City", "name": "Gevelsberg" },
+        { "@type": "City", "name": "Ennepetal" },
+        { "@type": "City", "name": "Schwelm" },
+        { "@type": "City", "name": "Hagen" },
+        { "@type": "City", "name": "Wuppertal" },
+        { "@type": "City", "name": "Witten" },
+        { "@type": "AdministrativeArea", "name": "Ennepe-Ruhr-Kreis" }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Bauleistungen",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Renovierung & Modernisierung" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Trockenbau & Innenausbau" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Malerarbeiten & Tapezieren" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Bodenbeläge & Fliesen" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Badsanierung" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Außenarbeiten & Fassade" } }
+        ]
+      },
+      "priceRange": "€€",
+      "paymentAccepted": "Rechnung",
+      "currenciesAccepted": "EUR",
       "slogan": "Qualität aus Erfahrung"
     }
     </script>
 
-    <!-- Smooth initial load: prevent FOUC -->
+    <!-- ── Schema.org: WebSite mit Suchbox ──────────────────────────── -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": "https://zakho-bau.de/#website",
+      "name": "Zakho Bau",
+      "url": "https://zakho-bau.de",
+      "inLanguage": "de-DE",
+      "publisher": { "@id": "https://zakho-bau.de/#business" }
+    }
+    </script>
+
+    <!-- ── FOUC-Vermeidung ───────────────────────────────────────────── -->
     <style>
       html { background: #F4F4F4; }
       #root { opacity: 0; animation: fadeIn 0.3s ease-out 0.05s forwards; }

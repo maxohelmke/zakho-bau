@@ -5,20 +5,83 @@ import Footer from "@/components/Footer";
 import { usePageSeo } from "@/hooks/use-page-seo";
 import heroImg from "@/assets/hero-projekte.jpg";
 import { Link } from "react-router-dom";
-import refRaum from "@/assets/ref-raumsanierung.png";
-import refBad from "@/assets/ref-badsanierung.png";
-import refFlur from "@/assets/ref-flur-beleuchtung.png";
-import refTrockenbau from "@/assets/ref-raum-trockenbau.png";
-import refBadModern from "@/assets/ref-bad-modern.png";
-import firmenwagen from "@/assets/zakho-firmenwagen.jpg";
+import refRaum from "@/assets/ref-raumsanierung.jpg";
+import refBad from "@/assets/ref-badsanierung.jpg";
+import refFlur from "@/assets/ref-flur-beleuchtung.jpg";
+import refTrockenbau from "@/assets/ref-raum-trockenbau.jpg";
+import refBadModern from "@/assets/ref-bad-modern.jpg";
 import refMaler from "@/assets/ref-malerarbeiten.jpg";
 import refFliesen from "@/assets/ref-fliesen.jpg";
 import refKueche from "@/assets/ref-kueche.jpg";
 import refAbriss from "@/assets/ref-abriss.jpg";
 import refBoden from "@/assets/ref-boden.jpg";
 import refDecke from "@/assets/ref-decke.jpg";
+import projektBoden from "@/assets/projekt-wohnraum-boden.jpg";
+import projektTrockenbau from "@/assets/projekt-trockenbau.jpg";
+import projektFassade from "@/assets/projekt-fassade.jpg";
+import projektAkustik from "@/assets/projekt-akustikwand.jpg";
+import projektNeubau from "@/assets/projekt-neubau-luftbild.jpg";
+import projektAbriss from "@/assets/projekt-abriss-kran.jpg";
+import projektWand from "@/assets/projekt-wandgestaltung.jpg";
+import firmenwagen from "@/assets/zakho-firmenwagen-neu.jpg";
 
 const projects = [
+  {
+    src: projektBoden,
+    title: "Wohnraum-Renovierung mit neuem Boden",
+    location: "Gevelsberg",
+    category: "Renovierung",
+    description: "Komplett renovierter Wohnraum mit neu verlegtem Boden, frischen Wänden und großzügigem Lichtkonzept.",
+  },
+  {
+    src: projektTrockenbau,
+    title: "Trockenbau & Innenausbau",
+    location: "Ennepe-Ruhr-Kreis",
+    category: "Trockenbau",
+    description: "Neue Wände und Decken in Trockenbauweise inkl. Verspachtelung – bereit für den finalen Innenausbau.",
+  },
+  {
+    src: projektFassade,
+    title: "Moderne Fassade in Holzoptik",
+    location: "Gevelsberg",
+    category: "Außenarbeiten",
+    description: "Hochwertige Fassadengestaltung mit Holz- und Klinkerelementen für ein modernes Erscheinungsbild.",
+  },
+  {
+    src: projektAkustik,
+    title: "Akustik-Wandverkleidung",
+    location: "Ennepe-Ruhr-Kreis",
+    category: "Innenausbau",
+    description: "Elegante Akustikpaneele aus Holz als dekoratives und schallschluckendes Wand-Highlight.",
+  },
+  {
+    src: projektNeubau,
+    title: "Neubau mit moderner Haustechnik",
+    location: "Gevelsberg",
+    category: "Neubau",
+    description: "Schlüsselfertiger Neubau mit Photovoltaik und Wärmepumpe – nachhaltig und zukunftssicher gebaut.",
+  },
+  {
+    src: projektWand,
+    title: "Dekorative Wandgestaltung",
+    location: "Gevelsberg",
+    category: "Malerarbeiten",
+    description: "Großflächige dekorative Wandgestaltung als stilvolles Gestaltungselement im Wohnbereich.",
+  },
+  {
+    src: projektAbriss,
+    title: "Abbruch & Entkernung",
+    location: "Ennepe-Ruhr-Kreis",
+    category: "Abrissarbeiten",
+    description: "Fachgerechter Abbruch und Entkernung als Vorbereitung für Neubau und Kernsanierung.",
+  },
+  {
+    src: firmenwagen,
+    title: "Zakho Bau im Einsatz",
+    location: "Gevelsberg & Ennepe-Ruhr-Kreis",
+    category: "Unser Team",
+    description: "Mit unserem Firmenwagen sind wir täglich in Gevelsberg und der gesamten Region für Sie unterwegs.",
+  },
   {
     src: refBad,
     title: "Badsanierung mit Eckbadewanne",
@@ -28,31 +91,31 @@ const projects = [
   },
   {
     src: refKueche,
-    title: "KÃ¼chenrenovierung mit Einbauten",
+    title: "Küchenrenovierung mit Einbauten",
     location: "Ennepetal",
     category: "Renovierung",
-    description: "Moderne KÃ¼che mit weiÃŸen Fronten, Subway-Fliesen-RÃ¼ckwand und integrierter LED-Beleuchtung.",
+    description: "Moderne Küche mit weißen Fronten, Subway-Fliesen-Rückwand und integrierter LED-Beleuchtung.",
   },
   {
     src: refFlur,
     title: "Flursanierung mit Lichtkonzept",
     location: "Ennepe-Ruhr-Kreis",
     category: "Trockenbau",
-    description: "Moderne Flurgestaltung mit abgehÃ¤ngter Decke und integrierten LED-Lichtleisten.",
+    description: "Moderne Flurgestaltung mit abgehängter Decke und integrierten LED-Lichtleisten.",
   },
   {
     src: refBadModern,
     title: "Modernes Badezimmer",
     location: "Gevelsberg",
     category: "Sanierung",
-    description: "ZeitgemÃ¤ÃŸes Bad mit bodengleicher Dusche, GroÃŸformat-Fliesen und LED-Deckenbeleuchtung.",
+    description: "Zeitgemäßes Bad mit bodengleicher Dusche, Großformat-Fliesen und LED-Deckenbeleuchtung.",
   },
   {
     src: refDecke,
     title: "Deckendesign mit LED-Beleuchtung",
     location: "Remscheid",
     category: "Trockenbau",
-    description: "AbgehÃ¤ngte Trockenbau-Decke mit umlaufender indirekter LED-Beleuchtung im Wohnbereich.",
+    description: "Abgehängte Trockenbau-Decke mit umlaufender indirekter LED-Beleuchtung im Wohnbereich.",
   },
   {
     src: refRaum,
@@ -63,38 +126,38 @@ const projects = [
   },
   {
     src: refFliesen,
-    title: "GroÃŸformat-Fliesen im Bad",
-    location: "DÃ¼sseldorf",
+    title: "Großformat-Fliesen im Bad",
+    location: "Düsseldorf",
     category: "Fliesenarbeiten",
-    description: "Professionelle Verlegung von groÃŸformatigen Betonoptik-Fliesen mit exakten Fugen.",
+    description: "Professionelle Verlegung von großformatigen Betonoptik-Fliesen mit exakten Fugen.",
   },
   {
     src: refMaler,
     title: "Malerarbeiten & Wandgestaltung",
     location: "Gevelsberg",
     category: "Malerarbeiten",
-    description: "Sauberer Innenanstrich mit Spachtelarbeiten und Abklebe-Technik fÃ¼r makellose Ergebnisse.",
+    description: "Sauberer Innenanstrich mit Spachtelarbeiten und Abklebe-Technik für makellose Ergebnisse.",
   },
   {
     src: refTrockenbau,
     title: "Wohnraum mit Deckendesign",
     location: "Gevelsberg",
     category: "Trockenbau",
-    description: "AufwÃ¤ndiges Trockenbau-Deckendesign mit umlaufender LED-Beleuchtung.",
+    description: "Aufwändiges Trockenbau-Deckendesign mit umlaufender LED-Beleuchtung.",
   },
   {
     src: refAbriss,
-    title: "Entkernung & RÃ¼ckbau",
+    title: "Entkernung & Rückbau",
     location: "Ennepe-Ruhr-Kreis",
     category: "Abrissarbeiten",
-    description: "Fachgerechter RÃ¼ckbau und Entkernung als Vorbereitung fÃ¼r die Kernsanierung.",
+    description: "Fachgerechter Rückbau und Entkernung als Vorbereitung für die Kernsanierung.",
   },
   {
     src: refBoden,
     title: "Bodenverlegung & Spotbeleuchtung",
     location: "Ennepetal",
     category: "Renovierung",
-    description: "Dunkles Laminat mit weiÃŸen Sockelleisten und Einbauspots fÃ¼r ein modernes RaumgefÃ¼hl.",
+    description: "Dunkles Laminat mit weißen Sockelleisten und Einbauspots für ein modernes Raumgefühl.",
   },
 ];
 
@@ -130,7 +193,7 @@ const Projekte = () => {
       <section className="relative flex min-h-[min(45vh,400px)] flex-col justify-end overflow-hidden pt-28 pb-10">
         <img
           src={heroImg}
-          alt="Modernes Badezimmer â€“ Zakho Bau Projekte"
+          alt="Modernes Badezimmer – Zakho Bau Projekte"
           className="absolute inset-0 h-full w-full object-cover"
           width={1920}
           height={800}
@@ -149,14 +212,14 @@ const Projekte = () => {
             <p className="mb-3 text-xs font-medium uppercase tracking-[0.2em] text-accent">
               Referenzen
             </p>
-            <h1 className="mb-4 text-primary-foreground">Unsere Projekte</h1>
+            <h1 className="mb-4 text-primary-foreground">Unsere <em>Projekte</em></h1>
             <p className="text-lg leading-relaxed text-primary-foreground/80">
               Einblicke in abgeschlossene Bau- und Sanierungsprojekte in Gevelsberg
               und im Bergischen Land.
             </p>
 
             <div className="mt-5 flex flex-wrap gap-2">
-              {["Echte Referenzen", "Saubere Ãœbergabe", "Termintreue"].map((t) => (
+              {["Echte Referenzen", "Saubere Übergabe", "Termintreue"].map((t) => (
                 <span
                   key={t}
                   className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-medium text-white/90"
@@ -173,7 +236,7 @@ const Projekte = () => {
                   Projekt anfragen
                 </Button>
               </Link>
-              <a href="tel:+4915254090013" className="w-full sm:w-auto">
+              <a href="tel:+4915788888852" className="w-full sm:w-auto">
                 <Button variant="outline" size="lg" className="w-full sm:w-auto">
                   <Phone className="mr-2 h-4 w-4" />
                   +49 1578 8888852
@@ -200,7 +263,7 @@ const Projekte = () => {
                 <div className="relative overflow-hidden">
                   <img
                     src={p.src}
-                    alt={`${p.title} â€“ ${p.location}`}
+                    alt={`${p.title} – ${p.location}`}
                     loading="lazy"
                     className="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-105"
                     width={800}
@@ -236,16 +299,16 @@ const Projekte = () => {
             transition={{ duration: 0.5 }}
           >
             <h2 className="mb-4 text-primary-foreground">
-              Ihr Projekt kÃ¶nnte das nÃ¤chste sein
+              Ihr Projekt könnte das nächste sein
             </h2>
             <p className="mb-8 text-lg text-primary-foreground/80">
-              Lassen Sie uns gemeinsam Ihr Vorhaben besprechen â€“ kostenlos und unverbindlich.
+              Lassen Sie uns gemeinsam Ihr Vorhaben besprechen – kostenlos und unverbindlich.
             </p>
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
               <a href="/anfragen">
                 <Button variant="hero">Jetzt Projekt besprechen</Button>
               </a>
-              <a href="tel:+4915254090013">
+              <a href="tel:+4915788888852">
                 <Button variant="heroOutline">
                   <Phone className="mr-2 h-4 w-4" />
                   +49 1578 8888852

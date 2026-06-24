@@ -16,8 +16,8 @@ export default {
     extend: {
       fontFamily: {
         sans: ["'Inter'", "system-ui", "sans-serif"],
-        heading: ["'Oswald'", "system-ui", "sans-serif"],
-        display: ["'Oswald'", "system-ui", "sans-serif"],
+        heading: ["'Space Grotesk'", "'Inter'", "system-ui", "sans-serif"],
+        display: ["'Space Grotesk'", "'Inter'", "system-ui", "sans-serif"],
         body: ["'Inter'", "system-ui", "sans-serif"],
       },
       colors: {
@@ -45,6 +45,11 @@ export default {
         accent: {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
+        },
+        silver: {
+          DEFAULT: "hsl(var(--silver))",
+          foreground: "hsl(var(--silver-foreground))",
+          dark: "hsl(var(--silver-dark))",
         },
         popover: {
           DEFAULT: "hsl(var(--popover))",

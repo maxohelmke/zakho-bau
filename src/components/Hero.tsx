@@ -1,116 +1,107 @@
 import { Button } from "@/components/ui/button";
-import { CheckCircle, ChevronDown } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import heroBg from "@/assets/hero-bg.jpg";
 import { Link } from "react-router-dom";
 import { useRef } from "react";
+import heroBg from "@/assets/hero-bg.jpg";
 
-const trustItems = [
-  "Gevelsberg & Umgebung",
-  "Renovierung & Sanierung",
-  "Kostenlose Beratung",
-  "Qualität aus Erfahrung",
+const lines = [
+  { text: "Renoviert.", em: true },
+  { text: "Pünktlich.", em: false },
+  { text: "Aus einer Hand.", em: false },
 ];
 
 const Hero = () => {
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
-  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "25%"]);
-  const textY = useTransform(scrollYProgress, [0, 1], ["0%", "12%"]);
+  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "18%"]);
+  const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "6%"]);
 
   return (
     <section
       ref={ref}
-      className="relative flex min-h-[min(100svh,960px)] items-center overflow-hidden pt-24 sm:pt-28 lg:pt-32"
+      className="relative flex min-h-[560px] items-end overflow-hidden pb-12 pt-20 sm:items-center sm:min-h-[640px] sm:pb-0 sm:pt-24"
+      style={{ height: "100svh", maxHeight: "1000px" }}
     >
-      {/* Parallax background */}
-      <motion.div className="absolute inset-0" style={{ y: bgY }}>
+      {/* Parallax-Hintergrundbild */}
+      <motion.div style={{ y: bgY }} className="absolute inset-0 will-change-transform">
         <img
           src={heroBg}
-          alt="Bau und Sanierung in Gevelsberg und im Ennepe-Ruhr-Kreis"
-          className="h-[115%] w-full object-cover"
+          alt="Zakho Bau – Baustelle mit Fachleuten"
+          className="h-full w-full object-cover object-center [transform:scaleX(-1)]"
+          style={{ opacity: 0.85 }}
           width={1920}
           height={1080}
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
         />
       </motion.div>
 
-      {/* Gradient overlays */}
-      <div className="absolute inset-0 bg-gradient-to-br from-black/90 via-black/75 to-[#1a0505]/95" />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/98 via-transparent to-black/50" />
+      {/* Overlays – links dunkel für Text, rechts offen für Bild */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/55 to-black/10" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20" />
 
-      {/* Top red accent */}
-      <div className="absolute left-0 top-0 h-[3px] w-full bg-accent" />
+      {/* Roter Akzentstreifen */}
+      <div className="absolute left-0 top-0 z-10 h-[3px] w-full bg-accent" />
 
-      {/* Subtle red tint on edge */}
-      <div className="pointer-events-none absolute right-0 top-0 h-full w-1/3 bg-gradient-to-l from-accent/8 to-transparent" />
+      {/* Vertikale Jahresangabe */}
+      <div className="pointer-events-none absolute right-7 top-1/2 z-10 hidden -translate-y-1/2 lg:block">
+        <span className="block rotate-90 whitespace-nowrap font-heading text-[10px] font-bold uppercase tracking-[0.55em] text-white/25">
+          Gevelsberg · NRW · Est. 2014
+        </span>
+      </div>
 
       <motion.div
-        style={{ y: textY }}
-        className="container relative z-10 mx-auto min-w-0 max-w-full container-pad py-16 sm:py-20 lg:py-24 xl:py-28"
+        style={{ y: contentY }}
+        className="container relative z-10 mx-auto min-w-0 max-w-full container-pad"
       >
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="mx-auto max-w-4xl min-w-0 text-center"
+        {/* Cinematischer Zeilen-Reveal */}
+        <h1
+          className="mb-6 max-w-3xl font-heading sm:mb-10"
+          style={{ textShadow: "0 2px 32px rgba(0,0,0,0.55)" }}
         >
-          <h1 className="mb-6 font-heading text-primary-foreground sm:mb-7">
-            Qualität aus{" "}
-            <span className="text-gradient-red">Erfahrung.</span>
-          </h1>
-          <p className="mx-auto mb-10 max-w-2xl font-body text-base leading-relaxed text-white/60 sm:text-lg md:text-xl">
-            Ihr Bau- und Sanierungsspezialist in Gevelsberg —<br className="hidden sm:block" />
-            {" "}zuverlässig, sorgfältig und aus einer Hand.
-          </p>
+          {lines.map((line, i) => (
+            <div key={i} className="overflow-hidden leading-[1.06]">
+              <motion.span
+                className="block"
+                initial={{ y: "110%" }}
+                animate={{ y: 0 }}
+                transition={{ duration: 0.95, delay: 0.25 + i * 0.18, ease: [0.22, 1, 0.36, 1] }}
+              >
+                {line.em ? (
+                  <em className="not-italic font-bold text-accent">{line.text}</em>
+                ) : (
+                  <span className="text-white">{line.text}</span>
+                )}
+              </motion.span>
+            </div>
+          ))}
+        </h1>
 
-          <div className="flex w-full max-w-full flex-col items-center gap-4 sm:flex-row sm:flex-wrap sm:justify-center">
-            <Link to="/anfragen" className="w-full min-w-0 sm:w-auto">
-              <Button variant="hero" className="w-full sm:w-auto">
-                Jetzt anfragen
-              </Button>
-            </Link>
-            <a href="#leistungen" className="w-full min-w-0 sm:w-auto">
-              <Button variant="heroOutline" className="w-full sm:w-auto">
-                Unsere Leistungen
-              </Button>
-            </a>
-          </div>
-        </motion.div>
-
-        {/* Trust badges */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.5 }}
-          className="mt-12 flex flex-wrap items-center justify-center gap-4 sm:mt-14 sm:gap-6 md:gap-10"
+          transition={{ duration: 0.7, delay: 0.85, ease: "easeOut" }}
+          className="max-w-lg"
         >
-          {trustItems.map((item) => (
-            <div key={item} className="flex items-center gap-2">
-              <CheckCircle className="h-5 w-5 text-accent" />
-              <span className="text-sm font-medium text-white/75">{item}</span>
-            </div>
-          ))}
-        </motion.div>
+          <p className="mb-6 text-base leading-relaxed text-white/80 sm:mb-8 sm:text-lg">
+            Wir renovieren, sanieren und bauen aus — termingerecht, transparent
+            und mit einem persönlichen Ansprechpartner von Anfang bis Ende.
+          </p>
 
-        {/* Scroll indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.2, duration: 0.8 }}
-          className="mt-16 flex justify-center"
-        >
-          <a
-            href="#leistungen"
-            className="flex flex-col items-center gap-2 text-white/30 transition-colors hover:text-white/60"
-          >
-            <span className="text-xs uppercase tracking-widest">Mehr entdecken</span>
-            <motion.div
-              animate={{ y: [0, 6, 0] }}
-              transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-            >
-              <ChevronDown className="h-5 w-5" />
-            </motion.div>
-          </a>
+          <div className="flex w-full max-w-full flex-col gap-3 sm:flex-row">
+            <Link to="/anfragen" className="w-full min-w-0 sm:w-auto">
+              <Button variant="hero" className="w-full gap-2.5 sm:w-auto">
+                Kostenlos anfragen <ArrowRight className="h-4 w-4" />
+              </Button>
+            </Link>
+            <Link to="/projekte" className="w-full min-w-0 sm:w-auto">
+              <Button variant="heroOutline" className="w-full sm:w-auto">
+                Unsere Projekte
+              </Button>
+            </Link>
+          </div>
         </motion.div>
       </motion.div>
     </section>

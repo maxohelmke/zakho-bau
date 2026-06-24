@@ -8,7 +8,7 @@ import { Phone, CheckCircle, Sparkles } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import Footer from "@/components/Footer";
 import { usePageSeo } from "@/hooks/use-page-seo";
-import { supabase } from "@/lib/supabase";
+import { postToWebhook } from "@/lib/webhook";
 
 const serviceTypes = [
   "Renovierung & Modernisierung",
@@ -87,17 +87,18 @@ const Anfragen = () => {
 
     setSubmitting(true);
     try {
-      const { error } = await supabase.from("anfragen").insert({
+      await postToWebhook({
         name: form.name,
         email: form.email,
         telefon: form.telefon || null,
         ort: form.ort || "Gevelsberg",
         art_der_anfrage: form.leistung,
+        budget: form.budget || null,
+        zeitrahmen: form.timeline || null,
         nachricht: form.nachricht,
         datenschutz_akzeptiert: form.datenschutz,
+        formular: "anfragen",
       });
-
-      if (error) throw error;
 
       toast({
         title: "Anfrage erfolgreich gesendet!",
@@ -115,10 +116,10 @@ const Anfragen = () => {
         datenschutz: false,
       });
     } catch (err) {
-      console.error("Supabase error:", err);
+      const msg = err instanceof Error ? err.message : "Fehler beim Senden";
       toast({
-        title: "Fehler beim Senden",
-        description: "Bitte versuchen Sie es erneut oder kontaktieren Sie uns per E-Mail.",
+        title: msg,
+        description: msg.startsWith("Zu viele") ? undefined : "Bitte versuchen Sie es erneut oder kontaktieren Sie uns per E-Mail.",
         variant: "destructive",
       });
     } finally {
@@ -138,7 +139,7 @@ const Anfragen = () => {
             className="max-w-2xl"
           >
             <p className="mb-3 text-xs font-medium uppercase tracking-[0.2em] text-accent">Kostenlose Beratung</p>
-            <h1 className="mb-6 text-primary-foreground">Kostenlos anfragen</h1>
+            <h1 className="mb-6 text-primary-foreground">Kostenlos <em>anfragen</em></h1>
             <p className="text-lg leading-relaxed text-primary-foreground/80">
               Beschreiben Sie Ihr Projekt – wir erstellen Ihnen ein unverbindliches Angebot.
               Kostenlos und innerhalb von 24 Stunden.
@@ -236,7 +237,7 @@ const Anfragen = () => {
                 <select
                   value={form.leistung}
                   onChange={(e) => setForm({ ...form, leistung: e.target.value })}
-                  className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm text-foreground ring-offset-background focus:outline-none focus:ring-2 focus:ring-ring"
+                  className="w-full rounded-md border border-input bg-background px-3 py-2.5 text-base text-foreground ring-offset-background focus:outline-none focus:ring-2 focus:ring-ring"
                 >
                   {serviceTypes.map((t) => (
                     <option key={t}>{t}</option>
@@ -295,9 +296,9 @@ const Anfragen = () => {
                 id="datenschutz"
                 checked={form.datenschutz}
                 onChange={(e) => setForm({ ...form, datenschutz: e.target.checked })}
-                className="mt-0.5 h-4 w-4 cursor-pointer rounded border-input accent-accent"
+                className="mt-0.5 h-5 w-5 cursor-pointer rounded border-input accent-accent"
               />
-              <label htmlFor="datenschutz" className="text-sm text-muted-foreground cursor-pointer">
+              <label htmlFor="datenschutz" className="cursor-pointer text-sm text-muted-foreground">
                 Ich stimme der{" "}
                 <Link to="/datenschutz" className="text-accent hover:underline">
                   Datenschutzerklärung

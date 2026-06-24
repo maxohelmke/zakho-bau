@@ -1,6 +1,9 @@
+export type StandortTheme = "dark" | "slate" | "warm";
+
 export type StandortData = {
   slug: string;
   name: string;
+  theme: StandortTheme;
   headline: string;
   subline: string;
   intro: string;
@@ -28,6 +31,7 @@ export const STANDORTE: StandortData[] = [
   {
     slug: "gevelsberg",
     name: "Gevelsberg",
+    theme: "dark",
     headline: "Bau & Sanierung in Gevelsberg – Qualität aus Erfahrung",
     subline: "Unser Heimatstandort im Ennepe-Ruhr-Kreis",
     intro:
@@ -106,13 +110,14 @@ export const STANDORTE: StandortData[] = [
     seoTitle: "Bau & Sanierung Gevelsberg | Zakho Bau – Renovierung, Trockenbau, Bad",
     seoDescription:
       "Zakho Bau in Gevelsberg: Renovierung, Badsanierung, Trockenbau und Malerarbeiten. Schnelle Reaktionszeiten, persönliche Beratung. Jetzt anfragen!",
-    heroImage: "/standorte/schwelm.jpg",
+    heroImage: "/standorte/gevelsberg.jpg",
     heroImageAlt: "Gevelsberg – Bau & Sanierung mit Zakho Bau",
     regionTag: "Gevelsberg & Ennepe-Ruhr-Kreis",
   },
   {
     slug: "ennepetal",
     name: "Ennepetal",
+    theme: "warm",
     headline: "Renovierung & Sanierung in Ennepetal",
     subline: "Professioneller Innenausbau im Ennepe-Ruhr-Kreis",
     intro:
@@ -185,13 +190,14 @@ export const STANDORTE: StandortData[] = [
     seoTitle: "Renovierung Ennepetal | Zakho Bau – Trockenbau, Maler, Bad",
     seoDescription:
       "Zakho Bau in Ennepetal: Renovierung, Trockenbau, Malerarbeiten und Badsanierung. Persönliche Beratung, schnelle Rückmeldung. Jetzt anfragen!",
-    heroImage: "/standorte/remscheid.jpg",
+    heroImage: "/standorte/ennepetal.jpg",
     heroImageAlt: "Ennepetal – Renovierung und Sanierung mit Zakho Bau",
     regionTag: "Ennepetal & Ennepe-Ruhr-Kreis",
   },
   {
     slug: "schwelm",
     name: "Schwelm",
+    theme: "slate",
     headline: "Bausanierungen & Innenausbau in Schwelm",
     subline: "Ennepe-Ruhr-Kreis: schnelle Anbindung, persönliche Betreuung",
     intro:
@@ -271,11 +277,17 @@ export const STANDORTE: StandortData[] = [
       "Sanierung in Schwelm: Badsanierung, Malerarbeiten, Umbau. Schnelle Rückmeldung, transparente Kosten. Jetzt Erstberatung bei Zakho Bau anfragen.",
     heroImage: "/standorte/schwelm.jpg",
     heroImageAlt: "Schwelm – Sanierung und Handwerk mit Zakho Bau",
+    stats: [
+      { value: "10+", label: "Jahre Erfahrung" },
+      { value: "< 24h", label: "Rückmeldung" },
+      { value: "1", label: "fester Ansprechpartner" },
+    ],
     regionTag: "Schwelm & Ennepe-Ruhr-Kreis",
   },
   {
     slug: "hagen",
     name: "Hagen",
+    theme: "dark",
     headline: "Komplettleistungen rund ums Bauen in Hagen",
     subline: "Renovierung, Sanierung und Innenausbau in der Ruhrgebietsstadt",
     intro:
@@ -348,13 +360,14 @@ export const STANDORTE: StandortData[] = [
     seoTitle: "Renovierung Hagen | Zakho Bau – Bad, Innenausbau, Sanierung",
     seoDescription:
       "Zakho Bau in Hagen: Renovierung, Badsanierung, Trockenbau und Malerarbeiten. Persönliche Beratung, verlässliche Ausführung. Jetzt anfragen!",
-    heroImage: "/standorte/wuppertal.jpg",
+    heroImage: "/standorte/hagen.jpg",
     heroImageAlt: "Hagen – Bau & Sanierung mit Zakho Bau",
     regionTag: "Hagen & Umgebung",
   },
   {
     slug: "wuppertal",
     name: "Wuppertal",
+    theme: "slate",
     headline: "Renovierung & Sanierung in Wuppertal",
     subline: "Bau- und Innenausbauarbeiten in der Bergischen Metropole",
     intro:
@@ -434,6 +447,7 @@ export const STANDORTE: StandortData[] = [
   {
     slug: "witten",
     name: "Witten & Umgebung",
+    theme: "warm",
     headline: "Trockenbau, Malerarbeiten & Bodenbeläge in Witten",
     subline: "Qualitätshandwerk aus Gevelsberg auch in Witten",
     intro:
@@ -506,7 +520,7 @@ export const STANDORTE: StandortData[] = [
     seoTitle: "Renovierung Witten | Zakho Bau – Trockenbau, Maler, Bodenbeläge",
     seoDescription:
       "Zakho Bau in Witten: Trockenbau, Malerarbeiten, Bodenbeläge und Badsanierung. Qualität aus Gevelsberg. Jetzt anfragen!",
-    heroImage: "/standorte/velbert.jpg",
+    heroImage: "/standorte/witten.jpg",
     heroImageAlt: "Witten – Bau & Sanierung mit Zakho Bau",
     regionTag: "Witten & Umgebung",
   },

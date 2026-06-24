@@ -10,7 +10,9 @@ import Footer from "@/components/Footer";
 import { usePageSeo } from "@/hooks/use-page-seo";
 import ExternalMediaGate from "@/components/ExternalMediaGate";
 import { Sparkles } from "lucide-react";
-import { supabase } from "@/lib/supabase";
+import { postToWebhook } from "@/lib/webhook";
+import ladenImg from "@/assets/zakho-laden.jpg";
+import oeffnungszeitenImg from "@/assets/zakho-oeffnungszeiten.jpg";
 
 const Kontakt = () => {
   usePageSeo({
@@ -92,17 +94,15 @@ const Kontakt = () => {
 
     setSubmitting(true);
     try {
-      const { error } = await supabase.from("anfragen").insert({
+      await postToWebhook({
         name: form.name,
         email: form.email,
         telefon: form.phone || null,
         ort: "Gevelsberg",
         art_der_anfrage: "Kontaktanfrage",
         nachricht: form.message || "-",
-        datenschutz_akzeptiert: true,
+        formular: "kontakt-seite",
       });
-
-      if (error) throw error;
 
       toast({
         title: "Nachricht erfolgreich gesendet!",
@@ -110,10 +110,10 @@ const Kontakt = () => {
       });
       setForm({ name: "", email: "", phone: "", message: "" });
     } catch (err) {
-      console.error("Supabase error:", err);
+      const msg = err instanceof Error ? err.message : "Fehler beim Senden";
       toast({
-        title: "Fehler beim Senden",
-        description: "Bitte versuchen Sie es erneut oder kontaktieren Sie uns direkt per E-Mail.",
+        title: msg,
+        description: msg.startsWith("Zu viele") ? undefined : "Bitte versuchen Sie es erneut oder kontaktieren Sie uns direkt per E-Mail.",
         variant: "destructive",
       });
     } finally {
@@ -133,7 +133,7 @@ const Kontakt = () => {
             className="max-w-2xl"
           >
             <p className="mb-3 text-xs font-medium uppercase tracking-[0.2em] text-accent">Kontakt</p>
-            <h1 className="mb-6 text-primary-foreground">Sprechen Sie mit uns</h1>
+            <h1 className="mb-6 text-primary-foreground">Sprechen Sie <em>mit uns</em></h1>
             <p className="text-lg leading-relaxed text-primary-foreground/80">
               Haben Sie Fragen oder möchten ein Projekt besprechen? Wir sind für Sie da –
               telefonisch, per E-Mail oder über unser Kontaktformular.
@@ -171,12 +171,13 @@ const Kontakt = () => {
       {/* Contact Cards */}
       <section className="section-pad-sm">
         <div className="container mx-auto container-pad">
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
             {[
-              { icon: Phone, label: "Telefon", value: "+49 1578 8888852", href: "tel:+4915788888852" },
+              { icon: Phone, label: "Telefon (Festnetz)", value: "02332 8439131", href: "tel:+4923328439131" },
+              { icon: Phone, label: "Mobil", value: "0157 888 888 52", href: "tel:+4915788888852" },
               { icon: Mail, label: "E-Mail", value: "info@zakho-bau.de", href: "mailto:info@zakho-bau.de" },
-              { icon: MapPin, label: "Adresse", value: "Gevelsberg, NRW", href: undefined },
-              { icon: Clock, label: "Erreichbarkeit", value: "Mo–Sa, 07:00–19:00 Uhr", href: undefined },
+              { icon: MapPin, label: "Adresse", value: "Hagener Straße 44, 58285 Gevelsberg", href: undefined },
+              { icon: Clock, label: "Öffnungszeiten", value: "Mo–Fr 08:00–17:00 Uhr", href: undefined },
             ].map((c, i) => (
               <motion.div
                 key={c.label}
@@ -290,6 +291,56 @@ const Kontakt = () => {
               transition={{ duration: 0.5 }}
               className="flex flex-col gap-6"
             >
+              {/* Echtes Ladenlokal */}
+              <div className="relative max-w-full overflow-hidden rounded-xl shadow-sm ring-1 ring-silver/50">
+                <img
+                  src={ladenImg}
+                  alt="Ladenlokal von Zakho Bau in der Hagener Straße 44 in Gevelsberg"
+                  loading="lazy"
+                  className="h-56 w-full object-cover sm:h-64"
+                  width={1280}
+                  height={720}
+                />
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-4">
+                  <p className="font-heading text-lg font-bold uppercase tracking-wide text-white">
+                    Besuchen Sie uns
+                  </p>
+                  <p className="text-sm text-white/80">Hagener Straße 44 · 58285 Gevelsberg</p>
+                </div>
+              </div>
+
+              {/* Öffnungszeiten */}
+              <div className="flex items-stretch gap-4 rounded-xl border border-border bg-card p-4 shadow-sm">
+                <img
+                  src={oeffnungszeitenImg}
+                  alt="Öffnungszeiten von Zakho Bau an der Eingangstür"
+                  loading="lazy"
+                  className="h-28 w-24 shrink-0 rounded-lg object-cover ring-1 ring-silver/50"
+                  width={240}
+                  height={320}
+                />
+                <div className="min-w-0">
+                  <div className="mb-2 flex items-center gap-2">
+                    <Clock className="h-5 w-5 text-accent" />
+                    <h3 className="font-semibold text-foreground">Öffnungszeiten</h3>
+                  </div>
+                  <dl className="space-y-1 text-sm">
+                    <div className="flex justify-between gap-4">
+                      <dt className="text-muted-foreground">Mo – Fr</dt>
+                      <dd className="font-medium text-foreground">08:00 – 17:00 Uhr</dd>
+                    </div>
+                    <div className="flex justify-between gap-4">
+                      <dt className="text-muted-foreground">Samstag</dt>
+                      <dd className="font-medium text-foreground">Geschlossen</dd>
+                    </div>
+                    <div className="flex justify-between gap-4">
+                      <dt className="text-muted-foreground">Sonntag</dt>
+                      <dd className="font-medium text-foreground">Geschlossen</dd>
+                    </div>
+                  </dl>
+                </div>
+              </div>
+
               <div className="max-w-full overflow-hidden rounded-xl border border-border shadow-sm">
                 <ExternalMediaGate
                   title="Google Maps"
@@ -297,7 +348,7 @@ const Kontakt = () => {
                 >
                   <iframe
                     title="Zakho Bau Standort Gevelsberg"
-                    src="https://www.google.com/maps?q=Gevelsberg%2C+NRW&output=embed"
+                    src="https://www.google.com/maps?q=Hagener+Stra%C3%9Fe+44%2C+58285+Gevelsberg&output=embed"
                     className="h-[400px] w-full max-w-full"
                     width="100%"
                     height="400"

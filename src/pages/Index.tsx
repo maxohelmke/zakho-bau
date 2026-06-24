@@ -1,4 +1,5 @@
 import Hero from "@/components/Hero";
+import Marquee from "@/components/Marquee";
 import StatsStrip from "@/components/StatsStrip";
 import Services from "@/components/Services";
 import CtaBanner from "@/components/CtaBanner";
@@ -12,15 +13,16 @@ import { usePageSeo } from "@/hooks/use-page-seo";
 
 const Index = () => {
   usePageSeo({
-    title: "Zakho Bau | Bau & Sanierung in Gevelsberg",
+    title: "Zakho Bau | Renovierung & Sanierung Gevelsberg · Ennepe-Ruhr-Kreis",
     description:
-      "Zakho Bau – Ihr Experte für Renovierung, Sanierung und Bauarbeiten in Gevelsberg und im Ennepe-Ruhr-Kreis. Qualität aus Erfahrung. Kostenlose Beratung.",
+      "Zakho Bau – Fachbetrieb für Renovierung, Sanierung, Trockenbau und Innenausbau in Gevelsberg. Alle Gewerke aus einer Hand. Kostenlose Beratung ☎ 02332 8439131",
     path: "/",
+    image: "https://zakho-bau.de/og-image.jpg",
     structuredData: [
       {
         "@context": "https://schema.org",
         "@type": "WebPage",
-        name: "Zakho Bau – Bau & Sanierung in Gevelsberg",
+        name: "Zakho Bau – Renovierung & Sanierung in Gevelsberg",
         description:
           "Renovierung, Sanierung und Innenausbau in Gevelsberg und im Ennepe-Ruhr-Kreis.",
         url: "https://zakho-bau.de/",
@@ -44,9 +46,11 @@ const Index = () => {
     <div className="min-h-screen min-w-0 max-w-full overflow-x-hidden">
       {/* 1. Hero mit Parallax */}
       <Hero />
-      {/* 2. Statistiken — roter Akzent-Streifen */}
+      {/* 2. Lauftext-Leiste mit Leistungen */}
+      <Marquee />
+      {/* 3. Statistiken — roter Akzent-Streifen */}
       <StatsStrip />
-      {/* 3. Leistungen — Flip-Karten, dunkler Hintergrund */}
+      {/* 4. Leistungen — editoriale Bildkacheln, dunkler Hintergrund */}
       <Services />
       {/* 4. CTA Banner — roter Gradient */}
       <CtaBanner />

@@ -1,135 +1,134 @@
 ﻿import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
 import { STANDORTE } from "@/data/standorte";
-import logo from "@/assets/zakho-bau-logo.svg";
+import helmkeLogo from "@/assets/HD_SMALL_MONO.png";
+import logo from "@/assets/zakho-bau-logo.png";
 
-const Footer = () => {
-  return (
-    <footer className="relative w-full max-w-full overflow-x-hidden border-t border-border bg-foreground py-12 sm:py-14 lg:py-16">
-      <div className="absolute inset-x-0 top-0 h-[4px] bg-accent" />
-      <div className="container mx-auto min-w-0 container-pad">
-        <motion.div
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "-80px" }}
-          variants={{
-            hidden: {},
-            show: { transition: { staggerChildren: 0.08, delayChildren: 0.05 } },
-          }}
-          className="grid min-w-0 gap-8 sm:gap-10 md:grid-cols-2 lg:grid-cols-12 lg:gap-8"
-        >
-          {/* Brand */}
-          <motion.div
-            variants={{ hidden: { opacity: 0, y: 14 }, show: { opacity: 1, y: 0, transition: { duration: 0.45 } } }}
-            className="min-w-0 lg:col-span-4"
-          >
-            <div className="mb-5 inline-block rounded-lg bg-white px-3 py-2">
-              <img
-                src={logo}
-                alt="Zakho Bau Logo"
-                className="h-12 w-auto object-contain"
-              />
-            </div>
-            <p className="mb-4 max-w-sm text-sm text-primary-foreground/60">
-              Alles aus einer Hand – Ihr Spezialist für Bau & Sanierung in Gevelsberg
-              und im Ennepe-Ruhr-Kreis.
-            </p>
-            <p className="text-sm text-primary-foreground/60">
-              Bau & Sanierung in Gevelsberg und im Ennepe-Ruhr-Kreis
-            </p>
-          </motion.div>
+const navLinks = [
+  { to: "/leistungen", label: "Leistungen" },
+  { to: "/projekte", label: "Projekte" },
+  { to: "/ueber-uns", label: "Über uns" },
+  { to: "/kontakt", label: "Kontakt" },
+  { to: "/anfragen", label: "Anfragen" },
+  { to: "/faq", label: "FAQ" },
+];
 
-          {/* Navigation */}
-          <motion.div
-            variants={{ hidden: { opacity: 0, y: 14 }, show: { opacity: 1, y: 0, transition: { duration: 0.45 } } }}
-            className="min-w-0 lg:col-span-2"
-          >
-            <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-primary-foreground">
-              Seiten
-            </h4>
-            <div className="flex min-w-0 flex-col gap-2">
-              <Link to="/" className="break-safe text-sm text-primary-foreground/60 hover:text-accent">
-                Startseite
-              </Link>
-              <Link to="/leistungen" className="break-safe text-sm text-primary-foreground/60 hover:text-accent">
-                Leistungen
-              </Link>
-              <Link to="/projekte" className="break-safe text-sm text-primary-foreground/60 hover:text-accent">
-                Projekte
-              </Link>
-              <Link to="/ueber-uns" className="break-safe text-sm text-primary-foreground/60 hover:text-accent">
-                Über uns
-              </Link>
-              <Link to="/kontakt" className="break-safe text-sm text-primary-foreground/60 hover:text-accent">
-                Kontakt
-              </Link>
-              <Link to="/anfragen" className="break-safe text-sm text-primary-foreground/60 hover:text-accent">
-                Anfragen
-              </Link>
-              <Link to="/faq" className="break-safe text-sm text-primary-foreground/60 hover:text-accent">
-                FAQ
-              </Link>
-            </div>
-          </motion.div>
+const Footer = () => (
+  <footer className="relative w-full overflow-hidden bg-[#0f0f0f]">
+    {/* Oberkante: roter Akzentstreifen */}
+    <div className="h-px w-full bg-accent" />
 
-          {/* Standorte */}
-          <motion.div
-            variants={{ hidden: { opacity: 0, y: 14 }, show: { opacity: 1, y: 0, transition: { duration: 0.45 } } }}
-            className="min-w-0 lg:col-span-4"
-          >
-            <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-primary-foreground">
-              Standorte
-            </h4>
-            <ul className="flex min-w-0 flex-col gap-2">
-              {STANDORTE.map((s) => (
-                <li key={s.slug}>
-                  <Link
-                    to={`/standort/${s.slug}`}
-                    className="break-safe text-sm text-primary-foreground/60 transition-colors hover:text-accent"
-                  >
-                    Bau & Sanierung {s.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
+    {/* Hauptbereich */}
+    <div className="container mx-auto container-pad py-16 sm:py-20">
+      <div className="grid gap-12 sm:gap-14 lg:grid-cols-[1fr_auto_auto_auto]">
 
-          {/* Contact & Legal */}
-          <motion.div
-            variants={{ hidden: { opacity: 0, y: 14 }, show: { opacity: 1, y: 0, transition: { duration: 0.45 } } }}
-            className="min-w-0 lg:col-span-2"
-          >
-            <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-primary-foreground">
-              Kontakt & Rechtliches
-            </h4>
-            <div className="flex min-w-0 flex-col gap-2">
-              <a href="tel:+4915788888852" className="break-safe text-sm text-primary-foreground/60 hover:text-accent">
-                +49 1578 8888852
-              </a>
-              <a href="mailto:info@zakho-bau.de" className="break-safe text-sm text-primary-foreground/60 hover:text-accent">
-                info@zakho-bau.de
-              </a>
-              <span className="break-safe text-sm text-primary-foreground/60">
-                Gevelsberg, NRW
-              </span>
-              <Link to="/impressum" className="break-safe text-sm text-primary-foreground/60 hover:text-accent">
-                Impressum
-              </Link>
-              <Link to="/datenschutz" className="break-safe text-sm text-primary-foreground/60 hover:text-accent">
-                Datenschutz
-              </Link>
-            </div>
-          </motion.div>
-        </motion.div>
+        {/* Brand-Statement */}
+        <div className="max-w-xs">
+          <Link to="/" className="mb-5 inline-block" aria-label="Zakho Bau – Startseite">
+            <img
+              src={logo}
+              alt="Zakho Bau Logo"
+              className="h-14 w-auto object-contain"
+              loading="lazy"
+              decoding="async"
+            />
+          </Link>
+          <p className="text-sm leading-relaxed text-white/40">
+            Renovierung, Sanierung und Innenausbau in Gevelsberg und dem Ennepe-Ruhr-Kreis.
+          </p>
+          <div className="mt-6 flex flex-col gap-1.5">
+            <a href="tel:+4923328439131" className="text-sm font-medium text-white/60 transition-colors hover:text-accent">
+              02332 8439131
+            </a>
+            <a href="tel:+4915788888852" className="text-sm font-medium text-white/60 transition-colors hover:text-accent">
+              0157 888 888 52
+            </a>
+            <a href="mailto:info@zakho-bau.de" className="text-sm font-medium text-white/60 transition-colors hover:text-accent">
+              info@zakho-bau.de
+            </a>
+          </div>
+        </div>
 
-        <div className="mt-12 border-t border-primary-foreground/10 pt-6 text-center text-xs text-primary-foreground/40">
-          © 2026 Zakho Bau · Helmke Digital
+        {/* Navigation */}
+        <div>
+          <p className="mb-5 text-[11px] font-bold uppercase tracking-[0.25em] text-white/30">
+            Seiten
+          </p>
+          <nav className="flex flex-col">
+            {navLinks.map((l) => (
+              <Link
+                key={l.to}
+                to={l.to}
+                className="flex min-h-[40px] items-center text-sm text-white/55 transition-colors hover:text-white"
+              >
+                {l.label}
+              </Link>
+            ))}
+          </nav>
+        </div>
+
+        {/* Standorte */}
+        <div>
+          <p className="mb-5 text-[11px] font-bold uppercase tracking-[0.25em] text-white/30">
+            Standorte
+          </p>
+          <div className="flex flex-col">
+            {STANDORTE.map((s) => (
+              <Link
+                key={s.slug}
+                to={`/standort/${s.slug}`}
+                className="flex min-h-[40px] items-center text-sm text-white/55 transition-colors hover:text-white"
+              >
+                {s.name}
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        {/* Rechtliches */}
+        <div>
+          <p className="mb-5 text-[11px] font-bold uppercase tracking-[0.25em] text-white/30">
+            Rechtliches
+          </p>
+          <div className="flex flex-col">
+            <span className="mb-2 text-sm text-white/40">
+              Hagener Str. 44<br />58285 Gevelsberg
+            </span>
+            <Link to="/impressum" className="flex min-h-[40px] items-center text-sm text-white/55 transition-colors hover:text-white">
+              Impressum
+            </Link>
+            <Link to="/datenschutz" className="flex min-h-[40px] items-center text-sm text-white/55 transition-colors hover:text-white">
+              Datenschutz
+            </Link>
+          </div>
         </div>
       </div>
-    </footer>
-  );
-};
+    </div>
+
+    {/* Bottom bar */}
+    <div className="border-t border-white/8">
+      <div className="relative container mx-auto flex flex-col items-center justify-center gap-3 container-pad py-5 sm:flex-row sm:justify-between">
+        <p className="text-xs text-white/25">
+          © 2026 Zakho Bau · Gevelsberg
+        </p>
+        <a
+          href="https://www.helmke-digital.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group inline-flex items-center gap-2 text-xs text-white/25 transition-colors hover:text-white/60 sm:absolute sm:left-1/2 sm:-translate-x-1/2"
+          aria-label="Created by Helmke Digital"
+        >
+          <span>Made by</span>
+          <img
+            src={helmkeLogo}
+            alt="Helmke Digital"
+            className="h-8 w-auto object-contain opacity-25 brightness-0 invert transition-opacity group-hover:opacity-60"
+            loading="lazy"
+            decoding="async"
+          />
+        </a>
+      </div>
+    </div>
+  </footer>
+);
 
 export default Footer;
-
-

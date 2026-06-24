@@ -2,16 +2,13 @@
 import { motion } from "framer-motion";
 import { Link, useParams } from "react-router-dom";
 import {
-  Building2,
+  ArrowRight,
   CheckCircle2,
   ChevronRight,
   ClipboardList,
   Hammer,
-  Headphones,
-  Home,
   MapPin,
   MessageSquare,
-  Paintbrush,
   Phone,
   Ruler,
   Shield,
@@ -19,8 +16,6 @@ import {
   Timer,
   TrendingUp,
   Users,
-  Wrench,
-  type LucideIcon,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -31,54 +26,101 @@ import {
 } from "@/components/ui/accordion";
 import Footer from "@/components/Footer";
 import { usePageSeo } from "@/hooks/use-page-seo";
-import { STANDORTE, getStandortBySlug, type StandortData } from "@/data/standorte";
+import { STANDORTE, getStandortBySlug, type StandortData, type StandortTheme } from "@/data/standorte";
 import NotFound from "@/pages/NotFound";
 import { SITE_ORIGIN } from "@/seo/sitemap-config";
 
-const DEFAULT_STATS: { value: string; label: string }[] = [
-  { value: "10+", label: "Jahre Erfahrung" },
-  { value: "< 24h", label: "Rückmeldung auf Anfragen" },
-  { value: "1", label: "fester Ansprechpartner" },
+/* ── Theme-Tokens ─────────────────────────────────────────────────────── */
+const THEMES: Record<StandortTheme, {
+  heroOverlay: string;
+  heroBg: string;
+  accentBar: string;
+  statsBg: string;
+  statsValue: string;
+  sectionAlt: string;
+  ctaBg: string;
+  ctaText: string;
+  highlightBorder: string;
+  processIconBg: string;
+  tagBg: string;
+  tagText: string;
+}> = {
+  dark: {
+    heroOverlay:  "bg-gradient-to-r from-black/95 via-black/80 to-black/40",
+    heroBg:       "bg-[#0E0E0E]",
+    accentBar:    "bg-accent",
+    statsBg:      "bg-[#0E0E0E]",
+    statsValue:   "text-accent",
+    sectionAlt:   "bg-[#0f0f0f] text-white",
+    ctaBg:        "bg-[#0E0E0E]",
+    ctaText:      "text-white",
+    highlightBorder: "border-accent/30",
+    processIconBg:   "bg-accent/15",
+    tagBg:  "bg-accent/15 border-accent/30",
+    tagText: "text-accent",
+  },
+  slate: {
+    heroOverlay:  "bg-gradient-to-r from-slate-900/95 via-slate-800/80 to-slate-700/30",
+    heroBg:       "bg-slate-900",
+    accentBar:    "bg-slate-400",
+    statsBg:      "bg-slate-900",
+    statsValue:   "text-slate-200",
+    sectionAlt:   "bg-slate-900 text-white",
+    ctaBg:        "bg-slate-900",
+    ctaText:      "text-white",
+    highlightBorder: "border-slate-600/50",
+    processIconBg:   "bg-slate-700/60",
+    tagBg:  "bg-slate-700/50 border-slate-500/40",
+    tagText: "text-slate-200",
+  },
+  warm: {
+    heroOverlay:  "bg-gradient-to-r from-stone-900/95 via-stone-800/75 to-stone-700/25",
+    heroBg:       "bg-stone-900",
+    accentBar:    "bg-amber-500",
+    statsBg:      "bg-stone-900",
+    statsValue:   "text-amber-400",
+    sectionAlt:   "bg-stone-900 text-white",
+    ctaBg:        "bg-stone-900",
+    ctaText:      "text-white",
+    highlightBorder: "border-amber-500/30",
+    processIconBg:   "bg-amber-500/15",
+    tagBg:  "bg-amber-500/15 border-amber-500/30",
+    tagText: "text-amber-400",
+  },
+};
+
+const DEFAULT_STATS = [
+  { value: "10+",  label: "Jahre Erfahrung" },
+  { value: "< 24h", label: "Rückmeldung" },
+  { value: "1",    label: "Ansprechpartner" },
 ];
 
-const HERO_TRUST_CHIPS = [
-  "Kostenlose Erstberatung",
-  "Alle Gewerke koordinierbar",
-  "Transparente Angebote",
-];
-
-const PROCESS_STEPS: { icon: LucideIcon; title: string; sub: string }[] = [
+const PROCESS_STEPS = [
   { icon: MessageSquare, title: "Anfrage", sub: "Kurz beschreiben" },
-  { icon: ClipboardList, title: "Besichtigung", sub: "Vor-Ort-Termin" },
-  { icon: Ruler, title: "Angebot", sub: "Klare Positionen" },
-  { icon: Hammer, title: "Umsetzung", sub: "Aus einer Hand" },
+  { icon: ClipboardList,  title: "Besichtigung", sub: "Vor-Ort-Termin" },
+  { icon: Ruler,          title: "Angebot",      sub: "Klare Positionen" },
+  { icon: Hammer,         title: "Umsetzung",    sub: "Aus einer Hand" },
 ];
 
-const HIGHLIGHT_ICONS: LucideIcon[] = [Shield, Timer, Users, CheckCircle2];
-const FACT_ICONS: LucideIcon[] = [MapPin, Building2, TrendingUp];
-const SERVICE_ICONS: LucideIcon[] = [Wrench, Home, Paintbrush, Hammer, Sparkles, Ruler];
-const SECTION_ICONS: LucideIcon[] = [Shield, Users, Timer, TrendingUp];
+const HIGHLIGHT_ICONS = [Shield, Timer, Users, CheckCircle2];
 
+/* ── StandortContent ──────────────────────────────────────────────────── */
 const StandortContent = ({ standort }: { standort: StandortData }) => {
-  const ogImageUrl = `${SITE_ORIGIN}${standort.heroImage}`;
+  const t   = THEMES[standort.theme];
   const stats = standort.stats ?? DEFAULT_STATS;
+  const ogImageUrl = `${SITE_ORIGIN}${standort.heroImage}`;
+  const andereStandorte = STANDORTE.filter((s) => s.slug !== standort.slug);
 
   const structuredData = useMemo(() => {
-    const faqPage =
-      standort.faqs.length > 0
-        ? {
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            mainEntity: standort.faqs.map((f) => ({
-              "@type": "Question",
-              name: f.question,
-              acceptedAnswer: {
-                "@type": "Answer",
-                text: f.answer,
-              },
-            })),
-          }
-        : null;
+    const faqPage = standort.faqs.length > 0 ? {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: standort.faqs.map((f) => ({
+        "@type": "Question",
+        name: f.question,
+        acceptedAnswer: { "@type": "Answer", text: f.answer },
+      })),
+    } : null;
 
     return [
       {
@@ -87,21 +129,13 @@ const StandortContent = ({ standort }: { standort: StandortData }) => {
         name: standort.seoTitle,
         description: standort.seoDescription,
         url: `${SITE_ORIGIN}/standort/${standort.slug}`,
-        primaryImageOfPage: {
-          "@type": "ImageObject",
-          url: ogImageUrl,
-        },
       },
       {
         "@context": "https://schema.org",
         "@type": "Service",
         name: `Bau und Sanierung ${standort.name}`,
         description: `${standort.intro} ${standort.introHighlight}`,
-        image: ogImageUrl,
-        areaServed: {
-          "@type": "City",
-          name: standort.name,
-        },
+        areaServed: { "@type": "City", name: standort.name },
         provider: {
           "@type": "HomeAndConstructionBusiness",
           name: "Zakho Bau",
@@ -112,18 +146,8 @@ const StandortContent = ({ standort }: { standort: StandortData }) => {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         itemListElement: [
-          {
-            "@type": "ListItem",
-            position: 1,
-            name: "Startseite",
-            item: `${SITE_ORIGIN}/`,
-          },
-          {
-            "@type": "ListItem",
-            position: 2,
-            name: standort.name,
-            item: `${SITE_ORIGIN}/standort/${standort.slug}`,
-          },
+          { "@type": "ListItem", position: 1, name: "Startseite", item: `${SITE_ORIGIN}/` },
+          { "@type": "ListItem", position: 2, name: standort.name, item: `${SITE_ORIGIN}/standort/${standort.slug}` },
         ],
       },
       ...(faqPage ? [faqPage] : []),
@@ -138,12 +162,12 @@ const StandortContent = ({ standort }: { standort: StandortData }) => {
     structuredData,
   });
 
-  const andereStandorte = STANDORTE.filter((s) => s.slug !== standort.slug);
-
   return (
     <div className="min-h-screen min-w-0 max-w-full overflow-x-hidden bg-background">
-      {/* Hero – kompakt, above the fold ohne Langtext */}
-      <section className="relative flex min-h-[min(58vh,520px)] flex-col justify-end overflow-hidden pt-28 pb-10 md:min-h-[min(52vh,560px)] md:pb-14">
+
+      {/* ── Hero ─────────────────────────────────────────────────────────── */}
+      <section className="relative flex min-h-[min(90vh,780px)] flex-col justify-end overflow-hidden pb-0 pt-20">
+        {/* Hintergrundbild */}
         <img
           src={standort.heroImage}
           alt={standort.heroImageAlt}
@@ -152,48 +176,74 @@ const StandortContent = ({ standort }: { standort: StandortData }) => {
           height={1080}
           loading="eager"
           decoding="async"
+          style={{ opacity: 0.55 }}
         />
-        <div className="absolute inset-0 bg-black/70" aria-hidden />
+        {/* Overlays */}
+        <div className={`absolute inset-0 ${t.heroOverlay}`} aria-hidden />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" aria-hidden />
+        {/* Akzentlinie oben */}
+        <div className={`absolute left-0 top-0 z-10 h-[3px] w-full ${t.accentBar}`} />
+
+        {/* Riesiger Stadtname im Hintergrund – dekorativ */}
         <div
-          className="absolute inset-0 bg-gradient-to-t from-black/92 via-black/78 to-black/62"
           aria-hidden
-        />
-        <div className="container relative z-10 mx-auto min-w-0 max-w-full container-pad">
-          <nav className="mb-5 flex min-w-0 flex-wrap items-center gap-x-2 gap-y-1 text-xs text-primary-foreground/70 md:text-sm">
-            <Link to="/" className="transition-colors hover:text-accent">
-              Startseite
-            </Link>
-            <ChevronRight className="h-3.5 w-3.5 shrink-0 opacity-60" aria-hidden />
-            <span className="text-primary-foreground/90">{standort.name}</span>
+          className="pointer-events-none absolute inset-x-0 bottom-0 select-none overflow-hidden"
+        >
+          <p className="translate-y-[30%] font-heading font-black uppercase leading-none text-white/[0.04]"
+            style={{ fontSize: "clamp(5rem, 22vw, 20rem)" }}>
+            {standort.name.split(" ")[0]}
+          </p>
+        </div>
+
+        {/* Content */}
+        <div className="container relative z-10 mx-auto min-w-0 max-w-full container-pad pb-14 md:pb-20">
+          {/* Breadcrumb */}
+          <nav className="mb-8 flex min-w-0 flex-wrap items-center gap-x-2 text-xs text-white/50">
+            <Link to="/" className="transition-colors hover:text-white/80">Startseite</Link>
+            <ChevronRight className="h-3 w-3 shrink-0 opacity-50" aria-hidden />
+            <Link to="/leistungen" className="transition-colors hover:text-white/80">Leistungen</Link>
+            <ChevronRight className="h-3 w-3 shrink-0 opacity-50" aria-hidden />
+            <span className="text-white/80">{standort.name}</span>
           </nav>
 
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.45 }}
-            className="max-w-2xl"
+            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+            className="max-w-3xl"
           >
-            <p className="mb-2 text-xs font-medium uppercase tracking-[0.2em] text-accent">
-              Standort {standort.name}
-            </p>
-            <h1 className="mb-3 font-heading text-3xl leading-tight text-primary-foreground md:text-4xl">
+            {/* Location tag */}
+            <div className={`mb-5 inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-semibold uppercase tracking-wider ${t.tagBg} ${t.tagText}`}>
+              <MapPin className="h-3.5 w-3.5" aria-hidden />
+              {standort.regionTag}
+            </div>
+
+            {/* Headline */}
+            <h1 className="mb-4 font-heading leading-[1.05] text-white"
+              style={{ textShadow: "0 2px 40px rgba(0,0,0,0.6)" }}>
               {standort.headline}
             </h1>
-            <p className="text-base font-medium leading-snug text-accent md:text-lg">{standort.subline}</p>
 
-            <div className="mt-5 flex flex-wrap gap-2">
-              {HERO_TRUST_CHIPS.map((chip) => (
+            {/* Subline */}
+            <p className={`mb-6 text-lg font-medium md:text-xl ${t.tagText}`}>
+              {standort.subline}
+            </p>
+
+            {/* Trust-Chips */}
+            <div className="mb-8 flex flex-wrap gap-2">
+              {["Kostenlose Erstberatung", "Alle Gewerke koordinierbar", "Transparente Angebote"].map((chip) => (
                 <span
                   key={chip}
-                  className="inline-flex items-center gap-1.5 rounded-full border border-primary-foreground/20 bg-primary-foreground/10 px-3 py-1 text-xs font-medium text-primary-foreground/90 backdrop-blur-sm"
+                  className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-medium text-white/90 backdrop-blur-sm"
                 >
-                  <Sparkles className="h-3.5 w-3.5 text-accent" aria-hidden />
+                  <Sparkles className="h-3.5 w-3.5 text-white/60" aria-hidden />
                   {chip}
                 </span>
               ))}
             </div>
 
-            <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            {/* CTAs */}
+            <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <Link to="/anfragen">
                 <Button variant="accent" size="lg" className="w-full sm:w-auto">
                   Unverbindlich anfragen
@@ -203,241 +253,224 @@ const StandortContent = ({ standort }: { standort: StandortData }) => {
                 <Button
                   variant="outline"
                   size="lg"
-                  className="w-full border-primary-foreground/40 bg-primary-foreground/10 text-primary-foreground backdrop-blur-sm hover:bg-primary-foreground/20 sm:w-auto"
+                  className="w-full border-white/30 bg-white/10 text-white backdrop-blur-sm hover:bg-white/20 sm:w-auto"
                 >
                   <Phone className="mr-2 h-4 w-4" />
                   +49 1578 8888852
                 </Button>
               </a>
             </div>
-
-            <div className="mt-5 flex flex-wrap items-center gap-2 text-sm text-primary-foreground/65">
-              <MapPin className="h-4 w-4 shrink-0 text-accent" aria-hidden />
-              <span>{standort.regionTag}</span>
-            </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Intro + Kennzahlen – voller Kontext unterhalb des Hero */}
-      <section className="border-b border-border bg-secondary section-pad-sm">
-        <div className="container mx-auto min-w-0 max-w-full container-pad">
-          <div className="grid gap-10 lg:grid-cols-12 lg:gap-12">
-            <div className="lg:col-span-7">
-              <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-accent/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent">
-                <Headphones className="h-4 w-4" aria-hidden />
-                Beratung in {standort.name}
-              </div>
-              <p className="text-lg leading-relaxed text-foreground">{standort.intro}</p>
-            </div>
-            <div className="lg:col-span-5">
-              <div className="rounded-2xl border border-border bg-background p-6 shadow-sm">
-                <p className="mb-4 text-sm font-semibold uppercase tracking-wide text-muted-foreground">
-                  Vertrauen auf einen Blick
-                </p>
-                <div className="grid grid-cols-3 gap-3">
-                  {stats.map((s) => (
-                    <div
-                      key={s.label}
-                      className="rounded-xl bg-muted/60 px-2 py-4 text-center"
-                    >
-                      <p className="font-heading text-2xl font-bold text-accent md:text-3xl">{s.value}</p>
-                      <p className="mt-1 text-[0.65rem] leading-tight text-muted-foreground md:text-xs">
-                        {s.label}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-                <div className="mt-5 flex items-center gap-3 rounded-lg border border-accent/20 bg-accent/5 p-3 text-sm text-foreground">
-                  <Phone className="h-5 w-5 shrink-0 text-accent" aria-hidden />
-                  <span>
-                    Direkt durch den Inhaber – <strong className="font-semibold">+49 1578 8888852</strong>
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        {/* Highlight-Zitat: volle Viewport-Breite, ohne Container-Max-Breite */}
-        <div className="mt-10 w-full border-y border-border/70 bg-muted/40">
-          <div className="mx-auto w-full max-w-none px-4 py-6 sm:px-6 md:px-8 lg:px-12 lg:py-8 xl:px-16">
-            <p className="border-l-4 border-accent pl-4 text-base leading-relaxed text-muted-foreground sm:pl-5 md:text-lg md:leading-relaxed">
-              {standort.introHighlight}
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Ablauf – visuell */}
-      <section className="border-b border-border py-10 sm:py-12">
-        <div className="container mx-auto min-w-0 max-w-full container-pad">
-          <h2 className="text-center text-lg font-semibold text-foreground md:text-xl">
-            So läuft Ihr Projekt ab
-          </h2>
-          <div className="mt-8 grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
-            {PROCESS_STEPS.map((step, i) => (
-              <div
-                key={step.title}
-                className="relative flex flex-col items-center rounded-xl border border-border bg-card p-4 text-center shadow-sm"
+      {/* ── Stats-Streifen ───────────────────────────────────────────────── */}
+      <section className={t.statsBg}>
+        <div className="container mx-auto container-pad">
+          <div className="grid grid-cols-3 divide-x divide-white/10">
+            {stats.map((s, i) => (
+              <motion.div
+                key={s.label}
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.1 }}
+                className="px-4 py-8 text-center sm:px-8 sm:py-10"
               >
-                <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-accent/15 text-accent">
-                  <step.icon className="h-6 w-6" aria-hidden />
-                </div>
-                <span className="text-xs font-medium text-muted-foreground">Schritt {i + 1}</span>
-                <p className="mt-1 font-semibold text-foreground">{step.title}</p>
-                <p className="mt-0.5 text-xs text-muted-foreground">{step.sub}</p>
-              </div>
+                <p className={`font-heading text-3xl font-black sm:text-4xl ${t.statsValue}`}>{s.value}</p>
+                <p className="mt-1.5 text-xs text-white/45 sm:text-sm">{s.label}</p>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Highlights – mit Icons */}
-      <section className="border-b border-border bg-secondary section-pad-sm">
-        <div className="container mx-auto min-w-0 max-w-full container-pad">
-          <div className="mb-8 max-w-2xl">
-            <h2 className="text-2xl font-semibold text-foreground md:text-3xl">
-              {standort.highlightsSectionTitle}
-            </h2>
-            <p className="mt-2 text-muted-foreground">{standort.highlightsSectionLead}</p>
-          </div>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {standort.highlights.map((h, i) => {
-              const Hi = HIGHLIGHT_ICONS[i % HIGHLIGHT_ICONS.length];
-              return (
-                <div
-                  key={h}
-                  className="flex gap-4 rounded-xl border border-border bg-background p-5 shadow-sm transition-shadow hover:shadow-md"
-                >
-                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-accent/10">
-                    <Hi className="h-5 w-5 text-accent" aria-hidden />
-                  </div>
-                  <span className="text-sm font-medium leading-snug text-foreground">{h}</span>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+      {/* ── Intro + Highlight-Quote ──────────────────────────────────────── */}
+      <section className="section-pad-sm bg-background">
+        <div className="container mx-auto container-pad">
+          <div className="grid gap-12 lg:grid-cols-[1.2fr_1fr] lg:items-center lg:gap-20">
 
-      {/* Kurzinfos – Icons */}
-      <section className="border-b border-border section-pad-sm">
-        <div className="container mx-auto min-w-0 max-w-full container-pad">
-          <h2 className="mb-2 text-xl font-semibold text-foreground md:text-2xl">
-            Kurz & relevant für {standort.name}
-          </h2>
-          <p className="mb-8 max-w-2xl text-sm text-muted-foreground">
-            Orientierung auf einen Blick – Details finden Sie weiter unten oder in einem persönlichen Gespräch.
-          </p>
-          <div className="grid gap-5 md:grid-cols-3">
-            {standort.localFacts.map((f, i) => {
-              const Fi = FACT_ICONS[i % FACT_ICONS.length];
-              return (
-                <div
-                  key={f.label}
-                  className="flex gap-4 rounded-xl border border-border bg-card p-5 shadow-sm"
-                >
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-secondary">
-                    <Fi className="h-6 w-6 text-accent" aria-hidden />
-                  </div>
-                  <div className="min-w-0">
-                    <h3 className="text-sm font-semibold text-foreground">{f.label}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{f.text}</p>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.55 }}
+            >
+              <div className={`mb-6 h-1 w-14 rounded-full ${t.accentBar}`} />
+              <h2 className="mb-5 text-foreground">{standort.highlightsSectionTitle}</h2>
+              <p className="mb-8 text-lg leading-relaxed text-muted-foreground">{standort.intro}</p>
+              <blockquote className={`border-l-4 pl-5 text-base italic leading-relaxed text-muted-foreground ${t.highlightBorder}`}>
+                {standort.introHighlight}
+              </blockquote>
+            </motion.div>
 
-      {/* Leistungsschwerpunkte – Grid mit Icons */}
-      <section className="section-pad-sm">
-        <div className="container mx-auto min-w-0 max-w-full container-pad">
-          <div className="mb-8 max-w-2xl">
-            <h2 className="text-2xl font-semibold text-foreground md:text-3xl">{standort.serviceFocus.title}</h2>
-            <p className="mt-3 leading-relaxed text-muted-foreground">{standort.serviceFocus.intro}</p>
-          </div>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {standort.serviceFocus.items.map((item, i) => {
-              const Si = SERVICE_ICONS[i % SERVICE_ICONS.length];
-              return (
-                <div
-                  key={item}
-                  className="flex gap-3 rounded-xl border border-border bg-muted/30 p-4 lg:p-5"
-                >
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-background shadow-sm">
-                    <Si className="h-5 w-5 text-accent" aria-hidden />
-                  </div>
-                  <p className="text-sm leading-relaxed text-foreground">{item}</p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Inhalt – Karten mit Icon-Header */}
-      <section className="border-t border-border bg-secondary/50 section-pad-sm lg:py-20">
-        <div className="container mx-auto min-w-0 max-w-full container-pad">
-          <div className="mx-auto grid max-w-4xl gap-6 lg:gap-8">
-            {standort.sections.map((sec, i) => {
-              const Si = SECTION_ICONS[i % SECTION_ICONS.length];
-              return (
-                <motion.article
-                  key={sec.title}
-                  initial={{ opacity: 0, y: 16 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-40px" }}
-                  transition={{ duration: 0.4, delay: Math.min(i * 0.04, 0.2) }}
-                  className="overflow-hidden rounded-2xl border border-border bg-background shadow-sm"
-                >
-                  <div className="flex items-start gap-4 border-b border-border bg-muted/40 px-5 py-4 md:px-6">
-                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-accent/15">
-                      <Si className="h-5 w-5 text-accent" aria-hidden />
+            {/* Highlight-Cards */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.55, delay: 0.1 }}
+              className="grid gap-3 sm:grid-cols-2"
+            >
+              {standort.highlights.map((h, i) => {
+                const Hi = HIGHLIGHT_ICONS[i % HIGHLIGHT_ICONS.length];
+                return (
+                  <div
+                    key={h}
+                    className={`flex gap-3 rounded-2xl border bg-background p-4 shadow-sm transition-shadow hover:shadow-md ${t.highlightBorder}`}
+                  >
+                    <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl ${t.processIconBg}`}>
+                      <Hi className={`h-5 w-5 ${t.tagText}`} aria-hidden />
                     </div>
-                    <h2 className="pt-1.5 text-lg font-semibold leading-snug text-foreground md:text-xl">
-                      {sec.title}
-                    </h2>
+                    <p className="text-sm font-medium leading-snug text-foreground">{h}</p>
                   </div>
-                  <p className="px-5 py-5 text-sm leading-relaxed text-muted-foreground md:px-6 md:text-base md:leading-relaxed">
-                    {sec.body}
-                  </p>
-                </motion.article>
-              );
-            })}
+                );
+              })}
+            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* FAQ */}
-      <section className="border-t border-border section-pad-sm">
-        <div className="container mx-auto min-w-0 max-w-full container-pad">
-          <div className="mx-auto max-w-3xl">
-            <div className="mb-6 flex items-center gap-3">
-              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-accent/10">
-                <MessageSquare className="h-5 w-5 text-accent" aria-hidden />
-              </div>
-              <div>
-                <h2 className="text-xl font-semibold text-foreground md:text-2xl">
-                  Häufige Fragen – {standort.name}
-                </h2>
-                <p className="text-sm text-muted-foreground">
-                  Antworten auf typische Fragen vor Ort.
-                </p>
-              </div>
+      {/* ── Ablauf – horizontale Timeline ───────────────────────────────── */}
+      <section className={`section-pad-sm ${t.sectionAlt}`}>
+        <div className="container mx-auto container-pad">
+          <div className="mb-10 text-center">
+            <p className={`mb-2 text-xs font-bold uppercase tracking-[0.25em] ${t.tagText}`}>Ihr Weg zu uns</p>
+            <h2 className="text-white">So läuft Ihr Projekt ab</h2>
+          </div>
+
+          <div className="relative grid grid-cols-2 gap-6 md:grid-cols-4">
+            {/* Verbindungslinie */}
+            <div className="absolute left-[12.5%] right-[12.5%] top-9 hidden h-px bg-white/10 md:block" />
+
+            {PROCESS_STEPS.map((step, i) => (
+              <motion.div
+                key={step.title}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.12 }}
+                className="relative flex flex-col items-center text-center"
+              >
+                <div className={`relative z-10 mb-4 flex h-[4.5rem] w-[4.5rem] items-center justify-center rounded-2xl border border-white/10 ${t.processIconBg}`}>
+                  <step.icon className={`h-7 w-7 ${t.tagText}`} aria-hidden />
+                  <span className="absolute -top-2.5 -right-2.5 flex h-5 w-5 items-center justify-center rounded-full bg-accent text-[10px] font-bold text-white">
+                    {i + 1}
+                  </span>
+                </div>
+                <p className="font-heading text-base font-bold text-white">{step.title}</p>
+                <p className="mt-1 text-xs text-white/50">{step.sub}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Leistungsschwerpunkte ────────────────────────────────────────── */}
+      <section className="section-pad-sm bg-background">
+        <div className="container mx-auto container-pad">
+          <div className="mb-10 grid gap-4 md:grid-cols-[1fr_auto] md:items-end">
+            <div>
+              <p className={`mb-2 text-xs font-bold uppercase tracking-[0.25em] ${t.tagText}`}>Leistungen vor Ort</p>
+              <h2 className="text-foreground">{standort.serviceFocus.title}</h2>
+              <p className="mt-3 max-w-2xl text-muted-foreground">{standort.serviceFocus.intro}</p>
             </div>
+            <Link to="/leistungen">
+              <Button variant="outline" className="w-full md:w-auto">
+                Alle Leistungen <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </Link>
+          </div>
+
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {standort.serviceFocus.items.map((item, i) => (
+              <motion.div
+                key={item}
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.35, delay: i * 0.06 }}
+                className={`group flex items-start gap-3 rounded-xl border p-4 transition-all hover:shadow-md ${t.highlightBorder} bg-background`}
+              >
+                <CheckCircle2 className={`mt-0.5 h-5 w-5 shrink-0 ${t.tagText}`} aria-hidden />
+                <p className="text-sm leading-snug text-foreground">{item}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Lokale Fakten – Split Image + Text ──────────────────────────── */}
+      <section className={`section-pad-sm ${t.sectionAlt}`}>
+        <div className="container mx-auto container-pad">
+          <p className={`mb-2 text-xs font-bold uppercase tracking-[0.25em] ${t.tagText}`}>
+            Kurz & relevant
+          </p>
+          <h2 className="mb-10 text-white">Das sollten Sie wissen</h2>
+
+          <div className="grid gap-6 md:grid-cols-3">
+            {standort.localFacts.map((f, i) => (
+              <motion.div
+                key={f.label}
+                initial={{ opacity: 0, y: 14 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.1 }}
+                className="rounded-2xl border border-white/10 bg-white/5 p-6"
+              >
+                <div className={`mb-4 h-1 w-10 rounded-full ${t.accentBar}`} />
+                <h3 className="mb-3 text-lg font-bold text-white">{f.label}</h3>
+                <p className="text-sm leading-relaxed text-white/60">{f.text}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Tiefere Inhaltsabschnitte ────────────────────────────────────── */}
+      {standort.sections.length > 0 && (
+        <section className="section-pad-sm bg-background">
+          <div className="container mx-auto container-pad">
+            <div className="mx-auto grid max-w-4xl gap-0 divide-y divide-border">
+              {standort.sections.map((sec, i) => (
+                <motion.div
+                  key={sec.title}
+                  initial={{ opacity: 0, y: 14 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: i * 0.08 }}
+                  className="py-8 first:pt-0 last:pb-0 md:grid md:grid-cols-[220px_1fr] md:gap-10"
+                >
+                  <h3 className="mb-3 font-heading text-base font-bold text-foreground md:mb-0 md:pt-0.5">
+                    {sec.title}
+                  </h3>
+                  <p className="text-base leading-relaxed text-muted-foreground">{sec.body}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ── FAQ ──────────────────────────────────────────────────────────── */}
+      <section className={`section-pad-sm ${t.sectionAlt}`}>
+        <div className="container mx-auto container-pad">
+          <div className="mx-auto max-w-3xl">
+            <p className={`mb-2 text-xs font-bold uppercase tracking-[0.25em] ${t.tagText}`}>
+              Häufige Fragen
+            </p>
+            <h2 className="mb-8 text-white">{standort.name} – was Kunden fragen</h2>
             <Accordion type="single" collapsible className="w-full">
               {standort.faqs.map((faq, idx) => (
                 <AccordionItem
                   key={`${standort.slug}-faq-${idx}`}
                   value={`faq-${idx}`}
-                  className="border-border"
+                  className="border-white/10"
                 >
-                  <AccordionTrigger className="text-left text-base font-medium text-foreground hover:no-underline">
+                  <AccordionTrigger className="text-left text-base font-medium text-white/90 hover:text-white hover:no-underline">
                     {faq.question}
                   </AccordionTrigger>
-                  <AccordionContent className="leading-relaxed text-muted-foreground">
+                  <AccordionContent className="leading-relaxed text-white/55">
                     {faq.answer}
                   </AccordionContent>
                 </AccordionItem>
@@ -447,91 +480,102 @@ const StandortContent = ({ standort }: { standort: StandortData }) => {
         </div>
       </section>
 
-      {/* Weitere Standorte */}
-      <section className="border-t border-border bg-secondary section-pad-sm">
-        <div className="container mx-auto min-w-0 max-w-full container-pad">
-          <div className="mb-8 flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
-            <div>
-              <h2 className="text-xl font-semibold text-foreground md:text-2xl">Weitere Einsatzgebiete</h2>
-              <p className="mt-2 max-w-xl text-sm text-muted-foreground">
-                Auch in anderen Städten der Region für Sie unterwegs.
-              </p>
-            </div>
-            <Link to="/kontakt" className="text-sm font-medium text-accent hover:underline md:mt-0">
-              Kontakt →
-            </Link>
-          </div>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {andereStandorte.map((s) => (
-              <Link
-                key={s.slug}
-                to={`/standort/${s.slug}`}
-                className="group overflow-hidden rounded-xl border border-border bg-background shadow-sm transition-all hover:border-accent/40 hover:shadow-md"
-              >
-                <div className="relative aspect-[21/9] overflow-hidden">
-                  <img
-                    src={s.heroImage}
-                    alt=""
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 to-transparent" />
-                  <span className="absolute bottom-3 left-3 right-3 text-sm font-semibold text-primary-foreground">
-                    {s.name}
-                  </span>
-                </div>
-                <div className="p-4">
-                  <p className="text-sm font-medium text-foreground group-hover:text-accent">
-                    Bau & Sanierung {s.name}
-                  </p>
-                  <p className="mt-1 line-clamp-2 text-xs text-muted-foreground">{s.subline}</p>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* ── CTA mit Hintergrundbild ──────────────────────────────────────── */}
+      <section className="relative flex min-h-[min(50vh,460px)] items-center justify-center overflow-hidden">
+        <img
+          src={standort.heroImage}
+          alt=""
+          aria-hidden
+          className="absolute inset-0 h-full w-full object-cover [transform:scaleX(-1)]"
+          style={{ opacity: 0.4 }}
+          loading="lazy"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/70 to-black/90" />
+        <div className={`absolute left-0 top-0 h-1 w-full ${t.accentBar}`} />
 
-      {/* CTA */}
-      <section className="section-pad-sm">
-        <div className="container mx-auto min-w-0 max-w-full container-pad">
+        <div className="container relative z-10 mx-auto container-pad py-16 text-center sm:py-20">
           <motion.div
-            initial={{ opacity: 0, y: 12 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mx-auto max-w-3xl overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-card to-secondary/80 p-8 shadow-lg md:p-10"
+            transition={{ duration: 0.55 }}
+            className="mx-auto max-w-2xl"
           >
-            <div className="mb-2 inline-flex items-center gap-2 rounded-full bg-accent/10 px-3 py-1 text-xs font-medium uppercase tracking-wider text-accent">
-              <Building2 className="h-3.5 w-3.5" aria-hidden />
+            <p className={`mb-3 text-xs font-bold uppercase tracking-[0.25em] ${t.tagText}`}>
               Projekt in {standort.name}
-            </div>
-            <h2 className="mt-2 text-2xl font-semibold text-foreground">Jetzt unverbindlich anfragen</h2>
-            <p className="mt-2 text-muted-foreground">
-              Kostenlose Erstberatung – wir melden uns zeitnah mit den nächsten Schritten.
             </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Link to="/anfragen">
-                <Button variant="accent" className="w-full sm:w-auto">
-                  Zur Anfrage
+            <h2 className="mb-4 text-white">Jetzt unverbindlich anfragen</h2>
+            <p className="mb-8 text-base text-white/65">
+              Kostenlose Erstberatung – wir melden uns innerhalb von 24 Stunden.
+            </p>
+            <div className="flex flex-col items-stretch justify-center gap-4 sm:flex-row sm:items-center">
+              <Link to="/anfragen" className="w-full sm:w-auto">
+                <Button variant="accent" size="lg" className="w-full sm:w-auto">
+                  Zur Anfrage <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
-              <a href="tel:+4915788888852">
-                <Button variant="outline" className="w-full sm:w-auto">
+              <a href="tel:+4915788888852" className="w-full sm:w-auto">
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="w-full border-white/30 bg-white/10 text-white hover:bg-white/20 sm:w-auto"
+                >
                   <Phone className="mr-2 h-4 w-4" />
                   +49 1578 8888852
                 </Button>
               </a>
             </div>
-            <div className="mt-6 flex flex-wrap gap-x-4 gap-y-2 border-t border-border pt-6 text-sm text-muted-foreground">
-              <Link to="/faq" className="text-accent hover:underline">
-                FAQ
-              </Link>
-              <span className="hidden sm:inline">·</span>
-              <Link to="/leistungen" className="text-accent hover:underline">
-                Leistungen
-              </Link>
-            </div>
           </motion.div>
+        </div>
+      </section>
+
+      {/* ── Andere Standorte ─────────────────────────────────────────────── */}
+      <section className="section-pad-sm bg-background">
+        <div className="container mx-auto container-pad">
+          <div className="mb-8 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <h2 className="text-foreground">Weitere Einsatzgebiete</h2>
+              <p className="mt-1 text-sm text-muted-foreground">
+                Auch in anderen Städten der Region für Sie unterwegs.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {andereStandorte.map((s, i) => (
+              <motion.div
+                key={s.slug}
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.35, delay: i * 0.06 }}
+              >
+                <Link
+                  to={`/standort/${s.slug}`}
+                  className="group relative block overflow-hidden rounded-2xl"
+                >
+                  <div className="aspect-[16/7] overflow-hidden">
+                    <img
+                      src={s.heroImage}
+                      alt=""
+                      aria-hidden
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
+                  <div className="absolute inset-x-0 bottom-0 p-5">
+                    <p className="mb-0.5 text-[10px] font-bold uppercase tracking-[0.22em] text-accent">
+                      Einsatzgebiet
+                    </p>
+                    <p className="font-heading text-lg font-bold text-white">{s.name}</p>
+                    <p className="mt-1 text-xs text-white/60 line-clamp-1">{s.subline}</p>
+                  </div>
+                  <span className="absolute bottom-0 left-0 h-0.5 w-0 bg-accent transition-all duration-500 group-hover:w-full" />
+                </Link>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -540,17 +584,12 @@ const StandortContent = ({ standort }: { standort: StandortData }) => {
   );
 };
 
+/* ── Route-Wrapper ────────────────────────────────────────────────────── */
 const StandortLanding = () => {
   const { slug } = useParams<{ slug: string }>();
   const standort = slug ? getStandortBySlug(slug) : undefined;
-
-  if (!standort) {
-    return <NotFound />;
-  }
-
+  if (!standort) return <NotFound />;
   return <StandortContent standort={standort} />;
 };
 
 export default StandortLanding;
-
-

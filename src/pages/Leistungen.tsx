@@ -19,9 +19,9 @@ import imgRenovierung from "@/assets/leistung-renovierung.jpg";
 import imgMaler from "@/assets/leistung-malerarbeiten.jpg";
 import imgFliesen from "@/assets/leistung-fliesen.jpg";
 import imgAbriss from "@/assets/leistung-abriss.jpg";
-import refBad from "@/assets/ref-badsanierung.png";
-import refFlur from "@/assets/ref-flur-beleuchtung.png";
-import refTrockenbau from "@/assets/ref-raum-trockenbau.png";
+import refBad from "@/assets/ref-badsanierung.jpg";
+import refFlur from "@/assets/ref-flur-beleuchtung.jpg";
+import refTrockenbau from "@/assets/ref-raum-trockenbau.jpg";
 
 const services = [
   {
@@ -182,7 +182,7 @@ const Leistungen = () => {
               Unsere Leistungen
             </p>
             <h1 className="mb-4 text-primary-foreground">
-              Was wir für Sie tun
+              Was wir für Sie <em>leisten</em>
             </h1>
             <p className="text-lg leading-relaxed text-primary-foreground/80">
               Von der kleinen Renovierung bis zur schlüsselfertigen Komplettsanierung –
@@ -221,7 +221,7 @@ const Leistungen = () => {
       {/* Services Detail */}
       <section className="section-pad">
         <div className="container mx-auto container-pad">
-          <div className="space-y-24">
+          <div className="space-y-14 sm:space-y-20 lg:space-y-24">
             {services.map((s, i) => (
               <motion.div
                 key={s.slug}

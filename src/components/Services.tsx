@@ -1,239 +1,256 @@
-import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  type CarouselApi,
-} from "@/components/ui/carousel";
-import { cn } from "@/lib/utils";
-import {
-  Paintbrush,
-  Hammer,
-  LayoutGrid,
-  Home,
-  Wrench,
-  Layers,
-  ArrowRight,
-} from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import imgRenovierung from "@/assets/projekt-wohnraum-boden.jpg";
+import imgTrockenbau  from "@/assets/projekt-trockenbau.jpg";
+import imgMaler       from "@/assets/projekt-wandgestaltung.jpg";
+import imgBoden       from "@/assets/ref-fliesen.jpg";
+import imgBad         from "@/assets/ref-bad-modern.jpg";
+import imgAussen      from "@/assets/projekt-fassade.jpg";
 
 const services = [
   {
-    icon: Hammer,
+    num: "01",
     title: "Renovierung",
     short: "& Modernisierung",
-    desc: "Komplettrenovierungen und Wohnungssanierungen – termingerecht, sauber, zum Festpreis.",
-    detail: "Von der Planung bis zur schlüsselfertigen Übergabe. Wir renovieren Wohnungen, Häuser und Gewerberäume professionell und termingerecht.",
+    desc: "Komplettrenovierungen und Wohnungssanierungen – termingerecht, sauber und zum Festpreis. Alle Gewerke koordiniert aus einer Hand.",
     href: "/leistungen#renovierung",
-    gradient: "from-[#CC1515]/20 via-[#CC1515]/5 to-transparent",
+    image: imgRenovierung,
   },
   {
-    icon: Layers,
+    num: "02",
     title: "Trockenbau",
     short: "& Innenausbau",
-    desc: "Wände, Decken, Ständerwerk – professioneller Trockenbau für Privat- und Gewerbekunden.",
-    detail: "Raumtrennung, Schallschutz, abgehängte Decken. Präzise Ausführung mit hochwertigen Materialien von führenden Herstellern.",
+    desc: "Wände, Decken, Ständerwerk – professioneller Trockenbau für Privat- und Gewerbekunden. Präzise, sauber, termingerecht.",
     href: "/leistungen#trockenbau",
-    gradient: "from-[#CC1515]/20 via-[#CC1515]/5 to-transparent",
+    image: imgTrockenbau,
   },
   {
-    icon: Paintbrush,
+    num: "03",
     title: "Malerarbeiten",
     short: "& Tapezieren",
-    desc: "Innen- und Außenanstriche, Tapezierarbeiten und dekorative Wandgestaltung.",
-    detail: "Frische Farben, neue Tapeten, dekorative Techniken. Wir gestalten Ihren Wohn- oder Gewerberaum nach Ihren Wünschen.",
+    desc: "Innen- und Außenanstriche, Tapezierarbeiten und dekorative Wandgestaltung mit hochwertigen Materialien.",
     href: "/leistungen#malerarbeiten",
-    gradient: "from-[#CC1515]/20 via-[#CC1515]/5 to-transparent",
+    image: imgMaler,
   },
   {
-    icon: LayoutGrid,
+    num: "04",
     title: "Bodenbeläge",
     short: "& Fliesen",
-    desc: "Verlegen von Laminat, Parkett, Vinyl und Fliesen – sauber und fachgerecht.",
-    detail: "Präzises Verlegen aller Bodenbelagsarten. Untergrundvorbereitung, Nivellierung und fachgerechte Verlegung inklusive.",
+    desc: "Verlegen von Laminat, Parkett, Vinyl und Fliesen – sauber und fachgerecht für jeden Raum.",
     href: "/leistungen#bodenbelag",
-    gradient: "from-[#CC1515]/20 via-[#CC1515]/5 to-transparent",
+    image: imgBoden,
   },
   {
-    icon: Home,
+    num: "05",
     title: "Badsanierung",
     short: "Komplettsanierung",
-    desc: "Komplettsanierung von Badezimmern – Fliesen, Sanitär, Trockenbau aus einer Hand.",
-    detail: "Ihr Bad neu – von der Planung bis zur Übergabe. Fliesen, Sanitär, Trockenbau, Elektro – alles koordiniert aus einer Hand.",
+    desc: "Komplettsanierung von Badezimmern – Fliesen, Sanitär, Trockenbau und Abdichtung aus einer Hand.",
     href: "/leistungen#sanierung",
-    gradient: "from-[#CC1515]/20 via-[#CC1515]/5 to-transparent",
+    image: imgBad,
   },
   {
-    icon: Wrench,
+    num: "06",
     title: "Außenarbeiten",
     short: "& Fassade",
-    desc: "Fassadenarbeiten, Außenputz und kleinere Erdarbeiten rund ums Haus.",
-    detail: "Wetterfeste Fassaden, Außenputz und Anstrich. Professionelle Ausführung für dauerhaften Schutz Ihres Gebäudes.",
+    desc: "Fassadenarbeiten, Außenputz, Wärmedämmung und kleinere Erdarbeiten rund ums Haus.",
     href: "/leistungen#aussenarbeiten",
-    gradient: "from-[#CC1515]/20 via-[#CC1515]/5 to-transparent",
+    image: imgAussen,
   },
 ];
 
-type Service = (typeof services)[number];
+/* ── Desktop: Split-Interaktion ─────────────────────────────────────── */
+const ServicesDesktop = () => {
+  const [active, setActive] = useState(0);
+  const s = services[active];
 
-const FlipServiceCard = ({ s }: { s: Service }) => {
-  const Icon = s.icon;
   return (
-    <div className="flip-card h-64 w-full cursor-pointer sm:h-72">
-      <div className="flip-card-inner rounded-xl">
-        {/* Front */}
-        <div
-          className={`flip-card-front flex flex-col rounded-xl border border-white/10 bg-gradient-to-br ${s.gradient} bg-[#161616] p-6 shadow-lg`}
-        >
-          <div className="mb-4 inline-flex w-fit rounded-lg bg-accent/15 p-3">
-            <Icon className="h-6 w-6 text-accent" />
-          </div>
-          <h3 className="mb-1 text-xl font-bold text-white">{s.title}</h3>
-          <p className="mb-3 text-xs font-medium uppercase tracking-widest text-accent">
-            {s.short}
-          </p>
-          <p className="flex-1 text-sm leading-relaxed text-white/55">{s.desc}</p>
-          <div className="mt-4 flex items-center gap-1 text-xs font-medium text-accent/70">
-            <span>Karte umdrehen</span>
-            <ArrowRight className="h-3 w-3" />
-          </div>
-        </div>
+    <div className="grid grid-cols-[1fr_1fr] gap-0 lg:grid-cols-[5fr_7fr]">
 
-        {/* Back */}
-        <div className="flip-card-back flex flex-col rounded-xl border border-accent/30 bg-accent p-6 shadow-lg">
-          <div className="mb-3 inline-flex w-fit rounded-lg bg-white/20 p-3">
-            <Icon className="h-6 w-6 text-white" />
-          </div>
-          <h3 className="mb-3 text-xl font-bold text-white">{s.title}</h3>
-          <p className="flex-1 text-sm leading-relaxed text-white/85">{s.detail}</p>
-          <Link
-            to={s.href}
-            className="mt-4 inline-flex items-center gap-2 rounded-lg bg-white/15 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-white/25"
+      {/* Linke Spalte – Auswahlliste */}
+      <div className="flex flex-col border-r border-white/10">
+        {services.map((item, i) => (
+          <button
+            key={item.title}
+            type="button"
+            onMouseEnter={() => setActive(i)}
+            onClick={() => setActive(i)}
+            className={`group relative flex items-center gap-5 border-b border-white/8 px-6 py-6 text-left transition-all duration-200 lg:px-8 lg:py-7 ${
+              active === i
+                ? "bg-white/5"
+                : "hover:bg-white/[0.03]"
+            }`}
           >
-            Mehr erfahren <ArrowRight className="h-4 w-4" />
-          </Link>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-const ServicesMobileCarousel = () => {
-  const [api, setApi] = useState<CarouselApi>();
-  const [current, setCurrent] = useState(0);
-
-  useEffect(() => {
-    if (!api) return;
-    const sync = () => setCurrent(api.selectedScrollSnap());
-    sync();
-    api.on("select", sync);
-    api.on("reInit", sync);
-    return () => {
-      api.off("select", sync);
-      api.off("reInit", sync);
-    };
-  }, [api]);
-
-  return (
-    <div className="w-full min-w-0 max-w-full overflow-x-hidden">
-      <Carousel
-        setApi={setApi}
-        opts={{ align: "center", loop: true, dragFree: false, containScroll: "trimSnaps" }}
-        className="w-full max-w-full min-w-0"
-      >
-        <CarouselContent className="-ml-0">
-          {services.map((s) => (
-            <CarouselItem key={s.title} className="min-w-0 basis-full pl-0">
-              <div className="px-1">
-                <FlipServiceCard s={s} />
-              </div>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-      </Carousel>
-      <div className="mt-6 flex w-full justify-center">
-        <div
-          className="flex min-h-9 max-w-full items-center justify-center gap-1.5 overflow-x-auto overflow-y-hidden px-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-          role="tablist"
-          aria-label="Leistungen"
-        >
-          {services.map((_, i) => (
-            <button
-              key={i}
-              type="button"
-              role="tab"
-              aria-selected={i === current}
-              aria-label={`Leistung ${i + 1}`}
-              onClick={() => api?.scrollTo(i)}
-              className={cn(
-                "h-1.5 shrink-0 rounded-full transition-all duration-300",
-                i === current ? "w-6 bg-accent" : "w-1.5 bg-accent/30 hover:bg-accent/50",
-              )}
+            {/* Aktiv-Indikator */}
+            <span
+              className={`absolute left-0 top-0 h-full w-[3px] bg-accent transition-all duration-300 ${
+                active === i ? "opacity-100" : "opacity-0"
+              }`}
             />
-          ))}
-        </div>
+
+            <span
+              className={`shrink-0 font-heading text-xs font-bold tabular-nums transition-colors duration-200 ${
+                active === i ? "text-accent" : "text-white/20 group-hover:text-white/40"
+              }`}
+            >
+              {item.num}
+            </span>
+
+            <div className="min-w-0">
+              <p className={`text-[10px] font-bold uppercase tracking-[0.22em] transition-colors duration-200 ${
+                active === i ? "text-accent/80" : "text-white/30"
+              }`}>
+                {item.short}
+              </p>
+              <p className={`font-heading text-lg font-bold transition-colors duration-200 lg:text-xl ${
+                active === i ? "text-white" : "text-white/55 group-hover:text-white/80"
+              }`}>
+                {item.title}
+              </p>
+            </div>
+
+            <ArrowRight
+              className={`ml-auto h-4 w-4 shrink-0 transition-all duration-300 ${
+                active === i
+                  ? "translate-x-0 text-accent opacity-100"
+                  : "-translate-x-2 text-white/20 opacity-0 group-hover:translate-x-0 group-hover:opacity-100"
+              }`}
+            />
+          </button>
+        ))}
+      </div>
+
+      {/* Rechte Spalte – Bild + Beschreibung */}
+      <div className="relative min-h-[480px] overflow-hidden">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={active}
+            initial={{ opacity: 0, scale: 1.04 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.97 }}
+            transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+            className="absolute inset-0"
+          >
+            <img
+              src={s.image}
+              alt={`${s.title} – Zakho Bau`}
+              className="h-full w-full object-cover"
+              loading="lazy"
+              decoding="async"
+              width={900}
+              height={700}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/92 via-black/40 to-black/10" />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/30 to-transparent" />
+          </motion.div>
+        </AnimatePresence>
+
+        {/* Text-Overlay */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={`text-${active}`}
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.4, delay: 0.1 }}
+            className="absolute inset-x-0 bottom-0 p-8 lg:p-10"
+          >
+            <p className="mb-1 text-[10px] font-bold uppercase tracking-[0.25em] text-accent">
+              {s.short}
+            </p>
+            <h3 className="mb-3 font-heading text-2xl font-bold text-white lg:text-3xl">{s.title}</h3>
+            <p className="mb-6 max-w-sm text-sm leading-relaxed text-white/65">{s.desc}</p>
+            <Link
+              to={s.href}
+              className="inline-flex items-center gap-2 text-sm font-semibold text-accent transition-all hover:gap-3"
+            >
+              Mehr erfahren <ArrowRight className="h-4 w-4" />
+            </Link>
+          </motion.div>
+        </AnimatePresence>
       </div>
     </div>
   );
 };
 
-const Services = () => {
-  return (
-    <section id="leistungen" className="bg-background section-pad">
-      <div className="container mx-auto container-pad">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="mb-10 text-center sm:mb-12 lg:mb-16"
+/* ── Mobile: 2-Spalten-Grid ─────────────────────────────────────────── */
+const ServicesMobile = () => (
+  <div className="grid grid-cols-2 gap-3">
+    {services.map((s, i) => (
+      <motion.div
+        key={s.title}
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.4, delay: i * 0.07 }}
+      >
+        <Link
+          to={s.href}
+          className="group relative block overflow-hidden"
+          style={{ aspectRatio: "3/4" }}
         >
-          <p className="mb-3 text-xs font-medium uppercase tracking-[0.2em] text-accent">
+          <img
+            src={s.image}
+            alt={`${s.title} – Zakho Bau`}
+            loading="lazy"
+            decoding="async"
+            className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+            width={400}
+            height={530}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/92 via-black/30 to-transparent" />
+          <span className="absolute left-3 top-3 font-heading text-[10px] font-bold text-white/30">
+            {s.num}
+          </span>
+          <div className="absolute inset-x-0 bottom-0 p-3">
+            <p className="mb-0.5 text-[9px] font-bold uppercase tracking-[0.2em] text-accent/80">
+              {s.short}
+            </p>
+            <p className="font-heading text-sm font-bold leading-tight text-white">{s.title}</p>
+          </div>
+          <span className="absolute bottom-0 left-0 h-0.5 w-0 bg-accent transition-all duration-500 group-hover:w-full" />
+        </Link>
+      </motion.div>
+    ))}
+  </div>
+);
+
+/* ── Section ────────────────────────────────────────────────────────── */
+const Services = () => (
+  <section id="leistungen" className="bg-[#0E0E0E] section-pad">
+    <div className="hairline-silver absolute inset-x-0 top-0 h-px" />
+
+    <div className="container mx-auto container-pad">
+      {/* Heading */}
+      <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between md:mb-14">
+        <div>
+          <p className="mb-2 text-xs font-bold uppercase tracking-[0.3em] text-accent">
             Unsere Leistungen
           </p>
-          <h2 className="text-foreground">Was wir für Sie tun</h2>
-          <p className="mx-auto mt-4 max-w-xl text-base text-muted-foreground">
-            Hover über eine Karte für Details — alles aus einer Hand.
-          </p>
-        </motion.div>
-
-        {/* Mobile */}
-        <div className="md:hidden">
-          <ServicesMobileCarousel />
+          <h2 className="text-white">
+            Was wir für Sie <em>leisten</em>
+          </h2>
         </div>
-
-        {/* Desktop Grid */}
-        <div className="hidden gap-5 md:grid md:grid-cols-2 lg:grid-cols-3">
-          {services.map((s, i) => (
-            <motion.div
-              key={s.title}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.07 }}
-            >
-              <FlipServiceCard s={s} />
-            </motion.div>
-          ))}
-        </div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="mt-12 text-center"
+        <Link
+          to="/leistungen"
+          className="inline-flex shrink-0 items-center gap-2 text-sm font-semibold text-white/50 transition-all hover:gap-3 hover:text-white"
         >
-          <Link to="/leistungen">
-            <Button variant="outline" size="lg">
-              Alle Leistungen im Detail →
-            </Button>
-          </Link>
-        </motion.div>
+          Alle Leistungen <ArrowRight className="h-4 w-4" />
+        </Link>
       </div>
-    </section>
-  );
-};
+
+      {/* Mobile Grid */}
+      <div className="md:hidden">
+        <ServicesMobile />
+      </div>
+
+      {/* Desktop Split */}
+      <div className="hidden overflow-hidden border border-white/10 md:block">
+        <ServicesDesktop />
+      </div>
+    </div>
+  </section>
+);
 
 export default Services;
