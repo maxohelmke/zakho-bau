@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import imgRenovierung from "@/assets/projekt-wohnraum-boden.jpg";
 import imgTrockenbau  from "@/assets/projekt-trockenbau.jpg";
-import imgMaler       from "@/assets/projekt-wandgestaltung.jpg";
-import imgBoden       from "@/assets/ref-fliesen.jpg";
+import imgMaler       from "@/assets/arbeit-malerarbeiten.png";
+import imgBoden       from "@/assets/ref-wohnzimmer-parkett.jpg";
 import imgBad         from "@/assets/ref-bad-modern.jpg";
-import imgAussen      from "@/assets/projekt-fassade.jpg";
+import imgAussen      from "@/assets/ref-fassade-reihenhaus.jpg";
 
 const services = [
   {
@@ -88,14 +88,6 @@ const ServicesDesktop = () => {
                 active === i ? "opacity-100" : "opacity-0"
               }`}
             />
-
-            <span
-              className={`shrink-0 font-heading text-xs font-bold tabular-nums transition-colors duration-200 ${
-                active === i ? "text-accent" : "text-white/20 group-hover:text-white/40"
-              }`}
-            >
-              {item.num}
-            </span>
 
             <div className="min-w-0">
               <p className={`text-[10px] font-bold uppercase tracking-[0.22em] transition-colors duration-200 ${
@@ -200,9 +192,6 @@ const ServicesMobile = () => (
             height={530}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/92 via-black/30 to-transparent" />
-          <span className="absolute left-3 top-3 font-heading text-[10px] font-bold text-white/30">
-            {s.num}
-          </span>
           <div className="absolute inset-x-0 bottom-0 p-3">
             <p className="mb-0.5 text-[9px] font-bold uppercase tracking-[0.2em] text-accent/80">
               {s.short}

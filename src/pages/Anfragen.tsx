@@ -1,4 +1,4 @@
-ï»¿import { useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -14,9 +14,9 @@ const serviceTypes = [
   "Renovierung & Modernisierung",
   "Trockenbau & Innenausbau",
   "Malerarbeiten & Tapezieren",
-  "BodenbelÃ¤ge & Fliesen",
+  "Bodenbeläge & Fliesen",
   "Badsanierung",
-  "AuÃŸenarbeiten & Fassade",
+  "Außenarbeiten & Fassade",
   "Sonstiges",
 ];
 
@@ -24,7 +24,7 @@ const Anfragen = () => {
   usePageSeo({
     title: "Anfrage stellen | Zakho Bau Gevelsberg",
     description:
-      "Jetzt kostenlos und unverbindlich anfragen: Zakho Bau erstellt Ihnen ein Angebot fÃ¼r Bau- und Sanierungsprojekte in Gevelsberg und im Ennepe-Ruhr-Kreis.",
+      "Jetzt kostenlos und unverbindlich anfragen: Zakho Bau erstellt Ihnen ein Angebot für Bau- und Sanierungsprojekte in Gevelsberg und im Ennepe-Ruhr-Kreis.",
     path: "/anfragen",
     structuredData: [
       {
@@ -32,8 +32,8 @@ const Anfragen = () => {
         "@type": "WebPage",
         name: "Kostenlose Anfrage bei Zakho Bau",
         description:
-          "Unverbindliche Projektanfrage fÃ¼r Bau- und Sanierungsarbeiten in Gevelsberg und im Ennepe-Ruhr-Kreis.",
-        url: "https://zakho-bau.de/anfragen",
+          "Unverbindliche Projektanfrage für Bau- und Sanierungsarbeiten in Gevelsberg und im Ennepe-Ruhr-Kreis.",
+        url: "https://www.zakho-bau.de/anfragen",
       },
       {
         "@context": "https://schema.org",
@@ -43,13 +43,13 @@ const Anfragen = () => {
             "@type": "ListItem",
             position: 1,
             name: "Startseite",
-            item: "https://zakho-bau.de/",
+            item: "https://www.zakho-bau.de/",
           },
           {
             "@type": "ListItem",
             position: 2,
             name: "Anfragen",
-            item: "https://zakho-bau.de/anfragen",
+            item: "https://www.zakho-bau.de/anfragen",
           },
         ],
       },
@@ -73,15 +73,15 @@ const Anfragen = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.name.trim() || !form.email.trim() || !form.nachricht.trim()) {
-      toast({ title: "Bitte fÃ¼llen Sie alle Pflichtfelder aus.", variant: "destructive" });
+      toast({ title: "Bitte füllen Sie alle Pflichtfelder aus.", variant: "destructive" });
       return;
     }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
-      toast({ title: "Bitte geben Sie eine gÃ¼ltige E-Mail-Adresse ein.", variant: "destructive" });
+      toast({ title: "Bitte geben Sie eine gültige E-Mail-Adresse ein.", variant: "destructive" });
       return;
     }
     if (!form.datenschutz) {
-      toast({ title: "Bitte stimmen Sie der DatenschutzerklÃ¤rung zu.", variant: "destructive" });
+      toast({ title: "Bitte stimmen Sie der Datenschutzerklärung zu.", variant: "destructive" });
       return;
     }
 
@@ -141,7 +141,7 @@ const Anfragen = () => {
             <p className="mb-3 text-xs font-medium uppercase tracking-[0.2em] text-accent">Kostenlose Beratung</p>
             <h1 className="mb-6 text-primary-foreground">Kostenlos <em>anfragen</em></h1>
             <p className="text-lg leading-relaxed text-primary-foreground/80">
-              Beschreiben Sie Ihr Projekt â€“ wir erstellen Ihnen ein unverbindliches Angebot.
+              Beschreiben Sie Ihr Projekt – wir erstellen Ihnen ein unverbindliches Angebot.
               Kostenlos und innerhalb von 24 Stunden.
             </p>
 
@@ -173,7 +173,7 @@ const Anfragen = () => {
       <section className="border-b border-border py-12">
         <div className="container mx-auto container-pad">
           <div className="flex flex-wrap items-center justify-center gap-8">
-            {["100% kostenlos & unverbindlich", "Antwort innerhalb 24h", "PersÃ¶nliche Beratung vom Chef"].map((b) => (
+            {["100% kostenlos & unverbindlich", "Antwort innerhalb 24h", "Persönliche Beratung vom Chef"].map((b) => (
               <div key={b} className="flex items-center gap-2 text-sm text-muted-foreground">
                 <CheckCircle className="h-4 w-4 text-accent" />
                 {b}
@@ -228,7 +228,7 @@ const Anfragen = () => {
                   type="tel"
                   value={form.telefon}
                   onChange={(e) => setForm({ ...form, telefon: e.target.value })}
-                  placeholder="FÃ¼r RÃ¼ckfragen (optional)"
+                  placeholder="Für Rückfragen (optional)"
                   maxLength={30}
                 />
               </div>
@@ -252,12 +252,12 @@ const Anfragen = () => {
                 <Input
                   value={form.ort}
                   onChange={(e) => setForm({ ...form, ort: e.target.value })}
-                  placeholder="z. B. Gevelsberg, MusterstraÃŸe"
+                  placeholder="z. B. Gevelsberg, Musterstraße"
                   maxLength={200}
                 />
               </div>
               <div>
-                <label className="mb-1 block text-sm font-medium text-foreground">GewÃ¼nschter Zeitrahmen</label>
+                <label className="mb-1 block text-sm font-medium text-foreground">Gewünschter Zeitrahmen</label>
                 <Input
                   value={form.timeline}
                   onChange={(e) => setForm({ ...form, timeline: e.target.value })}
@@ -272,7 +272,7 @@ const Anfragen = () => {
               <Input
                 value={form.budget}
                 onChange={(e) => setForm({ ...form, budget: e.target.value })}
-                placeholder="z. B. 10.000â€“15.000 â‚¬"
+                placeholder="z. B. 10.000–15.000 €"
                 maxLength={50}
               />
             </div>
@@ -284,7 +284,7 @@ const Anfragen = () => {
               <Textarea
                 value={form.nachricht}
                 onChange={(e) => setForm({ ...form, nachricht: e.target.value })}
-                placeholder="Beschreiben Sie Ihr Vorhaben so genau wie mÃ¶glich: Was soll gemacht werden? Wie groÃŸ ist die FlÃ¤che? Gibt es besondere Anforderungen?"
+                placeholder="Beschreiben Sie Ihr Vorhaben so genau wie möglich: Was soll gemacht werden? Wie groß ist die Fläche? Gibt es besondere Anforderungen?"
                 rows={6}
                 maxLength={2000}
               />
@@ -301,7 +301,7 @@ const Anfragen = () => {
               <label htmlFor="datenschutz" className="cursor-pointer text-sm text-muted-foreground">
                 Ich stimme der{" "}
                 <Link to="/datenschutz" className="text-accent hover:underline">
-                  DatenschutzerklÃ¤rung
+                  Datenschutzerklärung
                 </Link>{" "}
                 zu. <span className="text-destructive">*</span>
               </label>
@@ -313,7 +313,7 @@ const Anfragen = () => {
               className="w-full py-6 text-base"
               disabled={submitting}
             >
-              {submitting ? "Wird gesendetâ€¦" : "Kostenlose Anfrage absenden"}
+              {submitting ? "Wird gesendet…" : "Kostenlose Anfrage absenden"}
             </Button>
 
             <p className="text-center text-xs text-muted-foreground">

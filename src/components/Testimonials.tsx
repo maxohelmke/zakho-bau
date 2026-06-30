@@ -1,4 +1,5 @@
 ﻿import { useState, useCallback, useEffect } from "react";
+import rinasSw from "@/assets/rinas-mola-sw.png";
 import { motion, AnimatePresence } from "framer-motion";
 
 const reviews = [
@@ -54,7 +55,7 @@ export default function Testimonials() {
       <div className="container mx-auto container-pad">
         <div className="grid gap-10 lg:grid-cols-[1fr_2fr] lg:gap-16">
 
-          {/* Links: feste Metainfo */}
+              {/* Links: feste Metainfo */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -65,6 +66,20 @@ export default function Testimonials() {
             <div>
               <div className="mb-8 h-px w-12 bg-accent" />
               <h2>Was unsere <em>Kunden</em> sagen</h2>
+              {/* Inhaber-Portrait */}
+              <div className="mt-8 flex items-center gap-4">
+                <img
+                  src={rinasSw}
+                  alt="Rinas Mola – Inhaber Zakho Bau"
+                  className="h-16 w-16 rounded-full object-cover object-top grayscale"
+                  width={64} height={64}
+                  loading="lazy"
+                />
+                <div>
+                  <p className="text-sm font-bold text-foreground">Rinas Mola</p>
+                  <p className="text-xs text-muted-foreground">Inhaber · Zakho Bau</p>
+                </div>
+              </div>
             </div>
 
             {/* Dot-Navigation */}

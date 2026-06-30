@@ -2,8 +2,8 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import ownerImg from "@/assets/zakho-team-work.jpg";
-import ladenImg from "@/assets/zakho-laden.jpg";
+import ownerImg from "@/assets/rinas-mola.png";
+import workImg from "@/assets/arbeit-innen.png";
 
 const About = () => {
   const ref = useRef<HTMLElement>(null);
@@ -19,10 +19,10 @@ const About = () => {
           <motion.div style={{ y: imgY }} className="absolute inset-[-8%] will-change-transform">
             <img
               src={ownerImg}
-              alt="Zakho Bau Team bei der Arbeit"
+              alt="Rinas Mola – Inhaber Zakho Bau"
               loading="lazy"
               decoding="async"
-              className="h-full w-full object-cover"
+              className="h-full w-full object-cover object-top"
               width={800}
               height={1000}
             />
@@ -39,8 +39,8 @@ const About = () => {
             className="absolute bottom-6 left-6 w-36 overflow-hidden border border-white/20 shadow-2xl sm:bottom-8 sm:left-8 sm:w-44"
           >
             <img
-              src={ladenImg}
-              alt="Unser Ladenlokal in Gevelsberg"
+              src={workImg}
+              alt="Zakho Bau bei der Arbeit – Innenausbau"
               loading="lazy"
               decoding="async"
               className="h-24 w-full object-cover sm:h-28"
@@ -48,7 +48,7 @@ const About = () => {
               height={224}
             />
             <p className="bg-black/80 px-3 py-1.5 text-[10px] font-medium tracking-wider text-white/70">
-              Hagener Str. 44 · Gevelsberg
+              Rinas Mola · Inhaber
             </p>
           </motion.div>
         </div>

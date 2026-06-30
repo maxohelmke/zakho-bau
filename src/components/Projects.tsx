@@ -8,26 +8,35 @@ import imgFassade from "@/assets/projekt-fassade.jpg";
 import imgAbriss from "@/assets/projekt-abriss-kran.jpg";
 import imgBad from "@/assets/ref-badsanierung.jpg";
 import imgTrockenbau from "@/assets/projekt-trockenbau.jpg";
-import imgMaler from "@/assets/ref-malerarbeiten.jpg";
+import imgMaler from "@/assets/arbeit-malerarbeiten.png";
+import imgFlurFertig from "@/assets/ref-flur-fertig.jpg";
+import imgWohnungFertig from "@/assets/ref-wohnung-fertig.jpg";
+import imgFassadeReihenhaus from "@/assets/ref-fassade-reihenhaus.jpg";
 
 const projects = [
+  {
+    src: imgMaler,
+    title: "Malerarbeiten – Zakho Bau bei der Arbeit",
+    location: "Gevelsberg",
+    detail: "Innenanstrich · Deckenmaler · professionell",
+  },
+  {
+    src: imgFlurFertig,
+    title: "Flursanierung – Fertiggestellt",
+    location: "Ennepe-Ruhr-Kreis",
+    detail: "Komplettsanierung · Wände & Decke · saubere Ausführung",
+  },
+  {
+    src: imgWohnungFertig,
+    title: "Wohnungssanierung abgeschlossen",
+    location: "Gevelsberg",
+    detail: "Neuer Boden · frische Wände · Türrahmen erneuert",
+  },
   {
     src: imgBoden,
     title: "Wohnraum-Renovierung mit neuem Boden",
     location: "Gevelsberg",
     detail: "Komplettumbau · Parkett & Fliesen · 3 Räume",
-  },
-  {
-    src: imgFassade,
-    title: "Außenputz & Fassadensanierung",
-    location: "Ennepe-Ruhr-Kreis",
-    detail: "Außendämmung · Putzfassade · Anstrich",
-  },
-  {
-    src: imgAbriss,
-    title: "Abbruch & Entkernung",
-    location: "Gevelsberg",
-    detail: "Komplettentkernung · Schutzmaßnahmen · Entsorgung",
   },
   {
     src: imgBad,
@@ -42,10 +51,22 @@ const projects = [
     detail: "Ständerwerk · Decken · Schallschutz",
   },
   {
-    src: imgMaler,
-    title: "Malerarbeiten & Wandgestaltung",
-    location: "Ennepetal",
-    detail: "Innenanstrich · Tapezieren · dekorative Oberflächen",
+    src: imgFassadeReihenhaus,
+    title: "Fassade & Außenarbeiten",
+    location: "Ennepe-Ruhr-Kreis",
+    detail: "Fassadenputz · Anstrich · moderne Optik",
+  },
+  {
+    src: imgFassade,
+    title: "Außenputz & Fassadensanierung",
+    location: "Ennepe-Ruhr-Kreis",
+    detail: "Außendämmung · Putzfassade · Anstrich",
+  },
+  {
+    src: imgAbriss,
+    title: "Abbruch & Entkernung",
+    location: "Gevelsberg",
+    detail: "Komplettentkernung · Schutzmaßnahmen · Entsorgung",
   },
 ];
 

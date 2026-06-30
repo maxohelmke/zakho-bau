@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /api/
 
-Sitemap: https://zakho-bau.de/sitemap.xml
+Sitemap: https://www.zakho-bau.de/sitemap.xml

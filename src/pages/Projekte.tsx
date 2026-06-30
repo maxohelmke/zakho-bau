@@ -1,4 +1,4 @@
-ï»¿import { motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { MapPin, Phone, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Footer from "@/components/Footer";
@@ -24,6 +24,22 @@ import projektNeubau from "@/assets/projekt-neubau-luftbild.jpg";
 import projektAbriss from "@/assets/projekt-abriss-kran.jpg";
 import projektWand from "@/assets/projekt-wandgestaltung.jpg";
 import firmenwagen from "@/assets/zakho-firmenwagen-neu.jpg";
+import arbeitMaler from "@/assets/arbeit-malerarbeiten.png";
+import arbeitInnen from "@/assets/arbeit-innen.png";
+import refFlurFertig from "@/assets/ref-flur-fertig.jpg";
+import refFlurBaustelle from "@/assets/ref-flur-baustelle.jpg";
+import refAkustikpaneele from "@/assets/ref-akustikpaneele.jpg";
+import refWandGeo from "@/assets/ref-wandgestaltung-geo.jpg";
+import refWandMarmor from "@/assets/ref-wandgestaltung-marmor.jpg";
+import refFassadeReihenhaus from "@/assets/ref-fassade-reihenhaus.jpg";
+import refFassadeModern from "@/assets/ref-fassade-modern.jpg";
+import refWohnungFertig from "@/assets/ref-wohnung-fertig.jpg";
+import refBadLuxury from "@/assets/ref-bad-luxury.jpg";
+import refWohnzimmerParkett from "@/assets/ref-wohnzimmer-parkett.jpg";
+import refKuecheModern from "@/assets/ref-kueche-modern.jpg";
+import refFassadeGeruest from "@/assets/ref-fassade-geruest.jpg";
+import refTrockenbauDecke from "@/assets/ref-trockenbau-decke.jpg";
+import refGewerbeInnen from "@/assets/ref-gewerbe-innenausbau.jpg";
 
 const projects = [
   {
@@ -31,21 +47,21 @@ const projects = [
     title: "Wohnraum-Renovierung mit neuem Boden",
     location: "Gevelsberg",
     category: "Renovierung",
-    description: "Komplett renovierter Wohnraum mit neu verlegtem Boden, frischen WÃ¤nden und groÃŸzÃ¼gigem Lichtkonzept.",
+    description: "Komplett renovierter Wohnraum mit neu verlegtem Boden, frischen W?nden und gro?z?gigem Lichtkonzept.",
   },
   {
     src: projektTrockenbau,
     title: "Trockenbau & Innenausbau",
     location: "Ennepe-Ruhr-Kreis",
     category: "Trockenbau",
-    description: "Neue WÃ¤nde und Decken in Trockenbauweise inkl. Verspachtelung â€“ bereit fÃ¼r den finalen Innenausbau.",
+    description: "Neue W?nde und Decken in Trockenbauweise inkl. Verspachtelung ? bereit f?r den finalen Innenausbau.",
   },
   {
     src: projektFassade,
     title: "Moderne Fassade in Holzoptik",
     location: "Gevelsberg",
-    category: "AuÃŸenarbeiten",
-    description: "Hochwertige Fassadengestaltung mit Holz- und Klinkerelementen fÃ¼r ein modernes Erscheinungsbild.",
+    category: "Au?enarbeiten",
+    description: "Hochwertige Fassadengestaltung mit Holz- und Klinkerelementen f?r ein modernes Erscheinungsbild.",
   },
   {
     src: projektAkustik,
@@ -59,28 +75,28 @@ const projects = [
     title: "Neubau mit moderner Haustechnik",
     location: "Gevelsberg",
     category: "Neubau",
-    description: "SchlÃ¼sselfertiger Neubau mit Photovoltaik und WÃ¤rmepumpe â€“ nachhaltig und zukunftssicher gebaut.",
+    description: "Schl?sselfertiger Neubau mit Photovoltaik und W?rmepumpe ? nachhaltig und zukunftssicher gebaut.",
   },
   {
     src: projektWand,
     title: "Dekorative Wandgestaltung",
     location: "Gevelsberg",
     category: "Malerarbeiten",
-    description: "GroÃŸflÃ¤chige dekorative Wandgestaltung als stilvolles Gestaltungselement im Wohnbereich.",
+    description: "Gro?fl?chige dekorative Wandgestaltung als stilvolles Gestaltungselement im Wohnbereich.",
   },
   {
     src: projektAbriss,
     title: "Abbruch & Entkernung",
     location: "Ennepe-Ruhr-Kreis",
     category: "Abrissarbeiten",
-    description: "Fachgerechter Abbruch und Entkernung als Vorbereitung fÃ¼r Neubau und Kernsanierung.",
+    description: "Fachgerechter Abbruch und Entkernung als Vorbereitung f?r Neubau und Kernsanierung.",
   },
   {
     src: firmenwagen,
     title: "Zakho Bau im Einsatz",
     location: "Gevelsberg & Ennepe-Ruhr-Kreis",
     category: "Unser Team",
-    description: "Mit unserem Firmenwagen sind wir tÃ¤glich in Gevelsberg und der gesamten Region fÃ¼r Sie unterwegs.",
+    description: "Mit unserem Firmenwagen sind wir t?glich in Gevelsberg und der gesamten Region f?r Sie unterwegs.",
   },
   {
     src: refBad,
@@ -91,31 +107,31 @@ const projects = [
   },
   {
     src: refKueche,
-    title: "KÃ¼chenrenovierung mit Einbauten",
+    title: "K?chenrenovierung mit Einbauten",
     location: "Ennepetal",
     category: "Renovierung",
-    description: "Moderne KÃ¼che mit weiÃŸen Fronten, Subway-Fliesen-RÃ¼ckwand und integrierter LED-Beleuchtung.",
+    description: "Moderne K?che mit wei?en Fronten, Subway-Fliesen-R?ckwand und integrierter LED-Beleuchtung.",
   },
   {
     src: refFlur,
     title: "Flursanierung mit Lichtkonzept",
     location: "Ennepe-Ruhr-Kreis",
     category: "Trockenbau",
-    description: "Moderne Flurgestaltung mit abgehÃ¤ngter Decke und integrierten LED-Lichtleisten.",
+    description: "Moderne Flurgestaltung mit abgeh?ngter Decke und integrierten LED-Lichtleisten.",
   },
   {
     src: refBadModern,
     title: "Modernes Badezimmer",
     location: "Gevelsberg",
     category: "Sanierung",
-    description: "ZeitgemÃ¤ÃŸes Bad mit bodengleicher Dusche, GroÃŸformat-Fliesen und LED-Deckenbeleuchtung.",
+    description: "Zeitgem??es Bad mit bodengleicher Dusche, Gro?format-Fliesen und LED-Deckenbeleuchtung.",
   },
   {
     src: refDecke,
     title: "Deckendesign mit LED-Beleuchtung",
     location: "Remscheid",
     category: "Trockenbau",
-    description: "AbgehÃ¤ngte Trockenbau-Decke mit umlaufender indirekter LED-Beleuchtung im Wohnbereich.",
+    description: "Abgeh?ngte Trockenbau-Decke mit umlaufender indirekter LED-Beleuchtung im Wohnbereich.",
   },
   {
     src: refRaum,
@@ -126,62 +142,175 @@ const projects = [
   },
   {
     src: refFliesen,
-    title: "GroÃŸformat-Fliesen im Bad",
-    location: "DÃ¼sseldorf",
+    title: "Gro?format-Fliesen im Bad",
+    location: "D?sseldorf",
     category: "Fliesenarbeiten",
-    description: "Professionelle Verlegung von groÃŸformatigen Betonoptik-Fliesen mit exakten Fugen.",
+    description: "Professionelle Verlegung von gro?formatigen Betonoptik-Fliesen mit exakten Fugen.",
   },
   {
     src: refMaler,
     title: "Malerarbeiten & Wandgestaltung",
     location: "Gevelsberg",
     category: "Malerarbeiten",
-    description: "Sauberer Innenanstrich mit Spachtelarbeiten und Abklebe-Technik fÃ¼r makellose Ergebnisse.",
+    description: "Sauberer Innenanstrich mit Spachtelarbeiten und Abklebe-Technik f?r makellose Ergebnisse.",
   },
   {
     src: refTrockenbau,
     title: "Wohnraum mit Deckendesign",
     location: "Gevelsberg",
     category: "Trockenbau",
-    description: "AufwÃ¤ndiges Trockenbau-Deckendesign mit umlaufender LED-Beleuchtung.",
+    description: "Aufw?ndiges Trockenbau-Deckendesign mit umlaufender LED-Beleuchtung.",
   },
   {
     src: refAbriss,
-    title: "Entkernung & RÃ¼ckbau",
+    title: "Entkernung & R?ckbau",
     location: "Ennepe-Ruhr-Kreis",
     category: "Abrissarbeiten",
-    description: "Fachgerechter RÃ¼ckbau und Entkernung als Vorbereitung fÃ¼r die Kernsanierung.",
+    description: "Fachgerechter R?ckbau und Entkernung als Vorbereitung f?r die Kernsanierung.",
   },
   {
     src: refBoden,
     title: "Bodenverlegung & Spotbeleuchtung",
     location: "Ennepetal",
     category: "Renovierung",
-    description: "Dunkles Laminat mit weiÃŸen Sockelleisten und Einbauspots fÃ¼r ein modernes RaumgefÃ¼hl.",
+    description: "Dunkles Laminat mit weißen Sockelleisten und Einbauspots für ein modernes Raumgefühl.",
+  },
+  {
+    src: arbeitMaler,
+    title: "Malerarbeiten ? Zakho Bau bei der Arbeit",
+    location: "Gevelsberg",
+    category: "Malerarbeiten",
+    description: "Professioneller Decken- und Wandanstrich durch Zakho Bau ? sauber abgeklebt, präzise ausgeführt.",
+  },
+  {
+    src: arbeitInnen,
+    title: "Innenputz & Untergrundvorbereitung",
+    location: "Gevelsberg",
+    category: "Renovierung",
+    description: "Vorarbeiten für Innenanstrich: Putz aufbereitet, Wände grundiert und egalisiert.",
+  },
+  {
+    src: refFlurFertig,
+    title: "Flursanierung ? Fertiggestellt",
+    location: "Ennepe-Ruhr-Kreis",
+    category: "Sanierung",
+    description: "Komplettsanierung eines gewerblichen Flurs: Wände, Decke und Beleuchtung erneuert.",
+  },
+  {
+    src: refFlurBaustelle,
+    title: "Großprojekt ? Gewerbliche Sanierung",
+    location: "Ennepe-Ruhr-Kreis",
+    category: "Gewerbe",
+    description: "Laufende Sanierung eines Bürogebäudes: Trockenbau, Malerarbeiten und neue Deckensysteme.",
+  },
+  {
+    src: refWohnungFertig,
+    title: "Wohnungssanierung abgeschlossen",
+    location: "Gevelsberg",
+    category: "Renovierung",
+    description: "Fertiggestellte Wohnungssanierung mit neuem Parkett, frischen Wänden und erneuerten Türrahmen.",
+  },
+  {
+    src: refAkustikpaneele,
+    title: "Akustikpaneele Holzlamellen",
+    location: "Ennepetal",
+    category: "Innenausbau",
+    description: "Moderne Akustikpaneele aus Holzlamellen als stilvolles Wand-Highlight im Wohnbereich.",
+  },
+  {
+    src: refWandGeo,
+    title: "Dekorative Tapete ? Geometrik",
+    location: "Gevelsberg",
+    category: "Malerarbeiten",
+    description: "Hochwertige Tapezierarbeit mit geometrischer Designtapete ? präzise ausgeführt.",
+  },
+  {
+    src: refWandMarmor,
+    title: "Wandgestaltung Marmoroptik",
+    location: "Ennepe-Ruhr-Kreis",
+    category: "Malerarbeiten",
+    description: "Wohnzimmer mit aufwendiger Tapete in Marmoroptik ? luxuriöses Erscheinungsbild.",
+  },
+  {
+    src: refFassadeReihenhaus,
+    title: "Fassadensanierung Reihenhaus",
+    location: "Ennepe-Ruhr-Kreis",
+    category: "Außenarbeiten",
+    description: "Komplettsanierung der Fassade eines Reihenhauses mit neuem Putz und Anstrich.",
+  },
+  {
+    src: refFassadeModern,
+    title: "Moderne Fassade ? Flachdachhaus",
+    location: "Ennepe-Ruhr-Kreis",
+    category: "Außenarbeiten",
+    description: "Außengestaltung eines Einfamilienhauses mit Flachdach ? Putz, Anstrich und Terrassenbereich.",
+  },
+  {
+    src: refBadLuxury,
+    title: "Luxus-Badsanierung mit Beleuchtung",
+    location: "Gevelsberg",
+    category: "Sanierung",
+    description: "Hochwertiges Bad mit freistehender Badewanne, bodengleicher Dusche und indirekter LED-Beleuchtung.",
+  },
+  {
+    src: refWohnzimmerParkett,
+    title: "Wohnzimmer-Modernisierung",
+    location: "Gevelsberg",
+    category: "Renovierung",
+    description: "Helles, modernes Wohnzimmer mit Eichenparkett, weißen Wänden und großzügiger Verglasung.",
+  },
+  {
+    src: refKuecheModern,
+    title: "Küche ? Innenausbau Modern",
+    location: "Ennepetal",
+    category: "Renovierung",
+    description: "Moderne Küche mit schwarzen Fronten, Marmorabdeckung und hochwertiger Beleuchtung.",
+  },
+  {
+    src: refFassadeGeruest,
+    title: "Fassadenarbeiten Mehrfamilienhaus",
+    location: "Ennepe-Ruhr-Kreis",
+    category: "Außenarbeiten",
+    description: "Großflächige Fassadensanierung eines Mehrfamilienhauses mit Gerüstbau und neuem Außenputz.",
+  },
+  {
+    src: refTrockenbauDecke,
+    title: "Trockenbau-Decke mit indirekter Beleuchtung",
+    location: "Gevelsberg",
+    category: "Trockenbau",
+    description: "Abgehängte Trockenbaudecke mit umlaufendem LED-Lichtkanal für warme, indirekte Beleuchtung.",
+  },
+  {
+    src: refGewerbeInnen,
+    title: "Gewerblicher Innenausbau",
+    location: "Ennepe-Ruhr-Kreis",
+    category: "Gewerbe",
+    description: "Kompletter Innenausbau eines Bürogebäudes mit Glastrennwänden, Betonboden und modernem Design.",
   },
 ];
 
 const Projekte = () => {
   usePageSeo({
-    title: "Projekte | Zakho Bau Gevelsberg",
+    title: "Referenzen & Projekte ? Bau und Sanierung Gevelsberg | Zakho Bau",
     description:
-      "Referenzen und abgeschlossene Bauprojekte von Zakho Bau in Gevelsberg und im Bergischen Land.",
+      "Referenzen und abgeschlossene Bauprojekte von Zakho Bau in Gevelsberg: Renovierungen, Badsanierungen, Trockenbau und Malerarbeiten im Ennepe-Ruhr-Kreis. ?berzeugen Sie sich selbst.",
     path: "/projekte",
     structuredData: [
       {
         "@context": "https://schema.org",
         "@type": "CollectionPage",
-        name: "Projekte von Zakho Bau",
+        name: "Referenzen & Projekte von Zakho Bau Gevelsberg",
         description:
-          "Referenzen und abgeschlossene Bau- und Sanierungsprojekte in Gevelsberg und im Bergischen Land.",
-        url: "https://zakho-bau.de/projekte",
+          "Abgeschlossene Bau- und Sanierungsprojekte in Gevelsberg und im Ennepe-Ruhr-Kreis: Renovierungen, Badsanierungen, Trockenbau, Malerarbeiten.",
+        url: "https://www.zakho-bau.de/projekte",
+        about: { "@id": "https://www.zakho-bau.de/#business" },
       },
       {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Startseite", item: "https://zakho-bau.de/" },
-          { "@type": "ListItem", position: 2, name: "Projekte", item: "https://zakho-bau.de/projekte" },
+          { "@type": "ListItem", position: 1, name: "Startseite", item: "https://www.zakho-bau.de/" },
+          { "@type": "ListItem", position: 2, name: "Projekte", item: "https://www.zakho-bau.de/projekte" },
         ],
       },
     ],
@@ -193,7 +322,7 @@ const Projekte = () => {
       <section className="relative flex min-h-[min(45vh,400px)] flex-col justify-end overflow-hidden pt-28 pb-10">
         <img
           src={heroImg}
-          alt="Modernes Badezimmer â€“ Zakho Bau Projekte"
+          alt="Modernes Badezimmer ? Zakho Bau Projekte"
           className="absolute inset-0 h-full w-full object-cover"
           width={1920}
           height={800}
@@ -219,7 +348,7 @@ const Projekte = () => {
             </p>
 
             <div className="mt-5 flex flex-wrap gap-2">
-              {["Echte Referenzen", "Saubere Ãœbergabe", "Termintreue"].map((t) => (
+              {["Echte Referenzen", "Saubere ?bergabe", "Termintreue"].map((t) => (
                 <span
                   key={t}
                   className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-medium text-white/90"
@@ -263,7 +392,7 @@ const Projekte = () => {
                 <div className="relative overflow-hidden">
                   <img
                     src={p.src}
-                    alt={`${p.title} â€“ ${p.location}`}
+                    alt={`${p.title} ? ${p.location}`}
                     loading="lazy"
                     className="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-105"
                     width={800}
@@ -299,10 +428,10 @@ const Projekte = () => {
             transition={{ duration: 0.5 }}
           >
             <h2 className="mb-4 text-primary-foreground">
-              Ihr Projekt kÃ¶nnte das nÃ¤chste sein
+              Ihr Projekt k?nnte das n?chste sein
             </h2>
             <p className="mb-8 text-lg text-primary-foreground/80">
-              Lassen Sie uns gemeinsam Ihr Vorhaben besprechen â€“ kostenlos und unverbindlich.
+              Lassen Sie uns gemeinsam Ihr Vorhaben besprechen ? kostenlos und unverbindlich.
             </p>
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
               <a href="/anfragen">

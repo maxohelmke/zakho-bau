@@ -1,5 +1,5 @@
 /** Kanonische Domain + statische Routen für Sitemap-Build (siehe scripts/generate-sitemap.ts). */
-export const SITE_ORIGIN = "https://zakho-bau.de";
+export const SITE_ORIGIN = "https://www.zakho-bau.de";
 
 export type SitemapStaticEntry = {
   path: string;

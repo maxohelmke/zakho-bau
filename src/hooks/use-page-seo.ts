@@ -91,13 +91,9 @@ export const usePageSeo = ({
     setMetaByProperty("og:url", canonicalUrl);
     setMetaByProperty("og:locale", "de_DE");
 
-    if (image) {
-      setMetaByProperty("og:image", image);
-      setMetaByName("twitter:image", image);
-    } else {
-      document.querySelector('meta[property="og:image"]')?.remove();
-      document.querySelector('meta[name="twitter:image"]')?.remove();
-    }
+    const ogImage = image ?? `${SITE_ORIGIN}/og-image.jpg`;
+    setMetaByProperty("og:image", ogImage);
+    setMetaByName("twitter:image", ogImage);
 
     setCanonical(canonicalUrl);
     setStructuredData(structuredData);

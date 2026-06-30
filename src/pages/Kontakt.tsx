@@ -1,4 +1,4 @@
-ï»¿import { useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -26,8 +26,8 @@ const Kontakt = () => {
         "@type": "ContactPage",
         name: "Kontakt Zakho Bau",
         description:
-          "KontaktmÃ¶glichkeiten fÃ¼r Bau- und Sanierungsanfragen in Gevelsberg und im Ennepe-Ruhr-Kreis.",
-        url: "https://zakho-bau.de/kontakt",
+          "Kontaktmöglichkeiten für Bau- und Sanierungsanfragen in Gevelsberg und im Ennepe-Ruhr-Kreis.",
+        url: "https://www.zakho-bau.de/kontakt",
       },
       {
         "@context": "https://schema.org",
@@ -37,13 +37,13 @@ const Kontakt = () => {
             "@type": "ListItem",
             position: 1,
             name: "Startseite",
-            item: "https://zakho-bau.de/",
+            item: "https://www.zakho-bau.de/",
           },
           {
             "@type": "ListItem",
             position: 2,
             name: "Kontakt",
-            item: "https://zakho-bau.de/kontakt",
+            item: "https://www.zakho-bau.de/kontakt",
           },
         ],
       },
@@ -53,7 +53,7 @@ const Kontakt = () => {
         mainEntity: [
           {
             "@type": "Question",
-            name: "In welcher Region ist Zakho Bau tÃ¤tig?",
+            name: "In welcher Region ist Zakho Bau tätig?",
             acceptedAnswer: {
               "@type": "Answer",
               text: "Unser Schwerpunkt liegt auf Gevelsberg und dem Ennepe-Ruhr-Kreis.",
@@ -61,10 +61,10 @@ const Kontakt = () => {
           },
           {
             "@type": "Question",
-            name: "Wie schnell erhalte ich eine RÃ¼ckmeldung?",
+            name: "Wie schnell erhalte ich eine Rückmeldung?",
             acceptedAnswer: {
               "@type": "Answer",
-              text: "In der Regel melden wir uns innerhalb von 24 Stunden zurÃ¼ck.",
+              text: "In der Regel melden wir uns innerhalb von 24 Stunden zurück.",
             },
           },
         ],
@@ -84,11 +84,11 @@ const Kontakt = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.name.trim() || !form.email.trim()) {
-      toast({ title: "Bitte fÃ¼llen Sie alle Pflichtfelder aus.", variant: "destructive" });
+      toast({ title: "Bitte füllen Sie alle Pflichtfelder aus.", variant: "destructive" });
       return;
     }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
-      toast({ title: "Bitte geben Sie eine gÃ¼ltige E-Mail-Adresse ein.", variant: "destructive" });
+      toast({ title: "Bitte geben Sie eine gültige E-Mail-Adresse ein.", variant: "destructive" });
       return;
     }
 
@@ -135,8 +135,8 @@ const Kontakt = () => {
             <p className="mb-3 text-xs font-medium uppercase tracking-[0.2em] text-accent">Kontakt</p>
             <h1 className="mb-6 text-primary-foreground">Sprechen Sie <em>mit uns</em></h1>
             <p className="text-lg leading-relaxed text-primary-foreground/80">
-              Haben Sie Fragen oder mÃ¶chten ein Projekt besprechen? Wir sind fÃ¼r Sie da â€“
-              telefonisch, per E-Mail oder Ã¼ber unser Kontaktformular.
+              Haben Sie Fragen oder möchten ein Projekt besprechen? Wir sind für Sie da –
+              telefonisch, per E-Mail oder über unser Kontaktformular.
             </p>
 
             <div className="mt-5 flex flex-wrap gap-2">
@@ -176,8 +176,8 @@ const Kontakt = () => {
               { icon: Phone, label: "Telefon (Festnetz)", value: "02332 8439131", href: "tel:+4923328439131" },
               { icon: Phone, label: "Mobil", value: "0157 888 888 52", href: "tel:+4915788888852" },
               { icon: Mail, label: "E-Mail", value: "info@zakho-bau.de", href: "mailto:info@zakho-bau.de" },
-              { icon: MapPin, label: "Adresse", value: "Hagener StraÃŸe 44, 58285 Gevelsberg", href: undefined },
-              { icon: Clock, label: "Ã–ffnungszeiten", value: "Moâ€“Fr 08:00â€“17:00 Uhr", href: undefined },
+              { icon: MapPin, label: "Adresse", value: "Hagener Straße 44, 58285 Gevelsberg", href: undefined },
+              { icon: Clock, label: "Öffnungszeiten", value: "Mo–Fr 08:00–17:00 Uhr", href: undefined },
             ].map((c, i) => (
               <motion.div
                 key={c.label}
@@ -265,7 +265,7 @@ const Kontakt = () => {
                 <Textarea
                   value={form.message}
                   onChange={(e) => setForm({ ...form, message: e.target.value })}
-                  placeholder="Wie kÃ¶nnen wir Ihnen helfen?"
+                  placeholder="Wie können wir Ihnen helfen?"
                   rows={5}
                   maxLength={1000}
                 />
@@ -276,11 +276,11 @@ const Kontakt = () => {
                 className="w-full py-6 text-base"
                 disabled={submitting}
               >
-                {submitting ? "Wird gesendetâ€¦" : "Nachricht absenden"}
+                {submitting ? "Wird gesendet…" : "Nachricht absenden"}
               </Button>
               <p className="text-center text-xs text-muted-foreground">
                 Ihre Daten werden vertraulich behandelt. Mehr dazu in unserer{" "}
-                <Link to="/datenschutz" className="text-accent hover:underline">DatenschutzerklÃ¤rung</Link>.
+                <Link to="/datenschutz" className="text-accent hover:underline">Datenschutzerklärung</Link>.
               </p>
             </motion.form>
 
@@ -295,7 +295,7 @@ const Kontakt = () => {
               <div className="relative max-w-full overflow-hidden rounded-xl shadow-sm ring-1 ring-silver/50">
                 <img
                   src={ladenImg}
-                  alt="Ladenlokal von Zakho Bau in der Hagener StraÃŸe 44 in Gevelsberg"
+                  alt="Ladenlokal von Zakho Bau in der Hagener Straße 44 in Gevelsberg"
                   loading="lazy"
                   className="h-56 w-full object-cover sm:h-64"
                   width={1280}
@@ -305,15 +305,15 @@ const Kontakt = () => {
                   <p className="font-heading text-lg font-bold uppercase tracking-wide text-white">
                     Besuchen Sie uns
                   </p>
-                  <p className="text-sm text-white/80">Hagener StraÃŸe 44 Â· 58285 Gevelsberg</p>
+                  <p className="text-sm text-white/80">Hagener Straße 44 · 58285 Gevelsberg</p>
                 </div>
               </div>
 
-              {/* Ã–ffnungszeiten */}
+              {/* Öffnungszeiten */}
               <div className="flex items-stretch gap-4 rounded-xl border border-border bg-card p-4 shadow-sm">
                 <img
                   src={oeffnungszeitenImg}
-                  alt="Ã–ffnungszeiten von Zakho Bau an der EingangstÃ¼r"
+                  alt="Öffnungszeiten von Zakho Bau an der Eingangstür"
                   loading="lazy"
                   className="h-28 w-24 shrink-0 rounded-lg object-cover ring-1 ring-silver/50"
                   width={240}
@@ -322,12 +322,12 @@ const Kontakt = () => {
                 <div className="min-w-0">
                   <div className="mb-2 flex items-center gap-2">
                     <Clock className="h-5 w-5 text-accent" />
-                    <h3 className="font-semibold text-foreground">Ã–ffnungszeiten</h3>
+                    <h3 className="font-semibold text-foreground">Öffnungszeiten</h3>
                   </div>
                   <dl className="space-y-1 text-sm">
                     <div className="flex justify-between gap-4">
-                      <dt className="text-muted-foreground">Mo â€“ Fr</dt>
-                      <dd className="font-medium text-foreground">08:00 â€“ 17:00 Uhr</dd>
+                      <dt className="text-muted-foreground">Mo – Fr</dt>
+                      <dd className="font-medium text-foreground">08:00 – 17:00 Uhr</dd>
                     </div>
                     <div className="flex justify-between gap-4">
                       <dt className="text-muted-foreground">Samstag</dt>
@@ -344,7 +344,7 @@ const Kontakt = () => {
               <div className="max-w-full overflow-hidden rounded-xl border border-border shadow-sm">
                 <ExternalMediaGate
                   title="Google Maps"
-                  description="Zum Laden der Karte benÃ¶tigen wir Ihre Einwilligung fÃ¼r externe Inhalte (Drittanbieter)."
+                  description="Zum Laden der Karte benötigen wir Ihre Einwilligung für externe Inhalte (Drittanbieter)."
                 >
                   <iframe
                     title="Zakho Bau Standort Gevelsberg"
@@ -362,7 +362,7 @@ const Kontakt = () => {
               <div className="rounded-xl border border-border bg-card p-6">
                 <h3 className="mb-3 font-semibold text-foreground">Lieber direkt anrufen?</h3>
                 <p className="mb-4 text-sm text-muted-foreground">
-                  Rufen Sie uns an â€“ wir beraten Sie gerne persÃ¶nlich und unverbindlich.
+                  Rufen Sie uns an – wir beraten Sie gerne persönlich und unverbindlich.
                 </p>
                 <a href="tel:+4915788888852">
                   <Button variant="accent" size="sm" className="w-full">

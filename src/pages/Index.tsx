@@ -17,7 +17,7 @@ const Index = () => {
     description:
       "Zakho Bau – Fachbetrieb für Renovierung, Sanierung, Trockenbau und Innenausbau in Gevelsberg. Alle Gewerke aus einer Hand. Kostenlose Beratung ☎ 02332 8439131",
     path: "/",
-    image: "https://zakho-bau.de/og-image.jpg",
+    image: "https://www.zakho-bau.de/og-image.jpg",
     structuredData: [
       {
         "@context": "https://schema.org",
@@ -25,7 +25,7 @@ const Index = () => {
         name: "Zakho Bau – Renovierung & Sanierung in Gevelsberg",
         description:
           "Renovierung, Sanierung und Innenausbau in Gevelsberg und im Ennepe-Ruhr-Kreis.",
-        url: "https://zakho-bau.de/",
+        url: "https://www.zakho-bau.de/",
       },
       {
         "@context": "https://schema.org",
@@ -35,7 +35,7 @@ const Index = () => {
             "@type": "ListItem",
             position: 1,
             name: "Startseite",
-            item: "https://zakho-bau.de/",
+            item: "https://www.zakho-bau.de/",
           },
         ],
       },
