@@ -1,4 +1,4 @@
-﻿import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Phone, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useCookieConsent } from "@/hooks/use-cookie-consent";

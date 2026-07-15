@@ -1,4 +1,12 @@
 {
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.zakho-bau.de" }],
+      "destination": "https://zakho-bau.de/:path*",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/((?!api|_next|favicon|og-image|site\\.webmanifest|robots\\.txt|sitemap\\.xml|apple-touch-icon|icon-|standorte|assets|placeholder).*)",

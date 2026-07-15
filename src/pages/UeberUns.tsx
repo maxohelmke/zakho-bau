@@ -2,7 +2,10 @@ import { motion } from "framer-motion";
 import { ArrowRight, MapPin, Phone, Quote } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Footer from "@/components/Footer";
+import SeoRegionSection from "@/components/SeoRegionSection";
 import { usePageSeo } from "@/hooks/use-page-seo";
+import { SITE_ORIGIN } from "@/seo/sitemap-config";
+import { BUSINESS_ID, breadcrumbList } from "@/seo/schema-helpers";
 import { Link } from "react-router-dom";
 import teamImg      from "@/assets/zakho-team-work.jpg";
 import ladenImg     from "@/assets/zakho-laden.jpg";
@@ -17,57 +20,53 @@ import arbeitMaler  from "@/assets/arbeit-malerarbeiten.png";
 const stats = [
   { value: "10+",  label: "Jahre Erfahrung" },
   { value: "500+", label: "Projekte" },
-  { value: "100%", label: "Inhabergef?hrt" },
+  { value: "100%", label: "Inhabergeführt" },
   { value: "1",    label: "Ansprechpartner" },
 ];
 
 const values = [
   {
     num: "01",
-    title: "Qualit?t",
-    desc: "Wir arbeiten ausschlie?lich mit hochwertigen Materialien und setzen auf saubere, pr?zise Ausf?hrung ? bei jedem Projekt, egal ob klein oder gro?.",
+    title: "Qualität",
+    desc: "Wir arbeiten ausschließlich mit hochwertigen Materialien und setzen auf saubere, präzise Ausführung – bei jedem Projekt, egal ob klein oder groß.",
   },
   {
     num: "02",
-    title: "P?nktlichkeit",
-    desc: "Termine werden eingehalten. Wir planen realistisch und kommunizieren transparent, wenn sich etwas ?ndert. Kein Vertr?sten, kein Verschieben.",
+    title: "Pünktlichkeit",
+    desc: "Termine werden eingehalten. Wir planen realistisch und kommunizieren transparent, wenn sich etwas ändert. Kein Vertrösten, kein Verschieben.",
   },
   {
     num: "03",
-    title: "Verl?sslichkeit",
-    desc: "Ihr Ansprechpartner ist immer der Chef pers?nlich. Keine Subunternehmer-Ketten, keine b?sen ?berraschungen bei Rechnung oder Ausf?hrung.",
+    title: "Verlässlichkeit",
+    desc: "Ihr Ansprechpartner ist immer der Chef persönlich. Keine Subunternehmer-Ketten, keine bösen Überraschungen bei Rechnung oder Ausführung.",
   },
   {
     num: "04",
-    title: "Pers?nlicher Service",
-    desc: "Als inhabergef?hrtes Unternehmen kennen wir jeden Kunden beim Namen. Individuelle Beratung statt Massenabfertigung.",
+    title: "Persönlicher Service",
+    desc: "Als inhabergeführtes Unternehmen kennen wir jeden Kunden beim Namen. Individuelle Beratung statt Massenabfertigung.",
   },
 ];
 
 const UeberUns = () => {
   usePageSeo({
-    title: "?ber Zakho Bau | Inhabergef?hrter Fachbetrieb f?r Bau & Sanierung Gevelsberg",
+    title: "Über Zakho Bau | Fachbetrieb Bau & Sanierung Gevelsberg",
     description:
-      "Zakho Bau ? seit 2014 Ihr pers?nlicher Ansprechpartner f?r Renovierung, Sanierung und Innenausbau in Gevelsberg. Inhabergef?hrt, p?nktlich, alle Gewerke aus einer Hand.",
+      "Zakho Bau – seit 2014 inhabergeführter Fachbetrieb für Renovierung & Sanierung in Gevelsberg. Persönlich, pünktlich und alle Gewerke aus einer Hand.",
     path: "/ueber-uns",
     structuredData: [
       {
         "@context": "https://schema.org",
         "@type": "AboutPage",
-        name: "?ber Zakho Bau ? Fachbetrieb f?r Bau & Sanierung Gevelsberg",
+        name: "Über Zakho Bau – Fachbetrieb für Bau & Sanierung Gevelsberg",
         description:
-          "Inhabergef?hrter Fachbetrieb f?r Renovierung, Sanierung und Innenausbau in Gevelsberg und im Ennepe-Ruhr-Kreis. Pers?nliche Betreuung seit 2014.",
-        url: "https://www.zakho-bau.de/ueber-uns",
-        about: { "@id": "https://www.zakho-bau.de/#business" },
+          "Inhabergeführter Fachbetrieb für Renovierung, Sanierung und Innenausbau in Gevelsberg und im Ennepe-Ruhr-Kreis. Persönliche Betreuung seit 2014.",
+        url: `${SITE_ORIGIN}/ueber-uns`,
+        about: { "@id": BUSINESS_ID },
       },
-      {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Startseite", item: "https://www.zakho-bau.de/" },
-          { "@type": "ListItem", position: 2, name: "?ber uns", item: "https://www.zakho-bau.de/ueber-uns" },
-        ],
-      },
+      breadcrumbList([
+        { name: "Startseite", path: "/" },
+        { name: "Über uns", path: "/ueber-uns" },
+      ]),
     ],
   });
 
@@ -106,14 +105,14 @@ const UeberUns = () => {
             className="max-w-2xl"
           >
             <p className="mb-4 text-xs font-bold uppercase tracking-[0.3em] text-accent">
-              ?ber uns
+              Über uns
             </p>
             <h1 className="mb-5 font-heading text-white" style={{ textShadow: "0 2px 40px rgba(0,0,0,0.5)" }}>
               Wer wir <em>sind.</em>
             </h1>
             <p className="mb-8 max-w-xl text-lg leading-relaxed text-white/75">
-              Zakho Bau ist Ihr pers?nlicher Fachbetrieb f?r Renovierung und Sanierung
-              in Gevelsberg ? inhabergef?hrt, transparent und mit echtem Handwerk.
+              Zakho Bau ist Ihr persönlicher Fachbetrieb für Renovierung und Sanierung
+              in Gevelsberg – inhabergeführt, transparent und mit echtem Handwerk.
             </p>
             <div className="flex flex-col gap-3 sm:flex-row">
               <Link to="/anfragen">
@@ -168,7 +167,7 @@ const UeberUns = () => {
             >
               <img
                 src={rinasMola}
-                alt="Rinas Mola ? Inhaber Zakho Bau Gevelsberg"
+                alt="Rinas Mola – Inhaber Zakho Bau Gevelsberg"
                 loading="lazy"
                 className="w-full rounded-2xl object-cover object-top shadow-2xl"
                 style={{ aspectRatio: "4/5" }}
@@ -184,7 +183,7 @@ const UeberUns = () => {
               >
                 <img
                   src={arbeitMaler}
-                  alt="Zakho Bau bei der Arbeit ? Malerarbeiten"
+                  alt="Zakho Bau bei der Arbeit – Malerarbeiten"
                   loading="lazy"
                   className="h-full w-full object-cover"
                   style={{ aspectRatio: "4/3" }}
@@ -195,7 +194,7 @@ const UeberUns = () => {
               <div className="absolute left-4 top-4 rounded-lg bg-black/80 px-3 py-2 backdrop-blur-sm">
                 <div className="flex items-center gap-1.5 text-xs font-medium text-white/80">
                   <MapPin className="h-3.5 w-3.5 text-accent" />
-                  Hagener Str. 44 ? Gevelsberg
+                  Hagener Str. 44 – Gevelsberg
                 </div>
               </div>
             </motion.div>
@@ -209,19 +208,19 @@ const UeberUns = () => {
             >
               <div className="mb-8 h-1 w-14 rounded-full bg-accent" />
               <p className="mb-2 text-xs font-bold uppercase tracking-[0.3em] text-accent">Unsere Geschichte</p>
-              <h2 className="mb-6 text-foreground">Handwerk &amp; Verl?sslichkeit ? seit Tag&nbsp;eins.</h2>
+              <h2 className="mb-6 text-foreground">Handwerk &amp; Verlässlichkeit – seit Tag&nbsp;eins.</h2>
 
               <p className="mb-5 leading-relaxed text-muted-foreground">
-                Mit langj?hriger Erfahrung in der Baubranche wurde Zakho Bau in Gevelsberg
-                gegr?ndet, um eines zu beweisen: Handwerk und Zuverl?ssigkeit geh?ren zusammen.
+                Mit langjähriger Erfahrung in der Baubranche wurde Zakho Bau in Gevelsberg
+                gegründet, um eines zu beweisen: Handwerk und Zuverlässigkeit gehören zusammen.
               </p>
               <p className="mb-5 leading-relaxed text-muted-foreground">
-                Was als inhabergef?hrter Fachbetrieb begann, ist heute ein eingespieltes Team,
-                das Projekte jeder Gr??e ? vom Badezimmer bis zur Komplettsanierung ganzer
-                Immobilien ? termingerecht und in h?chster Qualit?t umsetzt.
+                Was als inhabergeführter Fachbetrieb begann, ist heute ein eingespieltes Team,
+                das Projekte jeder Größe – vom Badezimmer bis zur Komplettsanierung ganzer
+                Immobilien – termingerecht und in höchster Qualität umsetzt.
               </p>
               <p className="mb-8 leading-relaxed text-muted-foreground">
-                Unser Ladenlokal an der Hagener Stra?e 44 ist mehr als eine Adresse ?
+                Unser Ladenlokal an der Hagener Straße 44 ist mehr als eine Adresse –
                 es ist der Beweis, dass wir nicht irgendwo sind, sondern{" "}
                 <strong className="font-semibold text-foreground">wirklich vor Ort</strong>.
               </p>
@@ -249,20 +248,20 @@ const UeberUns = () => {
           >
             <Quote className="mx-auto mb-6 h-10 w-10 text-accent/40" aria-hidden />
             <blockquote className="font-heading text-2xl font-bold leading-snug text-white sm:text-3xl lg:text-4xl">
-              ?Jedes Projekt wird so behandelt, als w?re es mein eigenes Zuhause.
-              Sauber, p?nktlich, perfekt."
+              „Jedes Projekt wird so behandelt, als wäre es mein eigenes Zuhause.
+              Sauber, pünktlich, perfekt."
             </blockquote>
             <div className="mt-8 flex items-center justify-center gap-4">
               <div className="h-px w-12 bg-accent" />
               <div className="flex items-center gap-3">
                 <img
                   src={rinasSw}
-                  alt="Rinas Mola ? Inhaber Zakho Bau"
+                  alt="Rinas Mola – Inhaber Zakho Bau"
                   className="h-10 w-10 rounded-full object-cover object-top"
                   width={40} height={40}
                   loading="lazy"
                 />
-                <p className="text-sm font-medium text-white/60">Rinas Mola ? Inhaber, Zakho Bau</p>
+                <p className="text-sm font-medium text-white/60">Rinas Mola – Inhaber, Zakho Bau</p>
               </div>
               <div className="h-px w-12 bg-accent" />
             </div>
@@ -275,7 +274,7 @@ const UeberUns = () => {
         <div className="container mx-auto container-pad">
           <div className="mb-14">
             <p className="mb-2 text-xs font-bold uppercase tracking-[0.3em] text-accent">Unsere Werte</p>
-            <h2 className="text-foreground">Wof?r wir stehen</h2>
+            <h2 className="text-foreground">Wofür wir stehen</h2>
           </div>
 
           <div className="grid gap-0 divide-y divide-border sm:grid-cols-2 sm:divide-y-0 sm:gap-px sm:bg-border">
@@ -299,7 +298,7 @@ const UeberUns = () => {
         </div>
       </section>
 
-      {/* -- Vor Ort ? Bild-Grid -------------------------------------------- */}
+      {/* -- Vor Ort – Bild-Grid -------------------------------------------- */}
       <section className="bg-[#0E0E0E] section-pad-sm">
         <div className="container mx-auto container-pad">
           <div className="mb-10">
@@ -307,7 +306,7 @@ const UeberUns = () => {
             <h2 className="text-white">Unser Ladenlokal &amp; Team im Einsatz</h2>
           </div>
 
-          {/* Asymmetrisches Grid ? Reihe 1 */}
+          {/* Asymmetrisches Grid – Reihe 1 */}
           <div className="grid gap-4 sm:grid-cols-3">
             <motion.div
               initial={{ opacity: 0, y: 14 }}
@@ -325,7 +324,7 @@ const UeberUns = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
               <span className="absolute bottom-0 left-0 right-0 p-5 font-heading text-base font-bold uppercase tracking-wide text-white lg:text-lg">
-                Ladenlokal ? Hagener Stra?e 44
+                Ladenlokal – Hagener Straße 44
               </span>
             </motion.div>
 
@@ -339,7 +338,7 @@ const UeberUns = () => {
               >
                 <img
                   src={firmenwagenImg}
-                  alt="Zakho Bau Firmenwagen t?glich im Einsatz"
+                  alt="Zakho Bau Firmenwagen täglich im Einsatz"
                   loading="lazy"
                   className="h-full w-full object-cover"
                   style={{ minHeight: "160px" }}
@@ -347,7 +346,7 @@ const UeberUns = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
                 <span className="absolute bottom-0 left-0 right-0 p-4 font-heading text-sm font-bold uppercase tracking-wide text-white">
-                  T?glich unterwegs
+                  Täglich unterwegs
                 </span>
               </motion.div>
               <motion.div
@@ -359,7 +358,7 @@ const UeberUns = () => {
               >
                 <img
                   src={oeffnungen}
-                  alt="?ffnungszeiten Zakho Bau"
+                  alt="Öffnungszeiten Zakho Bau"
                   loading="lazy"
                   className="h-full w-full object-cover"
                   style={{ minHeight: "160px" }}
@@ -367,13 +366,13 @@ const UeberUns = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
                 <span className="absolute bottom-0 left-0 right-0 p-4 font-heading text-sm font-bold uppercase tracking-wide text-white">
-                  Mo?Fr � 08?18 Uhr
+                  Mo–Fr · 08–17 Uhr
                 </span>
               </motion.div>
             </div>
           </div>
 
-          {/* Reihe 2 ? Inhaber & Arbeitsfoto */}
+          {/* Reihe 2 – Inhaber & Arbeitsfoto */}
           <div className="mt-4 grid gap-4 sm:grid-cols-3">
             <motion.div
               initial={{ opacity: 0, y: 14 }}
@@ -384,14 +383,14 @@ const UeberUns = () => {
             >
               <img
                 src={rinasMolaRuecken}
-                alt="Rinas Mola ? Inhaber Zakho Bau von hinten"
+                alt="Rinas Mola – Inhaber Zakho Bau von hinten"
                 loading="lazy"
                 className="h-56 w-full object-cover"
                 width={640} height={480}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
               <span className="absolute bottom-0 left-0 right-0 p-4 font-heading text-sm font-bold uppercase tracking-wide text-white">
-                Rinas Mola � Inhaber
+                Rinas Mola · Inhaber
               </span>
             </motion.div>
             <motion.div
@@ -403,19 +402,28 @@ const UeberUns = () => {
             >
               <img
                 src={arbeitMaler}
-                alt="Zakho Bau bei den Malerarbeiten ? professionell und sauber"
+                alt="Zakho Bau bei den Malerarbeiten – professionell und sauber"
                 loading="lazy"
                 className="h-56 w-full object-cover"
                 width={1280} height={480}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
               <span className="absolute bottom-0 left-0 right-0 p-4 font-heading text-sm font-bold uppercase tracking-wide text-white">
-                Bei der Arbeit � Malerarbeiten
+                Bei der Arbeit · Malerarbeiten
               </span>
             </motion.div>
           </div>
         </div>
       </section>
+
+      <SeoRegionSection
+        title="Rinas Mola und das Team von Zakho Bau"
+        paragraphs={[
+          "Zakho Bau ist seit 2014 inhabergeführt – Inhaber Rinas Mola ist bei jedem Projekt persönlich involviert. Keine anonyme Baufirma, keine Subunternehmer-Ketten: Sie haben von der ersten Besichtigung bis zur Übergabe einen festen Ansprechpartner, der Ihr Vorhaben kennt und Verantwortung übernimmt.",
+          "Unser Ladenlokal an der Hagener Straße 44 in Gevelsberg ist mehr als eine Adresse – es ist der Ort, an dem Kunden uns persönlich treffen, Fragen stellen und Projekte besprechen können. Das spiegelt unsere Arbeitsweise: nah am Kunden, transparent in der Kommunikation und verlässlich in der Umsetzung.",
+          "Ob Renovierung im Ennepe-Ruhr-Kreis, Badrenovierung in Hagen oder Innenausbau in Ennepetal: Wir setzen auf handwerkliche Qualität, realistische Terminplanung und faire Festpreise. Über 500 abgeschlossene Projekte und zahlreiche Stammkunden sprechen für unsere Arbeit.",
+        ]}
+      />
 
       {/* -- CTA ------------------------------------------------------------ */}
       <section className="relative overflow-hidden bg-background section-pad-sm">
@@ -431,7 +439,7 @@ const UeberUns = () => {
               <div className="mb-6 h-1 w-14 rounded-full bg-accent" />
               <h2 className="mb-4 text-foreground">Einsatzgebiet: Gevelsberg &amp; Ennepe-Ruhr-Kreis</h2>
               <p className="max-w-2xl text-lg text-muted-foreground">
-                Unser Schwerpunkt liegt auf Gevelsberg ? wir sind aber im gesamten
+                Unser Schwerpunkt liegt auf Gevelsberg – wir sind aber im gesamten
                 Ennepe-Ruhr-Kreis sowie in Hagen, Wuppertal und Witten aktiv.
                 Sprechen Sie uns einfach an.
               </p>

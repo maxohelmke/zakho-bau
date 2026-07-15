@@ -4,15 +4,16 @@ import { usePageSeo } from "@/hooks/use-page-seo";
 
 const Impressum = () => {
   usePageSeo({
-    title: "Impressum | Zakho Bau",
-    description: "Impressum und Anbieterkennzeichnung von Zakho Bau, Hagener Straße 44, 58285 Gevelsberg.",
+    title: "Impressum | Zakho Bau Gevelsberg",
+    description:
+      "Impressum von Zakho Bau â€“ Inhaber Rinas Mola, Hagener StraÃŸe 44, 58285 Gevelsberg. Kontakt und rechtliche Angaben.",
     path: "/impressum",
     robots: "noindex,follow",
     structuredData: {
       "@context": "https://schema.org",
       "@type": "WebPage",
       name: "Impressum",
-      url: "https://www.zakho-bau.de/impressum",
+      url: "https://zakho-bau.de/impressum",
     },
   });
 
@@ -23,10 +24,10 @@ const Impressum = () => {
 
         <div className="break-safe space-y-8 text-muted-foreground leading-relaxed">
           <div>
-            <h2 className="mb-2 text-lg font-semibold text-foreground">Angaben gemäß § 5 TMG</h2>
+            <h2 className="mb-2 text-lg font-semibold text-foreground">Angaben gemÃ¤ÃŸ Â§ 5 TMG</h2>
             <p>Zakho Bau</p>
-            <p>[INHABER NAME]</p>
-            <p>Hagener Straße 44</p>
+            <p>Inhaber: Rinas Mola</p>
+            <p>Hagener StraÃŸe 44</p>
             <p>58285 Gevelsberg</p>
           </div>
 
@@ -39,39 +40,39 @@ const Impressum = () => {
 
           <div>
             <h2 className="mb-2 text-lg font-semibold text-foreground">Umsatzsteuer-ID</h2>
-            <p>Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz: [wird nachgetragen]</p>
+            <p>Umsatzsteuer-Identifikationsnummer gemÃ¤ÃŸ Â§ 27 a Umsatzsteuergesetz: [wird nachgetragen]</p>
           </div>
 
           <div>
-            <h2 className="mb-2 text-lg font-semibold text-foreground">Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>
-            <p>[INHABER NAME]</p>
-            <p>Hagener Straße 44</p>
+            <h2 className="mb-2 text-lg font-semibold text-foreground">Verantwortlich fÃ¼r den Inhalt nach Â§ 55 Abs. 2 RStV</h2>
+            <p>Rinas Mola</p>
+            <p>Hagener StraÃŸe 44</p>
             <p>58285 Gevelsberg</p>
           </div>
 
           <div>
-            <h2 className="mb-2 text-lg font-semibold text-foreground">Haftung für Inhalte</h2>
+            <h2 className="mb-2 text-lg font-semibold text-foreground">Haftung fÃ¼r Inhalte</h2>
             <p>
-              Als Diensteanbieter sind wir gemäß § 7 Abs. 1 TMG für eigene Inhalte auf diesen Seiten nach den
-              allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht
-              verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu
-              forschen, die auf eine rechtswidrige Tätigkeit hinweisen.
+              Als Diensteanbieter sind wir gemÃ¤ÃŸ Â§ 7 Abs. 1 TMG fÃ¼r eigene Inhalte auf diesen Seiten nach den
+              allgemeinen Gesetzen verantwortlich. Nach Â§Â§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht
+              verpflichtet, Ã¼bermittelte oder gespeicherte fremde Informationen zu Ã¼berwachen oder nach UmstÃ¤nden zu
+              forschen, die auf eine rechtswidrige TÃ¤tigkeit hinweisen.
             </p>
             <p className="mt-2">
               Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen
-              bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer
-              konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir
+              bleiben hiervon unberÃ¼hrt. Eine diesbezÃ¼gliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer
+              konkreten Rechtsverletzung mÃ¶glich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir
               diese Inhalte umgehend entfernen.
             </p>
           </div>
 
           <div>
-            <h2 className="mb-2 text-lg font-semibold text-foreground">Haftung für Links</h2>
+            <h2 className="mb-2 text-lg font-semibold text-foreground">Haftung fÃ¼r Links</h2>
             <p>
-              Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben.
-              Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten
+              Unser Angebot enthÃ¤lt Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben.
+              Deshalb kÃ¶nnen wir fÃ¼r diese fremden Inhalte auch keine GewÃ¤hr Ã¼bernehmen. FÃ¼r die Inhalte der verlinkten
               Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten
-              wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum
+              wurden zum Zeitpunkt der Verlinkung auf mÃ¶gliche RechtsverstÃ¶ÃŸe Ã¼berprÃ¼ft. Rechtswidrige Inhalte waren zum
               Zeitpunkt der Verlinkung nicht erkennbar.
             </p>
           </div>
@@ -80,15 +81,15 @@ const Impressum = () => {
             <h2 className="mb-2 text-lg font-semibold text-foreground">Urheberrecht</h2>
             <p>
               Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen
-              Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der
-              Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.
+              Urheberrecht. Die VervielfÃ¤ltigung, Bearbeitung, Verbreitung und jede Art der Verwertung auÃŸerhalb der
+              Grenzen des Urheberrechtes bedÃ¼rfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.
             </p>
           </div>
 
           <div>
             <h2 className="mb-2 text-lg font-semibold text-foreground">Streitschlichtung</h2>
             <p>
-              Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:{" "}
+              Die EuropÃ¤ische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:{" "}
               <a
                 href="https://ec.europa.eu/consumers/odr"
                 target="_blank"
@@ -106,12 +107,12 @@ const Impressum = () => {
 
           <div className="rounded-lg border border-border bg-secondary p-4 text-sm">
             <p className="font-medium text-foreground">Webdesign & Entwicklung</p>
-            <p>Helmke Digital UG – <a href="https://helmke-digital.de" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">helmke-digital.de</a></p>
+            <p>Helmke Digital UG â€“ <a href="https://helmke-digital.de" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">helmke-digital.de</a></p>
           </div>
         </div>
 
         <div className="mt-12">
-          <Link to="/" className="text-accent hover:underline">? Zurück zur Startseite</Link>
+          <Link to="/" className="text-accent hover:underline">â† ZurÃ¼ck zur Startseite</Link>
         </div>
       </div>
 

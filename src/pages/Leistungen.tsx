@@ -13,7 +13,10 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Footer from "@/components/Footer";
+import SeoRegionSection from "@/components/SeoRegionSection";
 import { usePageSeo } from "@/hooks/use-page-seo";
+import { SITE_ORIGIN } from "@/seo/sitemap-config";
+import { BUSINESS_ID, breadcrumbList } from "@/seo/schema-helpers";
 import heroImg from "@/assets/hero-leistungen.jpg";
 import imgRenovierung from "@/assets/leistung-renovierung.jpg";
 import imgMaler from "@/assets/arbeit-malerarbeiten.png";
@@ -30,13 +33,13 @@ const services = [
     slug: "renovierung",
     title: "Renovierung & Modernisierung",
     subtitle: "Komplettrenovierungen, Wohnungssanierungen und Modernisierungen",
-    desc: "Komplettrenovierungen, Wohnungssanierungen und Modernisierungen ? schnell, sauber und zum Festpreis. Wir ?bernehmen alle Arbeiten rund um W?nde, B?den und Decken aus einer Hand.",
+    desc: "Komplettrenovierungen, Wohnungssanierungen und Modernisierungen – schnell, sauber und zum Festpreis. Wir übernehmen alle Arbeiten rund um Wände, Böden und Decken aus einer Hand.",
     details: [
       "Komplette Wohnungsrenovierung",
       "Wandgestaltung & Verputzarbeiten",
-      "Deckenverkleidungen & Abh?ngungen",
-      "Fenster- und T?reinbau",
-      "Innenausbau nach Ma?",
+      "Deckenverkleidungen & Abhängungen",
+      "Fenster- und Türeinbau",
+      "Innenausbau nach Maß",
     ],
     image: imgRenovierung,
   },
@@ -44,13 +47,13 @@ const services = [
     icon: Layers,
     slug: "trockenbau",
     title: "Trockenbau & Innenausbau",
-    subtitle: "W?nde, Decken, St?nderwerk",
-    desc: "W?nde, Decken, St?nderwerk ? professioneller Trockenbau f?r Privat- und Gewerbekunden. Pr?zise, sauber und termingerecht.",
+    subtitle: "Wände, Decken, Ständerwerk",
+    desc: "Wände, Decken, Ständerwerk – professioneller Trockenbau für Privat- und Gewerbekunden. Präzise, sauber und termingerecht.",
     details: [
-      "Gipskartonw?nde & St?nderwerk",
-      "Deckenabh?ngungen mit Beleuchtungsplanung",
+      "Gipskartonwände & Ständerwerk",
+      "Deckenabhängungen mit Beleuchtungsplanung",
       "Dachgeschossausbau",
-      "Schallschutz & Brandschutzw?nde",
+      "Schallschutz & Brandschutzwände",
       "Trockenestrich-Systeme",
     ],
     image: refTrockenbau,
@@ -59,13 +62,13 @@ const services = [
     icon: PaintBucket,
     slug: "malerarbeiten",
     title: "Malerarbeiten & Tapezieren",
-    subtitle: "Innen- und Au?enanstriche, Tapezierarbeiten",
-    desc: "Innen- und Au?enanstriche, Tapezierarbeiten und dekorative Gestaltung. Wir sorgen f?r makellose Oberfl?chen mit hochwertigen Materialien.",
+    subtitle: "Innen- und Außenanstriche, Tapezierarbeiten",
+    desc: "Innen- und Außenanstriche, Tapezierarbeiten und dekorative Gestaltung. Wir sorgen für makellose Oberflächen mit hochwertigen Materialien.",
     details: [
       "Innenanstriche (Wand & Decke)",
-      "Fassadenanstrich & Au?enarbeiten",
+      "Fassadenanstrich & Außenarbeiten",
       "Tapezierarbeiten",
-      "Lackierungen (T?ren, Fenster, Heizk?rper)",
+      "Lackierungen (Türen, Fenster, Heizkörper)",
       "Spachtelarbeiten & dekorative Techniken",
     ],
     image: imgMaler,
@@ -73,15 +76,15 @@ const services = [
   {
     icon: Grid2x2,
     slug: "bodenbelag",
-    title: "Bodenbel?ge & Fliesen",
+    title: "Bodenbeläge & Fliesen",
     subtitle: "Laminat, Parkett, Vinyl und Fliesen",
-    desc: "Verlegen von Laminat, Parkett, Vinyl und Fliesen ? sauber und fachgerecht. Der richtige Boden f?r jeden Raum, langlebig und optisch ansprechend.",
+    desc: "Verlegen von Laminat, Parkett, Vinyl und Fliesen – sauber und fachgerecht. Der richtige Boden für jeden Raum, langlebig und optisch ansprechend.",
     details: [
       "Parkettverlegung (Massiv & Fertigparkett)",
-      "Laminat & Designb?den",
+      "Laminat & Designböden",
       "Vinylboden (Klick & Klebe)",
       "Estricharbeiten & Bodenausgleich",
-      "Badezimmer- und K?chenfliesen",
+      "Badezimmer- und Küchenfliesen",
     ],
     image: imgFliesen,
   },
@@ -90,11 +93,11 @@ const services = [
     slug: "sanierung",
     title: "Badsanierung",
     subtitle: "Komplettsanierung von Badezimmern",
-    desc: "Komplettsanierung von Badezimmern ? Fliesen, Sanit?r, Trockenbau aus einer Hand. Wir bringen Ihr Bad auf den neuesten Stand ? energetisch, optisch und funktional.",
+    desc: "Komplettsanierung von Badezimmern – Fliesen, Sanitär, Trockenbau aus einer Hand. Wir bringen Ihr Bad auf den neuesten Stand – energetisch, optisch und funktional.",
     details: [
       "Komplettsanierung Bad & Dusche",
       "Fliesen & Abdichtung",
-      "Sanit?rinstallation & Anschl?sse",
+      "Sanitärinstallation & Anschlüsse",
       "Trockenbau & Vorwandinstallation",
       "Barrierefreier Umbau",
     ],
@@ -103,13 +106,13 @@ const services = [
   {
     icon: Building2,
     slug: "aussenarbeiten",
-    title: "Au?enarbeiten & Fassade",
-    subtitle: "Fassadenarbeiten, Au?enputz und Erdarbeiten",
-    desc: "Fassadenarbeiten, Au?enputz und kleinere Erdarbeiten rund ums Haus. Professionelle Au?engestaltung f?r einen dauerhaften ersten Eindruck.",
+    title: "Außenarbeiten & Fassade",
+    subtitle: "Fassadenarbeiten, Außenputz und Erdarbeiten",
+    desc: "Fassadenarbeiten, Außenputz und kleinere Erdarbeiten rund ums Haus. Professionelle Außengestaltung für einen dauerhaften ersten Eindruck.",
     details: [
-      "Fassadenanstrich & Au?enputz",
-      "W?rmed?mmung & Fassadenrenovierung",
-      "Terrassenplatten & Au?enbereiche",
+      "Fassadenanstrich & Außenputz",
+      "Wärmedämmung & Fassadenrenovierung",
+      "Terrassenplatten & Außenbereiche",
       "Kleinere Erdarbeiten",
       "Vorbereitung Neubau & Anbau",
     ],
@@ -119,85 +122,81 @@ const services = [
 
 const Leistungen = () => {
   usePageSeo({
-    title: "Renovierung, Trockenbau & Badsanierung Gevelsberg | Zakho Bau Leistungen",
+    title: "Renovierung & Badsanierung Gevelsberg | Zakho Bau",
     description:
-      "Alle Bauleistungen aus einer Hand in Gevelsberg: Renovierung, Trockenbau, Malerarbeiten, Bodenbel?ge, Badsanierung und Fassade. ? Festpreis ? Termingarantie ? 02332 8439131",
+      "Renovierung, Trockenbau, Malerarbeiten, Bodenbeläge & Badsanierung in Gevelsberg und NRW. Alle Gewerke aus einer Hand – Festpreis, Termingarantie.",
     path: "/leistungen",
     structuredData: [
       {
         "@context": "https://schema.org",
         "@type": "Service",
-        "@id": "https://www.zakho-bau.de/leistungen#renovierung",
+        "@id": `${SITE_ORIGIN}/leistungen#renovierung`,
         name: "Renovierung & Modernisierung",
         serviceType: "Renovierung",
-        description: "Komplettrenovierungen und Wohnungssanierungen in Gevelsberg ? termingerecht, sauber und zum Festpreis.",
-        provider: { "@id": "https://www.zakho-bau.de/#business" },
+        description: "Komplettrenovierungen und Wohnungssanierungen in Gevelsberg – termingerecht, sauber und zum Festpreis.",
+        provider: { "@id": BUSINESS_ID },
         areaServed: [{ "@type": "City", name: "Gevelsberg" }, { "@type": "AdministrativeArea", name: "Ennepe-Ruhr-Kreis" }],
-        url: "https://www.zakho-bau.de/leistungen#renovierung",
+        url: `${SITE_ORIGIN}/leistungen#renovierung`,
       },
       {
         "@context": "https://schema.org",
         "@type": "Service",
-        "@id": "https://www.zakho-bau.de/leistungen#trockenbau",
+        "@id": `${SITE_ORIGIN}/leistungen#trockenbau`,
         name: "Trockenbau & Innenausbau",
         serviceType: "Trockenbau",
-        description: "Professioneller Trockenbau f?r Privat- und Gewerbekunden in Gevelsberg. W?nde, Decken, St?nderwerk.",
-        provider: { "@id": "https://www.zakho-bau.de/#business" },
+        description: "Professioneller Trockenbau für Privat- und Gewerbekunden in Gevelsberg. Wände, Decken, Ständerwerk.",
+        provider: { "@id": BUSINESS_ID },
         areaServed: [{ "@type": "City", name: "Gevelsberg" }, { "@type": "AdministrativeArea", name: "Ennepe-Ruhr-Kreis" }],
-        url: "https://www.zakho-bau.de/leistungen#trockenbau",
+        url: `${SITE_ORIGIN}/leistungen#trockenbau`,
       },
       {
         "@context": "https://schema.org",
         "@type": "Service",
-        "@id": "https://www.zakho-bau.de/leistungen#malerarbeiten",
+        "@id": `${SITE_ORIGIN}/leistungen#malerarbeiten`,
         name: "Malerarbeiten & Tapezieren",
         serviceType: "Malerarbeiten",
-        description: "Innen- und Au?enanstriche, Tapezierarbeiten und dekorative Wandgestaltung in Gevelsberg.",
-        provider: { "@id": "https://www.zakho-bau.de/#business" },
+        description: "Innen- und Außenanstriche, Tapezierarbeiten und dekorative Wandgestaltung in Gevelsberg.",
+        provider: { "@id": BUSINESS_ID },
         areaServed: [{ "@type": "City", name: "Gevelsberg" }, { "@type": "AdministrativeArea", name: "Ennepe-Ruhr-Kreis" }],
-        url: "https://www.zakho-bau.de/leistungen#malerarbeiten",
+        url: `${SITE_ORIGIN}/leistungen#malerarbeiten`,
       },
       {
         "@context": "https://schema.org",
         "@type": "Service",
-        "@id": "https://www.zakho-bau.de/leistungen#bodenbelag",
-        name: "Bodenbel?ge & Fliesen",
-        serviceType: "Bodenbel?ge",
-        description: "Verlegen von Laminat, Parkett, Vinyl und Fliesen in Gevelsberg ? sauber und fachgerecht.",
-        provider: { "@id": "https://www.zakho-bau.de/#business" },
+        "@id": `${SITE_ORIGIN}/leistungen#bodenbelag`,
+        name: "Bodenbeläge & Fliesen",
+        serviceType: "Bodenbeläge",
+        description: "Verlegen von Laminat, Parkett, Vinyl und Fliesen in Gevelsberg – sauber und fachgerecht.",
+        provider: { "@id": BUSINESS_ID },
         areaServed: [{ "@type": "City", name: "Gevelsberg" }, { "@type": "AdministrativeArea", name: "Ennepe-Ruhr-Kreis" }],
-        url: "https://www.zakho-bau.de/leistungen#bodenbelag",
+        url: `${SITE_ORIGIN}/leistungen#bodenbelag`,
       },
       {
         "@context": "https://schema.org",
         "@type": "Service",
-        "@id": "https://www.zakho-bau.de/leistungen#sanierung",
+        "@id": `${SITE_ORIGIN}/leistungen#sanierung`,
         name: "Badsanierung",
         serviceType: "Badsanierung",
-        description: "Komplettsanierung von Badezimmern in Gevelsberg ? Fliesen, Sanit?r, Trockenbau und Abdichtung aus einer Hand.",
-        provider: { "@id": "https://www.zakho-bau.de/#business" },
+        description: "Komplettsanierung von Badezimmern in Gevelsberg – Fliesen, Sanitär, Trockenbau und Abdichtung aus einer Hand.",
+        provider: { "@id": BUSINESS_ID },
         areaServed: [{ "@type": "City", name: "Gevelsberg" }, { "@type": "AdministrativeArea", name: "Ennepe-Ruhr-Kreis" }],
-        url: "https://www.zakho-bau.de/leistungen#sanierung",
+        url: `${SITE_ORIGIN}/leistungen#sanierung`,
       },
       {
         "@context": "https://schema.org",
         "@type": "Service",
-        "@id": "https://www.zakho-bau.de/leistungen#aussenarbeiten",
-        name: "Au?enarbeiten & Fassade",
+        "@id": `${SITE_ORIGIN}/leistungen#aussenarbeiten`,
+        name: "Außenarbeiten & Fassade",
         serviceType: "Fassadenarbeiten",
-        description: "Fassadenarbeiten, Au?enputz, W?rmed?mmung und kleinere Erdarbeiten in Gevelsberg und dem Ennepe-Ruhr-Kreis.",
-        provider: { "@id": "https://www.zakho-bau.de/#business" },
+        description: "Fassadenarbeiten, Außenputz, Wärmedämmung und kleinere Erdarbeiten in Gevelsberg und dem Ennepe-Ruhr-Kreis.",
+        provider: { "@id": BUSINESS_ID },
         areaServed: [{ "@type": "City", name: "Gevelsberg" }, { "@type": "AdministrativeArea", name: "Ennepe-Ruhr-Kreis" }],
-        url: "https://www.zakho-bau.de/leistungen#aussenarbeiten",
+        url: `${SITE_ORIGIN}/leistungen#aussenarbeiten`,
       },
-      {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Startseite", item: "https://www.zakho-bau.de/" },
-          { "@type": "ListItem", position: 2, name: "Leistungen", item: "https://www.zakho-bau.de/leistungen" },
-        ],
-      },
+      breadcrumbList([
+        { name: "Startseite", path: "/" },
+        { name: "Leistungen", path: "/leistungen" },
+      ]),
     ],
   });
 
@@ -207,7 +206,7 @@ const Leistungen = () => {
       <section className="relative flex min-h-[min(50vh,440px)] flex-col justify-end overflow-hidden pt-28 pb-10 md:pb-14">
         <img
           src={heroImg}
-          alt="Handwerker bei der Arbeit ? Zakho Bau Leistungen"
+          alt="Handwerker bei der Arbeit – Zakho Bau Leistungen"
           className="absolute inset-0 h-full w-full object-cover"
           width={1920}
           height={800}
@@ -227,10 +226,10 @@ const Leistungen = () => {
               Unsere Leistungen
             </p>
             <h1 className="mb-4 text-primary-foreground">
-              Was wir f?r Sie <em>leisten</em>
+              Was wir für Sie <em>leisten</em>
             </h1>
             <p className="text-lg leading-relaxed text-primary-foreground/80">
-              Von der kleinen Renovierung bis zur schl?sselfertigen Komplettsanierung ?
+              Von der kleinen Renovierung bis zur schlüsselfertigen Komplettsanierung –
               Zakho Bau bietet Ihnen alle Bauleistungen aus einer Hand in Gevelsberg.
             </p>
 
@@ -262,6 +261,15 @@ const Leistungen = () => {
           </motion.div>
         </div>
       </section>
+
+      <SeoRegionSection
+        title="Bauleistungen für Gevelsberg, Hagen und den Ennepe-Ruhr-Kreis"
+        paragraphs={[
+          "Als Bauunternehmen in Gevelsberg bündeln wir alle Gewerke unter einem Dach. Das bedeutet für Sie: ein Ansprechpartner, ein Zeitplan und ein Festpreisangebot – ohne Subunternehmer-Ketten oder Koordinationsaufwand. Ob Renovierung im Altbau, Badrenovierung in Hagen, Innenausbau in Ennepetal oder Fassadenarbeiten in Schwelm: Wir kennen die typischen Anforderungen in der Region und planen realistisch.",
+          "Unsere Leistungen reichen von der kleinen Ausbesserung bis zum Schlüsselfertigbau in NRW. Bei Komplettrenovierungen übernehmen wir Demontage, Trockenbau, Estricharbeiten, Malerarbeiten, Bodenverlegung und Sanitäranschlüsse in einem durchgängigen Prozess. Bei Badsanierungen kümmern wir uns um Abdichtung, Fliesen, Vorwandinstallation und finale Oberflächen – alles aus einer Hand.",
+          "Viele Kunden kommen über Empfehlungen zu uns; andere suchen gezielt nach einem verlässlichen Partner für Renovierung im Ennepe-Ruhr-Kreis. In beiden Fällen gilt: Erst kommt die kostenlose Besichtigung, dann ein verständliches Angebot mit klaren Positionen. So wissen Sie vor Baubeginn genau, was gemacht wird und was es kostet.",
+        ]}
+      />
 
       {/* Services Detail */}
       <section className="section-pad">
@@ -302,7 +310,7 @@ const Leistungen = () => {
                 <div className={i % 2 === 1 ? "lg:order-1" : ""}>
                   <img
                     src={s.image}
-                    alt={`${s.title} ? Zakho Bau`}
+                    alt={`${s.title} – Zakho Bau`}
                     loading="lazy"
                     className="w-full rounded-xl object-cover shadow-lg"
                     style={{ aspectRatio: "4/3" }}
@@ -329,7 +337,7 @@ const Leistungen = () => {
               Ihr Projekt beginnt hier
             </h2>
             <p className="mb-8 text-lg text-primary-foreground/80">
-              Kostenlose Beratung ? wir melden uns innerhalb von 24 Stunden.
+              Kostenlose Beratung – wir melden uns innerhalb von 24 Stunden.
             </p>
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Link to="/anfragen">

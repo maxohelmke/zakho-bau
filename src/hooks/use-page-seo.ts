@@ -85,6 +85,7 @@ export const usePageSeo = ({
     setMetaByName("twitter:title", title);
     setMetaByName("twitter:description", description);
 
+    setMetaByProperty("og:site_name", "Zakho Bau");
     setMetaByProperty("og:title", title);
     setMetaByProperty("og:description", description);
     setMetaByProperty("og:type", "website");
@@ -93,6 +94,9 @@ export const usePageSeo = ({
 
     const ogImage = image ?? `${SITE_ORIGIN}/og-image.jpg`;
     setMetaByProperty("og:image", ogImage);
+    setMetaByProperty("og:image:width", "1200");
+    setMetaByProperty("og:image:height", "630");
+    setMetaByProperty("og:image:alt", title);
     setMetaByName("twitter:image", ogImage);
 
     setCanonical(canonicalUrl);

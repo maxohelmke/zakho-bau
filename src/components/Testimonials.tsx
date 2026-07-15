@@ -1,20 +1,20 @@
-﻿import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect } from "react";
 import rinasSw from "@/assets/rinas-mola-sw.png";
 import { motion, AnimatePresence } from "framer-motion";
 
 const reviews = [
   {
-    text: "Zakho Bau hat unsere komplette Wohnung renoviert. Alles war termingerecht, sauber und in höchster Qualität.",
+    text: "Zakho Bau hat unsere komplette Wohnung renoviert. Alles war termingerecht, sauber und in hï¿½chster Qualitï¿½t.",
     name: "Familie Schneider",
     location: "Gevelsberg",
   },
   {
-    text: "Vom ersten Beratungsgespräch bis zur Fertigstellung alles top. Die transparente Preisgestaltung hat uns besonders überzeugt.",
+    text: "Vom ersten Beratungsgesprï¿½ch bis zur Fertigstellung alles top. Die transparente Preisgestaltung hat uns besonders ï¿½berzeugt.",
     name: "Thomas M.",
     location: "Gevelsberg",
   },
   {
-    text: "Der Inhaber war immer persönlich erreichbar und hat sich um jedes Detail gekümmert. Unsere Badsanierung ist perfekt geworden.",
+    text: "Der Inhaber war immer persï¿½nlich erreichbar und hat sich um jedes Detail gekï¿½mmert. Unsere Badsanierung ist perfekt geworden.",
     name: "Aylin K.",
     location: "Ennepe-Ruhr-Kreis",
   },
@@ -24,7 +24,7 @@ const reviews = [
     location: "Schwelm",
   },
   {
-    text: "Schnelle Rückmeldung, transparente Positionen im Angebot und termingerechte Umsetzung. Sehr zuverlässig.",
+    text: "Schnelle Rï¿½ckmeldung, transparente Positionen im Angebot und termingerechte Umsetzung. Sehr zuverlï¿½ssig.",
     name: "N. Demir",
     location: "Gevelsberg",
   },
@@ -70,14 +70,14 @@ export default function Testimonials() {
               <div className="mt-8 flex items-center gap-4">
                 <img
                   src={rinasSw}
-                  alt="Rinas Mola – Inhaber Zakho Bau"
+                  alt="Rinas Mola ï¿½ Inhaber Zakho Bau"
                   className="h-16 w-16 rounded-full object-cover object-top grayscale"
                   width={64} height={64}
                   loading="lazy"
                 />
                 <div>
                   <p className="text-sm font-bold text-foreground">Rinas Mola</p>
-                  <p className="text-xs text-muted-foreground">Inhaber · Zakho Bau</p>
+                  <p className="text-xs text-muted-foreground">Inhaber ï¿½ Zakho Bau</p>
                 </div>
               </div>
             </div>
@@ -103,7 +103,7 @@ export default function Testimonials() {
             </div>
           </motion.div>
 
-          {/* Rechts: großes Blockquote */}
+          {/* Rechts: groï¿½es Blockquote */}
           <div className="relative min-h-[220px]">
             <AnimatePresence custom={dir} initial={false} mode="wait">
               <motion.div
@@ -114,12 +114,12 @@ export default function Testimonials() {
                 animate="center"
                 exit="exit"
               >
-                {/* Anführungszeichen dekorativ */}
+                {/* Dekoratives Anfuehrungszeichen */}
                 <span
                   aria-hidden
-                  className="mb-2 block font-heading text-6xl font-black leading-none text-accent/15 sm:mb-4 sm:text-8xl"
+                  className="mb-2 block font-sans text-6xl font-black leading-none text-accent/15 sm:mb-4 sm:text-8xl"
                 >
-                  „
+                  "
                 </span>
 
                 <blockquote className="mb-6 font-heading text-lg font-semibold leading-snug text-foreground sm:text-xl lg:text-2xl">

@@ -7,24 +7,27 @@ import { Textarea } from "@/components/ui/textarea";
 import { Phone, CheckCircle, Sparkles } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import Footer from "@/components/Footer";
+import SeoRegionSection from "@/components/SeoRegionSection";
 import { usePageSeo } from "@/hooks/use-page-seo";
+import { SITE_ORIGIN } from "@/seo/sitemap-config";
+import { breadcrumbList } from "@/seo/schema-helpers";
 import { postToWebhook } from "@/lib/webhook";
 
 const serviceTypes = [
   "Renovierung & Modernisierung",
   "Trockenbau & Innenausbau",
   "Malerarbeiten & Tapezieren",
-  "Bodenbeläge & Fliesen",
+  "BodenbelÃ¤ge & Fliesen",
   "Badsanierung",
-  "Außenarbeiten & Fassade",
+  "AuÃŸenarbeiten & Fassade",
   "Sonstiges",
 ];
 
 const Anfragen = () => {
   usePageSeo({
-    title: "Anfrage stellen | Zakho Bau Gevelsberg",
+    title: "Kostenlose Anfrage | Renovierung Gevelsberg | Zakho Bau",
     description:
-      "Jetzt kostenlos und unverbindlich anfragen: Zakho Bau erstellt Ihnen ein Angebot für Bau- und Sanierungsprojekte in Gevelsberg und im Ennepe-Ruhr-Kreis.",
+      "Kostenlos anfragen: Zakho Bau erstellt Ihr Angebot fÃ¼r Renovierung, Badsanierung und Innenausbau in Gevelsberg und dem Ennepe-Ruhr-Kreis.",
     path: "/anfragen",
     structuredData: [
       {
@@ -32,27 +35,13 @@ const Anfragen = () => {
         "@type": "WebPage",
         name: "Kostenlose Anfrage bei Zakho Bau",
         description:
-          "Unverbindliche Projektanfrage für Bau- und Sanierungsarbeiten in Gevelsberg und im Ennepe-Ruhr-Kreis.",
-        url: "https://www.zakho-bau.de/anfragen",
+          "Unverbindliche Projektanfrage fÃ¼r Bau- und Sanierungsarbeiten in Gevelsberg und im Ennepe-Ruhr-Kreis.",
+        url: `${SITE_ORIGIN}/anfragen`,
       },
-      {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        itemListElement: [
-          {
-            "@type": "ListItem",
-            position: 1,
-            name: "Startseite",
-            item: "https://www.zakho-bau.de/",
-          },
-          {
-            "@type": "ListItem",
-            position: 2,
-            name: "Anfragen",
-            item: "https://www.zakho-bau.de/anfragen",
-          },
-        ],
-      },
+      breadcrumbList([
+        { name: "Startseite", path: "/" },
+        { name: "Anfragen", path: "/anfragen" },
+      ]),
     ],
   });
 
@@ -73,15 +62,15 @@ const Anfragen = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.name.trim() || !form.email.trim() || !form.nachricht.trim()) {
-      toast({ title: "Bitte füllen Sie alle Pflichtfelder aus.", variant: "destructive" });
+      toast({ title: "Bitte fÃ¼llen Sie alle Pflichtfelder aus.", variant: "destructive" });
       return;
     }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
-      toast({ title: "Bitte geben Sie eine gültige E-Mail-Adresse ein.", variant: "destructive" });
+      toast({ title: "Bitte geben Sie eine gÃ¼ltige E-Mail-Adresse ein.", variant: "destructive" });
       return;
     }
     if (!form.datenschutz) {
-      toast({ title: "Bitte stimmen Sie der Datenschutzerklärung zu.", variant: "destructive" });
+      toast({ title: "Bitte stimmen Sie der DatenschutzerklÃ¤rung zu.", variant: "destructive" });
       return;
     }
 
@@ -141,7 +130,7 @@ const Anfragen = () => {
             <p className="mb-3 text-xs font-medium uppercase tracking-[0.2em] text-accent">Kostenlose Beratung</p>
             <h1 className="mb-6 text-primary-foreground">Kostenlos <em>anfragen</em></h1>
             <p className="text-lg leading-relaxed text-primary-foreground/80">
-              Beschreiben Sie Ihr Projekt – wir erstellen Ihnen ein unverbindliches Angebot.
+              Beschreiben Sie Ihr Projekt â€“ wir erstellen Ihnen ein unverbindliches Angebot.
               Kostenlos und innerhalb von 24 Stunden.
             </p>
 
@@ -173,7 +162,7 @@ const Anfragen = () => {
       <section className="border-b border-border py-12">
         <div className="container mx-auto container-pad">
           <div className="flex flex-wrap items-center justify-center gap-8">
-            {["100% kostenlos & unverbindlich", "Antwort innerhalb 24h", "Persönliche Beratung vom Chef"].map((b) => (
+            {["100% kostenlos & unverbindlich", "Antwort innerhalb 24h", "PersÃ¶nliche Beratung vom Chef"].map((b) => (
               <div key={b} className="flex items-center gap-2 text-sm text-muted-foreground">
                 <CheckCircle className="h-4 w-4 text-accent" />
                 {b}
@@ -228,7 +217,7 @@ const Anfragen = () => {
                   type="tel"
                   value={form.telefon}
                   onChange={(e) => setForm({ ...form, telefon: e.target.value })}
-                  placeholder="Für Rückfragen (optional)"
+                  placeholder="FÃ¼r RÃ¼ckfragen (optional)"
                   maxLength={30}
                 />
               </div>
@@ -252,12 +241,12 @@ const Anfragen = () => {
                 <Input
                   value={form.ort}
                   onChange={(e) => setForm({ ...form, ort: e.target.value })}
-                  placeholder="z. B. Gevelsberg, Musterstraße"
+                  placeholder="z. B. Gevelsberg, MusterstraÃŸe"
                   maxLength={200}
                 />
               </div>
               <div>
-                <label className="mb-1 block text-sm font-medium text-foreground">Gewünschter Zeitrahmen</label>
+                <label className="mb-1 block text-sm font-medium text-foreground">GewÃ¼nschter Zeitrahmen</label>
                 <Input
                   value={form.timeline}
                   onChange={(e) => setForm({ ...form, timeline: e.target.value })}
@@ -272,7 +261,7 @@ const Anfragen = () => {
               <Input
                 value={form.budget}
                 onChange={(e) => setForm({ ...form, budget: e.target.value })}
-                placeholder="z. B. 10.000–15.000 €"
+                placeholder="z. B. 10.000â€“15.000 â‚¬"
                 maxLength={50}
               />
             </div>
@@ -284,7 +273,7 @@ const Anfragen = () => {
               <Textarea
                 value={form.nachricht}
                 onChange={(e) => setForm({ ...form, nachricht: e.target.value })}
-                placeholder="Beschreiben Sie Ihr Vorhaben so genau wie möglich: Was soll gemacht werden? Wie groß ist die Fläche? Gibt es besondere Anforderungen?"
+                placeholder="Beschreiben Sie Ihr Vorhaben so genau wie mÃ¶glich: Was soll gemacht werden? Wie groÃŸ ist die FlÃ¤che? Gibt es besondere Anforderungen?"
                 rows={6}
                 maxLength={2000}
               />
@@ -301,7 +290,7 @@ const Anfragen = () => {
               <label htmlFor="datenschutz" className="cursor-pointer text-sm text-muted-foreground">
                 Ich stimme der{" "}
                 <Link to="/datenschutz" className="text-accent hover:underline">
-                  Datenschutzerklärung
+                  DatenschutzerklÃ¤rung
                 </Link>{" "}
                 zu. <span className="text-destructive">*</span>
               </label>
@@ -313,7 +302,7 @@ const Anfragen = () => {
               className="w-full py-6 text-base"
               disabled={submitting}
             >
-              {submitting ? "Wird gesendet…" : "Kostenlose Anfrage absenden"}
+              {submitting ? "Wird gesendetâ€¦" : "Kostenlose Anfrage absenden"}
             </Button>
 
             <p className="text-center text-xs text-muted-foreground">
@@ -338,6 +327,14 @@ const Anfragen = () => {
           </motion.div>
         </div>
       </section>
+
+      <SeoRegionSection
+        title="So lÃ¤uft Ihre unverbindliche Projektanfrage"
+        paragraphs={[
+          "Ãœber dieses Formular kÃ¶nnen Sie Zakho Bau kostenlos und unverbindlich anfragen â€“ ob Wohnungsrenovierung in Gevelsberg, Badrenovierung in Hagen oder Innenausbau in Ennepetal. Beschreiben Sie Ihr Vorhaben so genau wie mÃ¶glich: Welche RÃ¤ume betrifft es, welche Arbeiten sind geplant, gibt es zeitliche Vorgaben? Je mehr Informationen wir haben, desto zielgerichteter kÃ¶nnen wir beraten.",
+          "Nach Ihrer Anfrage melden wir uns in der Regel innerhalb von 24 Stunden. Bei grÃ¶ÃŸeren Projekten vereinbaren wir einen Vor-Ort-Termin und erstellen anschlieÃŸend ein transparentes Festpreisangebot. SchlÃ¼sselfertigbau in NRW bedeutet bei uns: klare Absprachen, ein fester Ansprechpartner und saubere Umsetzung aller Gewerke aus einer Hand.",
+        ]}
+      />
 
       <Footer />
     </div>

@@ -28,255 +28,281 @@ export type StandortData = {
 };
 
 export const STANDORTE: StandortData[] = [
+  /* ══════════════════════════════════════════════════════════════════════
+     GEVELSBERG – Heimatstandort, direkt vor Ort
+  ══════════════════════════════════════════════════════════════════════ */
   {
     slug: "gevelsberg",
     name: "Gevelsberg",
     theme: "dark",
-    headline: "Bau & Sanierung in Gevelsberg – Qualität aus Erfahrung",
-    subline: "Unser Heimatstandort im Ennepe-Ruhr-Kreis",
+    headline: "Ihr Handwerksbetrieb direkt in Gevelsberg",
+    subline: "Heimatstandort – persönlich, schnell, zuverlässig",
     intro:
-      "Gevelsberg ist unser Heimatstandort – hier kennen wir die Straßen, die Gebäude und die besonderen Anforderungen der Region. Ob Altbausanierung, Badsanierung oder komplette Renovierung: Zakho Bau ist Ihr verlässlicher Partner vor Ort. Kurze Reaktionszeiten und persönliche Betreuung sind für uns selbstverständlich.",
+      "Zakho Bau hat seinen Sitz an der Hagener Straße 44 in Gevelsberg – mitten in der Stadt, die wir kennen wie kaum eine andere. Wir kennen die Gebäude in Silschede und Vogelsang, die Altbauten entlang der Hagener Straße aus dem Jahr 1898 und die neueren Wohnquartiere in Gevelsberg-Mitte. Kurze Anfahrten, schnelle Reaktionszeiten und ein Inhaber, der persönlich vor Ort erscheint – das ist unser Angebot an Gevelsberger Auftraggeber.",
     introHighlight:
-      "Als lokaler Fachbetrieb in Gevelsberg sind wir schnell vor Ort – egal ob dringende Schadensbeseitigung oder geplantes Renovierungsprojekt.",
-    highlightsSectionTitle: "Warum Auftraggeber in Gevelsberg uns wählen",
+      "Als lokaler Betrieb mit Ladenlokal in Gevelsberg sind wir keine 24 Stunden nach Ihrer Anfrage vor Ort – für Besichtigungen, Schadensbewertungen und Angebotserstellung.",
+    highlightsSectionTitle: "Warum Gevelsberger Auftraggeber uns wählen",
     highlightsSectionLead:
-      "Kurze Wege, direkter Kontakt zum Inhaber und echte Kenntnis der lokalen Bausubstanz – das macht den Unterschied.",
+      "Kein Betrieb kennt Gevelsberg besser als wir. Das zeigt sich bei jedem Projekt – von Vogelsang bis Silschede.",
     highlights: [
-      "Heimatstandort mit schnellen Reaktionszeiten im gesamten Stadtgebiet",
-      "Direkte Beratung ohne Umwege – Inhaber persönlich erreichbar",
-      "Erfahrung mit typischen Gebäuden im Ennepe-Ruhr-Kreis",
-      "Transparente Angebote und verlässliche Terminplanung",
+      "Ladenlokal an der Hagener Str. 44 – persönlich erreichbar Mo–Fr 08–17 Uhr",
+      "Heimatbetrieb: keine Anfahrtskosten, kurze Reaktionszeiten im gesamten Stadtgebiet",
+      "Kenntnis der lokalen Bausubstanz: Altbauten ab 1898 bis zu Neubauprojekten in Silschede",
+      "Festpreise möglich – transparentes Angebot nach Besichtigung",
     ],
     localFacts: [
       {
-        label: "Einsatzgebiet",
-        text: "Gesamtes Stadtgebiet Gevelsberg inkl. aller Wohnlagen und Ortsteile.",
+        label: "Stadtteile",
+        text: "Gevelsberg-Mitte, Silschede, Vogelsang, Berge-Knapp – wir sind überall im Stadtgebiet unterwegs.",
+      },
+      {
+        label: "Bausubstanz",
+        text: "Altbauten ab ca. 1898 an der Hagener Straße, Nachkriegsbestand und neue Wohngebiete wie Ellinghauser Weg in Silschede.",
       },
       {
         label: "Reaktionszeit",
-        text: "Als Heimatbetrieb sind wir schnell vor Ort – auch für kurzfristige Besichtigungen.",
-      },
-      {
-        label: "Projektarten",
-        text: "Von der Einzelmaßnahme bis zur Komplettsanierung – alles aus einer Hand.",
+        text: "Als Heimatbetrieb vereinbaren wir Besichtigungstermine oft noch am selben oder nächsten Werktag.",
       },
     ],
     serviceFocus: {
-      title: "Schwerpunkte in Gevelsberg",
+      title: "Unsere Leistungsschwerpunkte in Gevelsberg",
       intro:
-        "In Gevelsberg führen wir alle Bauleistungen durch – von der Renovierung bis zur Komplettsanierung.",
+        "Von der kleinen Nachbesserung bis zur Komplettrenovierung – wir übernehmen alle Arbeiten rund um Ihr Gebäude in Gevelsberg.",
       items: [
-        "Komplettrenovierung von Wohnungen und Häusern",
-        "Badsanierung inklusive Fliesen, Sanitär und Trockenbau",
-        "Trockenbau für neue Raumaufteilungen",
-        "Malerarbeiten und Bodenverlegung",
-        "Außenarbeiten und Fassadengestaltung",
+        "Altbausanierung in Gevelsberg-Mitte und Vogelsang",
+        "Badsanierung inkl. Fliesen, Trockenbau und Sanitäranschlüsse",
+        "Wohnungsrenovierung vor Vermietung oder Eigeneinzug",
+        "Trockenbau für neue Raumaufteilungen und Dachgeschossausbau",
+        "Malerarbeiten, Tapezieren und Bodenverlegung (Parkett, Laminat, Vinyl)",
+        "Fassadenanstrich und Außenarbeiten rund ums Haus",
       ],
     },
     sections: [
       {
-        title: "Gevelsberg: Unser Zuhause, Ihr Vorteil",
+        title: "Gevelsberg: Altbau und Neubau – beides kennen wir",
         body:
-          "Als in Gevelsberg ansässiger Betrieb kennen wir die lokalen Gegebenheiten genau. Das bedeutet für Sie: keine langen Anfahrtszeiten, schnelle Reaktion und ein Ansprechpartner, der die Region kennt.",
+          "An der Hagener Straße stehen noch Gebäude aus dem Baujahr 1898. In Silschede entsteht gerade ein neues Wohnquartier am Ellinghauser Weg. Zakho Bau kennt beide Welten: Wir bewerten Altbausubstanz realistisch, zeigen Ihnen was sofort erledigt werden muss – und was warten kann. Bei Neubauten und modernen Wohnungen arbeiten wir präzise nach Plan.",
       },
       {
-        title: "Altbau und Neubau",
+        title: "Stadtumbau Berge-Knapp und Vogelsang",
         body:
-          "Ob Bestandsimmobilie aus der Nachkriegszeit oder neueres Gebäude – wir passen unsere Arbeitsweise dem jeweiligen Objekt an und beraten Sie ehrlich zu Möglichkeiten und Kosten.",
+          "In Stadtumbaugebieten wie Berge-Knapp und Vogelsang sind Modernisierungen besonders gefragt. Wir kennen die typischen Grundrisse und die häufigsten Sanierungsbedarfe in diesen Quartieren – das spart Zeit bei der Planung und vermeidet unliebsame Überraschungen auf der Baustelle.",
       },
     ],
     faqs: [
       {
-        question: "Sind Sie wirklich in ganz Gevelsberg tätig?",
+        question: "Haben Sie ein Ladenlokal in Gevelsberg?",
         answer:
-          "Ja, wir betreuen Projekte im gesamten Stadtgebiet – von der Innenstadt bis zu den Außenbezirken.",
+          "Ja. Sie finden uns an der Hagener Straße 44 in 58285 Gevelsberg, Mo–Fr von 08 bis 17 Uhr. Ein kurzer Anruf vorab ist hilfreich, damit wir uns Zeit für Sie nehmen können.",
       },
       {
-        question: "Wie schnell können Sie eine Besichtigung anbieten?",
+        question: "Arbeiten Sie auch in Silschede und Vogelsang?",
         answer:
-          "In der Regel melden wir uns innerhalb eines Werktags und vereinbaren kurzfristig einen Termin.",
+          "Selbstverständlich – wir sind im gesamten Gevelsberger Stadtgebiet tätig, inklusive aller Ortsteile.",
       },
       {
-        question: "Führen Sie auch kleinere Arbeiten durch?",
+        question: "Was kostet eine Badsanierung in Gevelsberg ungefähr?",
         answer:
-          "Ja, je nach Kapazität auch Einzelmaßnahmen – sprechen Sie uns einfach an.",
+          "Das hängt stark von Größe und Ausstattung ab. Nach einer kostenlosen Besichtigung erhalten Sie ein detailliertes Angebot. Festpreise sind möglich, wenn der Umfang klar ist.",
       },
       {
-        question: "Bieten Sie Festpreise an?",
+        question: "Können Sie auch kurzfristig einen Schaden beseitigen?",
         answer:
-          "Wo der Leistungsumfang klar ist, sind Festpreise möglich. Wir besprechen alles transparent im Angebot.",
+          "Als Heimatbetrieb reagieren wir schnell. Bei dringenden Schäden, z. B. nach einem Wasserschaden, melden wir uns in der Regel noch am selben Tag.",
       },
     ],
-    seoTitle: "Bau & Sanierung Gevelsberg | Zakho Bau – Renovierung, Trockenbau, Bad",
+    seoTitle: "Handwerker Gevelsberg | Zakho Bau – Badsanierung, Renovierung, Trockenbau",
     seoDescription:
-      "Zakho Bau in Gevelsberg: Renovierung, Badsanierung, Trockenbau und Malerarbeiten. Schnelle Reaktionszeiten, persönliche Beratung. Jetzt anfragen!",
+      "Zakho Bau – Ihr Handwerksbetrieb in Gevelsberg (Hagener Str. 44). Badsanierung, Renovierung, Trockenbau, Maler. Heimatbetrieb mit schnellen Reaktionszeiten. Jetzt anfragen!",
     heroImage: "/standorte/gevelsberg.jpg",
-    heroImageAlt: "Gevelsberg – Bau & Sanierung mit Zakho Bau",
+    heroImageAlt: "Gevelsberg – Handwerk und Sanierung mit Zakho Bau",
     regionTag: "Gevelsberg & Ennepe-Ruhr-Kreis",
+    stats: [
+      { value: "10+", label: "Jahre in Gevelsberg" },
+      { value: "< 24h", label: "Rückmeldung" },
+      { value: "1", label: "fester Ansprechpartner" },
+    ],
   },
+
+  /* ══════════════════════════════════════════════════════════════════════
+     ENNEPETAL – Historische Bausubstanz, Milspe & Voerde
+  ══════════════════════════════════════════════════════════════════════ */
   {
     slug: "ennepetal",
     name: "Ennepetal",
     theme: "warm",
-    headline: "Renovierung & Sanierung in Ennepetal",
-    subline: "Professioneller Innenausbau im Ennepe-Ruhr-Kreis",
+    headline: "Sanierung & Renovierung in Ennepetal – von Milspe bis Voerde",
+    subline: "Erfahrung mit bergischer Bausubstanz und denkmalgeschützten Gebäuden",
     intro:
-      "Ennepetal liegt direkt vor unserer Haustür – kurze Anfahrten und persönliche Betreuung sind daher für Ennepetaler Kunden selbstverständlich. Wir führen Renovierungen, Trockenbauarbeiten und Malerarbeiten in allen Ennepetaler Stadtteilen durch und kennen die lokale Bausubstanz gut.",
+      "Ennepetal hat eine besondere Baugeschichte: In den Stadtteilen Milspe, Voerde und Altenvoerde stehen denkmalgeschützte Gründerzeit-Klinkerbauten, Jugendstilvil­len und die berühmte Genossenschaftssiedlung aus den Jahren 1912/13 an der Kettelerstraße. Diese bergische Bausubstanz stellt besondere Anforderungen – an Material, Technik und Fingerspitzengefühl. Zakho Bau kennt diese Anforderungen und führt Renovierungen und Sanierungen in Ennepetal mit dem nötigen Respekt vor der Bausubstanz durch.",
     introHighlight:
-      "Ob Vorholz, Milspe oder Altenvoerde – wir sind in ganz Ennepetal schnell vor Ort und bieten verlässliche Handwerksleistungen.",
-    highlightsSectionTitle: "Was Ennepetaler Kunden von uns erwarten dürfen",
+      "Ob historischer Klinkerbau an der Voerder Straße oder Nachkriegswohnanlage in Altenvoerde – wir besichtigen vor Ort und beraten Sie ehrlich zu Möglichkeiten und Kosten.",
+    highlightsSectionTitle: "Was Ennepetaler Auftraggeber von uns erwarten dürfen",
     highlightsSectionLead:
-      "Zuverlässige Ausführung, transparente Kommunikation und kurze Reaktionszeiten – weil Ennepetal für uns ein Nachbarstandort ist.",
+      "Kenntnis der bergischen Bauweise, sorgfältige Ausführung an historischer Substanz und kurze Wege aus unserem Heimatstandort Gevelsberg.",
     highlights: [
-      "Kurze Anfahrtswege aus Gevelsberg",
-      "Erfahrung mit Bestandsgebäuden im Ennepe-Ruhr-Kreis",
-      "Transparente Angebote ohne versteckte Kosten",
-      "Persönlicher Kontakt zum Inhaber",
+      "Erfahrung mit Klinker-, Fachwerk- und Putzfassaden aus der Gründerzeit",
+      "Kenntnis der denkmalgeschützten Gebäude in Milspe und Altenvoerde",
+      "Kurze Anfahrt aus Gevelsberg – keine Mehrkosten für normale Projekte",
+      "Persönlicher Ansprechpartner vom ersten Kontakt bis zur Abnahme",
     ],
     localFacts: [
       {
-        label: "Lage",
-        text: "Direkt angrenzend an Gevelsberg – kurze Wege für Besichtigungen und Abnahmen.",
+        label: "Stadtteile",
+        text: "Milspe (Stadtmitte), Voerde, Altenvoerde, Rüggeberg – wir sind in ganz Ennepetal tätig.",
       },
       {
-        label: "Typische Aufträge",
-        text: "Renovierungen vor Vermietung, Badsanierungen und Malerarbeiten.",
+        label: "Bausubstanz",
+        text: "Gründerzeit-Klinkerbauten (1887–1912), Jugendstilvillen, bergische Fachwerkhäuser und Nachkriegsgebäude.",
       },
       {
         label: "Besonderheit",
-        text: "Mischung aus Wohnquartieren verschiedener Baualtersklassen – wir passen uns an.",
+        text: "Mehrere denkmalgeschützte Ensembles (z. B. Siedlung Milspe, Voerder Str. 11) erfordern besondere Sorgfalt.",
       },
     ],
     serviceFocus: {
-      title: "Leistungen in Ennepetal",
-      intro: "Wir führen alle gängigen Bauleistungen auch in Ennepetal durch.",
+      title: "Leistungsschwerpunkte in Ennepetal",
+      intro:
+        "In Ennepetal führen wir alle Bauleistungen durch – mit besonderem Augenmerk auf historische und denkmalgeschützte Gebäude.",
       items: [
-        "Renovierung & Modernisierung von Wohnungen",
-        "Trockenbau & Innenausbau",
-        "Malerarbeiten & Tapezieren",
-        "Bodenverlegung (Laminat, Parkett, Vinyl)",
-        "Badsanierung aus einer Hand",
+        "Instandsetzung und Renovierung von Gründerzeitbauten",
+        "Fassadenanstrich und Putzarbeiten an historischen Gebäuden",
+        "Badsanierung in Altbauwohnungen inkl. Feuchteabdichtung",
+        "Trockenbau und Innenausbau für neue Raumaufteilungen",
+        "Malerarbeiten und Tapezieren in Wohnungen aller Baualtersklassen",
+        "Bodenverlegung: Parkett und Fliesen für historische und moderne Räume",
       ],
     },
     sections: [
       {
-        title: "Ennepetal: Verlässlich und nah",
+        title: "Milspe und die bergische Baukultur",
         body:
-          "Die Nähe zu unserem Heimatstandort Gevelsberg ermöglicht es uns, schnell auf Anfragen zu reagieren und Projekte in Ennepetal ohne Mehrkosten für lange Anfahrten zu bearbeiten.",
+          "Die denkmalgeschützte Genossenschaftssiedlung an der Kettelerstraße, die historistischen Klinkerbauten an der Voerder Straße oder die Jugendstilvilla Ebbinghaus in Altenvoerde – Ennepetal hat eine außergewöhnlich dichte Konzentration historisch wertvoller Gebäude. Bei der Sanierung solcher Objekte kommt es auf Materialkenntnis an: Kalkmörtel statt Zement, atmungsaktive Farben und schonende Verfahren, die die Substanz erhalten.",
+      },
+      {
+        title: "Wohnungssanierung vor Vermietung oder Verkauf",
+        body:
+          "Viele unserer Ennepetaler Auftraggeber vermieten ihre Wohnung neu oder bereiten einen Verkauf vor. Wir zeigen Ihnen, welche Maßnahmen wirklich den Unterschied machen – und welche Sie sich sparen können. Frische Wände, ein saniertes Bad und neuer Boden verändern den ersten Eindruck bei potenziellen Mietern erheblich.",
       },
     ],
     faqs: [
       {
-        question: "Arbeiten Sie in allen Ennepetaler Stadtteilen?",
+        question: "Arbeiten Sie auch an denkmalgeschützten Gebäuden in Ennepetal?",
         answer:
-          "Ja, wir sind in ganz Ennepetal tätig – von Milspe bis Voerde.",
+          "Ja. Wir kennen die typischen Materialien und Verfahren für Gründerzeitbauten und stimmen uns bei Bedarf mit der zuständigen Denkmalbehörde ab.",
       },
       {
-        question: "Wie schnell kann ich einen Termin bekommen?",
+        question: "Wie weit ist Ennepetal von Ihrem Standort entfernt?",
         answer:
-          "Wir melden uns in der Regel innerhalb eines Werktags und vereinbaren zeitnah einen Besichtigungstermin.",
+          "Ennepetal grenzt direkt an Gevelsberg – wir sind in wenigen Minuten vor Ort und berechnen keine Anfahrtskosten für Projekte normaler Größe.",
       },
       {
-        question: "Übernehmen Sie auch kleinere Malerarbeiten?",
+        question: "Können Sie Wohnungsrenovierungen in bewohntem Zustand durchführen?",
         answer:
-          "Ja, je nach Kapazität auch Einzelgewerke. Rufen Sie uns einfach an.",
+          "Bei kleineren Maßnahmen ja. Wir stimmen den Ablauf so ab, dass Bewohner möglichst wenig beeinträchtigt werden – und klären das vorab offen mit Ihnen.",
       },
       {
-        question: "Gibt es Festpreise?",
+        question: "Was umfasst eine typische Badsanierung?",
         answer:
-          "Wo der Umfang klar definiert ist, bieten wir gerne Festpreise an.",
+          "Demontage der Altinstallation, Abdichtung (Dusch- und Nassbereiche), Fliesenverlegung, Trockenbauarbeiten, Sanitäranschlüsse und Endmontage. Alles aus einer Hand, ein Ansprechpartner.",
       },
     ],
-    seoTitle: "Renovierung Ennepetal | Zakho Bau – Trockenbau, Maler, Bad",
+    seoTitle: "Renovierung Ennepetal | Zakho Bau – Altbau, Badsanierung, Fliesen Milspe",
     seoDescription:
-      "Zakho Bau in Ennepetal: Renovierung, Trockenbau, Malerarbeiten und Badsanierung. Persönliche Beratung, schnelle Rückmeldung. Jetzt anfragen!",
+      "Zakho Bau in Ennepetal: Renovierung von Gründerzeitbauten, Badsanierung, Malerarbeiten und Trockenbau in Milspe, Voerde und Altenvoerde. Jetzt kostenloses Angebot anfragen!",
     heroImage: "/standorte/ennepetal.jpg",
-    heroImageAlt: "Ennepetal – Renovierung und Sanierung mit Zakho Bau",
+    heroImageAlt: "Ennepetal – Renovierung historischer Bausubstanz mit Zakho Bau",
     regionTag: "Ennepetal & Ennepe-Ruhr-Kreis",
   },
+
+  /* ══════════════════════════════════════════════════════════════════════
+     SCHWELM – Kreisstadt, bergisches Fachwerk & Altstadt
+  ══════════════════════════════════════════════════════════════════════ */
   {
     slug: "schwelm",
     name: "Schwelm",
     theme: "slate",
-    headline: "Bausanierungen & Innenausbau in Schwelm",
-    subline: "Ennepe-Ruhr-Kreis: schnelle Anbindung, persönliche Betreuung",
+    headline: "Sanierung & Umbau in Schwelm – der Kreisstadt des Ennepe-Ruhr-Kreises",
+    subline: "Bergisches Fachwerk, Gründerzeit-Villen und Nachkriegsbestand – alles aus einer Hand",
     intro:
-      "Schwelm profitiert von verkehrsgünstiger Lage und einer überschaubaren Stadtstruktur. Für uns ist Schwelm fest im Tourenplan: überschaubare Anfahrten, klare Kommunikation und die Möglichkeit, auch kurzfristig vorbeizuschauen. Wir übernehmen Modernisierungen, Badsanierungen und Innenausbauarbeiten in Schwelm.",
+      "Schwelm ist die Kreisstadt des Ennepe-Ruhr-Kreises und beherbergt eine bemerkenswerte Baugeschichte: verschieferte Fachwerkhäuser im bergischen Stil in der Altstadt, Gründerzeit-Villen nördlich der Fußgängerzone und dicht besiedelte Nachkriegsquartiere in Stadtteilen wie Möllenkotten, Oehde und Linderhausen. Das Mietpreisniveau lag 2026 bei rund 8,50 €/m² – ein Markt, in dem gut sanierte Wohnungen deutlich besser vermietet werden als unrenovierter Bestand.",
     introHighlight:
-      "Wenn Sie unter Zeitdruck stehen – etwa für einen Übergabetermin oder Einzug – legen wir Prioritäten fest und zeigen, was sofort und was später erledigt werden kann.",
-    highlightsSectionTitle: "Darauf legen Schwelmer Auftraggeber Wert",
+      "In Schwelm schauen wir bei der Besichtigung nicht nur, was schön wäre – sondern was wirklich nötig ist und den größten Effekt für Vermietbarkeit oder Wohnqualität hat.",
+    highlightsSectionTitle: "Was Schwelmer Auftraggeber von uns erwarten",
     highlightsSectionLead:
-      "Zuverlässigkeit, nachvollziehbare Angebote und die Bereitschaft, auch unbequeme Wahrheiten über den Bestand auszusprechen.",
+      "Klare Prioritäten, ehrliche Kosten und ein Handwerk, das mit bergischer Bausubstanz umgehen kann.",
     highlights: [
-      "Schnelle Rückmeldung auf Anfragen",
-      "Erfahrung mit typischen Wohnungsgrundrissen im Ennepe-Ruhr-Kreis",
-      "Klare Prioritätenliste wenn Budget und Wunschliste auseinanderlaufen",
-      "Dokumentation für Verkauf, Vermietung oder Versicherung nach Absprache",
+      "Erfahrung mit verschieferten Fachwerkhäusern und Altbauten der Schwelmer Innenstadt",
+      "Kenntnisse der Gründerzeit-Bauweise (Neorenaissance, Stuckfassaden, Holzböden)",
+      "Realistisches Budget-Feedback: Wir sagen Ihnen, was sich lohnt und was nicht",
+      "Dokumentation für Vermietung, Verkauf oder Versicherung nach Absprache",
     ],
     localFacts: [
       {
-        label: "Region",
-        text: "Im Ennepe-Ruhr-Kreis – gut erreichbar aus Gevelsberg.",
+        label: "Stadtstruktur",
+        text: "Kreisstadt mit ca. 28.800 Einwohnern. Altstadt mit Kirchstraße 5 (eines der ältesten Häuser, Stadtbrand 1722 überlebt), Gründerzeit-Villen und Fußgängerzone.",
       },
       {
-        label: "Auftragsprofil",
-        text: "Häufig Frischzüge, Badsanierungen und Instandsetzungsarbeiten.",
+        label: "Bausubstanz",
+        text: "Denkmalgeschützte Fachwerkhäuser im bergischen Stil (schwarz-weiß-grün), Neorenaissance-Stuckfassaden, Nachkriegsbauten in Möllenkotten und Oehde.",
       },
       {
-        label: "Arbeitsweise",
-        text: "Wir vermeiden Doppelarbeiten: Wer öffnet, schließt auch wieder fachgerecht.",
+        label: "Mietmarkt",
+        text: "Ø 8,50 €/m² für Wohnungen (2026). Gut sanierte Objekte erzielen spürbar höhere Mieten – ein Investment, das sich rechnet.",
       },
     ],
     serviceFocus: {
-      title: "Leistungen rund um Sanierung und Instandhaltung in Schwelm",
-      intro: "Vom Einzelgewerk bis zur Komplettsanierung – immer in der richtigen Reihenfolge.",
+      title: "Leistungsschwerpunkte in Schwelm",
+      intro:
+        "In Schwelm konzentrieren wir uns besonders auf Innenrenovierungen, Badsanierungen und Arbeiten, die den Wert der Immobilie steigern.",
       items: [
-        "Badsanierung mit Fokus auf Dichtigkeit und Komfort",
-        "Malerarbeiten und Bodenverlegung",
-        "Trockenbau für Raumteilungen",
-        "Instandsetzung nach Wasserschäden",
-        "Beratung zu Investitionen vor Immobilienverkauf",
+        "Innenrenovierung für Vermieter und Eigentümer vor Neuvermietung",
+        "Badsanierung mit Fokus auf Dichtigkeit, Komfort und moderne Optik",
+        "Fachgerechte Putzarbeiten und Malerarbeiten an historischen Fassaden",
+        "Trockenbau für neue Raumteilungen und abgehängte Decken",
+        "Bodenverlegung: Laminat, Vinyl oder Fliesen je nach Nutzung",
+        "Instandsetzung nach Wasserschäden inkl. Dokumentation",
       ],
     },
     sections: [
       {
-        title: "Vor Verkauf oder Vermietung in Schwelm",
+        title: "Schwelmer Altbau: Was wir vor der Sanierung prüfen",
         body:
-          "Nicht jede Investition steigert den Preis gleichermaßen. Wir zeigen, welche Punkte Käufer und Mieter typischerweise wahrnehmen – und wo Sie mit kleinem Aufwand viel erreichen.",
+          "Fachwerkhäuser im Bergischen Land haben oft unebene Wände, unterschiedliche Deckenhöhen und Konstruktionen, die man nicht auf den ersten Blick erkennt. Bevor wir ein Angebot erstellen, klären wir bei der Besichtigung: Welche Wände sind tragend? Gibt es Feuchteschäden im Mauerwerk? Wie ist die Substanz der Böden und Decken? Das verhindert böse Überraschungen mitten in der Sanierung.",
       },
       {
-        title: "Transparenz bei Kosten und Änderungen",
+        title: "Vor Vermietung oder Verkauf in Schwelm",
         body:
-          "Das Angebot basiert auf dem Besichtigungstermin. Wenn sich der Befund ändert, informieren wir Sie sofort und besprechen gemeinsam die nächsten Schritte.",
+          "Der Schwelmer Wohnungsmarkt belohnt gepflegten Bestand. Wir zeigen Ihnen, welche Investitionen Mieter und Käufer tatsächlich wahrnehmen – neue Badezimmerfliesen, frische Wände und ein sauberer Bodenbelag machen oft den entscheidenden Unterschied. Für größere Maßnahmen erstellen wir eine priorisierte Liste, damit Sie wissen, was zuerst erledigt werden sollte.",
       },
     ],
     faqs: [
       {
-        question: "Wie schnell bekomme ich in Schwelm einen Rückruf?",
+        question: "Arbeiten Sie auch in Schwelm an denkmalgeschützten Fachwerkhäusern?",
         answer:
-          "In der Regel innerhalb eines Werktags – bei dringenden Schäden bitten wir um kurze Kennzeichnung in der Nachricht.",
+          "Ja. Wir kennen die bergische Bauweise und verwenden bei historischen Gebäuden geeignete Materialien – zum Beispiel Kalkputze und diffusionsoffene Farben, die die Fachwerkkonstruktion schützen.",
       },
       {
-        question: "Übernehmen Sie auch Schadensanierung nach Leitungswasser?",
+        question: "Können Sie auch nach einem Wasserschaden in Schwelm helfen?",
         answer:
-          "Ja: Befund, Austausch betroffener Bereiche und Wiederherstellung der Oberflächen.",
+          "Ja: Befund aufnehmen, betroffene Bereiche austauschen, Oberflächen wiederherstellen. Auf Wunsch erstellen wir eine Dokumentation für die Versicherung.",
       },
       {
-        question: "Führen Sie auch nur Malerarbeiten durch?",
+        question: "Was ist der Vorteil eines Festpreisangebots?",
         answer:
-          "Ja, je nach Kapazität auch Einzelgewerke – sprechen Sie uns konkret an.",
+          "Sie wissen von Anfang an, was Sie ausgeben. Wo der Umfang klar definiert ist – z. B. bei einer Badsanierung mit festgelegten Materialien – bieten wir Festpreise an. Wenn sich der Befund ändert, informieren wir sofort.",
       },
       {
-        question: "Arbeiten Sie nur für Privatpersonen?",
+        question: "Führen Sie auch nur einzelne Gewerke durch, z. B. nur Malerarbeiten?",
         answer:
-          "Schwerpunkt ist privates Wohnen; gewerbliche Kleinobjekte sind nach Absprache möglich.",
+          "Ja, je nach Kapazität auch Einzelleistungen. Sprechen Sie uns konkret an – wir sagen ehrlich, ob und wann wir den Auftrag übernehmen können.",
       },
     ],
-    seoTitle: "Renovierung Schwelm | Zakho Bau – Bad, Sanierung, Ennepe-Ruhr",
+    seoTitle: "Sanierung Schwelm | Zakho Bau – Altbau, Bad, Malerarbeiten Kreisstadt",
     seoDescription:
-      "Sanierung in Schwelm: Badsanierung, Malerarbeiten, Umbau. Schnelle Rückmeldung, transparente Kosten. Jetzt Erstberatung bei Zakho Bau anfragen.",
+      "Zakho Bau in Schwelm: Badsanierung, Renovierung, Malerarbeiten und Instandsetzung. Erfahrung mit bergischem Altbau und Fachwerkhäusern. Jetzt kostenloses Angebot anfragen!",
     heroImage: "/standorte/schwelm.jpg",
-    heroImageAlt: "Schwelm – Sanierung und Handwerk mit Zakho Bau",
+    heroImageAlt: "Schwelm – Altbausanierung und Handwerk mit Zakho Bau",
     stats: [
       { value: "10+", label: "Jahre Erfahrung" },
       { value: "< 24h", label: "Rückmeldung" },
@@ -284,245 +310,278 @@ export const STANDORTE: StandortData[] = [
     ],
     regionTag: "Schwelm & Ennepe-Ruhr-Kreis",
   },
+
+  /* ══════════════════════════════════════════════════════════════════════
+     HAGEN – Großstadt, Gründerzeit-Altbau Wehringhausen & Hohenlimburg
+  ══════════════════════════════════════════════════════════════════════ */
   {
     slug: "hagen",
     name: "Hagen",
     theme: "dark",
-    headline: "Komplettleistungen rund ums Bauen in Hagen",
-    subline: "Renovierung, Sanierung und Innenausbau in der Ruhrgebietsstadt",
+    headline: "Altbau-Sanierung & Renovierung in Hagen",
+    subline: "Gründerzeit, Hohenlimburg, Haspe & Wehringhausen – mit Fachkenntnis und Verlässlichkeit",
     intro:
-      "Hagen als größere Stadt bietet vielfältige Immobilientypen – von Gründerzeitbauten über Nachkriegsbestand bis zu modernen Wohnanlagen. Zakho Bau übernimmt Sanierungs- und Innenausbauarbeiten in Hagen und bietet Ihnen die gewohnte Zuverlässigkeit aus dem Ennepe-Ruhr-Kreis.",
+      "Hagen ist mit rund 188.000 Einwohnern die größte Stadt in unserem Einsatzgebiet – und eine der baulich interessantesten. Wehringhausen hat mit fast 60 % einen der höchsten Altbauanteile von vor 1948 in ganz NRW. Hohenlimburg besticht durch seinen historischen Kern rund um Schloss Hohenlimburg. Haspe und Boele bieten günstigere Lagen mit hohem Aufwertungspotenzial. Zakho Bau übernimmt Sanierungs- und Innenausbauarbeiten in allen Hagener Stadtbezirken – mit Erfahrung, die in Gründerzeit-Altbauten den Unterschied macht.",
     introHighlight:
-      "Bei Projekten in Hagen planen wir Anfahrten und Materiallieferungen effizient, damit keine unnötigen Mehrkosten entstehen.",
-    highlightsSectionTitle: "Was Hagener Auftraggeber von uns erwarten dürfen",
+      "In Hagen kalkulieren wir Anfahrten und Materiallieferungen effizient in den Projektablauf ein – ohne versteckte Mehrkosten für Sie als Auftraggeber.",
+    highlightsSectionTitle: "Warum Hagener Auftraggeber auf Zakho Bau setzen",
     highlightsSectionLead:
-      "Professionelle Ausführung, klare Kommunikation und verlässliche Terminplanung – auch über die Kreisgrenze hinaus.",
+      "Erfahrung mit Altbau-Sanierungen, klare Kommunikation über Befunde und Kosten – und ein Handwerk, das die Gebäudestruktur in Hagen kennt.",
     highlights: [
-      "Erfahrung mit verschiedenen Gebäudetypen und Baualtersklassen",
-      "Klare Angebote ohne versteckte Positionen",
-      "Pünktliche Fertigstellung durch realistische Planung",
-      "Direkte Kommunikation mit dem Inhaber",
+      "Kenntnis der Hagener Baualtersstruktur: Gründerzeit in Wehringhausen, Historismus in Hohenlimburg",
+      "Realistische Befundaufnahme bei Altbau: Feuchte, Schäden und Überraschungen früh erkennen",
+      "Klare Angebote ohne versteckte Positionen – auch für größere Projekte",
+      "Direkte Kommunikation: Der Inhaber bleibt Ihr persönlicher Ansprechpartner",
     ],
     localFacts: [
       {
-        label: "Anfahrt",
-        text: "Von Gevelsberg aus gut erreichbar – effiziente Tourenplanung für Hagener Projekte.",
+        label: "Stadtbezirke",
+        text: "Hagen-Mitte/Nord, Wehringhausen (sanierte Altbauten, Volme-Nähe), Hohenlimburg (historischer Kern, Schloss), Haspe, Eilpe-Dahl, Boele.",
       },
       {
-        label: "Typische Aufträge",
-        text: "Badsanierungen, Wohnungsrenovierungen und Trockenbauarbeiten.",
+        label: "Altbauanteil",
+        text: "Wehringhausen-West: ca. 60 % der Wohngebäude aus der Zeit vor 1948 – einer der höchsten Werte in NRW.",
       },
       {
-        label: "Gebäudetypen",
-        text: "Gründerzeitbauten, Nachkriegsbestand und neuere Wohnanlagen.",
+        label: "Immobilienpreise 2026",
+        text: "Wehringhausen: 2.400–3.000 €/m² (sanierte Altbauten). Hohenlimburg: 2.200–2.800 €/m². Haspe: 1.400–1.800 €/m² (günstigstes Segment, hohes Aufwertungspotenzial).",
       },
     ],
     serviceFocus: {
-      title: "Unsere Leistungen in Hagen",
-      intro: "Wir führen alle gängigen Bauleistungen auch in Hagen aus.",
+      title: "Leistungsschwerpunkte in Hagen",
+      intro:
+        "In Hagen sind wir besonders auf Altbau-Sanierungen und Wohnungsrenovierungen in Gründerzeithäusern spezialisiert.",
       items: [
-        "Renovierung & Modernisierung von Wohnungen",
-        "Badsanierung mit Trockenbau und Fliesen",
-        "Malerarbeiten und Tapezieren",
-        "Bodenverlegung (Laminat, Parkett, Vinyl)",
-        "Außenarbeiten und Fassadengestaltung",
+        "Gründerzeit-Altbau: Instandsetzung von Stuck, Holzböden und historischen Wandoberflächen",
+        "Badsanierung in Altbauwohnungen – inkl. Abdichtung und Trockenbau",
+        "Wohnungsrenovierung vor Vermietung oder Wiederverkauf in Wehringhausen und Hohenlimburg",
+        "Trockenbau für neue Grundrisse in Mehrfamilienhäusern",
+        "Malerarbeiten: Putzsanierung, Spachtelarbeiten und Neuanstrich",
+        "Fassadenanstrich und kleinere Außenarbeiten auch in Haspe und Eilpe",
       ],
     },
     sections: [
       {
-        title: "Hagen: Vielfältige Immobilien, ein Ansprechpartner",
+        title: "Gründerzeit-Altbau in Hagen: Besonderheiten und Risiken",
         body:
-          "Die Gebäudevielfalt in Hagen erfordert differenziertes Vorgehen. Wir bewerten jedes Objekt individuell und beraten Sie zu den sinnvollsten Maßnahmen für Ihre Situation.",
+          "Wehringhausen und Hohenlimburg sind geprägt von massiver Vorkriegsbausubstanz. Typische Herausforderungen: Feuchtigkeit im Mauerwerk und in Kellern, marode Holzdielen, historische Wand- und Deckenkonstruktionen ohne Schallschutz und Stromleitungen, die nicht den heutigen Normen entsprechen. Wir nehmen bei der Besichtigung Zeit, um diese Punkte zu prüfen – so enthält Ihr Angebot realistische Positionen und keine Risiken.",
+      },
+      {
+        title: "Haspe & Hohenlimburg: Sanieren lohnt sich",
+        body:
+          "In Haspe liegen Kaufpreise noch bei 1.400–1.800 €/m² – ein Markt, der gut sanierten Wohnraum belohnt. Hohenlimburg kombiniert historischen Charme mit naturnaher Lage am Lennetal. In beiden Stadtteilen haben wir Projekte durchgeführt und kennen die typischen Sanierungsbedarfe der dortigen Bestandsgebäude. Ein gut geplantes Renovierungsbudget zahlt sich hier schnell aus.",
       },
     ],
     faqs: [
       {
-        question: "Arbeiten Sie in ganz Hagen?",
+        question: "Arbeiten Sie in ganz Hagen – auch in Haspe und Hohenlimburg?",
         answer:
-          "Ja, wir betreuen Projekte im gesamten Hagener Stadtgebiet.",
+          "Ja, wir betreuen Projekte in allen Hagener Stadtbezirken: Mitte, Nord, Wehringhausen, Hohenlimburg, Haspe, Eilpe-Dahl und Boele.",
       },
       {
         question: "Gibt es Mehrkosten für die Anfahrt nach Hagen?",
         answer:
-          "Das klären wir individuell im Angebot – bei größeren Projekten fällt die Anfahrt nicht ins Gewicht.",
+          "Bei größeren Projekten fällt die Anfahrt nicht ins Gewicht und wird im Angebot berücksichtigt. Für kleinere Einzelleistungen klären wir das transparent vorab.",
       },
       {
-        question: "Wie schnell kann ich ein Angebot erhalten?",
+        question: "Wie gehen Sie mit verdeckten Schäden im Altbau um?",
         answer:
-          "Nach einer Besichtigung erstellen wir Ihnen in der Regel binnen weniger Tage ein Angebot.",
+          "Wir stoppen die Arbeit, dokumentieren den Befund mit Fotos und sprechen sofort mit Ihnen. Dann besprechen wir gemeinsam Optionen mit klaren Kostenfolgen – ohne Überraschungen auf der Schlussrechnung.",
       },
       {
-        question: "Führen Sie auch Gründerzeitbau-Sanierungen durch?",
+        question: "Führen Sie auch Gründerzeitbau-Sanierungen in Wehringhausen durch?",
         answer:
-          "Ja, Altbau ist unser Alltag – wir kennen die typischen Herausforderungen und gehen pragmatisch vor.",
+          "Ja. Altbau ist unser Alltag. Stuck, Holzdielen, Kalkputz – wir kennen die Materialien und Methoden, mit denen historische Bausubstanz langfristig erhalten wird.",
       },
     ],
-    seoTitle: "Renovierung Hagen | Zakho Bau – Bad, Innenausbau, Sanierung",
+    seoTitle: "Altbau-Sanierung Hagen | Zakho Bau – Wehringhausen, Hohenlimburg, Haspe",
     seoDescription:
-      "Zakho Bau in Hagen: Renovierung, Badsanierung, Trockenbau und Malerarbeiten. Persönliche Beratung, verlässliche Ausführung. Jetzt anfragen!",
+      "Zakho Bau in Hagen: Altbau-Sanierung, Badsanierung, Trockenbau und Malerarbeiten in Wehringhausen, Hohenlimburg und Haspe. Erfahrung mit Gründerzeit-Gebäuden. Jetzt anfragen!",
     heroImage: "/standorte/hagen.jpg",
-    heroImageAlt: "Hagen – Bau & Sanierung mit Zakho Bau",
+    heroImageAlt: "Hagen – Altbau-Sanierung und Renovierung mit Zakho Bau",
     regionTag: "Hagen & Umgebung",
   },
+
+  /* ══════════════════════════════════════════════════════════════════════
+     WUPPERTAL – Hanglagen, Gründerzeit, Schwebebahn-Stadt
+  ══════════════════════════════════════════════════════════════════════ */
   {
     slug: "wuppertal",
     name: "Wuppertal",
     theme: "slate",
-    headline: "Renovierung & Sanierung in Wuppertal",
-    subline: "Bau- und Innenausbauarbeiten in der Bergischen Metropole",
+    headline: "Renovierung & Sanierung in Wuppertal – mit Hanglagen-Expertise",
+    subline: "Elberfeld, Barmen & die bergischen Gründerzeithäuser – fachgerecht saniert",
     intro:
-      "Wuppertal ist mit seiner vielfältigen Bausubstanz – von Gründerzeitbauten bis zu modernen Wohnanlagen – ein wichtiger Bestandteil unseres Einsatzgebiets. Zakho Bau übernimmt Renovierungen und Sanierungen in Wuppertal und bringt die gewohnte Qualität aus Gevelsberg mit.",
+      "Wuppertal ist anders als andere Städte: Das Tal der Wupper, die steilen Hanglagen und die zwei historischen Stadtzentren Elberfeld und Barmen prägen jeden Bauauftrag. Gründerzeitliche Villenviertel wie Brill, Zoo und Toelleturm, Schieferfassaden im bergischen Stil und feuchtegefährdete Keller durch Hangwasser – wer hier saniert, braucht Erfahrung mit den spezifischen Anforderungen dieser Stadt. Zakho Bau bringt genau diese Erfahrung mit.",
     introHighlight:
-      "In Wuppertal planen wir Projekte mit Blick auf die besonderen Anforderungen der Hanglagen und dicht besiedelten Stadtteile.",
-    highlightsSectionTitle: "Warum Wuppertaler Kunden Zakho Bau wählen",
+      "Bei Sanierungen in Wuppertaler Hanglagen planen wir Materialtransport, Gerüstbau und Zugangswege gezielt ein – damit keine unnötigen Mehrkosten entstehen und der Zeitplan hält.",
+    highlightsSectionTitle: "Warum Wuppertaler Auftraggeber Zakho Bau wählen",
     highlightsSectionLead:
-      "Verlässliche Handwerksleistung, transparente Kommunikation und Erfahrung mit der vielschichtigen Wuppertaler Bausubstanz.",
+      "Hanglagen-Kenntnis, Erfahrung mit bergischer Gründerzeitarchitektur und ein klares Wort zur Bausubstanz – ohne Schönfärberei.",
     highlights: [
-      "Erfahrung mit Hanglagen und Altbausubstanz",
-      "Klare Ansprechpartner, keine langen Kommunikationsketten",
-      "Transparente Angebote mit nachvollziehbaren Positionen",
-      "Termintreue durch realistische Planung",
+      "Erfahrung mit Hanglagen: Logistik, Gerüst und Zugangswege werden mitgeplant",
+      "Kenntnisse der bergischen Bautradition: Schieferfassaden, Fachwerkkonstruktionen, Kalkputze",
+      "Feuchte Keller durch Hangwasser: wir erkennen die Ursachen und empfehlen wirksame Lösungen",
+      "Transparente Angebote – auch wenn das Ergebnis der Befundaufnahme unbequem ist",
     ],
     localFacts: [
       {
         label: "Stadtteile",
-        text: "Wir betreuen Projekte im gesamten Wuppertaler Stadtgebiet.",
+        text: "Elberfeld, Barmen, Vohwinkel, Ronsdorf, Cronenberg, Beyenburg – wir arbeiten im gesamten Wuppertaler Stadtgebiet.",
       },
       {
-        label: "Gebäudetypen",
-        text: "Gründerzeit, Nachkriegsbestand und modernisierte Mehrfamilienhäuser.",
+        label: "Besondere Herausforderung",
+        text: "Hanglagen mit erdberührten Kellerwänden, unterschiedliche Geschosshöhen und hohe Niederschlagsmengen erhöhen das Feuchtigkeitsrisiko in älteren Gebäuden.",
       },
       {
-        label: "Besonderheit",
-        text: "Hanglagen erfordern besondere Logistik – wir planen entsprechend.",
+        label: "Bausubstanz",
+        text: "Größte zusammenhängende Villenviertel der Gründerzeit in NRW (Brill, Zoo, Toelleturm), Schieferhäuser in Cronenberg und Beyenburg, Nachkriegsbauten in Vohwinkel.",
       },
     ],
     serviceFocus: {
-      title: "Leistungen in Wuppertal",
-      intro: "Alle gängigen Bauleistungen – auch in Wuppertal.",
+      title: "Leistungsschwerpunkte in Wuppertal",
+      intro:
+        "In Wuppertal arbeiten wir besonders häufig an Gründerzeitgebäuden, Hanglagen und Objekten mit Feuchtigkeitsproblemen.",
       items: [
-        "Badsanierung inklusive Abdichtung, Fliesen und Anschlüssen",
-        "Trockenbau für neue Raumaufteilungen",
-        "Malerarbeiten und Bodenverlegung",
-        "Renovierung vor Neuvermietung oder Verkauf",
-        "Außenarbeiten und Fassadenrenovierung",
+        "Altbausanierung in Elberfeld und Barmen: Putz, Böden, Trockenbau",
+        "Badsanierung mit besonderer Abdichtung in feuchtigkeitsgefährdeten Altbauten",
+        "Malerarbeiten in Villenhäusern der Gründerzeit inkl. Stuckrestaurierung",
+        "Fassadenanstrich an Schieferhäusern in Cronenberg und Beyenburg",
+        "Trockenbau für neue Raumaufteilungen in Mehrfamilienhäusern",
+        "Bodenverlegung (Parkett, Vinyl, Fliesen) in Wohnungen aller Baualtersklassen",
       ],
     },
     sections: [
       {
-        title: "Altbau in Wuppertal: Was wir prüfen",
+        title: "Feuchte Keller in Wuppertaler Hanglagen",
         body:
-          "Bei Bestandsgebäuden klären wir früh, welche Wände tragend sind, wo Leitungen liegen und ob Feuchte oder Schäden auf eine Ursache hindeuten. Das verhindert teure Überraschungen mitten in der Sanierung.",
+          "Wuppertal zählt zu den regenreichsten Städten im Ruhrgebiet, und viele Häuser in Hanglagen kämpfen mit aufsteigender Feuchtigkeit oder Druckwasser an den Kellerwänden. Typische Anzeichen: Abplatzender Putz, Salzausblühungen, Schimmelflecken. Bevor wir hier sanieren, klären wir die Ursache: Fehlt eine Horizontalsperre? Ist die Drainage verstopft? Liegt das Gebäude im Bereich von Hangwasser? Je nach Befund empfehlen wir die passende Lösung – von Sanierputz bis zur Abdichtung von außen.",
+      },
+      {
+        title: "Gründerzeit-Villen in Elberfeld und Barmen",
+        body:
+          "Die Villengebiete Brill, Zoo und Toelleturm sind architektonisch einzigartig und für Renovierungsprojekte eine besondere Aufgabe. Hohe Stuckdecken, Holzparkett aus der Jahrhundertwende, historische Holztüren und Treppenhäuser – all das verdient eine sorgfältige Bestandsaufnahme, bevor der erste Nagel gesetzt wird. Wir bewahren, was erhaltenswert ist, und sanieren das, was nicht mehr dem heutigen Standard entspricht.",
       },
     ],
     faqs: [
       {
-        question: "Sind Sie in allen Wuppertaler Stadtteilen tätig?",
+        question: "Wie planen Sie Projekte in Wuppertaler Hanglagen?",
         answer:
-          "Ja, wir betreuen Projekte im gesamten Stadtgebiet – von Elberfeld bis Cronenberg.",
+          "Wir besichtigen das Objekt vor der Angebotserstellung und prüfen Zufahrten, Gerüstmöglichkeiten und Materialtransportwege. Das wird im Angebot berücksichtigt – keine Überraschungen beim Rechnungsbetrag.",
       },
       {
-        question: "Wie gehen Sie mit Hanglagen um?",
+        question: "Was tun bei einem feuchten Keller in einem Altbau?",
         answer:
-          "Wir planen Materialtransport und Arbeitsschritte so, dass Hanglagen keine unnötigen Mehrkosten verursachen.",
+          "Zuerst die Ursache klären: aufsteigende Feuchtigkeit, Druckwasser oder undichte Leitungen verursachen unterschiedliche Schäden und erfordern verschiedene Lösungen. Wir besichtigen und beraten Sie ehrlich zu den Optionen.",
       },
       {
-        question: "Können Sie Modernisierungen für Vermieter abwickeln?",
+        question: "Arbeiten Sie auch in Cronenberg und Beyenburg?",
         answer:
-          "Ja – wir dokumentieren den Fortschritt nachvollziehbar für Eigentümer und Verwaltungen.",
+          "Ja. Wir sind im gesamten Wuppertaler Stadtgebiet tätig – auch in den peripheren Stadtteilen mit bergischer Bausubstanz.",
       },
       {
-        question: "Was passiert bei unerwarteten Schäden im Altbau?",
+        question: "Können Sie auch Modernisierungen für Vermieter mit mehreren Einheiten abwickeln?",
         answer:
-          "Wir stoppen, zeigen Ihnen den Befund und besprechen Optionen mit klaren Kostenfolgen – keine Überraschungen.",
+          "Ja. Wir dokumentieren Fortschritt und Leistungsumfang nachvollziehbar und kommunizieren so, dass auch Eigentümer, die nicht vor Ort sind, jederzeit informiert sind.",
       },
     ],
-    seoTitle: "Bau & Sanierung Wuppertal | Zakho Bau – Altbau, Bad, Trockenbau",
+    seoTitle: "Renovierung Wuppertal | Zakho Bau – Altbau Elberfeld, Barmen, Hanglagen",
     seoDescription:
-      "Renovierung und Sanierung in Wuppertal: Badsanierung, Trockenbau, Malerarbeiten. Persönliche Beratung, feste Ansprechpartner. Zakho Bau – Jetzt anfragen.",
+      "Zakho Bau in Wuppertal: Altbau-Sanierung in Elberfeld und Barmen, Badsanierung, Trockenbau, Malerarbeiten. Erfahrung mit Hanglagen und Gründerzeitgebäuden. Jetzt anfragen!",
     heroImage: "/standorte/wuppertal.jpg",
-    heroImageAlt: "Wuppertal – Sanierung und Renovierung mit Zakho Bau",
+    heroImageAlt: "Wuppertal – Altbau-Sanierung und Renovierung mit Zakho Bau",
     regionTag: "Wuppertal & Bergisches Land",
   },
+
+  /* ══════════════════════════════════════════════════════════════════════
+     WITTEN – Ruhrtal, Kemnader See, Stadterneuerung Heven
+  ══════════════════════════════════════════════════════════════════════ */
   {
     slug: "witten",
-    name: "Witten & Umgebung",
+    name: "Witten",
     theme: "warm",
-    headline: "Trockenbau, Malerarbeiten & Bodenbeläge in Witten",
-    subline: "Qualitätshandwerk aus Gevelsberg auch in Witten",
+    headline: "Renovierung & Fassadensanierung in Witten – Ruhrtal & Kemnader See",
+    subline: "Von Heven bis Annen: Qualitätshandwerk für alle Wittener Stadtteile",
     intro:
-      "Witten und seine Umgebung gehören zu unserem erweiterten Einsatzgebiet. Wir führen Innenausbauarbeiten, Malerarbeiten und Bodenverlegungen in Witten durch und bringen die bewährte Qualität von Zakho Bau auch dorthin.",
+      "Witten liegt zwischen dem Ruhrtaler Grün, dem Kemnader Stausee und dem bergbaugeprägten Stadtbild der Gründerzeit. Die Stadtteile unterscheiden sich stark: Heven ist Wittens teuerste Wohnlage und liegt direkt am Kemnader See – hier sind Objekte rar und Qualität entscheidend. Annen ist der zentrale, gut angebundene Stadtteil für Pendler. Stockum bietet ruhiges Wohnen im Grünen. Und im Stadterneuerungsgebiet Heven-Ost/Crengeldanz fördert die Stadt Witten aktuell Fassaden- und Hofsanierungen für Eigentümer. Zakho Bau ist in allen Wittener Stadtteilen für Sie tätig.",
     introHighlight:
-      "Für Wittener Projekte planen wir Anfahrten und Materiallieferungen effizient, damit Ihr Vorhaben reibungslos abläuft.",
-    highlightsSectionTitle: "Was Wittener Kunden von uns erwarten dürfen",
+      "Im Wittener Fassadenprogramm (Stadterneuerungsgebiet Heven-Ost/Crengeldanz) werden Außenanstriche und Fassadenarbeiten öffentlich gefördert – fragen Sie uns, ob Ihr Objekt förderfähig ist.",
+    highlightsSectionTitle: "Was Wittener Auftraggeber von uns erwarten dürfen",
     highlightsSectionLead:
-      "Die gleiche Verlässlichkeit und Qualität wie am Heimatstandort – auch in Witten.",
+      "Zuverlässige Ausführung, Kenntnis der Wittener Wohnlagen und ein offener Hinweis, wenn Fördergelder für Ihre Maßnahme in Frage kommen.",
     highlights: [
-      "Zuverlässige Ausführung auch im erweiterten Einsatzgebiet",
-      "Klare Kommunikation und transparente Angebote",
-      "Erfahrung mit verschiedenen Gebäudetypen",
-      "Persönlicher Ansprechpartner vom Inhaber",
+      "Kenntnis der Wittener Stadtteile: Heven, Annen, Stockum, Herbede, Heven-Ost",
+      "Hinweis auf Fördermöglichkeiten im Stadterneuerungsgebiet Heven-Ost/Crengeldanz",
+      "Fassadensanierung, Außenanstrich und Bodenverlegung aus einer Hand",
+      "Termintreue und transparente Kosten – auch im erweiterten Einsatzgebiet",
     ],
     localFacts: [
       {
-        label: "Erreichbarkeit",
-        text: "Von Gevelsberg aus über gut ausgebaute Verbindungen erreichbar.",
+        label: "Stadtteile",
+        text: "Heven (Premium-Lage am Kemnader See), Annen (zentral, Pendler), Stockum (ruhig, familienfreundlich), Herbede, Crengeldanz, Heven-Ost.",
       },
       {
-        label: "Typische Aufträge",
-        text: "Trockenbau, Malerarbeiten, Bodenbeläge und Badsanierungen.",
+        label: "Immobilienpreise 2026",
+        text: "Heven (Toplage): 2.500–3.800 €/m². Mittlere Lagen (Stockum, Annen, Herbede): 280.000–420.000 € für Häuser. Stabiler Markt mit Nachfrageüberschuss.",
       },
       {
-        label: "Besonderheit",
-        text: "Mischung aus Bergbau-Erbschaft und modernen Wohnquartieren.",
+        label: "Stadterneuerung",
+        text: "Im Fördergebiet Heven-Ost/Crengeldanz unterstützt die Stadt Witten Fassadensanierungen und Hofsanierungen mit Zuschüssen. Wir beraten Sie bei der Antragstellung.",
       },
     ],
     serviceFocus: {
-      title: "Unsere Leistungen in Witten",
-      intro: "Wir übernehmen auch in Witten alle gängigen Bauleistungen.",
+      title: "Leistungsschwerpunkte in Witten",
+      intro:
+        "In Witten führen wir vor allem Fassadenarbeiten, Innenrenovierungen und Badsanierungen durch – mit Blick auf die lokalen Förderkulissen.",
       items: [
-        "Trockenbau für Raumteilungen und Innenausbau",
-        "Malerarbeiten und Tapezieren",
-        "Bodenverlegung (Laminat, Parkett, Fliesen)",
-        "Badsanierung aus einer Hand",
-        "Renovierung vor Vermietung oder Verkauf",
+        "Fassadenanstrich und Außenputz – auch im geförderten Bereich Heven-Ost",
+        "Badsanierung in Altbau- und Nachkriegswohnungen in Annen und Herbede",
+        "Wohnungsrenovierung vor Vermietung oder Eigennutzung in Heven und Stockum",
+        "Trockenbau und Innenausbau in Mehrfamilienhäusern",
+        "Bodenverlegung: Parkett für gehobene Lagen, Vinyl und Laminat für Mietwohnungen",
+        "Malerarbeiten und Tapezieren für Privatpersonen und Vermieter",
       ],
     },
     sections: [
       {
-        title: "Witten: Qualität ohne Abstriche",
+        title: "Heven und der Kemnader See: Qualität, die bleibt",
         body:
-          "Auch in Witten gilt unser Anspruch: saubere Ausführung, ehrliche Kommunikation und pünktliche Fertigstellung. Die Entfernung ändert nichts an unseren Standards.",
+          "In der Premium-Lage Heven sind Objekte selten und Auftraggeber anspruchsvoll – zu Recht. Wir arbeiten hier mit besonderem Augenmerk auf Details: saubere Übergänge beim Bodenbelag, exakte Fugenbilder im Bad, makellose Wandoberflächen nach dem Malerauftrag. In einer Wohnlage, in der Preise von 2.500 bis 3.800 €/m² erzielt werden, macht die Ausführungsqualität den Unterschied.",
+      },
+      {
+        title: "Heven-Ost und Crengeldanz: Fördergelder für Fassadensanierung",
+        body:
+          "Die Stadt Witten fördert im Stadterneuerungsgebiet Heven-Ost/Crengeldanz Fassadensanierungen, Hofgestaltungen und Begrünungsmaßnahmen für private Eigentümer. Wir helfen Ihnen dabei, die Förderfähigkeit Ihrer Maßnahme zu klären und begleiten Sie bei der Umsetzung. Fragen Sie uns direkt – wir geben Ihnen eine realistische Einschätzung, bevor Sie den Antrag stellen.",
       },
     ],
     faqs: [
       {
-        question: "Führen Sie auch in Witten Arbeiten durch?",
+        question: "Können Sie Fassadenarbeiten im Fördergebiet Heven-Ost/Crengeldanz übernehmen?",
         answer:
-          "Ja, Witten gehört zu unserem Einsatzgebiet. Kontaktieren Sie uns für eine Besichtigung.",
+          "Ja. Wir kennen das Förderprogramm der Stadt Witten und führen Fassadenarbeiten durch, die für eine Förderung in Betracht kommen. Sprechen Sie uns an – wir helfen Ihnen bei der Einschätzung.",
       },
       {
-        question: "Entstehen Mehrkosten für die Anfahrt?",
+        question: "Welche Arbeiten bieten Sie in Heven an?",
         answer:
-          "Das klären wir individuell im Angebot – bei größeren Projekten fallen Anfahrtskosten kaum ins Gewicht.",
+          "In Heven führen wir hochwertige Renovierungen, Badsanierungen, Parkett- und Bodenverlegungen sowie Malerarbeiten durch. Wir richten uns nach dem Standard, den die Lage erfordert.",
       },
       {
-        question: "Welche Leistungen bieten Sie in Witten an?",
+        question: "Entstehen Mehrkosten für die Anfahrt nach Witten?",
         answer:
-          "Alle gängigen Bauleistungen: Renovierung, Trockenbau, Maler, Boden und Badsanierung.",
+          "Das klären wir im Angebot. Bei größeren Projekten fallen Anfahrtskosten kaum ins Gewicht. Bei kleineren Einzelleistungen sprechen wir das transparent an.",
       },
       {
-        question: "Wie schnell kann ich ein Angebot erhalten?",
+        question: "Wie schnell kann ich einen Besichtigungstermin in Witten bekommen?",
         answer:
-          "Nach einer Besichtigung in der Regel binnen weniger Tage.",
+          "Wir melden uns in der Regel innerhalb eines Werktags. Besichtigungstermine in Witten vereinbaren wir zeitnah – auch für Annen, Stockum und Herbede.",
       },
     ],
-    seoTitle: "Renovierung Witten | Zakho Bau – Trockenbau, Maler, Bodenbeläge",
+    seoTitle: "Renovierung Witten | Zakho Bau – Heven, Annen, Fassade, Badsanierung",
     seoDescription:
-      "Zakho Bau in Witten: Trockenbau, Malerarbeiten, Bodenbeläge und Badsanierung. Qualität aus Gevelsberg. Jetzt anfragen!",
+      "Zakho Bau in Witten: Fassadensanierung, Badsanierung, Malerarbeiten und Renovierung in Heven, Annen und Stockum. Hinweis auf Fördergelder im Stadterneuerungsgebiet. Jetzt anfragen!",
     heroImage: "/standorte/witten.jpg",
-    heroImageAlt: "Witten – Bau & Sanierung mit Zakho Bau",
-    regionTag: "Witten & Umgebung",
+    heroImageAlt: "Witten – Renovierung und Fassadensanierung mit Zakho Bau",
+    regionTag: "Witten & Ruhrtal",
   },
 ];
 

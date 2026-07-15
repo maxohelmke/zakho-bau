@@ -1,4 +1,4 @@
-﻿import { motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { Phone } from "lucide-react";
 import schaufensterImg from "@/assets/zakho-schaufenster.jpg";
 import ladenImg from "@/assets/zakho-laden.jpg";

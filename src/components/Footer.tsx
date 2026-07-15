@@ -1,4 +1,4 @@
-﻿import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { STANDORTE } from "@/data/standorte";
 import helmkeLogo from "@/assets/HD_SMALL_MONO.png";
 import logo from "@/assets/zakho-bau-logo.png";
@@ -14,14 +14,10 @@ const navLinks = [
 
 const Footer = () => (
   <footer className="relative w-full overflow-hidden bg-[#0f0f0f]">
-    {/* Oberkante: roter Akzentstreifen */}
     <div className="h-px w-full bg-accent" />
 
-    {/* Hauptbereich */}
     <div className="container mx-auto container-pad py-16 sm:py-20">
       <div className="grid gap-12 sm:gap-14 lg:grid-cols-[1fr_auto_auto_auto]">
-
-        {/* Brand-Statement */}
         <div className="max-w-xs">
           <Link to="/" className="mb-5 inline-block" aria-label="Zakho Bau – Startseite">
             <img
@@ -48,7 +44,6 @@ const Footer = () => (
           </div>
         </div>
 
-        {/* Navigation */}
         <div>
           <p className="mb-5 text-[11px] font-bold uppercase tracking-[0.25em] text-white/30">
             Seiten
@@ -66,7 +61,6 @@ const Footer = () => (
           </nav>
         </div>
 
-        {/* Standorte */}
         <div>
           <p className="mb-5 text-[11px] font-bold uppercase tracking-[0.25em] text-white/30">
             Standorte
@@ -84,7 +78,6 @@ const Footer = () => (
           </div>
         </div>
 
-        {/* Rechtliches */}
         <div>
           <p className="mb-5 text-[11px] font-bold uppercase tracking-[0.25em] text-white/30">
             Rechtliches
@@ -104,7 +97,6 @@ const Footer = () => (
       </div>
     </div>
 
-    {/* Bottom bar */}
     <div className="border-t border-white/8">
       <div className="relative container mx-auto flex flex-col items-center justify-center gap-3 container-pad py-5 sm:flex-row sm:justify-between">
         <p className="text-xs text-white/25">

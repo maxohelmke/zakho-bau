@@ -1,4 +1,4 @@
-﻿import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { readCookieConsent, type CookieConsent, writeCookieConsent } from "@/lib/cookie-consent";
 
 export type ConsentState = CookieConsent | null;

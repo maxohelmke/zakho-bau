@@ -9,15 +9,18 @@ import Testimonials from "@/components/Testimonials";
 import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import SeoRegionSection from "@/components/SeoRegionSection";
 import { usePageSeo } from "@/hooks/use-page-seo";
+import { SITE_ORIGIN } from "@/seo/sitemap-config";
+import { BUSINESS_ID, breadcrumbList } from "@/seo/schema-helpers";
 
 const Index = () => {
   usePageSeo({
-    title: "Zakho Bau | Renovierung & Sanierung Gevelsberg · Ennepe-Ruhr-Kreis",
+    title: "Zakho Bau | Bauunternehmen Gevelsberg · Renovierung NRW",
     description:
-      "Zakho Bau – Fachbetrieb für Renovierung, Sanierung, Trockenbau und Innenausbau in Gevelsberg. Alle Gewerke aus einer Hand. Kostenlose Beratung ☎ 02332 8439131",
+      "Bauunternehmen Gevelsberg: Renovierung, Sanierung & Innenausbau im Ennepe-Ruhr-Kreis. Alle Gewerke aus einer Hand. Kostenlose Beratung ☎ 02332 8439131",
     path: "/",
-    image: "https://www.zakho-bau.de/og-image.jpg",
+    image: `${SITE_ORIGIN}/og-image.jpg`,
     structuredData: [
       {
         "@context": "https://schema.org",
@@ -25,20 +28,9 @@ const Index = () => {
         name: "Zakho Bau – Renovierung & Sanierung in Gevelsberg",
         description:
           "Renovierung, Sanierung und Innenausbau in Gevelsberg und im Ennepe-Ruhr-Kreis.",
-        url: "https://www.zakho-bau.de/",
+        url: `${SITE_ORIGIN}/`,
       },
-      {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        itemListElement: [
-          {
-            "@type": "ListItem",
-            position: 1,
-            name: "Startseite",
-            item: "https://www.zakho-bau.de/",
-          },
-        ],
-      },
+      breadcrumbList([{ name: "Startseite", path: "/" }]),
     ],
   });
 
@@ -62,6 +54,17 @@ const Index = () => {
       <Testimonials />
       {/* 8. Über uns */}
       <About />
+      <SeoRegionSection
+        variant="editorial"
+        eyebrow="Bauunternehmen · Ennepe-Ruhr-Kreis"
+        title="Ihr Bauunternehmen in Gevelsberg und dem Ennepe-Ruhr-Kreis"
+        paragraphs={[
+          "Zakho Bau ist seit 2014 Ihr inhabergeführtes Bauunternehmen in Gevelsberg. Wir planen und realisieren Renovierungen, Sanierungen und Innenausbauten für Privatkunden, Vermieter und Gewerbetreibende – vom einzelnen Raum bis zur schlüsselfertigen Komplettsanierung. Unser Team koordiniert alle Gewerke selbst: Trockenbau, Malerarbeiten, Bodenbeläge, Fliesenarbeiten, Badsanierung und Fassadenarbeiten laufen bei uns aus einer Hand.",
+          "Als regional verwurzelter Betrieb kennen wir die Bausubstanz im Ennepe-Ruhr-Kreis genau – von Altbauten in Gevelsberg-Mitte über Nachkriegsbestand in Schwelm bis zu modernen Wohnquartieren in Ennepetal. Das spart Zeit bei der Planung und vermeidet böse Überraschungen auf der Baustelle. Ob Wohnungsrenovierung vor dem Einzug, Badrenovierung in Hagen oder Innenausbau in Ennepetal: Wir erstellen nach einer kostenlosen Besichtigung ein transparentes Festpreisangebot.",
+          "Schlüsselfertigbau in NRW bedeutet für uns: Sie haben einen festen Ansprechpartner, klare Termine und saubere Baustellen. Rinas Mola und sein Team sind persönlich erreichbar – im Ladenlokal an der Hagener Straße 44, telefonisch oder per E-Mail. Viele Auftraggeber finden uns über Empfehlungen; wir investieren zunehmend in lokale Sichtbarkeit, damit Bauherren in Gevelsberg, Hagen, Wuppertal und Witten Zakho Bau auch online finden.",
+          "Sie planen ein Projekt? Rufen Sie uns an unter 02332 8439131 oder stellen Sie eine unverbindliche Anfrage über unsere Website. In der Regel melden wir uns innerhalb von 24 Stunden und vereinbaren einen Vor-Ort-Termin – kostenlos und ohne Verpflichtung.",
+        ]}
+      />
       {/* 9. Kontakt */}
       <Contact />
       {/* 10. Footer */}

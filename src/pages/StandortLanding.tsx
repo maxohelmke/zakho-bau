@@ -1,4 +1,4 @@
-﻿import { useMemo } from "react";
+import { useMemo } from "react";
 import { motion } from "framer-motion";
 import { Link, useParams } from "react-router-dom";
 import {
@@ -30,7 +30,7 @@ import { STANDORTE, getStandortBySlug, type StandortData, type StandortTheme } f
 import NotFound from "@/pages/NotFound";
 import { SITE_ORIGIN } from "@/seo/sitemap-config";
 
-/* ── Theme-Tokens ─────────────────────────────────────────────────────── */
+/* -- Theme-Tokens ------------------------------------------------------- */
 const THEMES: Record<StandortTheme, {
   heroOverlay: string;
   heroBg: string;
@@ -91,7 +91,7 @@ const THEMES: Record<StandortTheme, {
 
 const DEFAULT_STATS = [
   { value: "10+",  label: "Jahre Erfahrung" },
-  { value: "< 24h", label: "Rückmeldung" },
+  { value: "< 24h", label: "Rï¿½ckmeldung" },
   { value: "1",    label: "Ansprechpartner" },
 ];
 
@@ -104,7 +104,7 @@ const PROCESS_STEPS = [
 
 const HIGHLIGHT_ICONS = [Shield, Timer, Users, CheckCircle2];
 
-/* ── StandortContent ──────────────────────────────────────────────────── */
+/* -- StandortContent ---------------------------------------------------- */
 const StandortContent = ({ standort }: { standort: StandortData }) => {
   const t   = THEMES[standort.theme];
   const stats = standort.stats ?? DEFAULT_STATS;
@@ -135,12 +135,12 @@ const StandortContent = ({ standort }: { standort: StandortData }) => {
         "@type": "Service",
         name: `Bau und Sanierung ${standort.name}`,
         description: `${standort.intro} ${standort.introHighlight}`,
-        areaServed: { "@type": "City", name: standort.name },
-        provider: {
-          "@type": "HomeAndConstructionBusiness",
-          name: "Zakho Bau",
-          email: "info@zakho-bau.de",
+        areaServed: {
+          "@type": "City",
+          name: standort.name,
+          containedInPlace: { "@type": "AdministrativeArea", name: "Nordrhein-Westfalen" },
         },
+        provider: { "@id": `${SITE_ORIGIN}/#business` },
       },
       {
         "@context": "https://schema.org",
@@ -165,7 +165,7 @@ const StandortContent = ({ standort }: { standort: StandortData }) => {
   return (
     <div className="min-h-screen min-w-0 max-w-full overflow-x-hidden bg-background">
 
-      {/* ── Hero ─────────────────────────────────────────────────────────── */}
+      {/* -- Hero ----------------------------------------------------------- */}
       <section className="relative flex min-h-[min(90vh,780px)] flex-col justify-end overflow-hidden pb-0 pt-20">
         {/* Hintergrundbild */}
         <img
@@ -184,7 +184,7 @@ const StandortContent = ({ standort }: { standort: StandortData }) => {
         {/* Akzentlinie oben */}
         <div className={`absolute left-0 top-0 z-10 h-[3px] w-full ${t.accentBar}`} />
 
-        {/* Riesiger Stadtname im Hintergrund – dekorativ */}
+        {/* Riesiger Stadtname im Hintergrund ï¿½ dekorativ */}
         <div
           aria-hidden
           className="pointer-events-none absolute inset-x-0 bottom-0 select-none overflow-hidden"
@@ -264,7 +264,7 @@ const StandortContent = ({ standort }: { standort: StandortData }) => {
         </div>
       </section>
 
-      {/* ── Stats-Streifen ───────────────────────────────────────────────── */}
+      {/* -- Stats-Streifen ------------------------------------------------- */}
       <section className={t.statsBg}>
         <div className="container mx-auto container-pad">
           <div className="grid grid-cols-3 divide-x divide-white/10">
@@ -285,7 +285,7 @@ const StandortContent = ({ standort }: { standort: StandortData }) => {
         </div>
       </section>
 
-      {/* ── Intro + Highlight-Quote ──────────────────────────────────────── */}
+      {/* -- Intro + Highlight-Quote ---------------------------------------- */}
       <section className="section-pad-sm bg-background">
         <div className="container mx-auto container-pad">
           <div className="grid gap-12 lg:grid-cols-[1.2fr_1fr] lg:items-center lg:gap-20">
@@ -331,12 +331,12 @@ const StandortContent = ({ standort }: { standort: StandortData }) => {
         </div>
       </section>
 
-      {/* ── Ablauf – horizontale Timeline ───────────────────────────────── */}
+      {/* -- Ablauf ï¿½ horizontale Timeline --------------------------------- */}
       <section className={`section-pad-sm ${t.sectionAlt}`}>
         <div className="container mx-auto container-pad">
           <div className="mb-10 text-center">
             <p className={`mb-2 text-xs font-bold uppercase tracking-[0.25em] ${t.tagText}`}>Ihr Weg zu uns</p>
-            <h2 className="text-white">So läuft Ihr Projekt ab</h2>
+            <h2 className="text-white">So lï¿½uft Ihr Projekt ab</h2>
           </div>
 
           <div className="relative grid grid-cols-2 gap-6 md:grid-cols-4">
@@ -366,7 +366,7 @@ const StandortContent = ({ standort }: { standort: StandortData }) => {
         </div>
       </section>
 
-      {/* ── Leistungsschwerpunkte ────────────────────────────────────────── */}
+      {/* -- Leistungsschwerpunkte ------------------------------------------ */}
       <section className="section-pad-sm bg-background">
         <div className="container mx-auto container-pad">
           <div className="mb-10 grid gap-4 md:grid-cols-[1fr_auto] md:items-end">
@@ -400,7 +400,7 @@ const StandortContent = ({ standort }: { standort: StandortData }) => {
         </div>
       </section>
 
-      {/* ── Lokale Fakten – Split Image + Text ──────────────────────────── */}
+      {/* -- Lokale Fakten ï¿½ Split Image + Text ---------------------------- */}
       <section className={`section-pad-sm ${t.sectionAlt}`}>
         <div className="container mx-auto container-pad">
           <p className={`mb-2 text-xs font-bold uppercase tracking-[0.25em] ${t.tagText}`}>
@@ -427,7 +427,7 @@ const StandortContent = ({ standort }: { standort: StandortData }) => {
         </div>
       </section>
 
-      {/* ── Tiefere Inhaltsabschnitte ────────────────────────────────────── */}
+      {/* -- Tiefere Inhaltsabschnitte -------------------------------------- */}
       {standort.sections.length > 0 && (
         <section className="section-pad-sm bg-background">
           <div className="container mx-auto container-pad">
@@ -452,14 +452,14 @@ const StandortContent = ({ standort }: { standort: StandortData }) => {
         </section>
       )}
 
-      {/* ── FAQ ──────────────────────────────────────────────────────────── */}
+      {/* -- FAQ ------------------------------------------------------------ */}
       <section className={`section-pad-sm ${t.sectionAlt}`}>
         <div className="container mx-auto container-pad">
           <div className="mx-auto max-w-3xl">
             <p className={`mb-2 text-xs font-bold uppercase tracking-[0.25em] ${t.tagText}`}>
-              Häufige Fragen
+              Hï¿½ufige Fragen
             </p>
-            <h2 className="mb-8 text-white">{standort.name} – was Kunden fragen</h2>
+            <h2 className="mb-8 text-white">{standort.name} ï¿½ was Kunden fragen</h2>
             <Accordion type="single" collapsible className="w-full">
               {standort.faqs.map((faq, idx) => (
                 <AccordionItem
@@ -480,7 +480,7 @@ const StandortContent = ({ standort }: { standort: StandortData }) => {
         </div>
       </section>
 
-      {/* ── CTA mit Hintergrundbild ──────────────────────────────────────── */}
+      {/* -- CTA mit Hintergrundbild ---------------------------------------- */}
       <section className="relative flex min-h-[min(50vh,460px)] items-center justify-center overflow-hidden">
         <img
           src={standort.heroImage}
@@ -506,7 +506,7 @@ const StandortContent = ({ standort }: { standort: StandortData }) => {
             </p>
             <h2 className="mb-4 text-white">Jetzt unverbindlich anfragen</h2>
             <p className="mb-8 text-base text-white/65">
-              Kostenlose Erstberatung – wir melden uns innerhalb von 24 Stunden.
+              Kostenlose Erstberatung ï¿½ wir melden uns innerhalb von 24 Stunden.
             </p>
             <div className="flex flex-col items-stretch justify-center gap-4 sm:flex-row sm:items-center">
               <Link to="/anfragen" className="w-full sm:w-auto">
@@ -529,14 +529,14 @@ const StandortContent = ({ standort }: { standort: StandortData }) => {
         </div>
       </section>
 
-      {/* ── Andere Standorte ─────────────────────────────────────────────── */}
+      {/* -- Andere Standorte ----------------------------------------------- */}
       <section className="section-pad-sm bg-background">
         <div className="container mx-auto container-pad">
           <div className="mb-8 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <h2 className="text-foreground">Weitere Einsatzgebiete</h2>
               <p className="mt-1 text-sm text-muted-foreground">
-                Auch in anderen Städten der Region für Sie unterwegs.
+                Auch in anderen Stï¿½dten der Region fï¿½r Sie unterwegs.
               </p>
             </div>
           </div>
@@ -584,7 +584,7 @@ const StandortContent = ({ standort }: { standort: StandortData }) => {
   );
 };
 
-/* ── Route-Wrapper ────────────────────────────────────────────────────── */
+/* -- Route-Wrapper ------------------------------------------------------ */
 const StandortLanding = () => {
   const { slug } = useParams<{ slug: string }>();
   const standort = slug ? getStandortBySlug(slug) : undefined;
