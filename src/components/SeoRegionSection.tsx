@@ -34,29 +34,46 @@ const DefaultLayout = ({ title, paragraphs }: Pick<SeoRegionSectionProps, "title
   </div>
 );
 
+const DEFAULT_HIGHLIGHTS: Highlight[] = [
+  { value: "2014", label: "Seit" },
+  { value: "1", label: "Ansprechpartner" },
+  { value: "< 24h", label: "Rückmeldung" },
+  { value: "100%", label: "Aus einer Hand" },
+];
+
+const DEFAULT_REGIONS = ["Gevelsberg", "Ennepetal", "Hagen", "Schwelm", "Wuppertal", "Witten"];
+const DEFAULT_SERVICES = [
+  "Renovierung",
+  "Badsanierung",
+  "Trockenbau",
+  "Malerarbeiten",
+  "Innenausbau",
+  "Fassade",
+];
+
 const EditorialLayout = ({
   title,
   paragraphs,
-  eyebrow = "Regional verwurzelt in NRW",
-  highlights = [
-    { value: "2014", label: "Seit" },
-    { value: "1", label: "Ansprechpartner" },
-    { value: "< 24h", label: "Rückmeldung" },
-    { value: "100%", label: "Aus einer Hand" },
-  ],
-  regions = ["Gevelsberg", "Ennepetal", "Hagen", "Schwelm", "Wuppertal", "Witten"],
-  services = ["Renovierung", "Badsanierung", "Trockenbau", "Malerarbeiten", "Innenausbau", "Fassade"],
-}: Required<Pick<SeoRegionSectionProps, "title" | "paragraphs">> &
-  Pick<SeoRegionSectionProps, "eyebrow" | "highlights" | "regions" | "services">) => (
+  eyebrow,
+  highlights,
+  regions,
+  services,
+}: Pick<SeoRegionSectionProps, "title" | "paragraphs" | "eyebrow" | "highlights" | "regions" | "services">) => {
+  const eyebrowText = eyebrow ?? "Regional verwurzelt in NRW";
+  const highlightItems = highlights ?? DEFAULT_HIGHLIGHTS;
+  const regionItems = regions ?? DEFAULT_REGIONS;
+  const serviceItems = services ?? DEFAULT_SERVICES;
+
+  return (
   <div className="grid gap-12 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1.45fr)] lg:gap-16 xl:gap-20">
     {/* Linke Spalte: Headline + Meta */}
     <motion.div {...fadeUp} className="lg:sticky lg:top-28 lg:self-start">
       <div className="mb-6 h-px w-14 origin-left bg-accent" />
-      <p className="mb-4 text-xs font-bold uppercase tracking-[0.28em] text-accent">{eyebrow}</p>
+      <p className="mb-4 text-xs font-bold uppercase tracking-[0.28em] text-accent">{eyebrowText}</p>
       <h2 className="mb-8 max-w-md text-foreground">{title}</h2>
 
       <div className="mb-8 grid grid-cols-2 gap-3">
-        {highlights.map((item, i) => (
+        {highlightItems.map((item, i) => (
           <motion.div
             key={item.label}
             initial={{ opacity: 0, y: 12 }}
@@ -79,7 +96,7 @@ const EditorialLayout = ({
           Einsatzgebiet
         </p>
         <div className="flex flex-wrap gap-2">
-          {regions.map((city) => (
+          {regionItems.map((city) => (
             <span
               key={city}
               className="rounded-full border border-foreground/10 bg-background px-3 py-1.5 text-xs font-medium text-foreground/75"
@@ -95,7 +112,7 @@ const EditorialLayout = ({
           Leistungen
         </p>
         <div className="flex flex-wrap gap-2">
-          {services.map((service) => (
+          {serviceItems.map((service) => (
             <span
               key={service}
               className="inline-flex items-center gap-1.5 rounded-full bg-accent/10 px-3 py-1.5 text-xs font-medium text-accent"
@@ -152,7 +169,8 @@ const EditorialLayout = ({
       </motion.div>
     </div>
   </div>
-);
+  );
+};
 
 /** Sichtbarer Fließtext für lokale Keywords – hilft Crawlern und Nutzern gleichermaßen. */
 const SeoRegionSection = ({
