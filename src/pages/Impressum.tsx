@@ -13,7 +13,7 @@ const Impressum = () => {
       "@context": "https://schema.org",
       "@type": "WebPage",
       name: "Impressum",
-      url: "https://zakho-bau.de/impressum",
+      url: "https://www.zakho-bau.de/impressum",
     },
   });
 

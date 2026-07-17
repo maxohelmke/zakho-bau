@@ -1,15 +1,7 @@
 {
-  "redirects": [
-    {
-      "source": "/:path*",
-      "has": [{ "type": "host", "value": "www.zakho-bau.de" }],
-      "destination": "https://zakho-bau.de/:path*",
-      "permanent": true
-    }
-  ],
   "rewrites": [
     {
-      "source": "/((?!api|_next|favicon|og-image|site\\.webmanifest|robots\\.txt|sitemap\\.xml|apple-touch-icon|icon-|standorte|assets|placeholder).*)",
+      "source": "/((?!api|assets|favicon|og-image|site\\.webmanifest|robots\\.txt|sitemap\\.xml|apple-touch-icon|icon-|standorte|placeholder|.*\\..*).*)",
       "destination": "/index.html"
     }
   ],
@@ -28,30 +20,6 @@
       "source": "/assets/(.*)",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
-      ]
-    },
-    {
-      "source": "/:path*.js",
-      "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
-      ]
-    },
-    {
-      "source": "/:path*.css",
-      "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
-      ]
-    },
-    {
-      "source": "/fonts/(.*)",
-      "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
-      ]
-    },
-    {
-      "source": "/standorte/(.*)",
-      "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=2592000" }
       ]
     },
     {

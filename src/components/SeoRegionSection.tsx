@@ -203,10 +203,10 @@ const SeoRegionSection = ({
         <EditorialLayout
           title={title}
           paragraphs={paragraphs}
-          eyebrow={eyebrow}
-          highlights={highlights}
-          regions={regions}
-          services={services}
+          {...(eyebrow ? { eyebrow } : {})}
+          {...(highlights ? { highlights } : {})}
+          {...(regions ? { regions } : {})}
+          {...(services ? { services } : {})}
         />
       ) : (
         <DefaultLayout title={title} paragraphs={paragraphs} />

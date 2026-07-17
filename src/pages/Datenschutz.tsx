@@ -13,7 +13,7 @@ const Datenschutz = () => {
       "@context": "https://schema.org",
       "@type": "WebPage",
       name: "Datenschutzerklärung",
-      url: "https://zakho-bau.de/datenschutz",
+      url: "https://www.zakho-bau.de/datenschutz",
     },
   });
 
