@@ -91,7 +91,7 @@ const THEMES: Record<StandortTheme, {
 
 const DEFAULT_STATS = [
   { value: "10+",  label: "Jahre Erfahrung" },
-  { value: "< 24h", label: "Rï¿½ckmeldung" },
+  { value: "< 24h", label: "Rückmeldung" },
   { value: "1",    label: "Ansprechpartner" },
 ];
 
@@ -184,7 +184,7 @@ const StandortContent = ({ standort }: { standort: StandortData }) => {
         {/* Akzentlinie oben */}
         <div className={`absolute left-0 top-0 z-10 h-[3px] w-full ${t.accentBar}`} />
 
-        {/* Riesiger Stadtname im Hintergrund ï¿½ dekorativ */}
+        {/* Riesiger Stadtname im Hintergrund – dekorativ */}
         <div
           aria-hidden
           className="pointer-events-none absolute inset-x-0 bottom-0 select-none overflow-hidden"
@@ -331,12 +331,12 @@ const StandortContent = ({ standort }: { standort: StandortData }) => {
         </div>
       </section>
 
-      {/* -- Ablauf ï¿½ horizontale Timeline --------------------------------- */}
+      {/* -- Ablauf – horizontale Timeline --------------------------------- */}
       <section className={`section-pad-sm ${t.sectionAlt}`}>
         <div className="container mx-auto container-pad">
           <div className="mb-10 text-center">
             <p className={`mb-2 text-xs font-bold uppercase tracking-[0.25em] ${t.tagText}`}>Ihr Weg zu uns</p>
-            <h2 className="text-white">So lï¿½uft Ihr Projekt ab</h2>
+            <h2 className="text-white">So läuft Ihr Projekt ab</h2>
           </div>
 
           <div className="relative grid grid-cols-2 gap-6 md:grid-cols-4">
@@ -400,7 +400,7 @@ const StandortContent = ({ standort }: { standort: StandortData }) => {
         </div>
       </section>
 
-      {/* -- Lokale Fakten ï¿½ Split Image + Text ---------------------------- */}
+      {/* -- Lokale Fakten – Split Image + Text ---------------------------- */}
       <section className={`section-pad-sm ${t.sectionAlt}`}>
         <div className="container mx-auto container-pad">
           <p className={`mb-2 text-xs font-bold uppercase tracking-[0.25em] ${t.tagText}`}>
@@ -457,9 +457,9 @@ const StandortContent = ({ standort }: { standort: StandortData }) => {
         <div className="container mx-auto container-pad">
           <div className="mx-auto max-w-3xl">
             <p className={`mb-2 text-xs font-bold uppercase tracking-[0.25em] ${t.tagText}`}>
-              Hï¿½ufige Fragen
+              Häufige Fragen
             </p>
-            <h2 className="mb-8 text-white">{standort.name} ï¿½ was Kunden fragen</h2>
+            <h2 className="mb-8 text-white">{standort.name} – was Kunden fragen</h2>
             <Accordion type="single" collapsible className="w-full">
               {standort.faqs.map((faq, idx) => (
                 <AccordionItem
@@ -506,7 +506,7 @@ const StandortContent = ({ standort }: { standort: StandortData }) => {
             </p>
             <h2 className="mb-4 text-white">Jetzt unverbindlich anfragen</h2>
             <p className="mb-8 text-base text-white/65">
-              Kostenlose Erstberatung ï¿½ wir melden uns innerhalb von 24 Stunden.
+              Kostenlose Erstberatung – wir melden uns innerhalb von 24 Stunden.
             </p>
             <div className="flex flex-col items-stretch justify-center gap-4 sm:flex-row sm:items-center">
               <Link to="/anfragen" className="w-full sm:w-auto">
@@ -536,7 +536,7 @@ const StandortContent = ({ standort }: { standort: StandortData }) => {
             <div>
               <h2 className="text-foreground">Weitere Einsatzgebiete</h2>
               <p className="mt-1 text-sm text-muted-foreground">
-                Auch in anderen Stï¿½dten der Region fï¿½r Sie unterwegs.
+                Auch in anderen Städten der Region für Sie unterwegs.
               </p>
             </div>
           </div>

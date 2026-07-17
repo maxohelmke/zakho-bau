@@ -1,20 +1,32 @@
-import { useState, useCallback, useEffect } from "react";
+import { writeFileSync, readFileSync, readdirSync, statSync } from "node:fs";
+import { join, dirname } from "node:path";
+import { fileURLToPath } from "node:url";
+
+const root = join(dirname(fileURLToPath(import.meta.url)), "..");
+const ae = "\u00E4";
+const oe = "\u00F6";
+const ue = "\u00FC";
+const ss = "\u00DF";
+const nd = "\u2013";
+const md = "\u00B7";
+
+const testimonials = `import { useState, useCallback, useEffect } from "react";
 import rinasSw from "@/assets/rinas-mola-sw.png";
 import { motion, AnimatePresence } from "framer-motion";
 
 const reviews = [
   {
-    text: "Zakho Bau hat unsere komplette Wohnung renoviert. Alles war termingerecht, sauber und in höchster Qualität.",
+    text: "Zakho Bau hat unsere komplette Wohnung renoviert. Alles war termingerecht, sauber und in h${oe}chster Qualit${ae}t.",
     name: "Familie Schneider",
     location: "Gevelsberg",
   },
   {
-    text: "Vom ersten Beratungsgespräch bis zur Fertigstellung alles top. Die transparente Preisgestaltung hat uns besonders überzeugt.",
+    text: "Vom ersten Beratungsgespr${ae}ch bis zur Fertigstellung alles top. Die transparente Preisgestaltung hat uns besonders ${ue}berzeugt.",
     name: "Thomas M.",
     location: "Gevelsberg",
   },
   {
-    text: "Der Inhaber war immer persönlich erreichbar und hat sich um jedes Detail gekümmert. Unsere Badsanierung ist perfekt geworden.",
+    text: "Der Inhaber war immer pers${oe}nlich erreichbar und hat sich um jedes Detail gek${ue}mmert. Unsere Badsanierung ist perfekt geworden.",
     name: "Aylin K.",
     location: "Ennepe-Ruhr-Kreis",
   },
@@ -24,7 +36,7 @@ const reviews = [
     location: "Schwelm",
   },
   {
-    text: "Schnelle Rückmeldung, transparente Positionen im Angebot und termingerechte Umsetzung. Sehr zuverlässig.",
+    text: "Schnelle R${ue}ckmeldung, transparente Positionen im Angebot und termingerechte Umsetzung. Sehr zuverl${ae}ssig.",
     name: "N. Demir",
     location: "Gevelsberg",
   },
@@ -67,7 +79,7 @@ export default function Testimonials() {
               <div className="mt-8 flex items-center gap-4">
                 <img
                   src={rinasSw}
-                  alt="Rinas Mola – Inhaber Zakho Bau"
+                  alt="Rinas Mola ${nd} Inhaber Zakho Bau"
                   className="h-16 w-16 rounded-full object-cover object-top grayscale"
                   width={64}
                   height={64}
@@ -75,7 +87,7 @@ export default function Testimonials() {
                 />
                 <div>
                   <p className="text-sm font-bold text-foreground">Rinas Mola</p>
-                  <p className="text-xs text-muted-foreground">Inhaber · Zakho Bau</p>
+                  <p className="text-xs text-muted-foreground">Inhaber ${md} Zakho Bau</p>
                 </div>
               </div>
             </div>
@@ -85,15 +97,15 @@ export default function Testimonials() {
                 <button
                   key={i}
                   onClick={() => go(i)}
-                  aria-label={`Bewertung ${i + 1}`}
+                  aria-label={\`Bewertung \${i + 1}\`}
                   className="flex min-h-[44px] min-w-[44px] items-center justify-center"
                 >
                   <span
-                    className={`block transition-all duration-300 ${
+                    className={\`block transition-all duration-300 \${
                       i === current
                         ? "h-1 w-8 bg-accent"
                         : "h-1 w-3 bg-foreground/20 hover:bg-foreground/40"
-                    }`}
+                    }\`}
                   />
                 </button>
               ))}
@@ -138,3 +150,67 @@ export default function Testimonials() {
     </section>
   );
 }
+`;
+
+writeFileSync(join(root, "src/components/Testimonials.tsx"), testimonials, "utf8");
+console.log("OK Testimonials.tsx");
+
+const standortPath = join(root, "src/pages/StandortLanding.tsx");
+let s = readFileSync(standortPath, "utf8");
+
+// Match UTF-8 replacement garbage: U+FFFD, and "ï¿½" (EF BF BD misread as Latin-1 then re-encoded)
+for (const g of [
+  /\uFFFD/g,
+  /\u00EF\u00BF\u00BD/g,
+  /\u00C3\u00AF\u00C2\u00BF\u00C2\u00BD/g,
+]) {
+  s = s.replace(g, "\u0001");
+}
+
+const wordFixes = [
+  ["R\u0001ckmeldung", `R${ue}ckmeldung`],
+  ["l\u0001uft", `l${ae}uft`],
+  ["H\u0001ufige", `H${ae}ufige`],
+  ["St\u0001dten", `St${ae}dten`],
+  ["f\u0001r", `f${ue}r`],
+  ["Hintergrund \u0001 dekorativ", `Hintergrund ${nd} dekorativ`],
+  ["Ablauf \u0001 horizontale", `Ablauf ${nd} horizontale`],
+  ["Fakten \u0001 Split", `Fakten ${nd} Split`],
+  [".name} \u0001 was", `.name} ${nd} was`],
+  ["Erstberatung \u0001 wir", `Erstberatung ${nd} wir`],
+];
+
+for (const [from, to] of wordFixes) s = s.split(from).join(to);
+
+const left = (s.match(/\u0001/g) || []).length;
+if (left) {
+  console.warn("leftover markers:", left);
+  s = s.replace(/\u0001/g, nd);
+}
+
+writeFileSync(standortPath, s, "utf8");
+console.log("OK StandortLanding.tsx");
+
+function walk(d, a = []) {
+  for (const f of readdirSync(d)) {
+    const p = join(d, f);
+    if (statSync(p).isDirectory()) {
+      if (!["node_modules", "dist", ".git"].includes(f)) walk(p, a);
+    } else if (/\.(tsx?|html)$/.test(f)) a.push(p);
+  }
+  return a;
+}
+
+const bad = [];
+for (const f of walk(join(root, "src")).concat([join(root, "index.html")])) {
+  const t = readFileSync(f, "utf8");
+  if (
+    t.includes("\uFFFD") ||
+    t.includes("\u00EF\u00BF\u00BD") ||
+    /[\u0080-\u009F]/.test(t) ||
+    /Ã.|Â./.test(t)
+  ) {
+    bad.push(f.replace(root + "\\", "").replace(root + "/", ""));
+  }
+}
+console.log(bad.length ? "STILL BAD:\n" + bad.join("\n") : "All clean");
