@@ -103,7 +103,7 @@ const Footer = () => (
           © 2026 Zakho Bau · Gevelsberg
         </p>
         <a
-          href="https://www.helmke-digital.com/"
+          href="https://helmke-digital.com/"
           target="_blank"
           rel="noopener noreferrer"
           className="group inline-flex items-center gap-2 text-xs text-white/25 transition-colors hover:text-white/60 sm:absolute sm:left-1/2 sm:-translate-x-1/2"
